@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] // Umożliwia wyświetlanie w inspektorze Unity
     private List<InventoryItem> startingItems = new List<InventoryItem>(); // Lista początkowych itemów
 
-    private Dictionary<string, InventoryItem> items = new Dictionary<string, InventoryItem>();
+    public Dictionary<string, InventoryItem> items = new Dictionary<string, InventoryItem>();
 
     void Start()
     {
@@ -23,6 +23,7 @@ public class Inventory : MonoBehaviour
         {
             items[item.itemName] = item;
         }
+        SaveSystem.LoadInventory(this);
     }
 
     public void AddItem(string itemName, float amount = 1f)
@@ -35,8 +36,8 @@ public class Inventory : MonoBehaviour
         {
             Debug.Log("Item " + itemName + " not found in inventory.");
         }
-
-        Debug.Log("Added " + amount + " of " + itemName + " to inventory. Total: " + items[itemName].amount);
+        SaveSystem.SaveInventory(this);
+        // Debug.Log("Added " + amount + " of " + itemName + " to inventory. Total: " + items[itemName].amount);
     }
 
     public void PrintInventory()
@@ -80,6 +81,18 @@ public class Inventory : MonoBehaviour
         else
         {
             return 0f;
+        }
+    }
+
+    public Sprite GetItemSprite(string itemName)
+    {
+        if (items.ContainsKey(itemName))
+        {
+            return items[itemName].itemSprite;
+        }
+        else
+        {
+            return null;
         }
     }
 }
