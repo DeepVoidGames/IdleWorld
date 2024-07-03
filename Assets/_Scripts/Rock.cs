@@ -7,7 +7,7 @@ public class Rock : MonoBehaviour
     private int currentHP;
     private RockSystem rockSystem;
     [SerializeField]
-    private Slider healthSlider; // Referencja do paska zdrowia
+    private Text healthText; // Referencja do paska zdrowia
 
     [System.Serializable]
     public struct ResourceDrop
@@ -22,16 +22,15 @@ public class Rock : MonoBehaviour
     {
         currentHP = maxHP;
         rockSystem = FindObjectOfType<RockSystem>(); // Znajdź system zarządzający kamieniami
-        healthSlider = GetComponentInChildren<Slider>(); // Znajdź pasek zdrowia w dziecku tego obiektu
-        UpdateHealthBar();
+        healthText = GetComponentInChildren<Text>(); // Znajdź pasek zdrowia w dziecku tego obiektu
+        UpdateHealthText();
     }
 
-    void UpdateHealthBar()
+    void UpdateHealthText()
     {
-        if (healthSlider != null)
+        if (healthText != null)
         {
-            healthSlider.maxValue = maxHP;
-            healthSlider.value = currentHP;
+            healthText.text = currentHP + "/" + maxHP; // Aktualizacja tekstu paska zdrowia
         }
     }
 
@@ -43,7 +42,7 @@ public class Rock : MonoBehaviour
     void TakeDamage(int amount)
     {
         currentHP -= amount;
-        UpdateHealthBar();
+        UpdateHealthText();
 
         if (currentHP <= 0)
         {

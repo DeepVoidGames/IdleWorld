@@ -10,13 +10,11 @@ public class UIManager : MonoBehaviour
 
     [Description("Basic Resources")]
     public Text stoneText;
-    public Image stoneImage;
 
 
     private void Start()
     {
         // Przypisanie obiektów do zmiennych
-        stoneImage.sprite = inventory.GetItemSprite("Stone");
     }
 
     private void Update()
