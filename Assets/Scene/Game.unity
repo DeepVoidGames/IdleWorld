@@ -266,6 +266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 420791b4f05a8d84dbd72704dbdbb905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingItems:
+  - itemName: Stone
+    amount: 0
+    itemSprite: {fileID: 1049666336, guid: a032eca74bf4c5a43aa3111493bb48f0, type: 3}
 --- !u!1 &1282367774
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,29 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class InventoryItem
+{
+    public string itemName;
+    public float amount;
+    public Sprite itemSprite; // Sprite (zdjęcie) przedmiotu
+}
+
 public class Inventory : MonoBehaviour
 {
-    private Dictionary<string, float> items = new Dictionary<string, float>();
+    [SerializeField] // Umożliwia wyświetlanie w inspektorze Unity
+    private List<InventoryItem> startingItems = new List<InventoryItem>(); // Lista początkowych itemów
+
+    private Dictionary<string, InventoryItem> items = new Dictionary<string, InventoryItem>();
+
+    void Start()
+    {
+        // Dodawanie początkowych itemów do słownika
+        foreach (InventoryItem item in startingItems)
+        {
+            items[item.itemName] = item;
+        }
+    }
 
     public void AddItem(string itemName, float amount = 1f)
     {
         if (items.ContainsKey(itemName))
         {
-            items[itemName] += amount;
+            items[itemName].amount += amount;
         }
         else
         {
-            items[itemName] = amount;
+            Debug.Log("Item " + itemName + " not found in inventory.");
         }
 
-        Debug.Log("Added " + amount + " of " + itemName + " to inventory. Total: " + items[itemName]);
+        Debug.Log("Added " + amount + " of " + itemName + " to inventory. Total: " + items[itemName].amount);
     }
 
     public void PrintInventory()
     {
-        foreach (KeyValuePair<string, float> item in items)
+        foreach (KeyValuePair<string, InventoryItem> item in items)
         {
-            Debug.Log(item.Key + ": " + item.Value);
+            Debug.Log(item.Key + ": " + item.Value.amount);
         }
     }
 
@@ -31,9 +51,9 @@ public class Inventory : MonoBehaviour
     {
         if (items.ContainsKey(itemName))
         {
-            items[itemName] -= amount;
+            items[itemName].amount -= amount;
 
-            if (items[itemName] <= 0)
+            if (items[itemName].amount <= 0)
             {
                 items.Remove(itemName);
             }
@@ -55,7 +75,7 @@ public class Inventory : MonoBehaviour
     {
         if (items.ContainsKey(itemName))
         {
-            return items[itemName];
+            return items[itemName].amount;
         }
         else
         {
