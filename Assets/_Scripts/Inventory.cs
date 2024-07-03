@@ -6,7 +6,6 @@ public class InventoryItem
 {
     public string itemName;
     public float amount;
-    public Sprite itemSprite; // Sprite (zdjęcie) przedmiotu
 }
 
 public class Inventory : MonoBehaviour
@@ -81,18 +80,6 @@ public class Inventory : MonoBehaviour
         else
         {
             return 0f;
-        }
-    }
-
-    public Sprite GetItemSprite(string itemName)
-    {
-        if (items.ContainsKey(itemName))
-        {
-            return items[itemName].itemSprite;
-        }
-        else
-        {
-            return null;
         }
     }
 }
