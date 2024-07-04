@@ -63,7 +63,7 @@ public class MinerObject: MonoBehaviour
         if (MinerSystem.Instance.minersDict[minerName].amount >= MinerSystem.Instance.minersDict[minerName].maxAmount)
         {
             buttonText.text = "Maxed";
-            buttonImage.color = new Color32(115, 23, 36, 100);
+            buttonImage.color = new Color32(23, 28, 115, 100);
             return;
         }
 
@@ -105,7 +105,7 @@ public class MinerObject: MonoBehaviour
 
     private void MinerDescriptionChange()
     {
-        minerDescription.text = String.Format("{0}:\nAmount: {1}/{2} \nProduction Rate: {3}", minerName, MinerSystem.Instance.minersDict[minerName].amount, MinerSystem.Instance.minersDict[minerName].maxAmount, MinerSystem.Instance.minersDict[minerName].productionRate);
+        minerDescription.text = String.Format("{0}:\nAmount: {1}/{2} \nProduction Rate: {3} / {4}s", minerName, MinerSystem.Instance.minersDict[minerName].amount, MinerSystem.Instance.minersDict[minerName].maxAmount, MinerSystem.Instance.minersDict[minerName].productionRate, MinerSystem.Instance.minersDict[minerName].productionTime);
     }
 
     public void BuyMiner()
