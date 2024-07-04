@@ -46,7 +46,7 @@ public class SaveSystem : MonoBehaviour
         {
             var json = File.ReadAllText(Path.Combine(savePath, "inventory.json"));
             var itemsList = JsonUtility.FromJson<Serialization<InventoryItem>>(json).ToList();
-            InventorySystem.Instance.items.Clear();
+            // InventorySystem.Instance.items.Clear();
             foreach (var item in itemsList)
             {
                 InventorySystem.Instance.items[item.itemName] = item;
@@ -68,7 +68,7 @@ public class SaveSystem : MonoBehaviour
         {
             var json = File.ReadAllText(Path.Combine(savePath, "miners.json"));
             var minersList = JsonUtility.FromJson<Serialization<Miner>>(json).ToList();
-            MinerSystem.Instance.minersDict.Clear();
+            // MinerSystem.Instance.minersDict.Clear();
             foreach (var miner in minersList)
             {
                 MinerSystem.Instance.minersDict[miner.minerName] = miner;
