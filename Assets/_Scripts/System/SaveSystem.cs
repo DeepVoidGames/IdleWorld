@@ -23,10 +23,6 @@ public class SaveSystem : MonoBehaviour
             Destroy(gameObject);
         }
         saveFilePath = Path.Combine(Application.persistentDataPath, "save.json");
-    }
-
-    void Start()
-    {
         Load();
     }
 
