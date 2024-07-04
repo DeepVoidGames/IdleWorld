@@ -6,10 +6,11 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance { get; private set; }
-
+    private string saveFilePath;
+    
     private void Awake()
     {
-        if (Instance == null)
+         if (Instance == null)
         {
             Instance = this;
             if (transform.parent == null)
@@ -21,72 +22,65 @@ public class SaveSystem : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        saveFilePath = Path.Combine(Application.persistentDataPath, "save.json");
     }
-
-    private string savePath;
 
     void Start()
     {
-        savePath = Path.Combine(Application.persistentDataPath);
-        LoadInventory();
-        LoadMiners();
-        Debug.Log(savePath);
+        Load();
     }
 
-    public void SaveInventory()
+    public void Save()
     {
-        var json = JsonUtility.ToJson(new Serialization<InventoryItem>(InventorySystem.Instance.items.Values.ToList()), true);
-        File.WriteAllText(Path.Combine(savePath, "inventory.json"), json);
-        Debug.Log("Inventory saved");
-    }
-
-    public void LoadInventory()
-    {
-        if (File.Exists(Path.Combine(savePath, "inventory.json")))
+        GameData gameData = new GameData
         {
-            var json = File.ReadAllText(Path.Combine(savePath, "inventory.json"));
-            var itemsList = JsonUtility.FromJson<Serialization<InventoryItem>>(json).ToList();
-            // InventorySystem.Instance.items.Clear();
-            foreach (var item in itemsList)
-            {
-                InventorySystem.Instance.items[item.itemName] = item;
-            }
-            Debug.Log("Inventory loaded");
-        }
+            inventoryData = InventorySystem.Instance.items.Select(kv => kv.Value).ToArray(),
+            minersData = MinerSystem.Instance.minersDict.Select(kv => kv.Value).ToArray()
+        };
+
+        string json = JsonUtility.ToJson(gameData, true);
+        File.WriteAllText(saveFilePath, json);
+        Debug.Log("Game saved to " + saveFilePath);
     }
+
+    public void Load()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            string json = File.ReadAllText(saveFilePath);
+            GameData gameData = JsonUtility.FromJson<GameData>(json);
+
+            // Load inventory data
+            if (gameData.inventoryData != null)
+            {
+                foreach (InventoryItem item in gameData.inventoryData)
+                {
+                    InventorySystem.Instance.items[item.itemName] = item;
+                }
+            }
+
+            // Load miners data
+            if (gameData.minersData != null)
+            {
+                foreach (Miner miner in gameData.minersData)
+                {
+                    MinerSystem.Instance.minersDict[miner.minerName] = miner;
+                }
+            }
+
+            Debug.Log("Game loaded from " + saveFilePath);
+        }
+        else
+        {
+            Debug.LogWarning("Save file not found: " + saveFilePath);
+        }
     
-    public void SaveMiners()
-    {
-        var json = JsonUtility.ToJson(new Serialization<Miner>(MinerSystem.Instance.minersDict.Values.ToList()), true);
-        File.WriteAllText(Path.Combine(savePath, "miners.json"), json);
-        Debug.Log("Miners saved");
-    }
-
-    public void LoadMiners()
-    {
-        if (File.Exists(Path.Combine(savePath, "miners.json")))
-        {
-            var json = File.ReadAllText(Path.Combine(savePath, "miners.json"));
-            var minersList = JsonUtility.FromJson<Serialization<Miner>>(json).ToList();
-            // MinerSystem.Instance.minersDict.Clear();
-            foreach (var miner in minersList)
-            {
-                MinerSystem.Instance.minersDict[miner.minerName] = miner;
-            }
-            Debug.Log("Miners loaded");
-        }
     }
 }
 
 [System.Serializable]
-public class Serialization<T>
+public class GameData
 {
-    [SerializeField]
-    private List<T> target;
-    public List<T> ToList() { return target; }
-
-    public Serialization(List<T> target)
-    {
-        this.target = target;
-    }
+    public InventoryItem[] inventoryData;
+    public Miner[] minersData;
 }

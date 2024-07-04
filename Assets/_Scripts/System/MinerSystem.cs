@@ -97,7 +97,7 @@ public class MinerSystem : MonoBehaviour
         if (minersDict.ContainsKey(minerName))
         {
             minersDict[minerName].amount += amount;
-            SaveSystem.Instance.SaveMiners();
+            // SaveSystem.Instance.SaveMiners();
         }
         else
         {
