@@ -10,19 +10,47 @@ public class Miner
     public float maxAmount = 100f;
     public float _productionRate;
     public float _productionTime;
-    public float price => basePrice * Mathf.Pow(priceIncreaseFactor, amount);
+    public float _price;
 
     public float productionRate
     {
-        get { return _productionRate + productionRateIncreaseFactor * amount; }
+        get 
+        {
+            if (amount == 1)
+            {
+                return _productionRate;
+            } 
+            return _productionRate + productionRateIncreaseFactor * amount; 
+        }
         set { _productionRate = value; }
     }
 
     public float productionTime
     {
-        get { return Mathf.Max(minimumProductionTime, _productionTime - productionRateIncreaseFactor * amount); }
+        get 
+        {
+            if (amount == 1)
+            {
+                return _productionTime;
+            } 
+            return Mathf.Max(minimumProductionTime, _productionTime - (productionRateIncreaseFactor * amount)); 
+        }
         set { _productionTime = value; }
     }
+    
+    public float price
+    {
+        get 
+        {
+            if (amount == 1)
+            {
+                return _price;
+            } 
+            return basePrice * Mathf.Pow(priceIncreaseFactor, amount); 
+        }
+        set { _price = value; }
+    }
+    
     public float basePrice = 10f;
 
     [Header("Increase factors")]
