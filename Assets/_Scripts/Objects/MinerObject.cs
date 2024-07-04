@@ -34,6 +34,39 @@ public class MinerObject: MonoBehaviour
             return;
         }
         miner = MinerSystem.Instance.minersDict[minerName];
+        Debug.Log("Miner: " + miner.minerName + " Amount: " + miner.amount + " Production Rate: " + miner.productionRate);
+        ButtonTextChange();
+        MinerDescriptionChange();
+
+    }
+
+    void Update()
+    {
+        if (miner.amount > 0)
+        {
+            ButtonChangeColor();
+            timer += Time.deltaTime;
+            if (timer >= miner.productionTime)
+            {
+                rockSystem.DamageCurrentRock(miner.productionRate);
+                miner = MinerSystem.Instance.minersDict[minerName];
+                timer = 0;
+            }
+            MinerDescriptionChange();
+            ButtonTextChange();
+        }
+        
+    }
+
+    private void ButtonTextChange()
+    {
+        if (MinerSystem.Instance.minersDict[minerName].amount >= MinerSystem.Instance.minersDict[minerName].maxAmount)
+        {
+            buttonText.text = "Maxed";
+            buttonImage.color = new Color32(115, 23, 36, 100);
+            return;
+        }
+
         if (payWithMoney)
         {
             buttonText.text = "Price: " + MinerSystem.Instance.minersDict[minerName].price + "$";
@@ -42,45 +75,37 @@ public class MinerObject: MonoBehaviour
         {
             buttonText.text = "Price: " + MinerSystem.Instance.minersDict[minerName].price + " " + resourceName;
         }
-        minerDescription.text = String.Format("{0}:\nAmount: {1}/{2} \nProduction Rate: {3}", minerName, MinerSystem.Instance.minersDict[minerName].amount, MinerSystem.Instance.minersDict[minerName].maxAmount, MinerSystem.Instance.minersDict[minerName].productionRate);
-
     }
 
-    void Update()
+    private void ButtonChangeColor()
     {
-        if (miner.amount > 0)
+        if (payWithMoney)
         {
-            if (payWithMoney)
+            if (MoneySystem.Instance.Money < MinerSystem.Instance.minersDict[minerName].price)
             {
-                if (MoneySystem.Instance.Money < MinerSystem.Instance.minersDict[minerName].price)
-                {
-                    buttonImage.color = new Color32(115, 23, 36, 100);
-                }
-                else
-                {
-                    buttonImage.color = new Color32(32, 115, 23, 100);
-                }
-            }else
-            {
-                if (InventorySystem.Instance.items[resourceName].amount < MinerSystem.Instance.minersDict[minerName].price)
-                {
-                    buttonImage.color = new Color32(115, 23, 36, 100);
-                }
-                else
-                {
-                    buttonImage.color = new Color32(32, 115, 23, 100);
-                }
+                buttonImage.color = new Color32(115, 23, 36, 100);
             }
-            timer += Time.deltaTime;
-            if (timer >= miner.productionTime)
+            else
             {
-                rockSystem.DamageCurrentRock(miner.productionRate);
-                miner = MinerSystem.Instance.minersDict[minerName];
-                minerDescription.text = String.Format("{0}:\nAmount: {1}/{2} \nProduction Rate: {3} / {4}s", minerName, MinerSystem.Instance.minersDict[minerName].amount, MinerSystem.Instance.minersDict[minerName].maxAmount, MinerSystem.Instance.minersDict[minerName].productionRate, MinerSystem.Instance.minersDict[minerName].productionTime);
-                timer = 0;
+                buttonImage.color = new Color32(32, 115, 23, 100);
             }
         }
-        
+        else
+        {
+            if (InventorySystem.Instance.items[resourceName].amount < MinerSystem.Instance.minersDict[minerName].price)
+            {
+                buttonImage.color = new Color32(115, 23, 36, 100);
+            }
+            else
+            {
+                buttonImage.color = new Color32(32, 115, 23, 100);
+            }
+        }
+    }
+
+    private void MinerDescriptionChange()
+    {
+        minerDescription.text = String.Format("{0}:\nAmount: {1}/{2} \nProduction Rate: {3}", minerName, MinerSystem.Instance.minersDict[minerName].amount, MinerSystem.Instance.minersDict[minerName].maxAmount, MinerSystem.Instance.minersDict[minerName].productionRate);
     }
 
     public void BuyMiner()
@@ -94,6 +119,7 @@ public class MinerObject: MonoBehaviour
                 buttonText.text = "Price: " + MinerSystem.Instance.minersDict[minerName].price + "$";
                 return;
             }
+            return;
         }
         
         if (InventorySystem.Instance.items[resourceName].amount >= MinerSystem.Instance.minersDict[minerName].price)
