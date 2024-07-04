@@ -44,7 +44,7 @@ public class MinerObject: MonoBehaviour
     {
         if (miner.amount > 0)
         {
-            ButtonChangeColor();
+            
             timer += Time.deltaTime;
             if (timer >= miner.productionTime)
             {
@@ -52,6 +52,7 @@ public class MinerObject: MonoBehaviour
                 miner = MinerSystem.Instance.minersDict[minerName];
                 timer = 0;
             }
+            ButtonChangeColor();
             MinerDescriptionChange();
             ButtonTextChange();
         }

@@ -1560,6 +1560,7 @@ GameObject:
   - component: {fileID: 951862648}
   - component: {fileID: 951862650}
   - component: {fileID: 951862649}
+  - component: {fileID: 951862651}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -1625,6 +1626,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951862647}
   m_CullTransparentMesh: 1
+--- !u!114 &951862651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951862647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae232d8d02da6544db4b0ef4084959c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &999071445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1697,7 @@ GameObject:
   - component: {fileID: 1002878205}
   - component: {fileID: 1002878207}
   - component: {fileID: 1002878206}
+  - component: {fileID: 1002878208}
   m_Layer: 5
   m_Name: MinersPanel
   m_TagString: Untagged
@@ -1750,6 +1764,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002878204}
   m_CullTransparentMesh: 1
+--- !u!114 &1002878208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002878204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae232d8d02da6544db4b0ef4084959c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1028794941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,7 +2890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4509804, g: 0.09019607, b: 0.13956851, a: 1}
+  m_Color: {r: 0.09019607, g: 0.11111454, b: 0.4509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
