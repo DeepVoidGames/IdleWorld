@@ -6,6 +6,7 @@ public class InventoryItem
 {
     public string itemName;
     public float amount;
+    public float sellPrice;
 }
 
 public class InventorySystem : MonoBehaviour
