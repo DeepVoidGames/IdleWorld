@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class RockSystem : MonoBehaviour
 {
     [SerializeField]
+    private GameObject parentObject; // Obiekt, do którego będą przypisywane nowe skały
+    [SerializeField]
     private GameObject rockPrefab; // Prefabrykat skały do pojedynczego spawnu
     [SerializeField]
     private Vector3 spawnPosition = Vector3.zero; // Pozycja, gdzie mają pojawiać się nowe skały
@@ -60,7 +62,7 @@ public class RockSystem : MonoBehaviour
             cumulativeChance += entry.Value;
             if (randomValue <= cumulativeChance)
             {
-                GameObject newRockObject = Instantiate(entry.Key, spawnPosition, Quaternion.identity);
+                GameObject newRockObject = Instantiate(entry.Key, spawnPosition, Quaternion.identity, parentObject.transform);
                 currentRock = newRockObject.GetComponent<Rock>();
                 return;
             }
@@ -72,7 +74,7 @@ public class RockSystem : MonoBehaviour
 
     public void SpawnNewRock()
     {
-        GameObject newRockObject = Instantiate(rockPrefab, spawnPosition, Quaternion.identity);
+        GameObject newRockObject = Instantiate(rockPrefab, spawnPosition, Quaternion.identity, parentObject.transform);
         currentRock = newRockObject.GetComponent<Rock>();
     }
 
