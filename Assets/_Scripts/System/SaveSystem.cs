@@ -35,7 +35,8 @@ public class SaveSystem : MonoBehaviour
         GameData gameData = new GameData
         {
             inventoryData = InventorySystem.Instance.items.Select(kv => kv.Value).ToArray(),
-            minersData = MinerSystem.Instance.minersDict.Select(kv => kv.Value).ToArray()
+            minersData = MinerSystem.Instance.minersDict.Select(kv => kv.Value).ToArray(),
+            moneyData = MoneySystem.Instance.Money
         };
 
         string json = JsonUtility.ToJson(gameData, true);
@@ -68,6 +69,11 @@ public class SaveSystem : MonoBehaviour
                 }
             }
 
+            // Load money data
+            if (gameData.moneyData != 0)
+            {
+                MoneySystem.Instance.SetMoney(gameData.moneyData);
+            }
             Debug.Log("Game loaded from " + saveFilePath);
         }
         else
@@ -83,4 +89,5 @@ public class GameData
 {
     public InventoryItem[] inventoryData;
     public Miner[] minersData;
+    public float moneyData;
 }

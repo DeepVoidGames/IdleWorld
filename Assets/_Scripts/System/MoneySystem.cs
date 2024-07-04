@@ -40,4 +40,9 @@ public class MoneySystem : MonoBehaviour
     {
         Money -= amount;
     }
+
+    public void SetMoney    (float amount)
+    {
+        Money = amount;
+    }
 }
