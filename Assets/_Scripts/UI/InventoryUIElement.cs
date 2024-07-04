@@ -12,6 +12,7 @@ public class InventoryUIElement : MonoBehaviour
     [Header("UI Elements")]
     public Text itemNameText;
     public Text itemAmountText;
+    public Text itemSellPriceText;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class InventoryUIElement : MonoBehaviour
         if (InventorySystem.Instance.items.ContainsKey(itemName))
         {
             itemAmountText.text = InventorySystem.Instance.items[itemName].amount.ToString();
+            itemSellPriceText.text = "Sell for: " + InventorySystem.Instance.items[itemName].sellPrice * InventorySystem.Instance.items[itemName].amount + "$";
         }
         else
         {

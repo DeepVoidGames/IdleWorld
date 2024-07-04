@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoneySystem : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class MoneySystem : MonoBehaviour
     private float startingMoney = 0f; // Początkowa ilość pieniędzy
     public float Money { get; private set; } // Aktualna ilość pieniędzy
 
+    [SerializeField]
+    private Text moneyText;
+
     private void Awake()
     {
         Money = startingMoney;
@@ -44,5 +48,10 @@ public class MoneySystem : MonoBehaviour
     public void SetMoney    (float amount)
     {
         Money = amount;
+    }
+
+    private void Update()
+    {
+        moneyText.text = Money + "$";
     }
 }
