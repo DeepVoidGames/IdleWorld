@@ -10,6 +10,8 @@ public class MinerObject: MonoBehaviour
     [SerializeField]
     private string resourceName;
     [SerializeField]
+    private bool payWithMoney;
+    [SerializeField]
     private RockSystem rockSystem;
 
     [Header("UI Elements")]
@@ -32,7 +34,14 @@ public class MinerObject: MonoBehaviour
             return;
         }
         miner = MinerSystem.Instance.minersDict[minerName];
-        buttonText.text = "Price: " + MinerSystem.Instance.minersDict[minerName].price + " " + resourceName;
+        if (payWithMoney)
+        {
+            buttonText.text = "Price: " + MinerSystem.Instance.minersDict[minerName].price + "$";
+        }
+        else
+        {
+            buttonText.text = "Price: " + MinerSystem.Instance.minersDict[minerName].price + " " + resourceName;
+        }
         minerDescription.text = String.Format("{0}:\nAmount: {1}/{2} \nProduction Rate: {3}", minerName, MinerSystem.Instance.minersDict[minerName].amount, MinerSystem.Instance.minersDict[minerName].maxAmount, MinerSystem.Instance.minersDict[minerName].productionRate);
 
     }
@@ -41,15 +50,27 @@ public class MinerObject: MonoBehaviour
     {
         if (miner.amount > 0)
         {
-            if (InventorySystem.Instance.items[resourceName].amount < MinerSystem.Instance.minersDict[minerName].price)
+            if (payWithMoney)
             {
-                buttonImage.color = new Color32(115, 23, 36, 100);
-            }
-            else
+                if (MoneySystem.Instance.Money < MinerSystem.Instance.minersDict[minerName].price)
+                {
+                    buttonImage.color = new Color32(115, 23, 36, 100);
+                }
+                else
+                {
+                    buttonImage.color = new Color32(32, 115, 23, 100);
+                }
+            }else
             {
-                buttonImage.color = new Color32(32, 115, 23, 100);
+                if (InventorySystem.Instance.items[resourceName].amount < MinerSystem.Instance.minersDict[minerName].price)
+                {
+                    buttonImage.color = new Color32(115, 23, 36, 100);
+                }
+                else
+                {
+                    buttonImage.color = new Color32(32, 115, 23, 100);
+                }
             }
-
             timer += Time.deltaTime;
             if (timer >= miner.productionTime)
             {
@@ -64,11 +85,23 @@ public class MinerObject: MonoBehaviour
 
     public void BuyMiner()
     {
+        if (payWithMoney)
+        {
+            if (MoneySystem.Instance.Money >= MinerSystem.Instance.minersDict[minerName].price)
+            {
+                MoneySystem.Instance.RemoveMoney(MinerSystem.Instance.minersDict[minerName].price);
+                MinerSystem.Instance.AddMiner(minerName);
+                buttonText.text = "Price: " + MinerSystem.Instance.minersDict[minerName].price + "$";
+                return;
+            }
+        }
+        
         if (InventorySystem.Instance.items[resourceName].amount >= MinerSystem.Instance.minersDict[minerName].price)
         {
             InventorySystem.Instance.RemoveItem(resourceName, MinerSystem.Instance.minersDict[minerName].price);
             MinerSystem.Instance.AddMiner(minerName);
             buttonText.text = "Price: " + MinerSystem.Instance.minersDict[minerName].price + " " + resourceName;
+            return;
         }
     } 
 }
