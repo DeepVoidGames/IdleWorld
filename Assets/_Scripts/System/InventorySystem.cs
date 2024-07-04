@@ -47,6 +47,7 @@ public class InventorySystem : MonoBehaviour
         if (items.ContainsKey(itemName))
         {
             items[itemName].amount += amount;
+            SaveSystem.Instance.SaveInventory();
         }
         else
         {
@@ -59,6 +60,7 @@ public class InventorySystem : MonoBehaviour
         if (items.ContainsKey(itemName))
         {
             items[itemName].amount -= amount;
+            SaveSystem.Instance.SaveInventory();
         }
         else
         {

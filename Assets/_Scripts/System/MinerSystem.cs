@@ -44,7 +44,7 @@ public class Miner
         {
             if (amount == 1)
             {
-                return _price;
+                return basePrice;
             } 
             return basePrice * Mathf.Pow(priceIncreaseFactor, amount); 
         }
@@ -97,6 +97,7 @@ public class MinerSystem : MonoBehaviour
         if (minersDict.ContainsKey(minerName))
         {
             minersDict[minerName].amount += amount;
+            SaveSystem.Instance.SaveMiners();
         }
         else
         {
