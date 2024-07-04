@@ -55,7 +55,8 @@ public class MinerObject: MonoBehaviour
             {
                 rockSystem.DamageCurrentRock(miner.productionRate);
                 miner = MinerSystem.Instance.minersDict[minerName];
-                minerDescription.text = String.Format("{0}:\nAmount: {1}/{2} \nProduction Rate: {3}", minerName, MinerSystem.Instance.minersDict[minerName].amount, MinerSystem.Instance.minersDict[minerName].maxAmount, MinerSystem.Instance.minersDict[minerName].productionRate);
+                // Powino byc wsiwtlone ile jest surowca na minute
+                minerDescription.text = String.Format("{0}:\nAmount: {1}/{2} \nProduction Rate: {3}/{4}s", minerName, MinerSystem.Instance.minersDict[minerName].amount, MinerSystem.Instance.minersDict[minerName].maxAmount, MinerSystem.Instance.minersDict[minerName].productionRate, MinerSystem.Instance.minersDict[minerName].productionTime);
                 timer = 0;
             }
         }
