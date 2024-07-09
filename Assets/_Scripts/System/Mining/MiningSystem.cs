@@ -68,27 +68,19 @@ public class MiningSystem : MonoBehaviour
         RockObject rockObject = currentRock.GetComponent<RockObject>();
         rockObject.Health = rock.Health;
         rockObject.MaxHealth = rock.Health;
+        rockObject.drops = rock.drops;
     }
 
-    public void DestroyRock()
+    public void DestroyRock(RockObject rockObject)
     {
-        if (currentRock != null)
+        foreach (Drop drop in rockObject.drops)
         {
-            for (int i = 0; i < rocks.Count; i++)
+            float chance = Random.Range(0f, 1f);
+            if (chance <= drop.chance)
             {
-                if (rocks[i].prefab == currentRock)
-                {
-                    foreach (Drop drop in rocks[i].drops)
-                    {
-                        if (Random.Range(0f, 1f) <= drop.chance)
-                        {
-                            InventorySystem.Instance.AddItem(drop.ID, DifficultySystem.Instance.GetRockDrop(rocks[i].Health, drop.min, drop.max));
-                            break;
-                        }
-                    }
-                }
+                float quantity = Random.Range(drop.min, drop.max);
+                InventorySystem.Instance.AddItem(drop.ID, quantity);
             }
-            Destroy(currentRock);
         }
     }
 

@@ -52,6 +52,7 @@ public class InventorySystem : MonoBehaviour
             inventory.inventory.Add(slot);
         }
         slot.quantity += quantity;
+        Debug.Log("Added " + quantity + " " + id);
         UpdateUI();
     }
 

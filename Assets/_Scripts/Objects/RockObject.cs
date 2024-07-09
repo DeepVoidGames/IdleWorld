@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class RockObject : MonoBehaviour
 {
-    internal IEnumerable<Drop> drops;
+    public List<Drop> drops;
     private float health;
     private float maxHealth;
 
@@ -24,7 +24,7 @@ public class RockObject : MonoBehaviour
 
     private void DestroyRock()
     {
-        MiningSystem.Instance.DestroyRock();
+        MiningSystem.Instance.DestroyRock(this);
         Destroy(gameObject);
     }
 
