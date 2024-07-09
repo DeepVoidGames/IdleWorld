@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
@@ -28,6 +26,7 @@ public class SaveSystem : MonoBehaviour
     private void Start()
     {
         Load();
+        UISystem.Instance.UpdateGoldText();
     }
 
     public void Save()

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GoldSystem : MonoBehaviour
 {
@@ -23,8 +22,6 @@ public class GoldSystem : MonoBehaviour
 
     [SerializeField] private float gold;
 
-    [SerializeField] private Text goldText;
-
     public float Gold
     {
         get => gold;
@@ -34,14 +31,14 @@ public class GoldSystem : MonoBehaviour
     public void AddGold(float amount)
     {
         Gold += amount;
-        UpdateGoldText();
+        UISystem.Instance.UpdateGoldText();
         SaveSystem.Instance.Save();
     }
 
     public void SetGold(float amount)
     {
         Gold = amount;
-        UpdateGoldText();
+        UISystem.Instance.UpdateGoldText();
     }
 
     public void SpendGold(float amount)
@@ -49,18 +46,8 @@ public class GoldSystem : MonoBehaviour
         if (Gold >= amount)
         {
             Gold -= amount;
-            UpdateGoldText();
+            UISystem.Instance.UpdateGoldText();
             SaveSystem.Instance.Save();
         }
-    }
-
-    private void UpdateGoldText()
-    {
-        goldText.text = Gold.ToString();
-    }
-
-    private void Start()
-    {
-        UpdateGoldText();
     }
 }

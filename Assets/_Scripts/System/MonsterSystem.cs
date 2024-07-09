@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class Monster
@@ -47,15 +45,10 @@ public class MonsterSystem : MonoBehaviour
     private bool isSpawning = false;
     private GameObject currentMonster;
 
-    [Header("UI")]
-    [SerializeField] private Text levelText;
-
     public void MonsterDied()
     {
         LevelSystem.Instance.NextStage();
         MonsterDrop();
-        UpdateUI();
-
         SaveSystem.Instance.Save();
     }
 
@@ -75,6 +68,11 @@ public class MonsterSystem : MonoBehaviour
             return;
         }
 
+        if (BossSystem.Instance.IsSpawning)
+        {
+            return;
+        }
+
         if (index < 0 || index >= Monsters.Count)
         {
             return;
@@ -84,16 +82,10 @@ public class MonsterSystem : MonoBehaviour
         StartCoroutine(SpawnMonsterCoroutine(index));
     }
 
-    private void UpdateUI()
-    {
-        levelText.text = String.Format("Level: {0}  Stage: {1}", LevelSystem.Instance.Level, LevelSystem.Instance.Stage);
-    } 
-
     private void Start()
     {
         Debug.Log("Monster System Started");
         Debug.Log("Monster Count: " + Monsters.Count);
-        UpdateUI();
     }
 
     private void Update()
@@ -119,9 +111,7 @@ public class MonsterSystem : MonoBehaviour
         GameObject go = Instantiate(monster.Prefab, Vector3.zero, Quaternion.identity);
         MonsterObject monsterObject = go.GetComponent<MonsterObject>();
         currentMonster = go;
-        monsterObject.Health = monster.Health;
-        monsterObject.MaxHealth = monster.Health;
-        monsterObject.UpdateHealthUI();
+        monsterObject.SetMonster(monster);
         yield return new WaitForSeconds(1f);
         isSpawning = false;
     }

@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MonsterObject : MonoBehaviour
+public class BossObject : MonoBehaviour 
 {
-    [SerializeField] private string monsterName;
+    [SerializeField] private string bossName;
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
 
@@ -11,15 +11,15 @@ public class MonsterObject : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Text healthText;
 
-    public string MonsterName { get => monsterName; set => monsterName = value;}
+    public string BossName { get => bossName; set => bossName = value;}
     public float Health { get => health; set => health = value;}
     public float MaxHealth { get => maxHealth; set => maxHealth = value;}
 
-    public void SetMonster(Monster monster)
+    public void SetBoss(Boss boss)
     {
-        monsterName = monster.Name;
-        health = monster.Health;
-        maxHealth = monster.Health;
+        bossName = boss.Name;
+        health = boss.Health;
+        maxHealth = boss.Health;
         UpdateHealthUI();
     }
 
@@ -35,7 +35,7 @@ public class MonsterObject : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            MonsterSystem.Instance.MonsterDied();
+            BossSystem.Instance.BossDied();
             Destroy(gameObject);
         }
         UpdateHealthUI();

@@ -27,17 +27,26 @@ public class LevelSystem : MonoBehaviour
     public int Level {get => level; private set => level = value;}
     public int Stage {get => stage; private set => stage = value;}
 
+
+
     public void NextStage()
     {
         if (stage == maxStage)
         {
-            level++;
-            stage = 1;
+            BossSystem.Instance.SpawnBoss();
         }
         else
         {
             stage++;
         }
+        UISystem.Instance.UpdateLevelText();
+    }
+
+    public void ResetStage()
+    {
+        level++;
+        stage = 1;
+        UISystem.Instance.UpdateLevelText();
     }
 
     public void SetLevel(int level)
@@ -49,4 +58,5 @@ public class LevelSystem : MonoBehaviour
     {
         this.stage = stage;
     }
+
 }
