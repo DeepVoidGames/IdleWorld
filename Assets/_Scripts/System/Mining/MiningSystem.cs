@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ public class Rocks
     {
         get
         {
-            return DifficultySystem.Instance.GetBossHealth(baseHealth);
+            return DifficultySystem.Instance.GetRockHealth(baseHealth);
         }
     }
 }
@@ -53,6 +52,7 @@ public class MiningSystem : MonoBehaviour
     private GameObject currentRock;
 
     public float miningLevel = 1;
+    public float miningExperience = 0;
     public float miningEfficiency = 1;
 
     public void SpawnRock()
@@ -78,9 +78,14 @@ public class MiningSystem : MonoBehaviour
             float chance = Random.Range(0f, 1f);
             if (chance <= drop.chance)
             {
-                float quantity = Random.Range(drop.min, drop.max);
-                InventorySystem.Instance.AddItem(drop.ID, quantity);
+                InventorySystem.Instance.AddItem(drop.ID, DifficultySystem.Instance.GetRockDrop(rockObject.MaxHealth, drop.min, drop.max));
             }
+        }
+        miningExperience += DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth);
+        if (miningExperience >= DifficultySystem.Instance.GetMiningNextLevel())
+        {
+            miningLevel++;
+            miningExperience = 0;
         }
     }
 
@@ -100,7 +105,7 @@ public class MiningSystem : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         SpawnRock();
     }

@@ -52,8 +52,8 @@ public class InventorySystem : MonoBehaviour
             inventory.inventory.Add(slot);
         }
         slot.quantity += quantity;
-        Debug.Log("Added " + quantity + " " + id);
         UpdateUI();
+        SaveSystem.Instance.Save();
     }
 
     public void RemoveItem(int id, float quantity)
@@ -68,6 +68,7 @@ public class InventorySystem : MonoBehaviour
             }
         }
         UpdateUI();
+        SaveSystem.Instance.Save();
     }
 
     public float GetQuantity(int id)

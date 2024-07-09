@@ -33,10 +33,17 @@ public class SaveSystem : MonoBehaviour
     {
         GameData gameData = new GameData
         {
+            // Gold System
             goldData = GoldSystem.Instance.Gold,
+            // Monster Kiling System
             levelData = LevelSystem.Instance.Level,
             stageData = LevelSystem.Instance.Stage,
-            currentBiome = BiomeSystem.Instance.CurrentBiome
+            currentBiome = BiomeSystem.Instance.CurrentBiome,
+            // Inventory System
+            inventoryData = InventorySystem.Instance.inventory,
+            // Mining System
+            miningLevelData = MiningSystem.Instance.miningLevel,
+            miningEfficiencyData = MiningSystem.Instance.miningEfficiency
         };
 
         string json = JsonUtility.ToJson(gameData, true);
@@ -74,6 +81,25 @@ public class SaveSystem : MonoBehaviour
             {
                 BiomeSystem.Instance.CurrentBiome = gameData.currentBiome;
             }
+            
+            // Load inventory
+            if (gameData.inventoryData != null)
+            {
+                InventorySystem.Instance.inventory = gameData.inventoryData;
+            }
+
+            // Load mining level
+            if (gameData.miningLevelData != 0)
+            {
+                MiningSystem.Instance.miningLevel = gameData.miningLevelData;
+            }
+
+            // Load mining efficiency
+            if (gameData.miningEfficiencyData != 0)
+            {
+                MiningSystem.Instance.miningEfficiency = gameData.miningEfficiencyData;
+            }
+            
             Debug.Log("Game loaded from " + saveFilePath);
         }
         else
@@ -91,4 +117,7 @@ public class GameData
     public int levelData;
     public int stageData;
     public string currentBiome;
+    public Inventory inventoryData;
+    public float miningLevelData;
+    public float miningEfficiencyData;
 }
