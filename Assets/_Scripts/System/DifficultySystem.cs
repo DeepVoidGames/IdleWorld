@@ -42,4 +42,17 @@ public class DifficultySystem : MonoBehaviour
     {
         return maxHealth + (maxHealth * _difficultyMultiplier);
     }
+
+    public float GetRockHealth(float baseHealth)
+    {
+        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2)) + (LevelSystem.Instance.Stage * _difficultyMultiplier);
+    }
+
+    public float GetRockDrop(float maxHealth, float minDrop, float maxDrop)
+    {
+        return UnityEngine.Random.Range(minDrop, maxDrop) + (maxHealth * _difficultyMultiplier);
+    }
+
+
+
 }
