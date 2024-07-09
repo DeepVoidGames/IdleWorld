@@ -23,6 +23,10 @@ public class SaveSystem : MonoBehaviour
             Destroy(gameObject);
         }
         saveFilePath = Path.Combine(Application.persistentDataPath, "save.json");
+    }
+
+    private void Start()
+    {
         Load();
     }
 
@@ -30,9 +34,8 @@ public class SaveSystem : MonoBehaviour
     {
         GameData gameData = new GameData
         {
-            inventoryData = InventorySystem.Instance.items.Select(kv => kv.Value).ToArray(),
-            minersData = MinerSystem.Instance.minersDict.Select(kv => kv.Value).ToArray(),
-            moneyData = MoneySystem.Instance.Money
+            goldData = GoldSystem.Instance.Gold,
+            levelData = MonsterSystem.Instance.Level
         };
 
         string json = JsonUtility.ToJson(gameData, true);
@@ -47,28 +50,16 @@ public class SaveSystem : MonoBehaviour
             string json = File.ReadAllText(saveFilePath);
             GameData gameData = JsonUtility.FromJson<GameData>(json);
 
-            // Load inventory data
-            if (gameData.inventoryData != null)
+            // Load gold data
+            if (gameData.goldData != 0)
             {
-                foreach (InventoryItem item in gameData.inventoryData)
-                {
-                    InventorySystem.Instance.items[item.itemName] = item;
-                }
+                GoldSystem.Instance.SetGold(gameData.goldData);
             }
 
-            // Load miners data
-            if (gameData.minersData != null)
+            // Load level
+            if (gameData.levelData != 0)
             {
-                foreach (Miner miner in gameData.minersData)
-                {
-                    MinerSystem.Instance.minersDict[miner.minerName] = miner;
-                }
-            }
-
-            // Load money data
-            if (gameData.moneyData != 0)
-            {
-                MoneySystem.Instance.SetMoney(gameData.moneyData);
+                MonsterSystem.Instance.Level = gameData.levelData;
             }
             Debug.Log("Game loaded from " + saveFilePath);
         }
@@ -83,7 +74,6 @@ public class SaveSystem : MonoBehaviour
 [System.Serializable]
 public class GameData
 {
-    public InventoryItem[] inventoryData;
-    public Miner[] minersData;
-    public float moneyData;
+    public float goldData;
+    public int levelData;
 }
