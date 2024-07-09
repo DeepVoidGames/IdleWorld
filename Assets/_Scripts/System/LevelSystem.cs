@@ -21,6 +21,7 @@ public class LevelSystem : MonoBehaviour
     }
 
     [SerializeField] private int level = 1;
+    [SerializeField] private int levelToNextBiome = 10;
     [SerializeField] private int stage = 1;
     [SerializeField] private int maxStage = 10;
     
@@ -46,6 +47,10 @@ public class LevelSystem : MonoBehaviour
     {
         level++;
         stage = 1;
+        if (level > levelToNextBiome)
+        {
+            BiomeSystem.Instance.NextBiome();
+        }
         UISystem.Instance.UpdateLevelText();
     }
 

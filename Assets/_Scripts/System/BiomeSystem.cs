@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Biomes
@@ -36,7 +37,16 @@ public class BiomeSystem : MonoBehaviour
 
     [SerializeField] private string currentBiome = "Forest";
 
+    [Header("UI")]
+    [SerializeField] private Image imageBackground;
+
     public string CurrentBiome { get => currentBiome; set => currentBiome = value;}
+
+    public void SetCurrentBiome(string biome)
+    {
+        currentBiome = biome;
+        UpdateUI();
+    }
 
     public void NextBiome()
     {
@@ -44,8 +54,19 @@ public class BiomeSystem : MonoBehaviour
         index++;
         if (index >= Bioms.Count)
         {
-            index = 0;
+            return;
         }
         currentBiome = Bioms[index].Name;
+        imageBackground.sprite = Bioms[index].background;
+    }
+
+    private void UpdateUI()
+    {
+        imageBackground.sprite = Bioms.Find(biome => biome.Name == currentBiome).background;
+    }
+
+    private void Start()
+    {
+        UpdateUI();
     }
 }

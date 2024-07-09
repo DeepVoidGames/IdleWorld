@@ -35,7 +35,8 @@ public class SaveSystem : MonoBehaviour
         {
             goldData = GoldSystem.Instance.Gold,
             levelData = LevelSystem.Instance.Level,
-            stageData = LevelSystem.Instance.Stage
+            stageData = LevelSystem.Instance.Stage,
+            currentBiome = BiomeSystem.Instance.CurrentBiome
         };
 
         string json = JsonUtility.ToJson(gameData, true);
@@ -67,6 +68,12 @@ public class SaveSystem : MonoBehaviour
             {
                 LevelSystem.Instance.SetStage(gameData.stageData);
             }
+
+            // Load current biome
+            if (gameData.currentBiome != null)
+            {
+                BiomeSystem.Instance.CurrentBiome = gameData.currentBiome;
+            }
             Debug.Log("Game loaded from " + saveFilePath);
         }
         else
@@ -83,4 +90,5 @@ public class GameData
     public float goldData;
     public int levelData;
     public int stageData;
+    public string currentBiome;
 }
