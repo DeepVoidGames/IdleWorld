@@ -40,7 +40,8 @@ public class GoldSystem : MonoBehaviour
 
     public void SetGold(float amount)
     {
-        gold = amount;
+        Gold = amount;
+        UpdateGoldText();
     }
 
     public void SpendGold(float amount)
