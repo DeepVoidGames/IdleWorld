@@ -14,7 +14,7 @@ public class Monster
     {
         get
         {
-            return BaseHealth * MonsterSystem.Instance.Level;
+            return BaseHealth * LevelSystem.Instance.Level;
         }
     }
 
@@ -43,10 +43,6 @@ public class MonsterSystem : MonoBehaviour
 
     [SerializeField] private List<Monster> Monsters = new List<Monster>();
 
-    [SerializeField] private int level = 1;
-
-    public int Level {get => level; set => level = value;}
-
     [Header("Monster Spawning")]
     private bool isSpawning = false;
     private GameObject currentMonster;
@@ -56,7 +52,7 @@ public class MonsterSystem : MonoBehaviour
 
     public void MonsterDied()
     {
-        level++;
+        LevelSystem.Instance.NextStage();
         MonsterDrop();
         UpdateUI();
 
@@ -69,7 +65,7 @@ public class MonsterSystem : MonoBehaviour
         MonsterObject monsterObject = currentMonster.GetComponent<MonsterObject>();
 
         // Gold drop
-        GoldSystem.Instance.AddGold((monsterObject.MaxHealth * 0.1f) * level);
+        GoldSystem.Instance.AddGold((monsterObject.MaxHealth * 0.1f) * LevelSystem.Instance.Level);
     }
 
     public void SpawnMonster(int index)
@@ -90,7 +86,7 @@ public class MonsterSystem : MonoBehaviour
 
     private void UpdateUI()
     {
-        levelText.text = String.Format("Level: {0}", level);
+        levelText.text = String.Format("Level: {0}  Stage: {1}", LevelSystem.Instance.Level, LevelSystem.Instance.Stage);
     } 
 
     private void Start()
