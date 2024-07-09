@@ -23,6 +23,7 @@ public class UISystem : MonoBehaviour {
 
     [Header("Level System UI")]
     [SerializeField] private Text levelText;
+    [SerializeField] private Text stageText;
     [Header("Gold System UI")]
     [SerializeField] private Text goldText;
     [Header("Mining System UI")]
@@ -32,7 +33,8 @@ public class UISystem : MonoBehaviour {
 
     public void UpdateLevelText()
     {
-        levelText.text = String.Format("Level: {0} Stage: {1}", NumberFormatInt(LevelSystem.Instance.Level), NumberFormatInt(LevelSystem.Instance.Stage));
+        levelText.text = String.Format("Slayer Level: {0}", NumberFormatInt(LevelSystem.Instance.Level));
+        stageText.text = String.Format("Stage: {0}", NumberFormatInt(LevelSystem.Instance.Stage));
     }
 
     public void UpdateGoldText()
