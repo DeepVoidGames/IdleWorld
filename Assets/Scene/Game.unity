@@ -1849,6 +1849,7 @@ MonoBehaviour:
   levelText: {fileID: 1299151218}
   goldText: {fileID: 796547719}
   miningLevelText: {fileID: 1236535999}
+  miningEfficiencyText: {fileID: 817025869}
 --- !u!1 &1481900838
 GameObject:
   m_ObjectHideFlags: 0

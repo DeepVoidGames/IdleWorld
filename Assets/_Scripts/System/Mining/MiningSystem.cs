@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -86,14 +87,27 @@ public class MiningSystem : MonoBehaviour
                 InventorySystem.Instance.AddItem(drop.ID, DifficultySystem.Instance.GetRockDrop(rockObject.MaxHealth, drop.min, drop.max));
             }
         }
-        miningExperience += DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth);
+        AddMiningExperience(DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth));
+        AddMiningEfficiency(miningEfficiency * 0.01f);
+        UISystem.Instance.UpdateMiningUI();
+    }
+
+    public void AddMiningExperience(float value)
+    {
+        miningExperience += value;
         if (miningExperience >= DifficultySystem.Instance.GetMiningExperienceNeeded())
         {
+            miningExperience -= DifficultySystem.Instance.GetMiningExperienceNeeded();
             miningLevel++;
-            miningExperience = 0;
+            UISystem.Instance.UpdateMiningUI();
         }
-        miningEfficiency *= 0.1f;
-        UISystem.Instance.UpdateMiningUI();
+        SaveSystem.Instance.Save();
+    }
+
+    public void AddMiningEfficiency(float value)
+    {
+        miningEfficiency += value;
+        SaveSystem.Instance.Save();
     }
 
     public void SetMiningEfficiency(float value)
