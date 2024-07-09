@@ -35,7 +35,8 @@ public class SaveSystem : MonoBehaviour
         GameData gameData = new GameData
         {
             goldData = GoldSystem.Instance.Gold,
-            levelData = MonsterSystem.Instance.Level
+            levelData = LevelSystem.Instance.Level,
+            stageData = LevelSystem.Instance.Stage
         };
 
         string json = JsonUtility.ToJson(gameData, true);
@@ -59,7 +60,13 @@ public class SaveSystem : MonoBehaviour
             // Load level
             if (gameData.levelData != 0)
             {
-                MonsterSystem.Instance.Level = gameData.levelData;
+                LevelSystem.Instance.SetLevel(gameData.levelData);
+            }
+
+            // Load stage
+            if (gameData.stageData != 0)
+            {
+                LevelSystem.Instance.SetStage(gameData.stageData);
             }
             Debug.Log("Game loaded from " + saveFilePath);
         }
@@ -76,4 +83,5 @@ public class GameData
 {
     public float goldData;
     public int levelData;
+    public int stageData;
 }
