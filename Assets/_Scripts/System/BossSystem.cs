@@ -37,9 +37,6 @@ public class BossSystem : MonoBehaviour
             return _instance;
         }
     }
-
-    [SerializeField] private List<Boss> Bosses = new List<Boss>();
-
     [SerializeField] private float maxTimeToKillBoss = 30f;
 
     public float MaxTimeToKillBoss { get => maxTimeToKillBoss;}
@@ -55,9 +52,10 @@ public class BossSystem : MonoBehaviour
     {
         if (!isSpawning)
         {
+            Biomes biome = BiomeSystem.Instance.Bioms.Find(biome => biome.Name == BiomeSystem.Instance.CurrentBiome);
             isSpawning = true;
-            int randomIndex = Random.Range(0, Bosses.Count);
-            Boss boss = Bosses[randomIndex];
+            int randomIndex = Random.Range(0, biome.Bosses.Count);
+            Boss boss = biome.Bosses[randomIndex];
             if (boss.Prefab == null)
             {
                 Debug.LogError("Boss prefab is null");

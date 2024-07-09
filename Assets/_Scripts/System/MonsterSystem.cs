@@ -39,8 +39,6 @@ public class MonsterSystem : MonoBehaviour
         }
     }
 
-    [SerializeField] private List<Monster> Monsters = new List<Monster>();
-
     [Header("Monster Spawning")]
     [SerializeField] private GameObject monsterSpawnParent;
     private bool isSpawning = false;
@@ -62,7 +60,7 @@ public class MonsterSystem : MonoBehaviour
         GoldSystem.Instance.AddGold(DifficultySystem.Instance.GetMonsterDrop(monsterObject.MaxHealth));
     }
 
-    public void SpawnMonster(int index)
+    public void SpawnMonster()
     {
         if (isSpawning)
         {
@@ -74,19 +72,23 @@ public class MonsterSystem : MonoBehaviour
             return;
         }
 
-        if (index < 0 || index >= Monsters.Count)
+        Biomes biome = BiomeSystem.Instance.Bioms.Find(x => x.Name == BiomeSystem.Instance.CurrentBiome);
+        if (biome == null)
         {
+            Debug.LogError("Biome not found");
             return;
         }
 
+        if (biome.Monsters.Count == 0)
+        {
+            Debug.LogError("No monsters in biome");
+            return;
+        }
+        // Get a random monster from the biome
+        int index = UnityEngine.Random.Range(0, biome.Monsters.Count);
+
         isSpawning = true;
         StartCoroutine(SpawnMonsterCoroutine(index));
-    }
-
-    private void Start()
-    {
-        Debug.Log("Monster System Started");
-        Debug.Log("Monster Count: " + Monsters.Count);
     }
 
     private void Update()
@@ -101,14 +103,13 @@ public class MonsterSystem : MonoBehaviour
         }
         else
         {
-            int index = UnityEngine.Random.Range(0, Monsters.Count);
-            SpawnMonster(index);
+            SpawnMonster();
         }
     }
 
     private IEnumerator SpawnMonsterCoroutine(int index)
     {
-        Monster monster = Monsters[index];
+        Monster monster = BiomeSystem.Instance.Bioms.Find(x => x.Name == BiomeSystem.Instance.CurrentBiome).Monsters[index];
         GameObject go = Instantiate(monster.Prefab, Vector3.zero, Quaternion.identity);
         go.transform.SetParent(monsterSpawnParent.transform);
         MonsterObject monsterObject = go.GetComponent<MonsterObject>();
