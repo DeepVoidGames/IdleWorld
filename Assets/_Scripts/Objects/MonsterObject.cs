@@ -27,7 +27,7 @@ public class MonsterObject : MonoBehaviour
     {
         healthSlider.value = health;
         healthSlider.maxValue = maxHealth;
-        healthText.text = health + " / " + healthSlider.maxValue;
+        healthText.text = UISystem.Instance.NumberFormat(health) + " / " + UISystem.Instance.NumberFormat(maxHealth);
     }
 
     public void TakeDamage(float damage)

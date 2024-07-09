@@ -35,7 +35,7 @@ public class UISystem : MonoBehaviour {
         goldText.text = NumberFormat(GoldSystem.Instance.Gold);
     }
 
-    private void LoadUI()
+    public void LoadUI()
     {
         UpdateLevelText();
         UpdateGoldText();
