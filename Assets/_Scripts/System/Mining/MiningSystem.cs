@@ -125,9 +125,4 @@ public class MiningSystem : MonoBehaviour
             SpawnRock();
         }
     }
-
-    private void Start()
-    {
-        SpawnRock();
-    }
 }

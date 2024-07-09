@@ -27,7 +27,6 @@ public class UISystem : MonoBehaviour {
     [SerializeField] private Text goldText;
     [Header("Mining System UI")]
     [SerializeField] private Text miningLevelText;
-    [SerializeField] private Slider miningExperienceSlider;
 
     public void UpdateLevelText()
     {
@@ -41,9 +40,7 @@ public class UISystem : MonoBehaviour {
 
     public void UpdateMiningUI()
     {
-        miningLevelText.text = String.Format("Mining Level: {0}", NumberFormat(MiningSystem.Instance.MiningLevel));
-        miningExperienceSlider.value = MiningSystem.Instance.MiningEfficiency;
-        miningExperienceSlider.maxValue = DifficultySystem.Instance.GetMiningExperienceNeeded();
+        miningLevelText.text = String.Format("Mining Level: {0}\nMining Experience: {1}/{2}", MiningSystem.Instance.MiningLevel, NumberFormat(MiningSystem.Instance.MiningExperience), NumberFormat(DifficultySystem.Instance.GetMiningExperienceNeeded()));
     }
 
     public void LoadUI()

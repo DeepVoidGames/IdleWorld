@@ -26,8 +26,11 @@ public class SaveSystem : MonoBehaviour
     private void Start()
     {
         Load();
+        // After loading the game
         UISystem.Instance.LoadUI();
         InventorySystem.Instance.UpdateUI();
+
+        MiningSystem.Instance.SpawnRock();
     }
 
     public void Save()

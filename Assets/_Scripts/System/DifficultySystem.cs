@@ -60,7 +60,7 @@ public class DifficultySystem : MonoBehaviour
 
     public float GetMiningExperienceNeeded()
     {
-        return (float)(MiningSystem.Instance.MiningLevel * Math.Pow(MiningSystem.Instance.MiningLevel, MiningSystem.Instance.MiningLevel)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
+        return (float)(10f * Math.Pow(MiningSystem.Instance.MiningLevel, MiningSystem.Instance.MiningLevel)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 
 
