@@ -429,12 +429,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510477254}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046036099}
+  m_Father: {fileID: 1457714205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &510477256
 MonoBehaviour:
@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+  levelToNextBiome: 10
   stage: 1
   maxStage: 10
 --- !u!1 &561100625
@@ -620,12 +621,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656111748}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046036099}
+  m_Father: {fileID: 887421180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &656111750
 MonoBehaviour:
@@ -646,10 +647,44 @@ MonoBehaviour:
     - Name: AcidOoze
       BaseHealth: 10
       Prefab: {fileID: 5605625757201260949, guid: 24163695e81922d48b5f758a2fcedaa0, type: 3}
+    - Name: DeathSlime
+      BaseHealth: 15
+      Prefab: {fileID: 6116359882760422250, guid: 892cde0b03dde5a4da1f526004763c85, type: 3}
+    - Name: OchreJelly
+      BaseHealth: 20
+      Prefab: {fileID: 1635332468116575484, guid: 0d536c506f774ef4bba51c5522154acd, type: 3}
+    - Name: RedCap
+      BaseHealth: 25
+      Prefab: {fileID: 1032740135089215750, guid: 470ba87d38d3e194faa679fe9edcb916, type: 3}
     Bosses:
     - Name: BlindedGrimlock
       BaseHealth: 100
       Prefab: {fileID: 1143826163299012661, guid: 557388cd683eec84e8c04ea4ed42f662, type: 3}
+    - Name: ShriekerMushroom
+      BaseHealth: 200
+      Prefab: {fileID: 4939725676465597107, guid: 9d4082e6bd214d24b8bb867353edb3dd, type: 3}
+  - Name: Desert
+    background: {fileID: 21300000, guid: edc332ece7e05174bbcdbfa0e7343b06, type: 3}
+    Monsters:
+    - Name: BloodshotEye
+      BaseHealth: 30
+      Prefab: {fileID: 1994325163910846046, guid: 0f0fb9545a56ef3459b0438cf7521ab2, type: 3}
+    - Name: BrawnyOgre
+      BaseHealth: 50
+      Prefab: {fileID: 3065844526631316754, guid: bae3d9e4ac08cb14cb7b55ca12a2c42d, type: 3}
+    - Name: ClawingHarpy
+      BaseHealth: 35
+      Prefab: {fileID: 7003062925308794975, guid: bc5266ae6f88aea4487a829fe7644b6d, type: 3}
+    - Name: CrushingCyclops
+      BaseHealth: 40
+      Prefab: {fileID: 2996499551396990257, guid: 68b144eef0ae6bf40a7a65f212ac5653, type: 3}
+    Bosses:
+    - Name: HumongousEttin
+      BaseHealth: 400
+      Prefab: {fileID: 7357765323304330353, guid: f25df8c72bc2ddb45a507ec0d56eb615, type: 3}
+    - Name: OgreMage
+      BaseHealth: 300
+      Prefab: {fileID: 4823579592497624062, guid: 1b35764fa34123f44bf02329740131a7, type: 3}
   currentBiome: Forest
   imageBackground: {fileID: 343833222}
 --- !u!1 &741072382
@@ -677,12 +712,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741072382}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046036099}
+  m_Father: {fileID: 1457714205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &741072384
 MonoBehaviour:
@@ -722,12 +757,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765563898}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046036099}
+  m_Father: {fileID: 1457714205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &765563900
 MonoBehaviour:
@@ -821,6 +856,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796547717}
   m_CullTransparentMesh: 1
+--- !u!1 &887421179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887421180}
+  m_Layer: 0
+  m_Name: MonsterKiling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &887421180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887421179}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1599165879}
+  - {fileID: 656111749}
+  - {fileID: 1585845677}
+  - {fileID: 1073873236}
+  m_Father: {fileID: 2046036099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &928873637
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,12 +963,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073873235}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046036099}
+  m_Father: {fileID: 887421180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1073873237
 MonoBehaviour:
@@ -1110,12 +1180,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390749554}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046036099}
+  m_Father: {fileID: 1457714205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1390749556
 MonoBehaviour:
@@ -1160,6 +1230,41 @@ Transform:
   m_Children:
   - {fileID: 594331954}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1457714204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457714205}
+  m_Layer: 0
+  m_Name: KeyMechanics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1457714205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457714204}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1390749555}
+  - {fileID: 741072383}
+  - {fileID: 510477255}
+  - {fileID: 765563899}
+  m_Father: {fileID: 2046036099}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1481900838
 GameObject:
@@ -1218,12 +1323,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585845676}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046036099}
+  m_Father: {fileID: 887421180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1585845678
 MonoBehaviour:
@@ -1338,12 +1443,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599165878}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2046036099}
+  m_Father: {fileID: 887421180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1599165880
 MonoBehaviour:
@@ -1357,7 +1462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc666f10e59a93f4b8847502c9631116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
 --- !u!1 &1608107700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,14 +1605,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1390749555}
-  - {fileID: 741072383}
-  - {fileID: 1599165879}
-  - {fileID: 510477255}
-  - {fileID: 765563899}
-  - {fileID: 1585845677}
-  - {fileID: 1073873236}
-  - {fileID: 656111749}
+  - {fileID: 1457714205}
+  - {fileID: 887421180}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076472311

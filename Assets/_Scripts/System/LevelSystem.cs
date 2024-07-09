@@ -28,8 +28,6 @@ public class LevelSystem : MonoBehaviour
     public int Level {get => level; private set => level = value;}
     public int Stage {get => stage; private set => stage = value;}
 
-
-
     public void NextStage()
     {
         if (stage == maxStage)
