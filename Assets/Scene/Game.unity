@@ -533,6 +533,7 @@ MonoBehaviour:
     BaseHealth: 100
     Prefab: {fileID: 1143826163299012661, guid: 557388cd683eec84e8c04ea4ed42f662, type: 3}
   maxTimeToKillBoss: 30
+  bossSpawnParent: {fileID: 594331953}
 --- !u!1 &1282367774
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +861,7 @@ MonoBehaviour:
   - Name: AcidOoze
     BaseHealth: 10
     Prefab: {fileID: 5605625757201260949, guid: 24163695e81922d48b5f758a2fcedaa0, type: 3}
+  monsterSpawnParent: {fileID: 594331953}
 --- !u!1 &1599165878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,9 +1051,9 @@ Transform:
   m_Children:
   - {fileID: 1390749555}
   - {fileID: 741072383}
+  - {fileID: 1599165879}
   - {fileID: 510477255}
   - {fileID: 765563899}
-  - {fileID: 1599165879}
   - {fileID: 1585845677}
   - {fileID: 1073873236}
   m_Father: {fileID: 0}

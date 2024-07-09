@@ -35,7 +35,7 @@ public class DifficultySystem : MonoBehaviour
 
     public float GetMonsterHealth(float baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2));
+        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2)) + (LevelSystem.Instance.Stage * _difficultyMultiplier);
     }
 
     public float GetMonsterDrop(float maxHealth)
