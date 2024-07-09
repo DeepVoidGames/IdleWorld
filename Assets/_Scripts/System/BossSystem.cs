@@ -11,7 +11,7 @@ public class Boss
     {
         get
         {
-            return BaseHealth * LevelSystem.Instance.Level;
+            return DifficultySystem.Instance.GetBossHealth(BaseHealth);
         }
     }
 
@@ -40,8 +40,13 @@ public class BossSystem : MonoBehaviour
 
     [SerializeField] private List<Boss> Bosses = new List<Boss>();
 
+    [SerializeField] private float maxTimeToKillBoss = 30f;
+
+    public float MaxTimeToKillBoss { get => maxTimeToKillBoss;}
+
     [Header("Boss Spawning")]
     private bool isSpawning = false;
+    private GameObject currentBoss;
 
     public bool IsSpawning { get => isSpawning;}
 
@@ -52,15 +57,28 @@ public class BossSystem : MonoBehaviour
             isSpawning = true;
             int randomIndex = Random.Range(0, Bosses.Count);
             Boss boss = Bosses[randomIndex];
+            if (boss.Prefab == null)
+            {
+                Debug.LogError("Boss prefab is null");
+                return;
+            }
             GameObject bossGO = Instantiate(boss.Prefab);
+            currentBoss = boss.Prefab;
             bossGO.GetComponent<BossObject>().SetBoss(boss);
         }
     }
 
     public void BossDied()
     {
+        BossObject bossObject = currentBoss.GetComponent<BossObject>();
         LevelSystem.Instance.ResetStage();
+        GoldSystem.Instance.AddGold(DifficultySystem.Instance.GetBossDrop(bossObject.MaxHealth));
+        currentBoss = null;
         isSpawning = false;
     }
-    
+
+    public void FailedToKill()
+    {
+        isSpawning = false;
+    }
 }

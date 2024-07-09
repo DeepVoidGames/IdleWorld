@@ -26,7 +26,7 @@ public class SaveSystem : MonoBehaviour
     private void Start()
     {
         Load();
-        UISystem.Instance.UpdateGoldText();
+        UISystem.Instance.LoadUI();
     }
 
     public void Save()

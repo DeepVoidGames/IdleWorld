@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 510477255}
   - component: {fileID: 510477256}
   m_Layer: 0
-  m_Name: LevelSystem
+  m_Name: _LevelSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,6 +268,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1426123158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &741072382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741072383}
+  - component: {fileID: 741072384}
+  m_Layer: 0
+  m_Name: _DifficultySystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &741072383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741072382}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2046036099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &741072384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741072382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e8ea865c5276f4fbd9b7e834fe1c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _difficultyMultiplier: 1.2
 --- !u!1 &765563898
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,9 +529,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bosses:
-  - Name: 
-    BaseHealth: 0
+  - Name: BlindedGrimlock
+    BaseHealth: 1000
     Prefab: {fileID: 1143826163299012661, guid: 557388cd683eec84e8c04ea4ed42f662, type: 3}
+  maxTimeToKillBoss: 30
 --- !u!1 &1282367774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,11 +1048,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1390749555}
+  - {fileID: 741072383}
+  - {fileID: 510477255}
   - {fileID: 765563899}
   - {fileID: 1599165879}
   - {fileID: 1585845677}
   - {fileID: 1073873236}
-  - {fileID: 510477255}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076472311

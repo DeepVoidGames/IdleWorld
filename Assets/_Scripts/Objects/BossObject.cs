@@ -6,6 +6,7 @@ public class BossObject : MonoBehaviour
     [SerializeField] private string bossName;
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
+    [SerializeField] private float _timer = 0f;
 
     [Header("UI Elements")]
     [SerializeField] private Slider healthSlider;
@@ -49,6 +50,16 @@ public class BossObject : MonoBehaviour
     private void Start()
     {
         UpdateHealthUI();
+    }
+
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+        if (_timer >= BossSystem.Instance.MaxTimeToKillBoss)
+        {
+            BossSystem.Instance.FailedToKill();
+            Destroy(gameObject);
+        }
     }
 
 }
