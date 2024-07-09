@@ -88,12 +88,16 @@ public class InventorySystem : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        Vector3 startPosition = new Vector3(0, 337, 0);
         foreach (InventorySlot slot in inventory.inventory)
         {
+            
             GameObject go = Instantiate(inventorySlotPrefab, inventoryUI.transform);
-            go.GetComponent<RectTransform>().localPosition = new Vector3(0, -100 * inventory.inventory.IndexOf(slot), 0);
+            // go.transform.localPosition = startPosition;
             go.transform.Find("Icon").GetComponent<Image>().sprite = slot.item.icon;
-            go.transform.Find("Quantity").GetComponent<Text>().text = slot.quantity.ToString();
+            go.transform.Find("Quantity").GetComponent<Text>().text = UISystem.Instance.NumberFormat(slot.quantity);
+            go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
+            // startPosition.y -= 100;
         }
     }
 }
