@@ -50,4 +50,9 @@ public class ItemSystem : MonoBehaviour
     }
 
     public List<Items> ItemsCollection = new List<Items>();
+
+    public Sprite GetItemIcon(int id)
+    {
+        return ItemsCollection.Find(x => x.id == id).icon;
+    }
 }

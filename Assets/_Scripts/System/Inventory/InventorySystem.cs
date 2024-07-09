@@ -94,7 +94,7 @@ public class InventorySystem : MonoBehaviour
             
             GameObject go = Instantiate(inventorySlotPrefab, inventoryUI.transform);
             // go.transform.localPosition = startPosition;
-            go.transform.Find("Icon").GetComponent<Image>().sprite = slot.item.icon;
+            go.transform.Find("Icon").GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIcon(slot.item.id);
             go.transform.Find("Quantity").GetComponent<Text>().text = UISystem.Instance.NumberFormat(slot.quantity);
             go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
             // startPosition.y -= 100;
