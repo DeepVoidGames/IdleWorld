@@ -42,6 +42,7 @@ public class MonsterSystem : MonoBehaviour
     [SerializeField] private List<Monster> Monsters = new List<Monster>();
 
     [Header("Monster Spawning")]
+    [SerializeField] private GameObject monsterSpawnParent;
     private bool isSpawning = false;
     private GameObject currentMonster;
 
@@ -109,6 +110,7 @@ public class MonsterSystem : MonoBehaviour
     {
         Monster monster = Monsters[index];
         GameObject go = Instantiate(monster.Prefab, Vector3.zero, Quaternion.identity);
+        go.transform.SetParent(monsterSpawnParent.transform);
         MonsterObject monsterObject = go.GetComponent<MonsterObject>();
         currentMonster = go;
         monsterObject.SetMonster(monster);

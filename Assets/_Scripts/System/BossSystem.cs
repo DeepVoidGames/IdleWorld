@@ -45,6 +45,7 @@ public class BossSystem : MonoBehaviour
     public float MaxTimeToKillBoss { get => maxTimeToKillBoss;}
 
     [Header("Boss Spawning")]
+    [SerializeField] private GameObject bossSpawnParent;
     private bool isSpawning = false;
     private GameObject currentBoss;
 
@@ -63,6 +64,7 @@ public class BossSystem : MonoBehaviour
                 return;
             }
             GameObject bossGO = Instantiate(boss.Prefab);
+            bossGO.transform.SetParent(bossSpawnParent.transform);
             currentBoss = boss.Prefab;
             bossGO.GetComponent<BossObject>().SetBoss(boss);
         }
