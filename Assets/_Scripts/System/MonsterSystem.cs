@@ -12,7 +12,7 @@ public class Monster
     {
         get
         {
-            return BaseHealth * LevelSystem.Instance.Level;
+            return DifficultySystem.Instance.GetMonsterHealth(BaseHealth);
         }
     }
 
@@ -59,7 +59,7 @@ public class MonsterSystem : MonoBehaviour
         MonsterObject monsterObject = currentMonster.GetComponent<MonsterObject>();
 
         // Gold drop
-        GoldSystem.Instance.AddGold((monsterObject.MaxHealth * 0.1f) * LevelSystem.Instance.Level);
+        GoldSystem.Instance.AddGold(DifficultySystem.Instance.GetMonsterDrop(monsterObject.MaxHealth));
     }
 
     public void SpawnMonster(int index)
