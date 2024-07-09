@@ -530,7 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bosses:
   - Name: BlindedGrimlock
-    BaseHealth: 1000
+    BaseHealth: 100
     Prefab: {fileID: 1143826163299012661, guid: 557388cd683eec84e8c04ea4ed42f662, type: 3}
   maxTimeToKillBoss: 30
 --- !u!1 &1282367774
