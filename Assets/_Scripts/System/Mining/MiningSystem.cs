@@ -92,6 +92,7 @@ public class MiningSystem : MonoBehaviour
             miningLevel++;
             miningExperience = 0;
         }
+        miningEfficiency *= 0.1f;
         UISystem.Instance.UpdateMiningUI();
     }
 
