@@ -35,7 +35,7 @@ public class RockObject : MonoBehaviour
 
     private void OnMouseDown() 
     {
-        Damage(MiningSystem.Instance.miningEfficiency);
+        Damage(MiningSystem.Instance.MiningEfficiency);
     }
 
     void Start()

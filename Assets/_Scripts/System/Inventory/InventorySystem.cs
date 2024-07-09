@@ -81,7 +81,7 @@ public class InventorySystem : MonoBehaviour
         return 0;
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         foreach (Transform child in inventoryUI.transform)
         {
@@ -95,10 +95,5 @@ public class InventorySystem : MonoBehaviour
             go.transform.Find("Icon").GetComponent<Image>().sprite = slot.item.icon;
             go.transform.Find("Quantity").GetComponent<Text>().text = slot.quantity.ToString();
         }
-    }
-
-    private void Start()
-    {
-        UpdateUI();
     }
 }

@@ -51,9 +51,14 @@ public class MiningSystem : MonoBehaviour
     public GameObject rockParent;
     private GameObject currentRock;
 
-    public float miningLevel = 1;
-    public float miningExperience = 0;
-    public float miningEfficiency = 1;
+    private float miningLevel = 1;
+    private float miningExperience = 0;
+    private float miningEfficiency = 1;
+
+    public float MiningLevel { get { return miningLevel; } }
+    public float MiningExperience { get { return miningExperience; } }
+
+    public float MiningEfficiency { get { return miningEfficiency; } }
 
     public void SpawnRock()
     {
@@ -82,11 +87,27 @@ public class MiningSystem : MonoBehaviour
             }
         }
         miningExperience += DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth);
-        if (miningExperience >= DifficultySystem.Instance.GetMiningNextLevel())
+        if (miningExperience >= DifficultySystem.Instance.GetMiningExperienceNeeded())
         {
             miningLevel++;
             miningExperience = 0;
         }
+        UISystem.Instance.UpdateMiningUI();
+    }
+
+    public void SetMiningEfficiency(float value)
+    {
+        miningEfficiency = value;
+    }
+
+    public void SetMiningLevel(float value)
+    {
+        miningLevel = value;
+    }
+
+    public void SetMiningExperience(float value)
+    {
+        miningExperience = value;
     }
 
     private void Update() 

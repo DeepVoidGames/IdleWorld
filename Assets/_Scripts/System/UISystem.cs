@@ -21,9 +21,13 @@ public class UISystem : MonoBehaviour {
         }
     }
 
-    [Header("UI")]
+    [Header("Level System UI")]
     [SerializeField] private Text levelText;
+    [Header("Gold System UI")]
     [SerializeField] private Text goldText;
+    [Header("Mining System UI")]
+    [SerializeField] private Text miningLevelText;
+    [SerializeField] private Slider miningExperienceSlider;
 
     public void UpdateLevelText()
     {
@@ -35,10 +39,18 @@ public class UISystem : MonoBehaviour {
         goldText.text = NumberFormat(GoldSystem.Instance.Gold);
     }
 
+    public void UpdateMiningUI()
+    {
+        miningLevelText.text = String.Format("Mining Level: {0}", NumberFormat(MiningSystem.Instance.MiningLevel));
+        miningExperienceSlider.value = MiningSystem.Instance.MiningEfficiency;
+        miningExperienceSlider.maxValue = DifficultySystem.Instance.GetMiningExperienceNeeded();
+    }
+
     public void LoadUI()
     {
         UpdateLevelText();
         UpdateGoldText();
+        UpdateMiningUI();
     }
 
     public string NumberFormat(float number)

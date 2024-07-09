@@ -27,6 +27,7 @@ public class SaveSystem : MonoBehaviour
     {
         Load();
         UISystem.Instance.LoadUI();
+        InventorySystem.Instance.UpdateUI();
     }
 
     public void Save()
@@ -42,8 +43,9 @@ public class SaveSystem : MonoBehaviour
             // Inventory System
             inventoryData = InventorySystem.Instance.inventory,
             // Mining System
-            miningLevelData = MiningSystem.Instance.miningLevel,
-            miningEfficiencyData = MiningSystem.Instance.miningEfficiency
+            miningLevelData = MiningSystem.Instance.MiningLevel,
+            miningEfficiencyData = MiningSystem.Instance.MiningEfficiency,
+            miningExperienceData = MiningSystem.Instance.MiningExperience
         };
 
         string json = JsonUtility.ToJson(gameData, true);
@@ -91,15 +93,21 @@ public class SaveSystem : MonoBehaviour
             // Load mining level
             if (gameData.miningLevelData != 0)
             {
-                MiningSystem.Instance.miningLevel = gameData.miningLevelData;
+                MiningSystem.Instance.SetMiningLevel(gameData.miningLevelData);
             }
 
             // Load mining efficiency
             if (gameData.miningEfficiencyData != 0)
             {
-                MiningSystem.Instance.miningEfficiency = gameData.miningEfficiencyData;
+                MiningSystem.Instance.SetMiningEfficiency(gameData.miningEfficiencyData);
             }
             
+            // Load mining experience
+            if (gameData.miningExperienceData != 0)
+            {
+                MiningSystem.Instance.SetMiningExperience(gameData.miningExperienceData);
+            }
+
             Debug.Log("Game loaded from " + saveFilePath);
         }
         else
@@ -113,11 +121,16 @@ public class SaveSystem : MonoBehaviour
 [System.Serializable]
 public class GameData
 {
+    // Gold System
     public float goldData;
+    // Monster Kiling System
     public int levelData;
     public int stageData;
     public string currentBiome;
+    // Inventory System
     public Inventory inventoryData;
+    // Mining System
     public float miningLevelData;
     public float miningEfficiencyData;
+    public float miningExperienceData;
 }
