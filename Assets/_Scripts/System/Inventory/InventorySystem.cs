@@ -41,6 +41,17 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] private GameObject inventoryUI;
     [SerializeField] private GameObject inventorySlotPrefab;
 
+    [SerializeField] private GameObject categoryUI;
+    [SerializeField] private Category currentCategory;
+
+    public enum Category
+    {
+        None,      
+        Material,
+        Weapon,
+        Tools,
+    }
+
     public void AddItem(int id, float quantity)
     {
         InventorySlot slot = inventory.inventory.Find(x => x.item.id == id);
@@ -88,16 +99,42 @@ public class InventorySystem : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        Vector3 startPosition = new Vector3(0, 337, 0);
+        if (inventory.inventory.Count == 0)
+        {
+            return;
+        }
+
+        if(currentCategory == Category.None)
+        {
+            categoryUI.SetActive(true);
+            return;
+        }else
+        {
+            categoryUI.SetActive(false);
+        }
+
         foreach (InventorySlot slot in inventory.inventory)
         {
-            
-            GameObject go = Instantiate(inventorySlotPrefab, inventoryUI.transform);
-            // go.transform.localPosition = startPosition;
-            go.transform.Find("Icon").GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIcon(slot.item.id);
-            go.transform.Find("Quantity").GetComponent<Text>().text = UISystem.Instance.NumberFormat(slot.quantity);
-            go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
-            // startPosition.y -= 100;
+            Debug.Log(String.Format("Item: {0}, Quantity: {1}, Category: {2}", slot.item.Name, slot.quantity, slot.item.category));
+            if (slot.item.category == currentCategory)
+            {
+                GameObject go = Instantiate(inventorySlotPrefab, inventoryUI.transform);
+                go.transform.Find("Icon").GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIcon(slot.item.id);
+                go.transform.Find("Quantity").GetComponent<Text>().text = UISystem.Instance.NumberFormat(slot.quantity);
+                go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
+            }
         }
+    }
+
+    public void SetCategory(int category)
+    {
+        currentCategory = (Category)category;
+        UpdateUI();
+    }
+
+    public void OpenCategory()
+    {
+        currentCategory = Category.None;
+        UpdateUI();
     }
 }

@@ -5,7 +5,7 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance { get; private set; }
     private string saveFilePath;
-    
+
     private void Awake()
     {
          if (Instance == null)
@@ -90,6 +90,21 @@ public class SaveSystem : MonoBehaviour
             // Load inventory
             if (gameData.inventoryData != null)
             {
+                // Fix item if change in the future
+                foreach (InventorySlot slot in gameData.inventoryData.inventory)
+                {
+                    Items item = ItemSystem.Instance.ItemsCollection.Find(x => x.id == slot.item.id);
+                    if (item == null)
+                    {
+                        Debug.LogWarning("Item not found: " + slot.item.id);
+                        continue;
+                    }
+                    slot.item.Name = item.Name;
+                    slot.item.id = item.id;
+                    slot.item.icon = item.icon;
+                    slot.item.category = item.category;
+                    slot.item.rarity = item.rarity;
+                }
                 InventorySystem.Instance.inventory = gameData.inventoryData;
             }
 

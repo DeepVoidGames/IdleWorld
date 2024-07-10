@@ -6,16 +6,7 @@ public class Items
 {
     public string Name;
     public int id;
-    public ItemType type;
-    public enum ItemType
-    {
-        Material,
-        Consumable,
-        Equipment,
-        Weapon,
-        Quest,
-        Money
-    }
+    public InventorySystem.Category category;
     public Rarity rarity;
     public enum Rarity
     {
@@ -25,7 +16,6 @@ public class Items
         Epic,
         Legendary
     }
-
     public Sprite icon;
 }
 
