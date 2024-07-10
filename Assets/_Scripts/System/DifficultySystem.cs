@@ -23,6 +23,12 @@ public class DifficultySystem : MonoBehaviour
 
     [SerializeField] private float _difficultyMultiplier = 1.2f;
 
+    // Damage
+    public float GetDamage(float baseDamage)
+    {
+        return (float)(baseDamage * Math.Pow(LevelSystem.Instance.Level, 2) + (LevelSystem.Instance.Stage * _difficultyMultiplier));
+    }
+
     // Boss
     public float GetBossHealth(float baseHealth)
     {

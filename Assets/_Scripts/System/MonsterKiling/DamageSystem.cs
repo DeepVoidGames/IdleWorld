@@ -29,7 +29,7 @@ public class DamageSystem : MonoBehaviour
 
     public float Damage
     {
-        get => damage;
+        get => DifficultySystem.Instance.GetDamage(damage);
         set => damage = value;
     }
 
