@@ -45,6 +45,7 @@ public class InventorySystem : MonoBehaviour
 
     [SerializeField] private GameObject categoryUI;
     [SerializeField] private Category currentCategory;
+    private Button equipedWeaponButton;
 
     public enum Category
     {
@@ -166,6 +167,18 @@ public class InventorySystem : MonoBehaviour
                 {
                     go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", slot.item.damage, slot.item.damageBoostPercentage);
                     go.transform.Find("Equip").gameObject.SetActive(true);
+                    Button button = go.transform.Find("Equip").GetComponent<Button>();
+                    var onClick = new Button.ButtonClickedEvent();
+                    onClick.AddListener(() => {
+                        DamageSystem.Instance.EquipWeapon(slot.item);
+                        button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
+                        if (equipedWeaponButton != null && equipedWeaponButton != button)
+                        {
+                            equipedWeaponButton.transform.Find("Text").GetComponent<Text>().text = "Equip";
+                        }
+                        equipedWeaponButton = button;
+                    });
+                    button.onClick = onClick;
                 }                
 
                 pos.y -= 100;
