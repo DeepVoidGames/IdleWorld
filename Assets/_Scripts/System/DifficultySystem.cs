@@ -26,7 +26,7 @@ public class DifficultySystem : MonoBehaviour
     // Damage
     public float GetDamage(float baseDamage)
     {
-        return (float)(baseDamage + (LevelSystem.Instance.Level * _difficultyMultiplier));
+        return (float)(baseDamage * (LevelSystem.Instance.Level * _difficultyMultiplier));
     }
 
     // Boss
