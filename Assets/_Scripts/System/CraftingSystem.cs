@@ -16,10 +16,17 @@ public class CraftingRecipe
 {
     public int material1ID;
     public int material2ID;
-
+    public CraftingType craftingType;
     public List<ItemsToCraft> itemsToCraft = new List<ItemsToCraft>();
 
 }
+
+public enum CraftingType
+    {
+        None,
+        Weapon,
+        Tools,
+    }
 
 public class CraftingSystem : MonoBehaviour
 {
@@ -46,12 +53,6 @@ public class CraftingSystem : MonoBehaviour
     [Header("Crafting")]
     public List<Items> CraftSlot = new List<Items>();
     [SerializeField] private CraftingType currentCraftingType;
-    public enum CraftingType
-    {
-        None,
-        Weapon,
-        Tools,
-    }
 
     [Header("UI")]
     [SerializeField] private GameObject craftingOptionUI;
@@ -142,6 +143,7 @@ public class CraftingSystem : MonoBehaviour
 
         for (int i = 0; i < CraftingRecipes.Count; i++)
         {
+            if (CraftingRecipes[i].craftingType != currentCraftingType) continue;
             if (CraftSlot[0].id == CraftingRecipes[i].material1ID && CraftSlot[1].id == CraftingRecipes[i].material2ID || CraftSlot[1].id == CraftingRecipes[i].material2ID && CraftSlot[0].id == CraftingRecipes[i].material1ID)
             {
                 for (int j = 0; j < CraftingRecipes[i].itemsToCraft.Count; j++)
