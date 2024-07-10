@@ -100,6 +100,7 @@ public class MiningSystem : MonoBehaviour
             miningExperience -= DifficultySystem.Instance.GetMiningExperienceNeeded();
             miningLevel++;
             UISystem.Instance.UpdateMiningUI();
+            AddMiningExperience(miningExperience);
         }
         SaveSystem.Instance.Save();
     }
