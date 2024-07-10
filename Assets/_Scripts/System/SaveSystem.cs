@@ -45,7 +45,8 @@ public class SaveSystem : MonoBehaviour
             currentBiome = BiomeSystem.Instance.CurrentBiome,
             // Weapon
             weaponData = DamageSystem.Instance.GetWeapon(),
-            isWeaponEquipped = DamageSystem.Instance.IsWeaponEquipped,
+            isWeaponEquippedData = DamageSystem.Instance.IsWeaponEquipped,
+            weaponButtonData = InventorySystem.Instance.equipedWeaponButton,
             // Inventory System
             inventoryData = InventorySystem.Instance.inventory,
             // Mining System
@@ -96,9 +97,14 @@ public class SaveSystem : MonoBehaviour
                 DamageSystem.Instance.EquipWeapon(gameData.weaponData);
             }
 
-            if (gameData.isWeaponEquipped)
+            if (gameData.isWeaponEquippedData)
             {
-                DamageSystem.Instance.IsWeaponEquipped = gameData.isWeaponEquipped;
+                DamageSystem.Instance.IsWeaponEquipped = gameData.isWeaponEquippedData;
+            }
+
+            if (gameData.weaponButtonData != null)
+            {
+                InventorySystem.Instance.equipedWeaponButton = gameData.weaponButtonData;
             }
 
             // Load inventory
@@ -163,8 +169,10 @@ public class GameData
     public int levelData;
     public int stageData;
     public string currentBiome;
+    // Weapon
     public Items weaponData;
-    public bool isWeaponEquipped;
+    public bool isWeaponEquippedData;
+    public UnityEngine.UI.Button weaponButtonData;
     // Inventory System
     public Inventory inventoryData;
     // Mining System

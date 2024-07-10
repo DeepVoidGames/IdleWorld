@@ -45,7 +45,7 @@ public class InventorySystem : MonoBehaviour
 
     [SerializeField] private GameObject categoryUI;
     [SerializeField] private Category currentCategory;
-    private Button equipedWeaponButton;
+    public Button equipedWeaponButton;
 
     public enum Category
     {
@@ -196,5 +196,12 @@ public class InventorySystem : MonoBehaviour
     {
         currentCategory = Category.None;
         UpdateUI();
+    }
+
+    private void Start() {
+        if (equipedWeaponButton != null)
+        {
+            equipedWeaponButton.transform.Find("Text").GetComponent<Text>().text = "Equipped";
+        }
     }
 }
