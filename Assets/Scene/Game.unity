@@ -4430,7 +4430,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: a878552df8e932a4889fadb2cf5f35aa, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: a878552df8e932a4889fadb2cf5f35aa, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -4750,6 +4751,7 @@ MonoBehaviour:
   rocks:
   - Name: Stone
     baseHealth: 5
+    chance: 0.8
     prefab: {fileID: 8587395233251269612, guid: a7462aa8fd10b1e448ff614b407910b6, type: 3}
     drops:
     - ID: 0
@@ -4758,6 +4760,7 @@ MonoBehaviour:
       max: 3
   - Name: Ruby
     baseHealth: 10
+    chance: 0.2
     prefab: {fileID: 5607409309898991287, guid: adccf462e08ba67449398feb4d976945, type: 3}
     drops:
     - ID: 1
