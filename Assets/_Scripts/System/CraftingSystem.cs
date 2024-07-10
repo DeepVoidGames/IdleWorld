@@ -59,6 +59,7 @@ public class CraftingSystem : MonoBehaviour
     [SerializeField] private GameObject craftingUI;
     [SerializeField] private Image slot1;
     [SerializeField] private Image slot2;
+    [SerializeField] private Image CraftedPrev;
 
     private void UpdateUI()
     {
@@ -154,6 +155,8 @@ public class CraftingSystem : MonoBehaviour
                         InventorySystem.Instance.AddItem(CraftingRecipes[i].itemsToCraft[j].itemID, 1);
                         CraftSlot.Clear();
                         UpdateUI();
+                        CraftedPrev.sprite = ItemSystem.Instance.GetItemIcon(CraftingRecipes[i].itemsToCraft[j].itemID);
+                        CraftedPrev.gameObject.SetActive(true);
                         return;
                     }
                 }

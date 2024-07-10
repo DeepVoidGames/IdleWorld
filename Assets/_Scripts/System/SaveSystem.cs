@@ -104,6 +104,10 @@ public class SaveSystem : MonoBehaviour
                     slot.item.icon = item.icon;
                     slot.item.category = item.category;
                     slot.item.rarity = item.rarity;
+
+                    // Weapon
+                    slot.item.damage = item.damage;
+                    slot.item.damageBoostPercentage = item.damageBoostPercentage;
                 }
                 InventorySystem.Instance.inventory = gameData.inventoryData;
             }
