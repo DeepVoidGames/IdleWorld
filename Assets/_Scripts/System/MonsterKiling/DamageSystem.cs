@@ -46,6 +46,7 @@ public class DamageSystem : MonoBehaviour
         if (weapon.damageBoostPercentage > 0)
             damage += damage * weapon.damageBoostPercentage / 100;
         isWeaponEquipped = true;
+        SaveSystem.Instance.Save();
     }
 
     public Items GetWeapon()
