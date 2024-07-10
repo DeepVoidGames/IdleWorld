@@ -1,6 +1,20 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+[System.Serializable]
+public class RarityColor
+{
+    public string rarity;
+    public Color color;
+}
+
+[System.Serializable]
+public class RarityColors
+{
+    public List<RarityColor> rarityColors = new List<RarityColor>();
+}
 
 public class UISystem : MonoBehaviour {
     private static UISystem _instance;
@@ -20,6 +34,9 @@ public class UISystem : MonoBehaviour {
             return _instance;
         }
     }
+
+    [Header("UI System")]
+    [SerializeField] private RarityColors rarityColors;
 
     [Header("Level System UI")]
     [SerializeField] private Text levelText;
@@ -124,5 +141,10 @@ public class UISystem : MonoBehaviour {
             return (number / 1000.0).ToString("F2") + "K";
         }
         return number.ToString("N0");
+    }
+
+    public Color GetRarityColor(Items.Rarity rarity)
+    {
+        return rarityColors.rarityColors.Find(x => x.rarity == rarity.ToString()).color;
     }
 }

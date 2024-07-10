@@ -989,6 +989,7 @@ MonoBehaviour:
   slot1: {fileID: 651115379}
   slot2: {fileID: 474692815}
   CraftedPrev: {fileID: 1424499599}
+  craftButton: {fileID: 1792011587}
 --- !u!1 &413816634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4620,6 +4621,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae7576967e13bb43acc8cf1d2398f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rarityColors:
+    rarityColors:
+    - rarity: Common
+      color: {r: 1, g: 1, b: 1, a: 1}
+    - rarity: Uncommon
+      color: {r: 0.48819268, g: 0.8301887, b: 0.63849425, a: 1}
+    - rarity: Rare
+      color: {r: 0.362446, g: 0.49735424, b: 0.9685534, a: 1}
+    - rarity: Epic
+      color: {r: 0.7131228, g: 0.38344997, b: 0.9308176, a: 1}
+    - rarity: Legendary
+      color: {r: 0.81761, g: 0.7099653, b: 0.30081868, a: 1}
   levelText: {fileID: 505191667}
   stageText: {fileID: 1160625904}
   goldText: {fileID: 796547719}

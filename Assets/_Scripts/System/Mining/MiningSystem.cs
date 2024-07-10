@@ -70,10 +70,9 @@ public class MiningSystem : MonoBehaviour
             Destroy(currentRock);
         }
 
-        float chance = UnityEngine.Random.Range(0f, 1f);
-        
         foreach (Rocks rock in rocks)
         {
+            float chance = UnityEngine.Random.Range(0f, 1f);
             Debug.Log(String.Format("Chance: {0}, Rock Chance: {1}", chance, rock.chance));
             if (chance <= rock.chance)
             {
@@ -83,10 +82,15 @@ public class MiningSystem : MonoBehaviour
                 rockObject.Health = rock.Health;
                 rockObject.MaxHealth = rock.Health;
                 rockObject.drops = rock.drops;
-                break;
+                return;
             }
         }
-        
+        currentRock = Instantiate(rocks[0].prefab, new Vector3(rockParent.transform.position.x, rockParent.transform.position.y, rockParent.transform.position.z), Quaternion.identity);
+        currentRock.transform.SetParent(rockParent.transform);
+        RockObject rockObjectDefault = currentRock.GetComponent<RockObject>();
+        rockObjectDefault.Health = rocks[0].Health;
+        rockObjectDefault.MaxHealth = rocks[0].Health;
+        rockObjectDefault.drops = rocks[0].drops;  
     }
 
     public void DestroyRock(RockObject rockObject)

@@ -36,8 +36,10 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    [Header("Inventory")]
     public Inventory inventory = new Inventory();
 
+    [Header("UI")]
     [SerializeField] private GameObject inventoryUI;
     [SerializeField] private GameObject inventorySlotPrefab;
 
@@ -117,6 +119,25 @@ public class InventorySystem : MonoBehaviour
             categoryUI.SetActive(false);
         }
 
+        // Sort by damage if the category is Weapon
+        if (currentCategory == Category.Weapon)
+        {
+            // Sort by damage
+            for (int i = 0; i < inventory.inventory.Count; i++)
+            {
+                for (int j = i + 1; j < inventory.inventory.Count; j++)
+                {
+                    if (inventory.inventory[i].item.damage < inventory.inventory[j].item.damage)
+                    {
+                        InventorySlot temp = inventory.inventory[i];
+                        inventory.inventory[i] = inventory.inventory[j];
+                        inventory.inventory[j] = temp;
+                    }
+                }
+            }
+    
+        }
+        
         // Show the inventory UI
         Vector3 pos = new Vector3(178.75f, -45.95f, 0);
         foreach (InventorySlot slot in inventory.inventory)
@@ -127,8 +148,11 @@ public class InventorySystem : MonoBehaviour
                 go.transform.localPosition = pos;
                 go.transform.Find("Icon").GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIcon(slot.item.id);
                 go.transform.Find("Quantity").GetComponent<Text>().text = UISystem.Instance.NumberFormat(slot.quantity);
+                go.transform.Find("Rarity").GetComponent<Text>().text = slot.item.rarity.ToString();
+                go.transform.Find("Rarity").GetComponent<Text>().color = UISystem.Instance.GetRarityColor(slot.item.rarity);
                 go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
 
+                // If the category is Material 
                 if (slot.item.category == Category.Material)
                 {
                     Button button = go.GetComponent<Button>();
@@ -136,6 +160,14 @@ public class InventorySystem : MonoBehaviour
                     onClick.AddListener(() => CraftingSystem.Instance.SetCraftSlot(slot.item.id));
                     button.onClick = onClick;
                 }
+                
+                // If the category is Weapon
+                if (slot.item.category == Category.Weapon)
+                {
+                    go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", slot.item.damage, slot.item.damageBoostPercentage);
+                    go.transform.Find("Equip").gameObject.SetActive(true);
+                }                
+
                 pos.y -= 100;
             }
         }
