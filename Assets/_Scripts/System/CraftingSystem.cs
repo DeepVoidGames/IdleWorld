@@ -53,6 +53,7 @@ public class CraftingSystem : MonoBehaviour
     [Header("Crafting")]
     public List<Items> CraftSlot = new List<Items>();
     [SerializeField] private CraftingType currentCraftingType;
+    private bool isCrafting;
 
     [Header("UI")]
     [SerializeField] private GameObject craftingOptionUI;
@@ -60,6 +61,7 @@ public class CraftingSystem : MonoBehaviour
     [SerializeField] private Image slot1;
     [SerializeField] private Image slot2;
     [SerializeField] private Image CraftedPrev;
+    [SerializeField] private Button craftButton;
 
     private void UpdateUI()
     {
@@ -138,6 +140,8 @@ public class CraftingSystem : MonoBehaviour
 
     public void Craft()
     {
+        craftButton.interactable = false;
+        isCrafting = true;
         if (CraftSlot.Count < 2) return;
         if (currentCraftingType == CraftingType.None) return;
         if (CraftingRecipes.Count == 0) return;
@@ -151,7 +155,7 @@ public class CraftingSystem : MonoBehaviour
                 for (int j = 0; j < CraftingRecipes[i].itemsToCraft.Count; j++)
                 {
                     float random = UnityEngine.Random.Range(0f, 1f);
-                    Debug.Log(String.Format("Random: {0}, Chance: {1}", random, CraftingRecipes[i].itemsToCraft[j].chanceToCraft));
+                    Debug.Log(String.Format("Random: {0}, Chance: {1}, IF {2}", random, CraftingRecipes[i].itemsToCraft[j].chanceToCraft, random <= CraftingRecipes[i].itemsToCraft[j].chanceToCraft));
                     if (random <= CraftingRecipes[i].itemsToCraft[j].chanceToCraft)
                     {
                         InventorySystem.Instance.AddItem(CraftingRecipes[i].itemsToCraft[j].itemID, 1);
@@ -159,24 +163,37 @@ public class CraftingSystem : MonoBehaviour
                         UpdateUI();
                         CraftedPrev.sprite = ItemSystem.Instance.GetItemIcon(CraftingRecipes[i].itemsToCraft[j].itemID);
                         CraftedPrev.gameObject.SetActive(true);
-                        Animation prevAnimation = CraftedPrev.GetComponent<Animation>();
-                        if (prevAnimation != null)
-                        {
-                            AnimationClip showCraftedItemClip = prevAnimation.GetClip("ShowCraftedItem");
-                            if (showCraftedItemClip != null)
-                            {
-                                showCraftedItemClip.legacy = true;
-                            }
-                        }
+                        isCrafting = false;
                         return;
                     }
                 }
+                InventorySystem.Instance.AddItem(CraftingRecipes[i].itemsToCraft[0].itemID, 1);
+                UpdateUI();
+                CraftedPrev.sprite = ItemSystem.Instance.GetItemIcon(CraftingRecipes[0].itemsToCraft[0].itemID);
+                CraftedPrev.gameObject.SetActive(true);
+                isCrafting = false;
+                return;
+                
             }
         }
-        
+        isCrafting = false;
     }
+    
     private void Start()
     {
         UpdateUI();
     }
+
+    private void Update()
+    {
+        if(CraftedPrev.gameObject.activeSelf || isCrafting)
+        {
+           craftButton.interactable = false;
+        }
+        else
+        {
+            craftButton.interactable = true;
+        }
+    }
+
 }
