@@ -84,7 +84,7 @@ public class MiningSystem : MonoBehaviour
             float chance = Random.Range(0f, 1f);
             if (chance <= drop.chance)
             {
-                InventorySystem.Instance.AddItem(drop.ID, DifficultySystem.Instance.GetRockDrop(rockObject.MaxHealth, drop.min, drop.max));
+                InventorySystem.Instance.AddItem(drop.ID, DifficultySystem.Instance.GetRockDrop(rockObject.MaxHealth, drop.min));
             }
         }
         AddMiningExperience(DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth));
