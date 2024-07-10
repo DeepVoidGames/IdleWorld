@@ -26,7 +26,7 @@ public class DifficultySystem : MonoBehaviour
     // Boss
     public float GetBossHealth(float baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier));
+        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier));
     }
 
     public float GetBossDrop(float health)
@@ -37,7 +37,7 @@ public class DifficultySystem : MonoBehaviour
     // Monster
     public float GetMonsterHealth(float baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2)) + (LevelSystem.Instance.Stage * _difficultyMultiplier);
+        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2));
     }
 
     public float GetMonsterDrop(float maxHealth)
