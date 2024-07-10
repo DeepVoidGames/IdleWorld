@@ -38,6 +38,9 @@ public class UISystem : MonoBehaviour {
     [Header("UI System")]
     [SerializeField] private RarityColors rarityColors;
 
+    [Header("Damage System UI")]
+    [SerializeField] private Text damageText;
+
     [Header("Level System UI")]
     [SerializeField] private Text levelText;
     [SerializeField] private Text stageText;
@@ -52,6 +55,7 @@ public class UISystem : MonoBehaviour {
     {
         levelText.text = String.Format("Slayer Level: {0}", NumberFormatInt(LevelSystem.Instance.Level));
         stageText.text = String.Format("Stage: {0}", NumberFormatInt(LevelSystem.Instance.Stage));
+        damageText.text = String.Format("Damage: {0}", NumberFormat(DamageSystem.Instance.Damage));
     }
 
     public void UpdateGoldText()

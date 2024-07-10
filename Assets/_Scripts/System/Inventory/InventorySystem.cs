@@ -168,6 +168,17 @@ public class InventorySystem : MonoBehaviour
                     go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", slot.item.damage, slot.item.damageBoostPercentage);
                     go.transform.Find("Equip").gameObject.SetActive(true);
                     Button button = go.transform.Find("Equip").GetComponent<Button>();
+
+                    if (DamageSystem.Instance.GetWeapon() != null && DamageSystem.Instance.GetWeapon().id == slot.item.id)
+                    {
+                        button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
+                        equipedWeaponButton = button;
+                    }
+                    else
+                    {
+                        button.transform.Find("Text").GetComponent<Text>().text = "Equip";
+                    }
+
                     var onClick = new Button.ButtonClickedEvent();
                     onClick.AddListener(() => {
                         DamageSystem.Instance.EquipWeapon(slot.item);
