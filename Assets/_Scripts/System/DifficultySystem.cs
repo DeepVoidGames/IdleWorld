@@ -26,7 +26,7 @@ public class DifficultySystem : MonoBehaviour
     // Boss
     public float GetBossHealth(float baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(_difficultyMultiplier, LevelSystem.Instance.Level));
+        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier));
     }
 
     public float GetBossDrop(float health)
@@ -51,9 +51,9 @@ public class DifficultySystem : MonoBehaviour
         return (float)(baseHealth * Math.Pow(MiningSystem.Instance.MiningEfficiency, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 
-    public float GetRockDrop(float maxHealth, float minDrop, float maxDrop)
+    public float GetRockDrop(float maxHealth, float minDrop)
     {
-        return UnityEngine.Random.Range(minDrop, maxDrop) + (maxHealth * _difficultyMultiplier);
+        return UnityEngine.Random.Range(minDrop, maxHealth);
     }
 
     public float GetMiningExperience(float maxHealth)
