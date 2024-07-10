@@ -7,6 +7,7 @@ public class Rocks
 {
     public string Name;
     public float baseHealth;
+    public float chance;
     public GameObject prefab;
     public List<Drop> drops;
     public float Health
@@ -68,13 +69,22 @@ public class MiningSystem : MonoBehaviour
             Destroy(currentRock);
         }
 
-        Rocks rock = rocks[Random.Range(0, rocks.Count)];
-        currentRock = Instantiate(rock.prefab, new Vector3(rockParent.transform.position.x, rockParent.transform.position.y, rockParent.transform.position.z), Quaternion.identity);
-        currentRock.transform.SetParent(rockParent.transform);
-        RockObject rockObject = currentRock.GetComponent<RockObject>();
-        rockObject.Health = rock.Health;
-        rockObject.MaxHealth = rock.Health;
-        rockObject.drops = rock.drops;
+        float chance = Random.Range(0f, 1f);
+        
+        foreach (Rocks rock in rocks)
+        {
+            if (chance <= rock.chance)
+            {
+                currentRock = Instantiate(rock.prefab, new Vector3(rockParent.transform.position.x, rockParent.transform.position.y, rockParent.transform.position.z), Quaternion.identity);
+                currentRock.transform.SetParent(rockParent.transform);
+                RockObject rockObject = currentRock.GetComponent<RockObject>();
+                rockObject.Health = rock.Health;
+                rockObject.MaxHealth = rock.Health;
+                rockObject.drops = rock.drops;
+                break;
+            }
+        }
+        
     }
 
     public void DestroyRock(RockObject rockObject)
