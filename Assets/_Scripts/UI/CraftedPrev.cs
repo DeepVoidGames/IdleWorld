@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CraftedPrev : MonoBehaviour
 {
-    private float _timer;
+    private Animator _animator;
 
-    private void Update()
+    private void OnEnable()
     {
-        _timer += Time.deltaTime;
-        if (_timer >= 10f)
+        _animator = GetComponent<Animator>();
+    }
+
+    private void Update() {
+        if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
-            Destroy(this);
+            gameObject.SetActive(false);
         }
     }
 }

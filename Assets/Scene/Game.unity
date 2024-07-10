@@ -988,6 +988,7 @@ MonoBehaviour:
   craftingUI: {fileID: 1010242926}
   slot1: {fileID: 651115379}
   slot2: {fileID: 474692815}
+  CraftedPrev: {fileID: 1424499599}
 --- !u!1 &413816634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,7 +4429,7 @@ Animation:
   m_GameObject: {fileID: 1424499595}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: a878552df8e932a4889fadb2cf5f35aa, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1

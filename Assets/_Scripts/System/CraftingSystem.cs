@@ -153,10 +153,19 @@ public class CraftingSystem : MonoBehaviour
                     if (random <= CraftingRecipes[i].itemsToCraft[j].chanceToCraft)
                     {
                         InventorySystem.Instance.AddItem(CraftingRecipes[i].itemsToCraft[j].itemID, 1);
-                        CraftSlot.Clear();
+                        // CraftSlot.Clear();
                         UpdateUI();
                         CraftedPrev.sprite = ItemSystem.Instance.GetItemIcon(CraftingRecipes[i].itemsToCraft[j].itemID);
                         CraftedPrev.gameObject.SetActive(true);
+                        Animation prevAnimation = CraftedPrev.GetComponent<Animation>();
+                        if (prevAnimation != null)
+                        {
+                            AnimationClip showCraftedItemClip = prevAnimation.GetClip("ShowCraftedItem");
+                            if (showCraftedItemClip != null)
+                            {
+                                showCraftedItemClip.legacy = true;
+                            }
+                        }
                         return;
                     }
                 }
