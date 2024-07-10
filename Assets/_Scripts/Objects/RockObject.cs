@@ -30,7 +30,7 @@ public class RockObject : MonoBehaviour
 
     private void UpdateUI()
     {
-        healthText.text = health + "/" + maxHealth;
+        healthText.text = UISystem.Instance.NumberFormat(health) + "/" + UISystem.Instance.NumberFormat(maxHealth);
     }
 
     private void OnMouseDown() 

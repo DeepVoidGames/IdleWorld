@@ -23,6 +23,7 @@ public class DifficultySystem : MonoBehaviour
 
     [SerializeField] private float _difficultyMultiplier = 1.2f;
 
+    // Boss
     public float GetBossHealth(float baseHealth)
     {
         return (float)(baseHealth * Math.Pow(_difficultyMultiplier, LevelSystem.Instance.Level));
@@ -33,6 +34,7 @@ public class DifficultySystem : MonoBehaviour
         return health + (health * _difficultyMultiplier);
     }
 
+    // Monster
     public float GetMonsterHealth(float baseHealth)
     {
         return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2)) + (LevelSystem.Instance.Stage * _difficultyMultiplier);
@@ -43,9 +45,10 @@ public class DifficultySystem : MonoBehaviour
         return maxHealth + (maxHealth * _difficultyMultiplier);
     }
 
+    //  Mining
     public float GetRockHealth(float baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
+        return (float)(baseHealth * Math.Pow(MiningSystem.Instance.MiningEfficiency, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 
     public float GetRockDrop(float maxHealth, float minDrop, float maxDrop)
@@ -63,6 +66,10 @@ public class DifficultySystem : MonoBehaviour
         return (float)(10f * Math.Pow(MiningSystem.Instance.MiningLevel, MiningSystem.Instance.MiningLevel)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 
+    public float GetMiningEfficiency()
+    {
+        return (float)(MiningSystem.Instance.MiningEfficiency + MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
+    }
 
 
 }

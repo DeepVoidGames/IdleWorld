@@ -88,7 +88,7 @@ public class MiningSystem : MonoBehaviour
             }
         }
         AddMiningExperience(DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth));
-        AddMiningEfficiency(miningEfficiency * 0.01f);
+        AddMiningEfficiency(DifficultySystem.Instance.GetMiningEfficiency());
         UISystem.Instance.UpdateMiningUI();
     }
 
