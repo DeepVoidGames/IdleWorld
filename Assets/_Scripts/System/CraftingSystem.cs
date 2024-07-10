@@ -145,7 +145,8 @@ public class CraftingSystem : MonoBehaviour
         for (int i = 0; i < CraftingRecipes.Count; i++)
         {
             if (CraftingRecipes[i].craftingType != currentCraftingType) continue;
-            if ((CraftSlot[0].id == CraftingRecipes[i].material1ID && CraftSlot[1].id == CraftingRecipes[i].material2ID) || (CraftSlot[1].id == CraftingRecipes[i].material2ID && CraftSlot[0].id == CraftingRecipes[i].material1ID))
+            if ((CraftingRecipes[i].material1ID == CraftSlot[0].id && CraftingRecipes[i].material2ID == CraftSlot[1].id) ||
+                (CraftingRecipes[i].material1ID == CraftSlot[1].id && CraftingRecipes[i].material2ID == CraftSlot[0].id))
             {
                 for (int j = 0; j < CraftingRecipes[i].itemsToCraft.Count; j++)
                 {
