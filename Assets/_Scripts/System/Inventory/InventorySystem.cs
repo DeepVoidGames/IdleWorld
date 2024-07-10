@@ -94,34 +94,49 @@ public class InventorySystem : MonoBehaviour
 
     public void UpdateUI()
     {
+        //  Clear the inventory UI
         foreach (Transform child in inventoryUI.transform)
         {
             Destroy(child.gameObject);
         }
 
+        // If the inventory is empty, return
         if (inventory.inventory.Count == 0)
         {
             return;
         }
 
+        // If the category is None, show the category UI
         if(currentCategory == Category.None)
         {
             categoryUI.SetActive(true);
             return;
-        }else
+        }
+        else
         {
             categoryUI.SetActive(false);
         }
 
+        // Show the inventory UI
+        Vector3 pos = new Vector3(178.75f, -45.95f, 0);
         foreach (InventorySlot slot in inventory.inventory)
         {
-            Debug.Log(String.Format("Item: {0}, Quantity: {1}, Category: {2}", slot.item.Name, slot.quantity, slot.item.category));
             if (slot.item.category == currentCategory)
             {
                 GameObject go = Instantiate(inventorySlotPrefab, inventoryUI.transform);
+                go.transform.localPosition = pos;
                 go.transform.Find("Icon").GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIcon(slot.item.id);
                 go.transform.Find("Quantity").GetComponent<Text>().text = UISystem.Instance.NumberFormat(slot.quantity);
                 go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
+
+                if (slot.item.category == Category.Material)
+                {
+                    Button button = go.GetComponent<Button>();
+                    var onClick = new Button.ButtonClickedEvent();
+                    onClick.AddListener(() => CraftingSystem.Instance.SetCraftSlot(slot.item.id));
+                    button.onClick = onClick;
+                }
+                pos.y -= 100;
             }
         }
     }

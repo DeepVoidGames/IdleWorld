@@ -17,6 +17,10 @@ public class Items
         Legendary
     }
     public Sprite icon;
+
+    // Weapon
+    public float damage;
+    public float damageBoostPercentage;
 }
 
 public class ItemSystem : MonoBehaviour 
