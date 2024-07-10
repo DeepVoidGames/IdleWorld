@@ -53,7 +53,7 @@ public class SaveSystem : MonoBehaviour
 
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(saveFilePath, json);
-        Debug.Log("Game saved to " + saveFilePath);
+        // Debug.Log("Game saved to " + saveFilePath);
     }
 
     public void Load()

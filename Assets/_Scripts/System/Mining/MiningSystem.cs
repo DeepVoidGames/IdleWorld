@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -69,10 +70,11 @@ public class MiningSystem : MonoBehaviour
             Destroy(currentRock);
         }
 
-        float chance = Random.Range(0f, 1f);
+        float chance = UnityEngine.Random.Range(0f, 1f);
         
         foreach (Rocks rock in rocks)
         {
+            Debug.Log(String.Format("Chance: {0}, Rock Chance: {1}", chance, rock.chance));
             if (chance <= rock.chance)
             {
                 currentRock = Instantiate(rock.prefab, new Vector3(rockParent.transform.position.x, rockParent.transform.position.y, rockParent.transform.position.z), Quaternion.identity);
@@ -91,7 +93,7 @@ public class MiningSystem : MonoBehaviour
     {
         foreach (Drop drop in rockObject.drops)
         {
-            float chance = Random.Range(0f, 1f);
+            float chance = UnityEngine.Random.Range(0f, 1f);
             if (chance <= drop.chance)
             {
                 InventorySystem.Instance.AddItem(drop.ID, DifficultySystem.Instance.GetRockDrop(rockObject.MaxHealth, drop.min));

@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -145,11 +145,12 @@ public class CraftingSystem : MonoBehaviour
         for (int i = 0; i < CraftingRecipes.Count; i++)
         {
             if (CraftingRecipes[i].craftingType != currentCraftingType) continue;
-            if (CraftSlot[0].id == CraftingRecipes[i].material1ID && CraftSlot[1].id == CraftingRecipes[i].material2ID || CraftSlot[1].id == CraftingRecipes[i].material2ID && CraftSlot[0].id == CraftingRecipes[i].material1ID)
+            if ((CraftSlot[0].id == CraftingRecipes[i].material1ID && CraftSlot[1].id == CraftingRecipes[i].material2ID) || (CraftSlot[1].id == CraftingRecipes[i].material2ID && CraftSlot[0].id == CraftingRecipes[i].material1ID))
             {
                 for (int j = 0; j < CraftingRecipes[i].itemsToCraft.Count; j++)
                 {
-                    float random = Random.Range(0, 1);
+                    float random = UnityEngine.Random.Range(0f, 1f);
+                    Debug.Log(String.Format("Random: {0}, Chance: {1}", random, CraftingRecipes[i].itemsToCraft[j].chanceToCraft));
                     if (random <= CraftingRecipes[i].itemsToCraft[j].chanceToCraft)
                     {
                         InventorySystem.Instance.AddItem(CraftingRecipes[i].itemsToCraft[j].itemID, 1);
