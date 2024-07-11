@@ -54,7 +54,11 @@ public class SaveSystem : MonoBehaviour
             // Mining System
             miningLevelData = MiningSystem.Instance.MiningLevel,
             miningEfficiencyData = MiningSystem.Instance.MiningEfficiency,
-            miningExperienceData = MiningSystem.Instance.MiningExperience
+            miningExperienceData = MiningSystem.Instance.MiningExperience,
+
+            toolData = MiningSystem.Instance.GetTool(),
+            isToolEquippedData = MiningSystem.Instance.IsToolEquipped,
+            toolButtonData = InventorySystem.Instance.equipedToolButton
         };
 
         string json = JsonUtility.ToJson(gameData, true);
@@ -132,6 +136,21 @@ public class SaveSystem : MonoBehaviour
             if (gameData.miningExperienceData != 0)
             {
                 MiningSystem.Instance.SetMiningExperience(gameData.miningExperienceData);
+            }
+
+            if (gameData.toolData != null)
+            {
+                MiningSystem.Instance.EquipTool(gameData.toolData);
+            }
+
+            if (gameData.isToolEquippedData)
+            {
+                MiningSystem.Instance.IsToolEquipped = gameData.isToolEquippedData;
+            }
+
+            if (gameData.toolButtonData != null)
+            {
+                InventorySystem.Instance.equipedToolButton = gameData.toolButtonData;
             }
 
             Debug.Log("Game loaded from " + saveFilePath);
@@ -222,6 +241,9 @@ public class GameData
     public float miningLevelData;
     public float miningEfficiencyData;
     public float miningExperienceData;
+    public Items toolData;
+    public bool isToolEquippedData;
+    public UnityEngine.UI.Button toolButtonData;
 }
 
 [System.Serializable]

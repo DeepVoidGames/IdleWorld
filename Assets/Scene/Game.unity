@@ -1080,6 +1080,7 @@ MonoBehaviour:
   categoryUI: {fileID: 833936608}
   currentCategory: 0
   equipedWeaponButton: {fileID: 0}
+  equipedToolButton: {fileID: 0}
 --- !u!114 &383307242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6379,71 +6380,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841982492}
   m_CullTransparentMesh: 1
---- !u!1 &1869358216
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1869358217}
-  - component: {fileID: 1869358218}
-  m_Layer: 0
-  m_Name: GameDataManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1869358217
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869358216}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1260846, y: -2.5914347, z: 4145.8076}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1869358218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869358216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ecb55c642c00746bde722cb1920ad6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemToAdd:
-    Name: 
-    id: -1
-    category: 0
-    rarity: 0
-    icon: {fileID: 0}
-    damage: 0
-    damageBoostPercentage: 0
-    miningEfficiency: 0
-  craftingRecipeToAdd:
-    id: 0
-    material1ID: 0
-    material2ID: 1
-    craftingType: 1
-    itemsToCraft:
-    - itemID: 2
-      chanceToCraft: 0.8
-    - itemID: 3
-      chanceToCraft: 0.15
-    - itemID: 4
-      chanceToCraft: 0.05
 --- !u!1 &1876782691
 GameObject:
   m_ObjectHideFlags: 0
@@ -7643,7 +7579,6 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1869358217}
   - {fileID: 1481900839}
   - {fileID: 928873638}
   - {fileID: 2046036099}
