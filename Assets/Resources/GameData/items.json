@@ -1,0 +1,88 @@
+{
+  "items": [
+    {
+      "Name": "Rock",
+      "id": 0,
+      "category": 1,
+      "rarity": 0,
+      "icon": {
+        "instanceID": 28956
+      },
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 0.0
+    },
+    {
+      "Name": "Ruby",
+      "id": 1,
+      "category": 1,
+      "rarity": 1,
+      "icon": {
+        "instanceID": 28960
+      },
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 0.0
+    },
+    {
+      "Name": "Stone Sword",
+      "id": 2,
+      "category": 2,
+      "rarity": 1,
+      "icon": {
+        "instanceID": 28962
+      },
+      "damage": 10.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 0.0
+    },
+    {
+      "Name": "Ruby Sword",
+      "id": 3,
+      "category": 2,
+      "rarity": 2,
+      "icon": {
+        "instanceID": 28964
+      },
+      "damage": 20.0,
+      "damageBoostPercentage": 2.0,
+      "miningEfficiency": 0.0
+    },
+    {
+      "Name": "Ruby Katana",
+      "id": 4,
+      "category": 2,
+      "rarity": 4,
+      "icon": {
+        "instanceID": 28966
+      },
+      "damage": 50.0,
+      "damageBoostPercentage": 5.0,
+      "miningEfficiency": 0.0
+    },
+    {
+      "Name": "Stone Pickaxe",
+      "id": 5,
+      "category": 3,
+      "rarity": 0,
+      "icon": {
+        "instanceID": 32196
+      },
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 50.0
+    },
+    {
+      "Name": "Ruby Pickaxe",
+      "id": 6,
+      "category": 3,
+      "rarity": 3,
+      "icon": {
+        "instanceID": 32188
+      },
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 150.0
+    }
+  ]
+}

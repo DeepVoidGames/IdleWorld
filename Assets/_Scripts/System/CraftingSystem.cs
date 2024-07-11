@@ -14,6 +14,7 @@ public class ItemsToCraft
 [System.Serializable]
 public class CraftingRecipe
 {
+    public int id;
     public int material1ID;
     public int material2ID;
     public CraftingType craftingType;
@@ -27,6 +28,11 @@ public enum CraftingType
         Weapon,
         Tools,
     }
+
+public class CraftingRecipesWrapper
+{
+    public List<CraftingRecipe> craftingRecipes = new List<CraftingRecipe>();
+}
 
 public class CraftingSystem : MonoBehaviour
 {
@@ -48,7 +54,7 @@ public class CraftingSystem : MonoBehaviour
         }
     }
 
-    [SerializeField] private List<CraftingRecipe> CraftingRecipes = new List<CraftingRecipe>();
+    public List<CraftingRecipe> CraftingRecipes = new List<CraftingRecipe>();
 
     [Header("Crafting")]
     public List<Items> CraftSlot = new List<Items>();
@@ -179,6 +185,16 @@ public class CraftingSystem : MonoBehaviour
         isCrafting = false;
     }
     
+    public void SetCraftingRecipes(List<CraftingRecipe> craftingRecipes)
+    {
+        CraftingRecipes = craftingRecipes;
+    }
+
+    public CraftingRecipe GetCraftingRecipe(int id)
+    {
+        return CraftingRecipes.Find(x => x.id == id);
+    }
+
     private void Start()
     {
         UpdateUI();
@@ -195,5 +211,4 @@ public class CraftingSystem : MonoBehaviour
             craftButton.interactable = true;
         }
     }
-
 }

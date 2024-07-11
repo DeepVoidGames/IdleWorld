@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -25,11 +26,11 @@ public class SaveSystem : MonoBehaviour
 
     private void Start()
     {
+        LoadGameContent();
         Load();
         // After loading the game
         UISystem.Instance.LoadUI();
         InventorySystem.Instance.UpdateUI();
-
         MiningSystem.Instance.SpawnRock();
     }
 
@@ -157,6 +158,21 @@ public class SaveSystem : MonoBehaviour
             Debug.LogWarning("Save file not found: " + saveFilePath);
         }
     
+    }
+
+    public void LoadGameContent()
+    {
+        // Load items
+        TextAsset itemsJsonFile = Resources.Load<TextAsset>("GameData/items");
+        ItemDataWrapper itemDataWrapper = JsonUtility.FromJson<ItemDataWrapper>(itemsJsonFile.text);
+        List<Items> items = itemDataWrapper.items;
+        ItemSystem.Instance.SetItemsCollection(items);
+
+        // Load crafting recipes
+        TextAsset craftingRecipesJsonFile = Resources.Load<TextAsset>("GameData/craftingRecipes");
+        CraftingRecipesWrapper craftingRecipesWrapper = JsonUtility.FromJson<CraftingRecipesWrapper>(craftingRecipesJsonFile.text);
+        List<CraftingRecipe> craftingRecipes = craftingRecipesWrapper.craftingRecipes;
+        CraftingSystem.Instance.SetCraftingRecipes(craftingRecipes);
     }
 }
 

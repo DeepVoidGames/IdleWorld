@@ -1,0 +1,40 @@
+{
+  "craftingRecipes": [
+    {
+      "id": 0,
+      "material1ID": 0,
+      "material2ID": 1,
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemID": 2,
+          "chanceToCraft": 0.8
+        },
+        {
+          "itemID": 3,
+          "chanceToCraft": 0.15
+        },
+        {
+          "itemID": 4,
+          "chanceToCraft": 0.05
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "material1ID": 0,
+      "material2ID": 1,
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemID": 2,
+          "chanceToCraft": 0.95
+        },
+        {
+          "itemID": 3,
+          "chanceToCraft": 0.05
+        }
+      ]
+    }
+  ]
+}

@@ -21,6 +21,14 @@ public class Items
     // Weapon
     public float damage;
     public float damageBoostPercentage;
+
+    // Tools
+    public float miningEfficiency;
+}
+
+public class ItemDataWrapper
+{
+    public List<Items> items;
 }
 
 public class ItemSystem : MonoBehaviour 
@@ -48,5 +56,10 @@ public class ItemSystem : MonoBehaviour
     public Sprite GetItemIcon(int id)
     {
         return ItemsCollection.Find(x => x.id == id).icon;
+    }
+
+    public void SetItemsCollection(List<Items> items)
+    {
+        ItemsCollection = items;
     }
 }
