@@ -89,7 +89,7 @@ public class SaveSystem : MonoBehaviour
             // Load current biome
             if (gameData.currentBiome != null)
             {
-                BiomeSystem.Instance.CurrentBiome = gameData.currentBiome;
+                BiomeSystem.Instance.SetCurrentBiome(gameData.currentBiome);
             }
             
             // Load weapon

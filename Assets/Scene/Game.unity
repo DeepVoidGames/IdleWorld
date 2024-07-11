@@ -1996,7 +1996,7 @@ MonoBehaviour:
       BaseHealth: 200
       Prefab: {fileID: 4939725676465597107, guid: 9d4082e6bd214d24b8bb867353edb3dd, type: 3}
   - Name: Desert
-    background: {fileID: 21300000, guid: edc332ece7e05174bbcdbfa0e7343b06, type: 3}
+    background: {fileID: 21300000, guid: 6e0b4b59092095042814bc0ee9656606, type: 3}
     Monsters:
     - Name: BloodshotEye
       BaseHealth: 30

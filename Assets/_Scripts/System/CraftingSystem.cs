@@ -101,6 +101,10 @@ public class CraftingSystem : MonoBehaviour
     public void SetCraftingType(int type)
     {
         currentCraftingType = (CraftingType)type;
+        if (currentCraftingType == CraftingType.None)
+        {
+            CraftSlot.Clear();
+        }
         UpdateUI();
     }
 
@@ -146,12 +150,11 @@ public class CraftingSystem : MonoBehaviour
 
     public void Craft()
     {
-        craftButton.interactable = false;
-        isCrafting = true;
         if (CraftSlot.Count < 2) return;
         if (currentCraftingType == CraftingType.None) return;
         if (CraftingRecipes.Count == 0) return;
-
+        craftButton.interactable = false;
+        isCrafting = true;
         for (int i = 0; i < CraftingRecipes.Count; i++)
         {
             if (CraftingRecipes[i].craftingType != currentCraftingType) continue;
