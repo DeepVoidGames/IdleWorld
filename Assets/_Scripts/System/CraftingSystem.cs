@@ -198,7 +198,6 @@ public class CraftingSystem : MonoBehaviour
     {
         return CraftingRecipes.Find(x => x.id == id);
     }
-
     private void Start()
     {
         UpdateUI();
