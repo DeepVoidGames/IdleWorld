@@ -48,7 +48,6 @@ public class MonsterSystem : MonoBehaviour
     {
         LevelSystem.Instance.NextStage();
         MonsterDrop();
-        SaveSystem.Instance.Save();
     }
 
     private void MonsterDrop()

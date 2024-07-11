@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance { get; private set; }
     private string saveFilePath;
+
+    private float _timer = 0f;
 
     private void Awake()
     {
@@ -25,7 +28,8 @@ public class SaveSystem : MonoBehaviour
     }
 
     private void Start()
-    {
+    {   
+        PlayerPrefs.DeleteAll();
         LoadGameContent();
         Load();
         // After loading the game
@@ -48,24 +52,25 @@ public class SaveSystem : MonoBehaviour
             weaponData = DamageSystem.Instance.GetWeapon(),
             isWeaponEquippedData = DamageSystem.Instance.IsWeaponEquipped,
             weaponButtonData = InventorySystem.Instance.equipedWeaponButton,
-            // Inventory System
-            inventoryData = InventorySystem.Instance.inventory,
             // Mining System
             miningLevelData = MiningSystem.Instance.MiningLevel,
             miningEfficiencyData = MiningSystem.Instance.MiningEfficiency,
-            miningExperienceData = MiningSystem.Instance.MiningExperience,
-            // Tools
-            toolData = MiningSystem.Instance.GetTool(),
-            isToolEquippedData = MiningSystem.Instance.IsToolEquipped,
-            toolButtonData = InventorySystem.Instance.equipedToolButton
+            miningExperienceData = MiningSystem.Instance.MiningExperience
         };
 
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(saveFilePath, json);
+
+        InventoryData inventoryData = new InventoryData
+        {
+            inventoryData = InventorySystem.Instance.inventory
+        };
+        json = JsonUtility.ToJson(inventoryData, true);
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, "inventory.json"), json);
         // Debug.Log("Game saved to " + saveFilePath);
     }
 
-    public void Load()
+     public void Load()
     {
         if (File.Exists(saveFilePath))
         {
@@ -93,7 +98,7 @@ public class SaveSystem : MonoBehaviour
             // Load current biome
             if (gameData.currentBiome != null)
             {
-                BiomeSystem.Instance.SetCurrentBiome(gameData.currentBiome);
+                BiomeSystem.Instance.CurrentBiome = gameData.currentBiome;
             }
             
             // Load weapon
@@ -110,31 +115,6 @@ public class SaveSystem : MonoBehaviour
             if (gameData.weaponButtonData != null)
             {
                 InventorySystem.Instance.equipedWeaponButton = gameData.weaponButtonData;
-            }
-
-            // Load inventory
-            if (gameData.inventoryData != null)
-            {
-                // Fix item if change in the future
-                foreach (InventorySlot slot in gameData.inventoryData.inventory)
-                {
-                    Items item = ItemSystem.Instance.ItemsCollection.Find(x => x.id == slot.item.id);
-                    if (item == null)
-                    {
-                        Debug.LogWarning("Item not found: " + slot.item.id);
-                        continue;
-                    }
-                    slot.item.Name = item.Name;
-                    slot.item.id = item.id;
-                    slot.item.icon = item.icon;
-                    slot.item.category = item.category;
-                    slot.item.rarity = item.rarity;
-
-                    // Weapon
-                    slot.item.damage = item.damage;
-                    slot.item.damageBoostPercentage = item.damageBoostPercentage;
-                }
-                InventorySystem.Instance.inventory = gameData.inventoryData;
             }
 
             // Load mining level
@@ -155,26 +135,44 @@ public class SaveSystem : MonoBehaviour
                 MiningSystem.Instance.SetMiningExperience(gameData.miningExperienceData);
             }
 
-            if (gameData.toolData != null)
-            {
-                MiningSystem.Instance.EquipTool(gameData.toolData);
-            }
-
-            if (gameData.isToolEquippedData)
-            {
-                MiningSystem.Instance.IsToolEquipped = gameData.isToolEquippedData;
-            }   
-
-            if (gameData.toolButtonData != null)
-            {
-                InventorySystem.Instance.equipedToolButton = gameData.toolButtonData;
-            }
-
             Debug.Log("Game loaded from " + saveFilePath);
         }
         else
         {
             Debug.LogWarning("Save file not found: " + saveFilePath);
+        }
+
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "inventory.json")))
+        {   
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "inventory.json"));
+            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(json);
+            if (inventoryData.inventoryData != null)
+            {
+                foreach (InventorySlot slot in inventoryData.inventoryData.inventory)
+                {
+                    Items item = ItemSystem.Instance.ItemsCollection.Find(x => x.id == slot.item.id);
+                    if (item == null)
+                    {
+                        Debug.LogWarning("Item not found: " + slot.item.id);
+                        continue;
+                    }
+                    slot.item.Name = item.Name;
+                    slot.item.id = item.id;
+                    slot.item.icon = item.icon;
+                    slot.item.category = item.category;
+                    slot.item.rarity = item.rarity;
+
+                    // Weapon
+                    slot.item.damage = item.damage;
+                    slot.item.damageBoostPercentage = item.damageBoostPercentage;
+                }
+                InventorySystem.Instance.inventory = inventoryData.inventoryData;
+            }
+
+        }
+        else
+        {
+            Debug.LogWarning("Inventory file not found: " + Path.Combine(Application.persistentDataPath, "inventory.json"));
         }
     
     }
@@ -193,6 +191,19 @@ public class SaveSystem : MonoBehaviour
         List<CraftingRecipe> craftingRecipes = craftingRecipesWrapper.craftingRecipes;
         CraftingSystem.Instance.SetCraftingRecipes(craftingRecipes);
     }
+
+    private void FixedUpdate() {
+        _timer += Time.fixedDeltaTime;
+        if (_timer >= 5f)
+        {
+            Save();
+            _timer = 0f;
+        }
+    }
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
 }
 
 [System.Serializable]
@@ -208,14 +219,14 @@ public class GameData
     public Items weaponData;
     public bool isWeaponEquippedData;
     public UnityEngine.UI.Button weaponButtonData;
-    // Inventory System
-    public Inventory inventoryData;
     // Mining System
     public float miningLevelData;
     public float miningEfficiencyData;
     public float miningExperienceData;
+}
 
-    public Items toolData;
-    public bool isToolEquippedData;
-    public UnityEngine.UI.Button toolButtonData;
+[System.Serializable]
+public class InventoryData
+{
+    public Inventory inventoryData;
 }

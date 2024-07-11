@@ -178,7 +178,7 @@ public class CraftingSystem : MonoBehaviour
                 }
                 InventorySystem.Instance.AddItem(CraftingRecipes[i].itemsToCraft[0].itemID, 1);
                 UpdateUI();
-                CraftedPrev.sprite = ItemSystem.Instance.GetItemIcon(CraftingRecipes[0].itemsToCraft[0].itemID);
+                CraftedPrev.sprite = ItemSystem.Instance.GetItemIcon(CraftingRecipes[i].itemsToCraft[0].itemID);
                 CraftedPrev.gameObject.SetActive(true);
                 isCrafting = false;
                 return;

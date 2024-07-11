@@ -32,7 +32,6 @@ public class GoldSystem : MonoBehaviour
     {
         Gold += amount;
         UISystem.Instance.UpdateGoldText();
-        SaveSystem.Instance.Save();
     }
 
     public void SetGold(float amount)
@@ -47,7 +46,6 @@ public class GoldSystem : MonoBehaviour
         {
             Gold -= amount;
             UISystem.Instance.UpdateGoldText();
-            SaveSystem.Instance.Save();
         }
     }
 }

@@ -107,7 +107,6 @@ public class MiningSystem : MonoBehaviour
             }
         }
         AddMiningExperience(DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth));
-        AddMiningEfficiency(DifficultySystem.Instance.GetMiningEfficiency());
         UISystem.Instance.UpdateMiningUI();
     }
 
@@ -121,18 +120,16 @@ public class MiningSystem : MonoBehaviour
             UISystem.Instance.UpdateMiningUI();
             AddMiningExperience(miningExperience);
         }
-        SaveSystem.Instance.Save();
     }
 
     public void AddMiningEfficiency(float value)
     {
         miningEfficiency += value;
-        SaveSystem.Instance.Save();
     }
 
     public void SetMiningEfficiency(float value)
     {
-        miningEfficiency = DifficultySystem.Instance.GetMiningEfficiency() * value;
+        miningEfficiency = DifficultySystem.Instance.GetMiningEfficiency(value);
     }
 
     public void SetMiningLevel(float value)

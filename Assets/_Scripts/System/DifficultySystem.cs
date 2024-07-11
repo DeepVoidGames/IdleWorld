@@ -26,7 +26,7 @@ public class DifficultySystem : MonoBehaviour
     // Damage
     public float GetDamage(float baseDamage)
     {
-        return (float)(baseDamage * (LevelSystem.Instance.Level * _difficultyMultiplier));
+        return (float)(baseDamage + (LevelSystem.Instance.Level * _difficultyMultiplier));
     }
 
     // Boss
@@ -72,15 +72,15 @@ public class DifficultySystem : MonoBehaviour
         return (float)(MiningSystem.Instance.MiningLevel * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 
-    public float GetMiningEfficiency()
+    public float GetMiningEfficiency(float value)
     {
         if (MiningSystem.Instance.MiningLevel < 10)
         {
-            return MiningSystem.Instance.MiningEfficiency * .1f;
+            return (value + MiningSystem.Instance.MiningEfficiency) + (MiningSystem.Instance.MiningEfficiency * .1f);
         }
         else
         {
-            return MiningSystem.Instance.MiningEfficiency * .05f;
+            return (value + MiningSystem.Instance.MiningEfficiency) + (MiningSystem.Instance.MiningEfficiency * .05f);
         }
     }
 
