@@ -57,14 +57,13 @@ public class MiningSystem : MonoBehaviour
     private float miningLevel = 1;
     private float miningExperience = 0;
     private float miningEfficiency = 1;
-    private float baseMiningEfficiency = 1;
 
     private bool isToolEquiped = false;
     private Items tool;
 
     public float MiningLevel { get { return miningLevel; } }
     public float MiningExperience { get { return miningExperience; } }
-    public float MiningEfficiency { get { return baseMiningEfficiency + miningEfficiency; } }
+    public float MiningEfficiency { get { return miningEfficiency; } }
     public bool IsToolEquipped { get { return isToolEquiped; } set { isToolEquiped = value; } }
 
     public void SpawnRock()
@@ -118,7 +117,6 @@ public class MiningSystem : MonoBehaviour
         {
             miningExperience -= DifficultySystem.Instance.GetMiningExperienceNeeded();
             miningLevel++;
-            miningEfficiency = DifficultySystem.Instance.GetBaseMiningEfficiency();
             UISystem.Instance.UpdateMiningUI();
             AddMiningExperience(miningExperience);
         }
@@ -131,7 +129,7 @@ public class MiningSystem : MonoBehaviour
 
     public void SetMiningEfficiency(float value)
     {
-        miningEfficiency = DifficultySystem.Instance.GetMiningEfficiency(value);
+        miningEfficiency = value;
     }
 
     public void SetMiningLevel(float value)
@@ -147,7 +145,7 @@ public class MiningSystem : MonoBehaviour
     public void EquipTool(Items item)
     {
         this.tool = item;
-        baseMiningEfficiency = item.miningEfficiency;
+        miningEfficiency = item.miningEfficiency;
         isToolEquiped = true;
         UISystem.Instance.UpdateMiningUI();
     }

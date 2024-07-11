@@ -110,6 +110,7 @@ public class CraftingSystem : MonoBehaviour
 
     public void SetCraftSlot(int id)
     {
+        if (currentCraftingType == CraftingType.None) return;
         if(CraftSlot.Count == 0)
         {
             CraftSlot.Add(ItemSystem.Instance.ItemsCollection.Find(x => x.id == id));
