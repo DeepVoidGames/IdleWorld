@@ -38,6 +38,7 @@ public class SaveSystem : MonoBehaviour
 
     public void Save()
     {
+        // Save game data
         GameData gameData = new GameData
         {
             // Gold System
@@ -59,10 +60,10 @@ public class SaveSystem : MonoBehaviour
             isToolEquippedData = MiningSystem.Instance.IsToolEquipped,
             toolButtonData = InventorySystem.Instance.equipedToolButton
         };
-
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(saveFilePath, json);
 
+        // Save inventory data
         InventoryData inventoryData = new InventoryData
         {
             inventoryData = InventorySystem.Instance.inventory
@@ -73,7 +74,8 @@ public class SaveSystem : MonoBehaviour
     }
 
      public void Load()
-    {
+    {   
+        // Load game data
         if (File.Exists(saveFilePath))
         {
             string json = File.ReadAllText(saveFilePath);
@@ -159,6 +161,7 @@ public class SaveSystem : MonoBehaviour
             Debug.LogWarning("Save file not found: " + saveFilePath);
         }
 
+        // Load inventory data
         if (File.Exists(Path.Combine(Application.persistentDataPath, "inventory.json")))
         {   
             string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "inventory.json"));
