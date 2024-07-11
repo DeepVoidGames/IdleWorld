@@ -63,7 +63,7 @@ public class MiningSystem : MonoBehaviour
 
     public float MiningLevel { get { return miningLevel; } }
     public float MiningExperience { get { return miningExperience; } }
-    public float MiningEfficiency { get { return miningEfficiency; } }
+    public float MiningEfficiency { get { return DifficultySystem.Instance.GetBaseMiningEfficiency(); } }
     public bool IsToolEquipped { get { return isToolEquiped; } set { isToolEquiped = value; } }
 
     public void SpawnRock()

@@ -72,6 +72,11 @@ public class DifficultySystem : MonoBehaviour
         return (float)(MiningSystem.Instance.MiningLevel * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 
+    public float GetBaseMiningEfficiency()
+    {
+        return (float)(MiningSystem.Instance.MiningEfficiency + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier));
+    }
+
     public float GetMiningEfficiency(float value)
     {
         if (MiningSystem.Instance.MiningLevel < 10)
