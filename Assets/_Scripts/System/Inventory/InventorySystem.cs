@@ -46,6 +46,7 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] private GameObject categoryUI;
     [SerializeField] private Category currentCategory;
     public Button equipedWeaponButton;
+    public Button equipedToolButton;
 
     public enum Category
     {
@@ -165,7 +166,7 @@ public class InventorySystem : MonoBehaviour
                 // If the category is Weapon
                 if (slot.item.category == Category.Weapon)
                 {
-                    go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", slot.item.damage, slot.item.damageBoostPercentage);
+                    go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", UISystem.Instance.NumberFormat(slot.item.damage), UISystem.Instance.NumberFormat((slot.item.damageBoostPercentage)));
                     go.transform.Find("Equip").gameObject.SetActive(true);
                     Button button = go.transform.Find("Equip").GetComponent<Button>();
 
@@ -192,6 +193,35 @@ public class InventorySystem : MonoBehaviour
                     button.onClick = onClick;
                 }                
 
+
+                if (slot.item.category == Category.Tools)
+                {
+                    go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Mining Efficiency: {0}", UISystem.Instance.NumberFormat(slot.item.miningEfficiency));
+                    go.transform.Find("Equip").gameObject.SetActive(true);
+                    Button button = go.transform.Find("Equip").GetComponent<Button>();
+
+                    if (MiningSystem.Instance.GetTool() != null && MiningSystem.Instance.GetTool().id == slot.item.id)
+                    {
+                        button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
+                        equipedToolButton = button;
+                    }
+                    else
+                    {
+                        button.transform.Find("Text").GetComponent<Text>().text = "Equip";
+                    }
+
+                    var onClick = new Button.ButtonClickedEvent();
+                    onClick.AddListener(() => {
+                        MiningSystem.Instance.EquipTool(slot.item);
+                        button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
+                        if (equipedToolButton != null && equipedToolButton != button)
+                        {
+                            equipedToolButton.transform.Find("Text").GetComponent<Text>().text = "Equip";
+                        }
+                        equipedToolButton = button;
+                    });
+                    button.onClick = onClick;
+                }
                 pos.y -= 100;
             }
         }
