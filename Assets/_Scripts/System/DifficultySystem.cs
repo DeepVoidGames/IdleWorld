@@ -54,7 +54,7 @@ public class DifficultySystem : MonoBehaviour
     //  Mining
     public float GetRockHealth(float baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(MiningSystem.Instance.MiningEfficiency, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
+        return (float)(baseHealth * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningEfficiency * _difficultyMultiplier);
     }
 
     public float GetRockDrop(float maxHealth, float minDrop)
