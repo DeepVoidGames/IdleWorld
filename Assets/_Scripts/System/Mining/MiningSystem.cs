@@ -147,6 +147,7 @@ public class MiningSystem : MonoBehaviour
         isToolEquiped = true;
         tool = item;
         SetMiningEfficiency(item.miningEfficiency);
+        UISystem.Instance.UpdateMiningUI();
     }
 
     public Items GetTool()
