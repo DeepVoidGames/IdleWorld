@@ -60,6 +60,15 @@ public class ItemSystem : MonoBehaviour
 
     public void SetItemsCollection(List<Items> items)
     {
-        ItemsCollection = items;
+        foreach (Items item in items)
+        {
+            if (item.category == InventorySystem.Category.Material)
+                item.icon = Resources.Load<Sprite>("Icons/Materials/" + item.Name);
+            else if (item.category == InventorySystem.Category.Weapon)
+                item.icon = Resources.Load<Sprite>("Icons/Weapons/" + item.Name);
+            else if (item.category == InventorySystem.Category.Tools)
+                item.icon = Resources.Load<Sprite>("Icons/Tools/" + item.Name);
+            ItemsCollection.Add(item);
+        }
     }
 }

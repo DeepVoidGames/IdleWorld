@@ -5,9 +5,7 @@
       "id": 0,
       "category": 1,
       "rarity": 0,
-      "icon": {
-        "instanceID": 28956
-      },
+      "icon": {},
       "damage": 0.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0.0

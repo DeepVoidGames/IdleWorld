@@ -29,7 +29,6 @@ public class SaveSystem : MonoBehaviour
 
     private void Start()
     {   
-        PlayerPrefs.DeleteAll();
         LoadGameContent();
         Load();
         // After loading the game
