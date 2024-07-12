@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class BossObject : MonoBehaviour 
 {
     [SerializeField] private string bossName;
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
+    [SerializeField] private double health;
+    [SerializeField] private double maxHealth;
     [SerializeField] private float _timer = 0f;
 
     [Header("UI Elements")]
@@ -14,8 +14,8 @@ public class BossObject : MonoBehaviour
     [SerializeField] private Text timerText;
 
     public string BossName { get => bossName; set => bossName = value;}
-    public float Health { get => health; set => health = value;}
-    public float MaxHealth { get => maxHealth; set => maxHealth = value;}
+    public double Health { get => health; set => health = value;}
+    public double MaxHealth { get => maxHealth; set => maxHealth = value;}
 
     public void SetBoss(Boss boss)
     {
@@ -27,12 +27,12 @@ public class BossObject : MonoBehaviour
 
     public void UpdateHealthUI()
     {
-        healthSlider.value = health;
-        healthSlider.maxValue = maxHealth;
+        healthSlider.value = (float)health;
+        healthSlider.maxValue = (float)maxHealth;
         healthText.text = UISystem.Instance.NumberFormat(health) + " / " + UISystem.Instance.NumberFormat(maxHealth);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(double damage)
     {
         health -= damage;
         if (health <= 0)

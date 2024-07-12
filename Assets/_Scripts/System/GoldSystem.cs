@@ -22,7 +22,7 @@ public class GoldSystem : MonoBehaviour
 
     [SerializeField] private double gold;
 
-    public float Gold
+    public double Gold
     {
         get => gold;
         private set => gold = value;

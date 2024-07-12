@@ -26,13 +26,13 @@ public class DifficultySystem : MonoBehaviour
     // Damage
     public double GetDamage(double baseDamage)
     {
-        return (float)(baseDamage + (LevelSystem.Instance.Level * _difficultyMultiplier));
+        return baseDamage + (LevelSystem.Instance.Level * _difficultyMultiplier);
     }
 
     // Boss
     public double GetBossHealth(double baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier));
+        return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
     }
 
     public double GetBossDrop(double health)
@@ -43,7 +43,7 @@ public class DifficultySystem : MonoBehaviour
     // Monster
     public double GetMonsterHealth(double baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2));
+        return baseHealth + baseHealth * LevelSystem.Instance.Level/2 + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
     }
 
     public double GetMonsterDrop(double maxHealth)
@@ -54,7 +54,7 @@ public class DifficultySystem : MonoBehaviour
     //  Mining
     public double GetRockHealth(double baseHealth)
     {
-        return (baseHealth * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningEfficiency * _difficultyMultiplier);
+        return baseHealth + baseHealth * MiningSystem.Instance.MiningLevel/2  + (MiningSystem.Instance.MiningEfficiency * _difficultyMultiplier);
     }
 
     public double GetRockDrop(double maxHealth, double minDrop)
@@ -64,11 +64,11 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetMiningExperience(double maxHealth)
     {
-        return (maxHealth  + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier));
+        return maxHealth  + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 
     public double GetMiningExperienceNeeded()
     {
-        return (10f * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
+        return 10f + Math.Pow(MiningSystem.Instance.MiningLevel, 2) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 }

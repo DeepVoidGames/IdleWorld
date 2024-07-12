@@ -4,16 +4,16 @@ using UnityEngine.UI;
 public class MonsterObject : MonoBehaviour
 {
     [SerializeField] private string monsterName;
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
+    [SerializeField] private double health;
+    [SerializeField] private double maxHealth;
 
     [Header("UI Elements")]
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Text healthText;
 
     public string MonsterName { get => monsterName; set => monsterName = value;}
-    public float Health { get => health; set => health = value;}
-    public float MaxHealth { get => maxHealth; set => maxHealth = value;}
+    public double Health { get => health; set => health = value;}
+    public double MaxHealth { get => maxHealth; set => maxHealth = value;}
 
     public void SetMonster(Monster monster)
     {
@@ -25,12 +25,12 @@ public class MonsterObject : MonoBehaviour
 
     public void UpdateHealthUI()
     {
-        healthSlider.value = health;
-        healthSlider.maxValue = maxHealth;
+        healthSlider.value = (float)health;
+        healthSlider.maxValue = (float)maxHealth;
         healthText.text = UISystem.Instance.NumberFormat(health) + " / " + UISystem.Instance.NumberFormat(maxHealth);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(double damage)
     {
         health -= damage;
         if (health <= 0)

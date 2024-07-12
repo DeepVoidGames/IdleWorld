@@ -2000,16 +2000,16 @@ MonoBehaviour:
     background: {fileID: 21300000, guid: 6e0b4b59092095042814bc0ee9656606, type: 3}
     Monsters:
     - Name: BloodshotEye
-      BaseHealth: 30
+      BaseHealth: 100
       Prefab: {fileID: 1994325163910846046, guid: 0f0fb9545a56ef3459b0438cf7521ab2, type: 3}
     - Name: BrawnyOgre
-      BaseHealth: 50
+      BaseHealth: 150
       Prefab: {fileID: 3065844526631316754, guid: bae3d9e4ac08cb14cb7b55ca12a2c42d, type: 3}
     - Name: ClawingHarpy
-      BaseHealth: 35
+      BaseHealth: 135
       Prefab: {fileID: 7003062925308794975, guid: bc5266ae6f88aea4487a829fe7644b6d, type: 3}
     - Name: CrushingCyclops
-      BaseHealth: 40
+      BaseHealth: 160
       Prefab: {fileID: 2996499551396990257, guid: 68b144eef0ae6bf40a7a65f212ac5653, type: 3}
     Bosses:
     - Name: HumongousEttin
@@ -4539,6 +4539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1390749555}
+  - component: {fileID: 1390749556}
   m_Layer: 0
   m_Name: _SaveSystem
   m_TagString: Untagged
@@ -4561,6 +4562,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1457714205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1390749556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390749554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff13eddaa1cc26348825437b8d5ab96e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1404510020
 GameObject:
   m_ObjectHideFlags: 0
