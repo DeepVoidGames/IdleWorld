@@ -119,8 +119,18 @@ public class MiningSystem : MonoBehaviour
         {
             miningExperience -= DifficultySystem.Instance.GetMiningExperienceNeeded();
             miningLevel++;
+            OverflowMiningExperience();
             UISystem.Instance.UpdateMiningUI();
-            AddMiningExperience(miningExperience);
+        }
+    }
+
+    private void OverflowMiningExperience()
+    {
+        if (miningExperience >= DifficultySystem.Instance.GetMiningExperienceNeeded())
+        {
+            miningExperience -= DifficultySystem.Instance.GetMiningExperienceNeeded();
+            miningLevel++;
+            UISystem.Instance.UpdateMiningUI();
         }
     }
 
