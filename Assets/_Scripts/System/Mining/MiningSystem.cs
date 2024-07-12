@@ -106,6 +106,8 @@ public class MiningSystem : MonoBehaviour
                 InventorySystem.Instance.AddItem(drop.ID, DifficultySystem.Instance.GetRockDrop(rockObject.MaxHealth, drop.min));
             }
         }
+        Destroy(rockObject.gameObject);
+        currentRock = null;
         AddMiningExperience(DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth));
         UISystem.Instance.UpdateMiningUI();
     }

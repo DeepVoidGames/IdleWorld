@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-    public static SaveSystem Instance { get; private set; }
+    private static SaveSystem _instance;
+    public static SaveSystem Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<SaveSystem>();
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject("SaveSystem");
+                    _instance = go.AddComponent<SaveSystem>();
+                }
+            }
+            return _instance;
+        }
+    }
     private string saveFilePath;
 
     private float _timer = 0f;
 
     private void Awake()
     {
-         if (Instance == null)
-        {
-            Instance = this;
-            if (transform.parent == null)
-            {
-                DontDestroyOnLoad(gameObject);
-            }
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         saveFilePath = Path.Combine(Application.persistentDataPath, "save.json");
     }
 
