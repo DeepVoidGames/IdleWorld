@@ -5264,7 +5264,7 @@ MonoBehaviour:
       min: 1
       max: 3
   - Name: Ruby
-    baseHealth: 10
+    baseHealth: 15
     chance: 0.6
     prefab: {fileID: 5607409309898991287, guid: adccf462e08ba67449398feb4d976945, type: 3}
     drops:
@@ -5273,7 +5273,7 @@ MonoBehaviour:
       min: 1
       max: 3
   - Name: Amethyst
-    baseHealth: 15
+    baseHealth: 25
     chance: 0.6
     prefab: {fileID: 4411132589649900554, guid: 69c2ab5bdaeffca4d8385bc8e888e42f, type: 3}
     drops:
@@ -5282,7 +5282,7 @@ MonoBehaviour:
       min: 1
       max: 3
   - Name: Aquamarine
-    baseHealth: 20
+    baseHealth: 30
     chance: 0.6
     prefab: {fileID: 6626628965145914438, guid: 99f1ebe666a97204e8da84b1b6cb3646, type: 3}
     drops:
@@ -5291,7 +5291,7 @@ MonoBehaviour:
       min: 1
       max: 3
   - Name: Calcite
-    baseHealth: 25
+    baseHealth: 100
     chance: 0.6
     prefab: {fileID: 2386578924389896145, guid: 74a603fa8cff7374c87ffb77c28ba44e, type: 3}
     drops:
@@ -5300,7 +5300,7 @@ MonoBehaviour:
       min: 1
       max: 3
   - Name: Opal
-    baseHealth: 50
+    baseHealth: 120
     chance: 0.2
     prefab: {fileID: 6492324776117222782, guid: 19bf07391627b424fa306fa98af3d544, type: 3}
     drops:
@@ -5309,7 +5309,7 @@ MonoBehaviour:
       min: 1
       max: 3
   - Name: Red Diamond
-    baseHealth: 100
+    baseHealth: 250
     chance: 0.05
     prefab: {fileID: 6583696742376370432, guid: d761ec79059fed943b9725244a4de9e4, type: 3}
     drops:
@@ -5318,7 +5318,7 @@ MonoBehaviour:
       min: 1
       max: 3
   - Name: Sapphire
-    baseHealth: 55
+    baseHealth: 260
     chance: 0.05
     prefab: {fileID: 4022431625833590928, guid: 112013a11d615c840b5391e24a50f1d8, type: 3}
     drops:
