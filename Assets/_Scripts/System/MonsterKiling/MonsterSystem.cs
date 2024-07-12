@@ -6,9 +6,9 @@ using UnityEngine;
 public class Monster
 {
     public string Name;
-    public float BaseHealth;
+    public double BaseHealth;
 
-    public float Health
+    public double Health
     {
         get
         {

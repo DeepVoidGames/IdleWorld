@@ -20,7 +20,7 @@ public class GoldSystem : MonoBehaviour
         }
     }
 
-    [SerializeField] private float gold;
+    [SerializeField] private double gold;
 
     public float Gold
     {
@@ -28,19 +28,19 @@ public class GoldSystem : MonoBehaviour
         private set => gold = value;
     }
 
-    public void AddGold(float amount)
+    public void AddGold(double amount)
     {
         Gold += amount;
         UISystem.Instance.UpdateGoldText();
     }
 
-    public void SetGold(float amount)
+    public void SetGold(double amount)
     {
         Gold = amount;
         UISystem.Instance.UpdateGoldText();
     }
 
-    public void SpendGold(float amount)
+    public void SpendGold(double amount)
     {
         if (Gold >= amount)
         {

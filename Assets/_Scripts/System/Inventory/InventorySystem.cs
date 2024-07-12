@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class InventorySlot
 {
     public Items item;
-    public float quantity;
+    public double quantity;
 }
 
 [System.Serializable]
@@ -56,7 +56,7 @@ public class InventorySystem : MonoBehaviour
         Tools,
     }
 
-    public void AddItem(int id, float quantity)
+    public void AddItem(int id, double quantity)
     {
         InventorySlot slot = inventory.inventory.Find(x => x.item.id == id);
         if (slot == null)
@@ -84,7 +84,7 @@ public class InventorySystem : MonoBehaviour
         UpdateUI();
     }
 
-    public float GetQuantity(int id)
+    public double GetQuantity(int id)
     {
         InventorySlot slot = inventory.inventory.Find(x => x.item.id == id);
         if (slot != null)

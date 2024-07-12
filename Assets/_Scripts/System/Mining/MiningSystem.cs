@@ -7,11 +7,11 @@ using UnityEngine;
 public class Rocks
 {
     public string Name;
-    public float baseHealth;
+    public double baseHealth;
     public float chance;
     public GameObject prefab;
     public List<Drop> drops;
-    public float Health
+    public double Health
     {
         get
         {
@@ -54,16 +54,16 @@ public class MiningSystem : MonoBehaviour
     public GameObject rockParent;
     private GameObject currentRock;
 
-    private float miningLevel = 1;
-    private float miningExperience = 0;
-    private float miningEfficiency = 1;
+    private double miningLevel = 1;
+    private double miningExperience = 0;
+    private double miningEfficiency = 1;
 
     private bool isToolEquiped = false;
     private Items tool;
 
-    public float MiningLevel { get { return miningLevel; } }
-    public float MiningExperience { get { return miningExperience; } }
-    public float MiningEfficiency { get { return miningEfficiency; } }
+    public double MiningLevel { get { return miningLevel; } }
+    public double MiningExperience { get { return miningExperience; } }
+    public double MiningEfficiency { get { return miningEfficiency; } }
     public bool IsToolEquipped { get { return isToolEquiped; } set { isToolEquiped = value; } }
 
     public void SpawnRock()
@@ -112,7 +112,7 @@ public class MiningSystem : MonoBehaviour
         UISystem.Instance.UpdateMiningUI();
     }
 
-    public void AddMiningExperience(float value)
+    public void AddMiningExperience(double value)
     {
         miningExperience += value;
         if (miningExperience >= DifficultySystem.Instance.GetMiningExperienceNeeded())
@@ -124,22 +124,22 @@ public class MiningSystem : MonoBehaviour
         }
     }
 
-    public void AddMiningEfficiency(float value)
+    public void AddMiningEfficiency(double value)
     {
         miningEfficiency += value;
     }
 
-    public void SetMiningEfficiency(float value)
+    public void SetMiningEfficiency(double value)
     {
         miningEfficiency = value;
     }
 
-    public void SetMiningLevel(float value)
+    public void SetMiningLevel(double value)
     {
         miningLevel = value;
     }
 
-    public void SetMiningExperience(float value)
+    public void SetMiningExperience(double value)
     {
         miningExperience = value;
     }

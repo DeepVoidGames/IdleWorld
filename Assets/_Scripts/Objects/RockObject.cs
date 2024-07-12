@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class RockObject : MonoBehaviour
 {
     public List<Drop> drops;
-    private float health;
-    private float maxHealth;
+    private double health;
+    private double maxHealth;
 
     [SerializeField] private Text healthText;
 
-    public float Health { get => health; set => health = value; }
-    public float MaxHealth { get => maxHealth; set => maxHealth = value; }
-    public void Damage(float damage)
+    public double Health { get => health; set => health = value; }
+    public double MaxHealth { get => maxHealth; set => maxHealth = value; }
+    public void Damage(double damage)
     {
         health -= damage;
         if (health <= 0)

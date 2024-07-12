@@ -21,13 +21,13 @@ public class DamageSystem : MonoBehaviour
         }
     }
 
-    [SerializeField] private float damage;
+    [SerializeField] private double damage;
 
     [SerializeField] private bool isWeaponEquipped;
 
     private Items weapon;
 
-    public float Damage
+    public double Damage
     {
         get => DifficultySystem.Instance.GetDamage(damage);
         set => damage = value;

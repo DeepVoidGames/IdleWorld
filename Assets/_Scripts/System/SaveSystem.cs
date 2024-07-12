@@ -234,7 +234,7 @@ public class SaveSystem : MonoBehaviour
 public class GameData
 {
     // Gold System
-    public float goldData;
+    public double goldData;
     // Monster Kiling System
     public int levelData;
     public int stageData;
@@ -244,9 +244,9 @@ public class GameData
     public bool isWeaponEquippedData;
     public UnityEngine.UI.Button weaponButtonData;
     // Mining System
-    public float miningLevelData;
-    public float miningEfficiencyData;
-    public float miningExperienceData;
+    public double miningLevelData;
+    public double miningEfficiencyData;
+    public double miningExperienceData;
     public Items toolData;
     public bool isToolEquippedData;
     public UnityEngine.UI.Button toolButtonData;

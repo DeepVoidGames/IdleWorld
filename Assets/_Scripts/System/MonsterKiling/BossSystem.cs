@@ -5,9 +5,9 @@ using UnityEngine;
 public class Boss
 {
     public string Name;
-    public float BaseHealth;
+    public double BaseHealth;
 
-    public float Health
+    public double Health
     {
         get
         {

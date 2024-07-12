@@ -24,51 +24,51 @@ public class DifficultySystem : MonoBehaviour
     [SerializeField] private float _difficultyMultiplier = 1.2f;
 
     // Damage
-    public float GetDamage(float baseDamage)
+    public double GetDamage(double baseDamage)
     {
         return (float)(baseDamage + (LevelSystem.Instance.Level * _difficultyMultiplier));
     }
 
     // Boss
-    public float GetBossHealth(float baseHealth)
+    public double GetBossHealth(double baseHealth)
     {
         return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier));
     }
 
-    public float GetBossDrop(float health)
+    public double GetBossDrop(double health)
     {
         return health + (health * _difficultyMultiplier);
     }
 
     // Monster
-    public float GetMonsterHealth(float baseHealth)
+    public double GetMonsterHealth(double baseHealth)
     {
         return (float)(baseHealth * Math.Pow(LevelSystem.Instance.Level, 2));
     }
 
-    public float GetMonsterDrop(float maxHealth)
+    public double GetMonsterDrop(double maxHealth)
     {
         return maxHealth + (maxHealth * _difficultyMultiplier);
     }
 
     //  Mining
-    public float GetRockHealth(float baseHealth)
+    public double GetRockHealth(double baseHealth)
     {
-        return (float)(baseHealth * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningEfficiency * _difficultyMultiplier);
+        return (baseHealth * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningEfficiency * _difficultyMultiplier);
     }
 
-    public float GetRockDrop(float maxHealth, float minDrop)
+    public double GetRockDrop(double maxHealth, double minDrop)
     {
-        return UnityEngine.Random.Range(minDrop, maxHealth);
+        return UnityEngine.Random.Range((float)minDrop, (float)maxHealth);
     }
 
-    public float GetMiningExperience(float maxHealth)
+    public double GetMiningExperience(double maxHealth)
     {
-        return (float)(maxHealth  + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier));
+        return (maxHealth  + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier));
     }
 
-    public float GetMiningExperienceNeeded()
+    public double GetMiningExperienceNeeded()
     {
-        return (float)(10f * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
+        return (10f * Math.Pow(MiningSystem.Instance.MiningLevel, 2)) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
     }
 }
