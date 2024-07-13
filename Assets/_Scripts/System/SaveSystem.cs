@@ -106,7 +106,7 @@ public class SaveSystem : MonoBehaviour
             // Load current biome
             if (gameData.currentBiome != null)
             {
-                BiomeSystem.Instance.CurrentBiome = gameData.currentBiome;
+                BiomeSystem.Instance.SetCurrentBiome(gameData.currentBiome);
             }
             
             // Load weapon
@@ -215,7 +215,7 @@ public class SaveSystem : MonoBehaviour
         List<CraftingRecipe> craftingRecipes = craftingRecipesWrapper.craftingRecipes;
         CraftingSystem.Instance.SetCraftingRecipes(craftingRecipes);
     }
-
+    
     private void FixedUpdate() {
         _timer += Time.fixedDeltaTime;
         if (_timer >= 5f)
@@ -224,6 +224,7 @@ public class SaveSystem : MonoBehaviour
             _timer = 0f;
         }
     }
+    
     private void OnApplicationQuit()
     {
         Save();
