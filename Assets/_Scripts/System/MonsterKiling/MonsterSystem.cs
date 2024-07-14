@@ -109,6 +109,11 @@ public class MonsterSystem : MonoBehaviour
     private IEnumerator SpawnMonsterCoroutine(int index)
     {
         Monster monster = BiomeSystem.Instance.Bioms.Find(x => x.Name == BiomeSystem.Instance.CurrentBiome).Monsters[index];
+        if (monster.Prefab == null)
+        {
+            Debug.LogError("Monster prefab not found: " + monster.Name);
+            yield break;
+        }
         GameObject go = Instantiate(monster.Prefab, Vector3.zero, Quaternion.identity);
         go.transform.SetParent(monsterSpawnParent.transform);
         MonsterObject monsterObject = go.GetComponent<MonsterObject>();

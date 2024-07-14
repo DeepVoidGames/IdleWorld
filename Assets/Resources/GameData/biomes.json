@@ -2,181 +2,133 @@
   "biomes": [
     {
       "Name": "Forest",
-      "background": {
-        "instanceID": 29030
-      },
+      "background": {},
       "Monsters": [
         {
           "Name": "AcidOoze",
           "BaseHealth": 10.0,
-          "Prefab": {
-            "instanceID": 29038
-          }
+          "Prefab": {}
         },
         {
           "Name": "DeathSlime",
           "BaseHealth": 20.0,
-          "Prefab": {
-            "instanceID": 29040
-          }
+          "Prefab": {}
         },
         {
           "Name": "OchreJelly",
           "BaseHealth": 30.0,
-          "Prefab": {
-            "instanceID": 29042
-          }
+          "Prefab": {}
         },
         {
           "Name": "RedCap",
           "BaseHealth": 50.0,
-          "Prefab": {
-            "instanceID": 29044
-          }
+          "Prefab": {}
         }
       ],
       "Bosses": [
         {
           "Name": "BlindedGrimlock",
           "BaseHealth": 150.0,
-          "Prefab": {
-            "instanceID": 29046
-          }
+          "Prefab": {}
         },
         {
           "Name": "ShriekerMushroom",
           "BaseHealth": 200.0,
-          "Prefab": {
-            "instanceID": 29048
-          }
+          "Prefab": {}
         }
       ]
     },
     {
       "Name": "Desert",
-      "background": {
-        "instanceID": 29050
-      },
+      "background": {},
       "Monsters": [
         {
           "Name": "BloodshotEye",
           "BaseHealth": 100.0,
-          "Prefab": {
-            "instanceID": 29052
-          }
+          "Prefab": {}
         },
         {
           "Name": "BrawnyOgre",
           "BaseHealth": 150.0,
-          "Prefab": {
-            "instanceID": 29054
-          }
+          "Prefab": {}
         },
         {
           "Name": "ClawingHarpy",
           "BaseHealth": 200.0,
-          "Prefab": {
-            "instanceID": 29056
-          }
+          "Prefab": {}
         },
         {
           "Name": "CrushingCyclops",
           "BaseHealth": 250.0,
-          "Prefab": {
-            "instanceID": 29058
-          }
+          "Prefab": {}
         }
       ],
       "Bosses": [
         {
           "Name": "HumongousEttin",
           "BaseHealth": 350.0,
-          "Prefab": {
-            "instanceID": 29060
-          }
+          "Prefab": {}
         },
         {
           "Name": "OgreMage",
           "BaseHealth": 400.0,
-          "Prefab": {
-            "instanceID": 29062
-          }
+          "Prefab": {}
         }
       ]
     },
     {
       "Name": "Swamp",
-      "background": {
-        "instanceID": 32196
-      },
+      "background": {},
       "Monsters": [
         {
           "Name": "IntellectDevourer",
           "BaseHealth": 500.0,
-          "Prefab": {
-            "instanceID": 33826
-          }
+          "Prefab": {}
         },
         {
           "Name": "OcularWatcher",
           "BaseHealth": 550.0,
-          "Prefab": {
-            "instanceID": 34888
-          }
+          "Prefab": {}
         },
         {
           "Name": "SwampTroll",
           "BaseHealth": 600.0,
-          "Prefab": {
-            "instanceID": 35788
-          }
+          "Prefab": {}
         }
       ],
       "Bosses": [
         {
           "Name": "RearingNightmare",
           "BaseHealth": 800.0,
-          "Prefab": {
-            "instanceID": 36766
-          }
+          "Prefab": {}
         }
       ]
     },
     {
       "Name": "Underwater",
-      "background": {
-        "instanceID": 32202
-      },
+      "background": {},
       "Monsters": [
         {
           "Name": "MurkySlaad",
           "BaseHealth": 1000.0,
-          "Prefab": {
-            "instanceID": 38524
-          }
+          "Prefab": {}
         },
         {
           "Name": "WerewolfStalker",
           "BaseHealth": 1100.0,
-          "Prefab": {
-            "instanceID": 40302
-          }
+          "Prefab": {}
         },
         {
           "Name": "WretchedFomorian",
           "BaseHealth": 1200.0,
-          "Prefab": {
-            "instanceID": 42076
-          }
+          "Prefab": {}
         }
       ],
       "Bosses": [
         {
           "Name": "StormGiant",
           "BaseHealth": 1600.0,
-          "Prefab": {
-            "instanceID": 44628
-          }
+          "Prefab": {}
         }
       ]
     }

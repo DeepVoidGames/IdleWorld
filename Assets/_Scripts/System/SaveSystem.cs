@@ -28,11 +28,11 @@ public class SaveSystem : MonoBehaviour
     private void Awake()
     {
         saveFilePath = Path.Combine(Application.persistentDataPath, "save.json");
+        LoadGameContent();
     }
 
     private void Start()
     {   
-        LoadGameContent();
         Load();
         // After loading the game
         UISystem.Instance.LoadUI();

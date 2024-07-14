@@ -53,6 +53,7 @@ public class BiomeSystem : MonoBehaviour
     {
         foreach (var biome in biomes)
         {
+            biome.background = Resources.Load<Sprite>($"Sprites/Biomes/{biome.Name}");
             foreach (var monster in biome.Monsters)
             {
                 monster.Prefab = Resources.Load<GameObject>($"Prefab/Monster/{biome.Name}/{monster.Name}");
@@ -62,6 +63,7 @@ public class BiomeSystem : MonoBehaviour
                 boss.Prefab = Resources.Load<GameObject>($"Prefab/Boss/{biome.Name}/{boss.Name}");
             }
         }
+        Bioms = biomes;
     }
 
     public void SetCurrentBiome(string biome)
