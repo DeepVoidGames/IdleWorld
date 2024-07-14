@@ -69,6 +69,6 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetMiningExperienceNeeded()
     {
-        return 100f + Math.Pow(MiningSystem.Instance.MiningLevel, 2) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier);
+        return (100f + Math.Pow(MiningSystem.Instance.MiningLevel, 2) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier)) * 2;
     }
 }

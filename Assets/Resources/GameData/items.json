@@ -153,6 +153,66 @@
       "damage": 0.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0.0
+    },
+    {
+      "Name": "Amethyst Pickaxe",
+      "id": 13,
+      "category": 3,
+      "rarity": 3,
+      "icon": {},
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 200.0
+    },
+    {
+      "Name": "Aquamarine Pickaxe",
+      "id": 14,
+      "category": 3,
+      "rarity": 3,
+      "icon": {},
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 250.0
+    },
+    {
+      "Name": "Calcite Pickaxe",
+      "id": 15,
+      "category": 3,
+      "rarity": 3,
+      "icon": {},
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 300.0
+    },
+    {
+      "Name": "Opal Pickaxe",
+      "id": 16,
+      "category": 3,
+      "rarity": 4,
+      "icon": {},
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 350.0
+    },
+    {
+      "Name": "Red Diamond Pickaxe",
+      "id": 17,
+      "category": 3,
+      "rarity": 4,
+      "icon": {},
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 1500.0
+    },
+    {
+      "Name": "Sapphire Pickaxe",
+      "id": 18,
+      "category": 3,
+      "rarity": 4,
+      "icon": {},
+      "damage": 0.0,
+      "damageBoostPercentage": 0.0,
+      "miningEfficiency": 450.0
     }
   ]
 }
