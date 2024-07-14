@@ -1973,51 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b09afd6e6384840b28ce28c52a5c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bioms:
-  - Name: Forest
-    background: {fileID: 21300000, guid: 7b98a2523c13cfe4595f94994841e2d5, type: 3}
-    Monsters:
-    - Name: AcidOoze
-      BaseHealth: 10
-      Prefab: {fileID: 5605625757201260949, guid: 24163695e81922d48b5f758a2fcedaa0, type: 3}
-    - Name: DeathSlime
-      BaseHealth: 15
-      Prefab: {fileID: 6116359882760422250, guid: 892cde0b03dde5a4da1f526004763c85, type: 3}
-    - Name: OchreJelly
-      BaseHealth: 20
-      Prefab: {fileID: 1635332468116575484, guid: 0d536c506f774ef4bba51c5522154acd, type: 3}
-    - Name: RedCap
-      BaseHealth: 25
-      Prefab: {fileID: 1032740135089215750, guid: 470ba87d38d3e194faa679fe9edcb916, type: 3}
-    Bosses:
-    - Name: BlindedGrimlock
-      BaseHealth: 100
-      Prefab: {fileID: 1143826163299012661, guid: 557388cd683eec84e8c04ea4ed42f662, type: 3}
-    - Name: ShriekerMushroom
-      BaseHealth: 200
-      Prefab: {fileID: 4939725676465597107, guid: 9d4082e6bd214d24b8bb867353edb3dd, type: 3}
-  - Name: Desert
-    background: {fileID: 21300000, guid: 6e0b4b59092095042814bc0ee9656606, type: 3}
-    Monsters:
-    - Name: BloodshotEye
-      BaseHealth: 100
-      Prefab: {fileID: 1994325163910846046, guid: 0f0fb9545a56ef3459b0438cf7521ab2, type: 3}
-    - Name: BrawnyOgre
-      BaseHealth: 150
-      Prefab: {fileID: 3065844526631316754, guid: bae3d9e4ac08cb14cb7b55ca12a2c42d, type: 3}
-    - Name: ClawingHarpy
-      BaseHealth: 135
-      Prefab: {fileID: 7003062925308794975, guid: bc5266ae6f88aea4487a829fe7644b6d, type: 3}
-    - Name: CrushingCyclops
-      BaseHealth: 160
-      Prefab: {fileID: 2996499551396990257, guid: 68b144eef0ae6bf40a7a65f212ac5653, type: 3}
-    Bosses:
-    - Name: HumongousEttin
-      BaseHealth: 400
-      Prefab: {fileID: 7357765323304330353, guid: f25df8c72bc2ddb45a507ec0d56eb615, type: 3}
-    - Name: OgreMage
-      BaseHealth: 300
-      Prefab: {fileID: 4823579592497624062, guid: 1b35764fa34123f44bf02329740131a7, type: 3}
+  Bioms: []
   currentBiome: Forest
   imageBackground: {fileID: 343833222}
 --- !u!1 &741072382
