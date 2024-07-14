@@ -291,4 +291,13 @@ public class LoadGameData : MonoBehaviour
         List<Biomes> biomes = biomeDataWrapper.biomes;
         BiomeSystem.Instance.SetCurrentBiomes(biomes);
     }
+
+    public void Rocks()
+    {
+        // Load rocks
+        TextAsset rocksJsonFile = Resources.Load<TextAsset>("GameData/rocks");
+        RocksDataWrapper rocksDataWrapper = JsonUtility.FromJson<RocksDataWrapper>(rocksJsonFile.text);
+        List<Rocks> rocks = rocksDataWrapper.rocks;
+        MiningSystem.Instance.SetRocks(rocks);
+    }
 }

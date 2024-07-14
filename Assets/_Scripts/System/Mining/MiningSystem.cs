@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -27,6 +28,11 @@ public class Drop
     public float chance;
     public float min;
     public float max;
+}
+
+public class RocksDataWrapper
+{
+    public List<Rocks> rocks = new List<Rocks>();
 }
 
 public class MiningSystem : MonoBehaviour
@@ -167,6 +173,15 @@ public class MiningSystem : MonoBehaviour
         return tool;
     }
 
+    public void SetRocks(List<Rocks> rocks)
+    {
+        foreach (Rocks rock in rocks)
+        {
+            rock.prefab = Resources.Load<GameObject>($"Prefabs/Rock/{rock.Name}");
+        }
+        this.rocks = rocks;
+    }
+
     private void Update() 
     {
         if(currentRock != null)
@@ -181,5 +196,9 @@ public class MiningSystem : MonoBehaviour
         {
             SpawnRock();
         }
+    }
+
+    private void Start() {
+        LoadGameData.Instance.Rocks();
     }
 }
