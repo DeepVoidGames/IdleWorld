@@ -45,7 +45,7 @@ public class LevelSystem : MonoBehaviour
     {
         level++;
         stage = 1;
-        if (level > levelToNextBiome)
+        if (level % levelToNextBiome == 0)
         {
             BiomeSystem.Instance.NextBiome();
         }

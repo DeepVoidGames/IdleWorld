@@ -28,7 +28,6 @@ public class SaveSystem : MonoBehaviour
     private void Awake()
     {
         saveFilePath = Path.Combine(Application.persistentDataPath, "save.json");
-        LoadGameContent();
     }
 
     private void Start()
@@ -201,26 +200,7 @@ public class SaveSystem : MonoBehaviour
     
     }
 
-    public void LoadGameContent()
-    {
-        // Load items
-        TextAsset itemsJsonFile = Resources.Load<TextAsset>("GameData/items");
-        ItemDataWrapper itemDataWrapper = JsonUtility.FromJson<ItemDataWrapper>(itemsJsonFile.text);
-        List<Items> items = itemDataWrapper.items;
-        ItemSystem.Instance.SetItemsCollection(items);
-
-        // Load crafting recipes
-        TextAsset craftingRecipesJsonFile = Resources.Load<TextAsset>("GameData/craftingRecipes");
-        CraftingRecipesWrapper craftingRecipesWrapper = JsonUtility.FromJson<CraftingRecipesWrapper>(craftingRecipesJsonFile.text);
-        List<CraftingRecipe> craftingRecipes = craftingRecipesWrapper.craftingRecipes;
-        CraftingSystem.Instance.SetCraftingRecipes(craftingRecipes);
-
-        // Load biomes
-        TextAsset biomesJsonFile = Resources.Load<TextAsset>("GameData/biomes");
-        BiomeDataWrapper biomeDataWrapper = JsonUtility.FromJson<BiomeDataWrapper>(biomesJsonFile.text);
-        List<Biomes> biomes = biomeDataWrapper.biomes;
-        BiomeSystem.Instance.SetCurrentBiomes(biomes);
-    }
+    
     
     private void FixedUpdate() {
         _timer += Time.fixedDeltaTime;
@@ -263,4 +243,52 @@ public class GameData
 public class InventoryData
 {
     public Inventory inventoryData;
+}
+
+public class LoadGameData : MonoBehaviour
+{
+    private static LoadGameData _instance;
+    public static LoadGameData Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<LoadGameData>();
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject("LoadGameData");
+                    _instance = go.AddComponent<LoadGameData>();
+                }
+            }
+            return _instance;
+        }
+    }
+
+    public void Items()
+    {
+        // Load items
+        TextAsset itemsJsonFile = Resources.Load<TextAsset>("GameData/items");
+        ItemDataWrapper itemDataWrapper = JsonUtility.FromJson<ItemDataWrapper>(itemsJsonFile.text);
+        List<Items> items = itemDataWrapper.items;
+        ItemSystem.Instance.SetItemsCollection(items);
+    }
+
+    public void CraftingRecipes()
+    {
+        // Load crafting recipes
+        TextAsset craftingRecipesJsonFile = Resources.Load<TextAsset>("GameData/craftingRecipes");
+        CraftingRecipesWrapper craftingRecipesWrapper = JsonUtility.FromJson<CraftingRecipesWrapper>(craftingRecipesJsonFile.text);
+        List<CraftingRecipe> craftingRecipes = craftingRecipesWrapper.craftingRecipes;
+        CraftingSystem.Instance.SetCraftingRecipes(craftingRecipes);
+    }
+
+    public void Biomes()
+    {
+        // Load biomes
+        TextAsset biomesJsonFile = Resources.Load<TextAsset>("GameData/biomes");
+        BiomeDataWrapper biomeDataWrapper = JsonUtility.FromJson<BiomeDataWrapper>(biomesJsonFile.text);
+        List<Biomes> biomes = biomeDataWrapper.biomes;
+        BiomeSystem.Instance.SetCurrentBiomes(biomes);
+    }
 }

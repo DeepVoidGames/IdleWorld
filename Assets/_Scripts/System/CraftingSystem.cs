@@ -200,6 +200,7 @@ public class CraftingSystem : MonoBehaviour
     }
     private void Start()
     {
+        LoadGameData.Instance.CraftingRecipes();
         UpdateUI();
     }
 

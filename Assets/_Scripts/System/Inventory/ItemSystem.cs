@@ -71,4 +71,8 @@ public class ItemSystem : MonoBehaviour
             ItemsCollection.Add(item);
         }
     }
+
+    private void Start() {
+        LoadGameData.Instance.Items();
+    }
 }
