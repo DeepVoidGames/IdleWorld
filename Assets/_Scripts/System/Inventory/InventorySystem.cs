@@ -138,6 +138,42 @@ public class InventorySystem : MonoBehaviour
     
         }
         
+        // Sort by rarity if the category is Material
+        if (currentCategory == Category.Material)
+        {
+            // Sort by rarity
+            for (int i = 0; i < inventory.inventory.Count; i++)
+            {
+                for (int j = i + 1; j < inventory.inventory.Count; j++)
+                {
+                    if (inventory.inventory[i].item.rarity < inventory.inventory[j].item.rarity)
+                    {
+                        InventorySlot temp = inventory.inventory[i];
+                        inventory.inventory[i] = inventory.inventory[j];
+                        inventory.inventory[j] = temp;
+                    }
+                }
+            }
+        }
+
+        // Sort by mining efficiency if the category is Tools
+        if (currentCategory == Category.Tools)
+        {
+            // Sort by mining efficiency
+            for (int i = 0; i < inventory.inventory.Count; i++)
+            {
+                for (int j = i + 1; j < inventory.inventory.Count; j++)
+                {
+                    if (inventory.inventory[i].item.miningEfficiency < inventory.inventory[j].item.miningEfficiency)
+                    {
+                        InventorySlot temp = inventory.inventory[i];
+                        inventory.inventory[i] = inventory.inventory[j];
+                        inventory.inventory[j] = temp;
+                    }
+                }
+            }
+        }
+
         // Show the inventory UI
         Vector3 pos = new Vector3(178.75f, -45.95f, 0);
         foreach (InventorySlot slot in inventory.inventory)
