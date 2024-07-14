@@ -214,6 +214,12 @@ public class SaveSystem : MonoBehaviour
         CraftingRecipesWrapper craftingRecipesWrapper = JsonUtility.FromJson<CraftingRecipesWrapper>(craftingRecipesJsonFile.text);
         List<CraftingRecipe> craftingRecipes = craftingRecipesWrapper.craftingRecipes;
         CraftingSystem.Instance.SetCraftingRecipes(craftingRecipes);
+
+        // Load biomes
+        TextAsset biomesJsonFile = Resources.Load<TextAsset>("GameData/biomes");
+        BiomeDataWrapper biomeDataWrapper = JsonUtility.FromJson<BiomeDataWrapper>(biomesJsonFile.text);
+        List<Biomes> biomes = biomeDataWrapper.biomes;
+        BiomeSystem.Instance.SetCurrentBiomes(biomes);
     }
     
     private void FixedUpdate() {

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,11 @@ public class Biomes
 
     public List<Monster> Monsters = new List<Monster>();
     public List<Boss> Bosses = new List<Boss>();
+}
+
+public class BiomeDataWrapper
+{
+    public List<Biomes> biomes = new List<Biomes>();
 }
 
 public class BiomeSystem : MonoBehaviour 
@@ -41,6 +48,21 @@ public class BiomeSystem : MonoBehaviour
     [SerializeField] private Image imageBackground;
 
     public string CurrentBiome { get => currentBiome; set => currentBiome = value;}
+
+    public void SetCurrentBiomes(List<Biomes> biomes)
+    {
+        foreach (var biome in biomes)
+        {
+            foreach (var monster in biome.Monsters)
+            {
+                monster.Prefab = Resources.Load<GameObject>($"Prefab/Monster/{biome.Name}/{monster.Name}");
+            }
+            foreach (var boss in biome.Bosses)
+            {
+                boss.Prefab = Resources.Load<GameObject>($"Prefab/Boss/{biome.Name}/{boss.Name}");
+            }
+        }
+    }
 
     public void SetCurrentBiome(string biome)
     {
