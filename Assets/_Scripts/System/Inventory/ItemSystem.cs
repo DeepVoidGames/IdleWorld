@@ -63,11 +63,11 @@ public class ItemSystem : MonoBehaviour
         foreach (Items item in items)
         {
             if (item.category == InventorySystem.Category.Material)
-                item.icon = Resources.Load<Sprite>("Icons/Materials/" + item.Name);
+                item.icon = Resources.Load<Sprite>("Sprites/Icons/Materials/" + item.Name);
             else if (item.category == InventorySystem.Category.Weapon)
-                item.icon = Resources.Load<Sprite>("Icons/Weapons/" + item.Name);
+                item.icon = Resources.Load<Sprite>("Sprites/Icons/Weapons/" + item.Name);
             else if (item.category == InventorySystem.Category.Tools)
-                item.icon = Resources.Load<Sprite>("Icons/Tools/" + item.Name);
+                item.icon = Resources.Load<Sprite>("Sprites/Icons/Tools/" + item.Name);
             ItemsCollection.Add(item);
         }
     }
