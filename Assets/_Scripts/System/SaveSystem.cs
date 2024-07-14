@@ -35,8 +35,6 @@ public class SaveSystem : MonoBehaviour
         Load();
         // After loading the game
         UISystem.Instance.LoadUI();
-        InventorySystem.Instance.UpdateUI();
-        MiningSystem.Instance.SpawnRock();
     }
 
     public void Save()
@@ -272,6 +270,7 @@ public class LoadGameData : MonoBehaviour
         ItemDataWrapper itemDataWrapper = JsonUtility.FromJson<ItemDataWrapper>(itemsJsonFile.text);
         List<Items> items = itemDataWrapper.items;
         ItemSystem.Instance.SetItemsCollection(items);
+        InventorySystem.Instance.UpdateUI();
     }
 
     public void CraftingRecipes()
@@ -299,5 +298,6 @@ public class LoadGameData : MonoBehaviour
         RocksDataWrapper rocksDataWrapper = JsonUtility.FromJson<RocksDataWrapper>(rocksJsonFile.text);
         List<Rocks> rocks = rocksDataWrapper.rocks;
         MiningSystem.Instance.SetRocks(rocks);
+        MiningSystem.Instance.SpawnRock();
     }
 }

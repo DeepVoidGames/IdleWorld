@@ -94,6 +94,7 @@ public class MiningSystem : MonoBehaviour
                 return;
             }
         }
+        
         currentRock = Instantiate(rocks[0].prefab, new Vector3(rockParent.transform.position.x, rockParent.transform.position.y, rockParent.transform.position.z), Quaternion.identity);
         currentRock.transform.SetParent(rockParent.transform);
         RockObject rockObjectDefault = currentRock.GetComponent<RockObject>();
@@ -177,7 +178,7 @@ public class MiningSystem : MonoBehaviour
     {
         foreach (Rocks rock in rocks)
         {
-            rock.prefab = Resources.Load<GameObject>($"Prefabs/Rock/{rock.Name}");
+            rock.prefab = Resources.Load<GameObject>($"Prefabs/Rocks/{rock.Name}");
         }
         this.rocks = rocks;
     }
