@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 1983040085312293012}
   - component: {fileID: -4112991717851988294}
   - component: {fileID: 87390407290430278}
+  - component: {fileID: 8662415235755150303}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -248,6 +249,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops: []
   healthText: {fileID: 4843232207772803881}
+--- !u!114 &8662415235755150303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587395233251269612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16948297c5322d49a0d64472d3b9bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialPosition: {x: 0, y: 0}
+  _floatingMessagePrefab: {fileID: 8991085443542500502, guid: 8fbbf1f28c7691c43a68aacd91c9dd96, type: 3}
 --- !u!1 &8937687134085611487
 GameObject:
   m_ObjectHideFlags: 0

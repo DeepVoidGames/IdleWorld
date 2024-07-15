@@ -15,6 +15,8 @@ public class MonsterObject : MonoBehaviour
     public double Health { get => health; set => health = value;}
     public double MaxHealth { get => maxHealth; set => maxHealth = value;}
 
+    private MessageSpawner _messageSpawner;
+
     public void SetMonster(Monster monster)
     {
         monsterName = monster.Name;
@@ -33,6 +35,7 @@ public class MonsterObject : MonoBehaviour
     public void TakeDamage(double damage)
     {
         health -= damage;
+        _messageSpawner.SpawnMessage("-" + UISystem.Instance.NumberFormat(damage));
         if (health <= 0)
         {
             MonsterSystem.Instance.MonsterDied();
@@ -48,6 +51,7 @@ public class MonsterObject : MonoBehaviour
 
     private void Start()
     {
+        _messageSpawner = GetComponent<MessageSpawner>();
         UpdateHealthUI();
     }
 

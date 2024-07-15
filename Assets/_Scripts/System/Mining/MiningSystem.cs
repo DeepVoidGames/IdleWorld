@@ -72,6 +72,10 @@ public class MiningSystem : MonoBehaviour
     public double MiningEfficiency { get { return miningEfficiency; } }
     public bool IsToolEquipped { get { return isToolEquiped; } set { isToolEquiped = value; } }
 
+    // Event
+    public delegate void ExperienceAddedHandler(double experienceAdded);
+    public event ExperienceAddedHandler OnExperienceAdded;
+
     public void SpawnRock()
     {
         if (currentRock != null)
@@ -122,6 +126,8 @@ public class MiningSystem : MonoBehaviour
     public void AddMiningExperience(double value)
     {
         miningExperience += value;
+        OnExperienceAdded?.Invoke(value); // Invoke the event
+
         if (miningExperience >= DifficultySystem.Instance.GetMiningExperienceNeeded())
         {
             miningExperience -= DifficultySystem.Instance.GetMiningExperienceNeeded();

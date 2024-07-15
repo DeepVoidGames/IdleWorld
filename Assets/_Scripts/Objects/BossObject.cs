@@ -12,6 +12,7 @@ public class BossObject : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Text healthText;
     [SerializeField] private Text timerText;
+    private MessageSpawner _messageSpawner;
 
     public string BossName { get => bossName; set => bossName = value;}
     public double Health { get => health; set => health = value;}
@@ -35,6 +36,7 @@ public class BossObject : MonoBehaviour
     public void TakeDamage(double damage)
     {
         health -= damage;
+        _messageSpawner.SpawnMessage("-" + UISystem.Instance.NumberFormat(damage));
         if (health <= 0)
         {
             BossSystem.Instance.BossDied();
@@ -50,6 +52,7 @@ public class BossObject : MonoBehaviour
 
     private void Start()
     {
+        _messageSpawner = GetComponent<MessageSpawner>();
         UpdateHealthUI();
         _timer = BossSystem.Instance.MaxTimeToKillBoss;
     }

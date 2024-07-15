@@ -323,6 +323,8 @@ GameObject:
   - component: {fileID: 162607363}
   - component: {fileID: 162607365}
   - component: {fileID: 162607364}
+  - component: {fileID: 162607367}
+  - component: {fileID: 162607366}
   m_Layer: 5
   m_Name: MiningExperience
   m_TagString: Untagged
@@ -347,7 +349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.544, y: -0.34500003}
+  m_AnchoredPosition: {x: -2.2199996, y: -0.34500003}
   m_SizeDelta: {x: 1.7468, y: 0.1728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162607364
@@ -388,6 +390,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162607362}
   m_CullTransparentMesh: 1
+--- !u!114 &162607366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162607362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16948297c5322d49a0d64472d3b9bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialPosition: {x: -2.4, y: 1.3}
+  _floatingMessagePrefab: {fileID: 8457534564469843217, guid: 1a247d91077b0584ebcf9690fe74e798, type: 3}
+--- !u!114 &162607367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162607362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbeedcd06978c245b54c776535e2836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &266543424
 GameObject:
   m_ObjectHideFlags: 0
@@ -4276,8 +4304,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -3.077, y: -0.095}
-  m_SizeDelta: {x: 0.9285002, y: 0.17280006}
+  m_AnchoredPosition: {x: -2.811, y: -0.095}
+  m_SizeDelta: {x: 1.166, y: 0.1728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1265558420
 MonoBehaviour:
@@ -6442,7 +6470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1.8576, y: -0.09500003}
+  m_AnchoredPosition: {x: -1.5335996, y: -0.09500003}
   m_SizeDelta: {x: 1.2692, y: 0.1728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831489069

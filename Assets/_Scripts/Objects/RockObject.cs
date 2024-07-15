@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,11 +10,13 @@ public class RockObject : MonoBehaviour
     private double maxHealth;
 
     [SerializeField] private Text healthText;
+    private MessageSpawner _messageSpawner;
 
     public double Health { get => health; set => health = value; }
     public double MaxHealth { get => maxHealth; set => maxHealth = value; }
     public void Damage(double damage)
     {
+        _messageSpawner.SpawnMessage(String.Format("-{0}", UISystem.Instance.NumberFormat(damage)));
         health -= damage;
         if (health <= 0)
         {
@@ -40,6 +43,7 @@ public class RockObject : MonoBehaviour
 
     void Start()
     {
+        _messageSpawner = GetComponent<MessageSpawner>();
         UpdateUI();
     }
 }

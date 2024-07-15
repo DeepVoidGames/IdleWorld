@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 2613137160591645130}
   - component: {fileID: 5008908630668515189}
   - component: {fileID: 1168118327442749498}
+  - component: {fileID: 2162187938646687351}
   m_Layer: 0
   m_Name: DeathSlime
   m_TagString: Untagged
@@ -371,6 +372,20 @@ MonoBehaviour:
   maxHealth: 0
   healthSlider: {fileID: 3432073585360662724}
   healthText: {fileID: 1593059904507720228}
+--- !u!114 &2162187938646687351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6116359882760422250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16948297c5322d49a0d64472d3b9bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialPosition: {x: 0, y: 0}
+  _floatingMessagePrefab: {fileID: 8991085443542500502, guid: 8fbbf1f28c7691c43a68aacd91c9dd96, type: 3}
 --- !u!1 &6762472317417150503
 GameObject:
   m_ObjectHideFlags: 0

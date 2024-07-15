@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 4257639936005931982}
   - component: {fileID: 2047643994817307924}
   - component: {fileID: 4861566869037126172}
+  - component: {fileID: 1426544878233808424}
   m_Layer: 0
   m_Name: AquamarineOre
   m_TagString: Untagged
@@ -248,6 +249,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops: []
   healthText: {fileID: 5982526544258009560}
+--- !u!114 &1426544878233808424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626628965145914438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16948297c5322d49a0d64472d3b9bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialPosition: {x: 0, y: 0}
+  _floatingMessagePrefab: {fileID: 8991085443542500502, guid: 8fbbf1f28c7691c43a68aacd91c9dd96, type: 3}
 --- !u!1 &8604284909645878863
 GameObject:
   m_ObjectHideFlags: 0
