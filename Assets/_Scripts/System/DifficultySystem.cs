@@ -54,7 +54,7 @@ public class DifficultySystem : MonoBehaviour
     //  Mining
     public double GetRockHealth(double baseHealth)
     {
-        return baseHealth + baseHealth * MiningSystem.Instance.MiningLevel/2 + GetMiningExperienceNeeded()/2;
+        return baseHealth + baseHealth * MiningSystem.Instance.MiningLevel;
     }
 
     public double GetRockDrop(double maxHealth, double minDrop)

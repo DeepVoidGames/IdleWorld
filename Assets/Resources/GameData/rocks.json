@@ -2,56 +2,56 @@
   "rocks": [
     {
       "Name": "Stone",
-      "baseHealth": 5.0,
+      "baseHealth": 25.0,
       "chance": 0.800000011920929,
       "prefab": {},
       "drops": [{ "ID": 0, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     },
     {
       "Name": "RubyOre",
-      "baseHealth": 15.0,
+      "baseHealth": 100.0,
       "chance": 0.6000000238418579,
       "prefab": {},
       "drops": [{ "ID": 1, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     },
     {
       "Name": "AmethystOre",
-      "baseHealth": 25.0,
+      "baseHealth": 200.0,
       "chance": 0.6000000238418579,
       "prefab": {},
       "drops": [{ "ID": 7, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     },
     {
       "Name": "AquamarineOre",
-      "baseHealth": 30.0,
+      "baseHealth": 300.0,
       "chance": 0.6000000238418579,
       "prefab": {},
       "drops": [{ "ID": 8, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     },
     {
       "Name": "CalciteOre",
-      "baseHealth": 100.0,
+      "baseHealth": 400.0,
       "chance": 0.6000000238418579,
       "prefab": {},
       "drops": [{ "ID": 9, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     },
     {
       "Name": "OpalOre",
-      "baseHealth": 120.0,
+      "baseHealth": 500.0,
       "chance": 0.20000000298023225,
       "prefab": {},
       "drops": [{ "ID": 10, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     },
     {
       "Name": "RedDiamondOre",
-      "baseHealth": 250.0,
+      "baseHealth": 1000.0,
       "chance": 0.05000000074505806,
       "prefab": {},
       "drops": [{ "ID": 11, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     },
     {
       "Name": "SapphireOre",
-      "baseHealth": 260.0,
+      "baseHealth": 600.0,
       "chance": 0.05000000074505806,
       "prefab": {},
       "drops": [{ "ID": 12, "chance": 1.0, "min": 1.0, "max": 3.0 }]
