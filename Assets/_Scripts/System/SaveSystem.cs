@@ -74,7 +74,7 @@ public class SaveSystem : MonoBehaviour
         // Debug.Log("Game saved to " + saveFilePath);
     }
 
-     public void Load()
+    public void Load()
     {   
         // Load game data
         if (File.Exists(saveFilePath))
@@ -197,8 +197,6 @@ public class SaveSystem : MonoBehaviour
         }
     
     }
-
-    
     
     private void FixedUpdate() {
         _timer += Time.fixedDeltaTime;

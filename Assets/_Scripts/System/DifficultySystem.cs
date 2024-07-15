@@ -24,9 +24,17 @@ public class DifficultySystem : MonoBehaviour
     [SerializeField] private float _difficultyMultiplier = 1.2f;
 
     // Damage
+    private double DamagePercentage;
+
+    public void AddDamagePercentage(double value)
+    {
+        DamagePercentage += value;
+        UISystem.Instance.UpdateLevelText();
+    }
+
     public double GetDamage(double baseDamage)
     {
-        return baseDamage + (LevelSystem.Instance.Level * _difficultyMultiplier);
+        return baseDamage  + baseDamage * DamagePercentage;
     }
 
     // Boss

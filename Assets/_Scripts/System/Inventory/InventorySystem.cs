@@ -84,6 +84,30 @@ public class InventorySystem : MonoBehaviour
         UpdateUI();
     }
 
+    public double GetResourceByName(string resourceName)
+    {
+        InventorySlot slot = inventory.inventory.Find(x => x.item.Name == resourceName);
+        if (slot != null)
+        {
+            return slot.quantity;
+        }
+        return 0;
+    }
+
+    public void RemoveItemByName(string resourceName, double quantity)
+    {
+        InventorySlot slot = inventory.inventory.Find(x => x.item.Name == resourceName);
+        if (slot != null)
+        {
+            slot.quantity -= quantity;
+            if (slot.quantity <= 0)
+            {
+                inventory.inventory.Remove(slot);
+            }
+        }
+        UpdateUI();
+    }
+
     public double GetQuantity(int id)
     {
         InventorySlot slot = inventory.inventory.Find(x => x.item.id == id);
