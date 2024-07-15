@@ -55,7 +55,7 @@ public class UISystem : MonoBehaviour {
     {
         levelText.text = String.Format("Slayer Level: {0}", NumberFormatInt(LevelSystem.Instance.Level));
         stageText.text = String.Format("Stage: {0}", NumberFormatInt(LevelSystem.Instance.Stage));
-        damageText.text = String.Format("Damage: {0}", NumberFormat(DamageSystem.Instance.Damage));
+        damageText.text = String.Format("Damage: {0}", NumberFormat(DifficultySystem.Instance.GetDamage(DamageSystem.Instance.Damage)));
     }
 
     public void UpdateGoldText()

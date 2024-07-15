@@ -155,6 +155,86 @@
           "chanceToCraft": 0.05
         }
       ]
+    },
+    {
+      "id": 10,
+      "material1ID": 8,
+      "material2ID": 0,
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemID": 2,
+          "chanceToCraft": 0.8
+        },
+        {
+          "itemID": 19,
+          "chanceToCraft": 0.05
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "material1ID": 9,
+      "material2ID": 0,
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemID": 2,
+          "chanceToCraft": 0.8
+        },
+        {
+          "itemID": 20,
+          "chanceToCraft": 0.05
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "material1ID": 10,
+      "material2ID": 0,
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemID": 2,
+          "chanceToCraft": 0.8
+        },
+        {
+          "itemID": 21,
+          "chanceToCraft": 0.01
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "material1ID": 11,
+      "material2ID": 0,
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemID": 2,
+          "chanceToCraft": 0.8
+        },
+        {
+          "itemID": 22,
+          "chanceToCraft": 0.005
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "material1ID": 12,
+      "material2ID": 0,
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemID": 2,
+          "chanceToCraft": 0.8
+        },
+        {
+          "itemID": 23,
+          "chanceToCraft": 0.01
+        }
+      ]
     }
   ]
 }
