@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CaveUpgrades : MonoBehaviour
 {
     [Header("Upgrade Info")]
+    [SerializeField] private string upgradeName;
     [SerializeField] private int level;
     [SerializeField] private int maxLevel;
     [SerializeField] private double cost;
@@ -51,7 +52,7 @@ public class CaveUpgrades : MonoBehaviour
 
     private void UIUpdate()
     {
-        Title.text = "Level " + level;
+        Title.text = String.Format("{0} Level {1}", upgradeName, level);
         Cost.text = String.Format("Cost: {0}", UISystem.Instance.NumberFormat(cost));
         BonusText();
         ProgressText.text = level + "/" + maxLevel;
