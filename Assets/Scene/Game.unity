@@ -4036,8 +4036,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.773, y: -1.228}
-  m_SizeDelta: {x: 346.3551, y: 15.7711}
+  m_AnchoredPosition: {x: 0.773, y: -1.1462003}
+  m_SizeDelta: {x: 346.3551, y: 32.131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803180503
 MonoBehaviour:
@@ -4066,13 +4066,16 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 6
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Note: Open Inventory and CLICK Any Material'
+  m_Text: 'Note: Open Inventory and CLICK Any Material
+
+    You need at least 10k
+    of resources'
 --- !u!222 &803180504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11913,7 +11916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2084265122
 RectTransform:
   m_ObjectHideFlags: 0

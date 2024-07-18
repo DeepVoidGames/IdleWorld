@@ -162,6 +162,11 @@ public class CraftingSystem : MonoBehaviour
             if ((CraftingRecipes[i].material1ID == CraftSlot[0].id && CraftingRecipes[i].material2ID == CraftSlot[1].id) ||
                 (CraftingRecipes[i].material1ID == CraftSlot[1].id && CraftingRecipes[i].material2ID == CraftSlot[0].id))
             {
+                if (InventorySystem.Instance.GetQuantity(CraftSlot[0].id) < 10000 || InventorySystem.Instance.GetQuantity(CraftSlot[1].id) < 10000)
+                {
+                    isCrafting = false;
+                    return;
+                }
                 for (int j = 0; j < CraftingRecipes[i].itemsToCraft.Count; j++)
                 {
                     float random = UnityEngine.Random.Range(0f, 1f);
@@ -169,7 +174,9 @@ public class CraftingSystem : MonoBehaviour
                     if (random <= CraftingRecipes[i].itemsToCraft[j].chanceToCraft)
                     {
                         InventorySystem.Instance.AddItem(CraftingRecipes[i].itemsToCraft[j].itemID, 1);
-                        // CraftSlot.Clear();
+                        // Remove -10k of material
+                        InventorySystem.Instance.RemoveItem(CraftSlot[0].id, 10000);
+                        InventorySystem.Instance.RemoveItem(CraftSlot[1].id, 10000);
                         UpdateUI();
                         CraftedPrev.sprite = ItemSystem.Instance.GetItemIcon(CraftingRecipes[i].itemsToCraft[j].itemID);
                         CraftedPrev.gameObject.SetActive(true);
