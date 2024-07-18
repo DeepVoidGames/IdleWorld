@@ -17,18 +17,24 @@ public class ResolutionControl : MonoBehaviour
         resolutionDropdown.ClearOptions();
 
         List<string> options = new List<string>();
+        HashSet<string> addedResolutions = new HashSet<string>(); // To track added resolutions
         int currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
             Resolution resolution = resolutions[i];
-            resolutionList.Add(resolution);
+            string resolutionIdentifier = $"{resolution.width}x{resolution.height}";
 
-            string option = resolution.width + " x " + resolution.height;
-            options.Add(option);
-
-            if (resolution.width == Screen.currentResolution.width && resolution.height == Screen.currentResolution.height)
+            // Check if this resolution has already been added
+            if (!addedResolutions.Contains(resolutionIdentifier))
             {
-                currentResolutionIndex = i;
+                resolutionList.Add(resolution);
+                options.Add(resolutionIdentifier);
+                addedResolutions.Add(resolutionIdentifier); // Mark this resolution as added
+
+                if (resolution.width == Screen.currentResolution.width && resolution.height == Screen.currentResolution.height)
+                {
+                    currentResolutionIndex = options.Count - 1; // Update index based on options count
+                }
             }
         }
 
@@ -36,7 +42,6 @@ public class ResolutionControl : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-        // Add listener for when the dropdown value changes
         resolutionDropdown.onValueChanged.AddListener(delegate { SetResolution(resolutionDropdown.value); });
     }
 
