@@ -56,6 +56,17 @@ public class CaveUpgrades : MonoBehaviour
         Cost.text = String.Format("Cost: {0}", UISystem.Instance.NumberFormat(cost));
         BonusText();
         ProgressText.text = level + "/" + maxLevel;
+        ProgressBar();
+    }
+
+    private void ProgressBar()
+    {
+        // Image min size 0, max 932.2
+        // Image min X -613.86, max -147.76
+        float progress = (float)level / maxLevel;
+        ProgressImage.rectTransform.sizeDelta = new Vector2(932.2f * progress, ProgressImage.rectTransform.sizeDelta.y);
+        ProgressImage.rectTransform.anchoredPosition = new Vector2(-613.86f + (progress * 466.1f), ProgressImage.rectTransform.anchoredPosition.y);
+
     }
 
     private void Load()

@@ -388,7 +388,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 119191204}
   m_HandleRect: {fileID: 119191203}
   m_Direction: 2
-  m_Value: -0.0000015710783
+  m_Value: -0.0000023566174
   m_Size: 0.89257044
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -939,7 +939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0002717098, y: 155.39694}
+  m_AnchoredPosition: {x: 0.0002717098, y: 155.39717}
   m_SizeDelta: {x: -0.00061035, y: 1446.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &147196326
@@ -10047,7 +10047,7 @@ GameObject:
   - component: {fileID: 1731839516}
   - component: {fileID: 1731839517}
   m_Layer: 0
-  m_Name: CaveUpgrades
+  m_Name: _CaveUpgrades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11079,7 +11079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -147.8, y: -116.7}
+  m_AnchoredPosition: {x: -147.76, y: -116.7}
   m_SizeDelta: {x: 932.2, y: 91.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918476736
@@ -11916,7 +11916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2084265122
 RectTransform:
   m_ObjectHideFlags: 0
