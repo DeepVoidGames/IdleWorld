@@ -45,8 +45,10 @@ public class BossSystem : MonoBehaviour
     [SerializeField] private GameObject bossSpawnParent;
     private bool isSpawning = false;
     private GameObject currentBoss;
+    private bool pauseBoss = false;
 
     public bool IsSpawning { get => isSpawning;}
+    public bool PauseBoss { get => pauseBoss; set => pauseBoss = value;}
 
     public void SpawnBoss()
     {
