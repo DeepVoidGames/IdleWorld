@@ -264,7 +264,7 @@
       "id": 15,
       "material1ID": 7,
       "material2ID": 0,
-      "craftingType": 3,
+      "craftingType": 1,
       "itemsToCraft": [
         {
           "itemID": 2,
