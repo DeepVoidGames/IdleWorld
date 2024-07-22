@@ -27,7 +27,7 @@ public class DifficultySystem : MonoBehaviour
     private double DamagePercentage;
     //Mining
     private double miningEfficiencyPercentage;
-    private double miningDropRateMultiplier;
+    private double miningDropRateMultiplier = 1f;
 
     // Difficulty for Cave Upgrades
     public void AddDamagePercentage(double value)
