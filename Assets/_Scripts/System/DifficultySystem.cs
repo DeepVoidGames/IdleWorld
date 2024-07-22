@@ -25,11 +25,24 @@ public class DifficultySystem : MonoBehaviour
 
     // Damage
     private double DamagePercentage;
+    //Mining
+    private double miningEfficiencyPercentage;
 
     public void AddDamagePercentage(double value)
     {
         DamagePercentage += value;
         UISystem.Instance.UpdateLevelText();
+    }
+
+    public void AddMiningEfficiencyPercentage(double value)
+    {
+        miningEfficiencyPercentage += value;
+        UISystem.Instance.UpdateMiningUI();
+    }
+
+    public double GetMiningEfficiencyPercentage()
+    {
+        return miningEfficiencyPercentage;
     }
 
     public double GetDamage(double baseDamage)
@@ -78,5 +91,10 @@ public class DifficultySystem : MonoBehaviour
     public double GetMiningExperienceNeeded()
     {
         return (100f + Math.Pow(MiningSystem.Instance.MiningLevel, 2) + (MiningSystem.Instance.MiningLevel * _difficultyMultiplier)) * 5;
+    }
+
+    public double GetMiningEfficiency(double baseEfficiency)
+    {
+        return baseEfficiency + baseEfficiency * miningEfficiencyPercentage;
     }
 }

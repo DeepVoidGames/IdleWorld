@@ -17,6 +17,11 @@ public class CaveUpgrades : MonoBehaviour
     [Header("Damage Upgrade")]
     [SerializeField] private bool isDamageUpgrade;
     [SerializeField] private double damageBoostPercentage;
+
+    [Header("Resource Upgrade")]
+    [SerializeField] private bool isMiningEfficiencyUpgrade;
+    [SerializeField] private double miningEfficiencyBoostPercentage;
+
     [Header("UI")]
     [SerializeField] private Text Title;
     [SerializeField] private Text Cost;
@@ -48,6 +53,17 @@ public class CaveUpgrades : MonoBehaviour
                 Bonus.text = "Damage: 0%";
             }
         }
+        else if (isMiningEfficiencyUpgrade)
+        {
+            if (level > 0)
+            {
+                Bonus.text = "Mining Efficiency: " + miningEfficiencyBoostPercentage * level + "%";
+            }
+            else
+            {
+                Bonus.text = "Mining Efficiency: 0%";
+            }
+        }
     }
 
     private void UIUpdate()
@@ -77,6 +93,10 @@ public class CaveUpgrades : MonoBehaviour
         {
             DifficultySystem.Instance.AddDamagePercentage((damageBoostPercentage / 100) * level);
         }
+        if (isMiningEfficiencyUpgrade)
+        {
+            DifficultySystem.Instance. AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100));
+        }
         UIUpdate();
     }
 
@@ -91,6 +111,11 @@ public class CaveUpgrades : MonoBehaviour
             {
                 DifficultySystem.Instance.AddDamagePercentage((damageBoostPercentage / 100));
                 BonusText();    
+            }
+            else if (isMiningEfficiencyUpgrade)
+            {
+                DifficultySystem.Instance.AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100));
+                BonusText();
             }
             UIUpdate();
             PlayerPrefs.SetInt("CaveUpgradeLevel-" + resourceName, level);

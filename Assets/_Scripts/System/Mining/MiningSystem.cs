@@ -69,7 +69,7 @@ public class MiningSystem : MonoBehaviour
 
     public double MiningLevel { get { return miningLevel; } }
     public double MiningExperience { get { return miningExperience; } }
-    public double MiningEfficiency { get { return miningEfficiency; } }
+    public double MiningEfficiency { get { return DifficultySystem.Instance.GetMiningEfficiency(miningEfficiency); } }
     public bool IsToolEquipped { get { return isToolEquiped; } set { isToolEquiped = value; } }
 
     // Event
