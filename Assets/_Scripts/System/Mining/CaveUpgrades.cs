@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +19,10 @@ public class CaveUpgrades : MonoBehaviour
     [Header("Resource Upgrade")]
     [SerializeField] private bool isMiningEfficiencyUpgrade;
     [SerializeField] private double miningEfficiencyBoostPercentage;
+
+    [Header("Mining Drop Rate Upgrade")]
+    [SerializeField] private bool isMiningDropRateUpgrade;
+    [SerializeField] private double miningDropRateBoostMultiplier;
 
     [Header("UI")]
     [SerializeField] private Text Title;
@@ -64,6 +66,17 @@ public class CaveUpgrades : MonoBehaviour
                 Bonus.text = "Mining Efficiency: 0%";
             }
         }
+        else if (isMiningDropRateUpgrade)
+        {
+            if (level > 0)
+            {
+                Bonus.text = "Mining Drop Rate Multiplier: " + miningDropRateBoostMultiplier * level + "";
+            }
+            else
+            {
+                Bonus.text = "Mining Drop Rate Multiplier: 0";
+            }
+        }
     }
 
     private void UIUpdate()
@@ -95,7 +108,11 @@ public class CaveUpgrades : MonoBehaviour
         }
         if (isMiningEfficiencyUpgrade)
         {
-            DifficultySystem.Instance. AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100));
+            DifficultySystem.Instance. AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100) * level);
+        }
+        if (isMiningDropRateUpgrade)
+        {
+            DifficultySystem.Instance.AddMiningDropRateMultiplier((miningDropRateBoostMultiplier / 100) * level);
         }
         UIUpdate();
     }
@@ -115,6 +132,11 @@ public class CaveUpgrades : MonoBehaviour
             else if (isMiningEfficiencyUpgrade)
             {
                 DifficultySystem.Instance.AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100));
+                BonusText();
+            }
+            else if (isMiningDropRateUpgrade)
+            {
+                DifficultySystem.Instance.AddMiningDropRateMultiplier((miningDropRateBoostMultiplier / 100));
                 BonusText();
             }
             UIUpdate();
