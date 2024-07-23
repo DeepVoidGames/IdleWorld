@@ -3,15 +3,15 @@ using UnityEngine.UI;
 
 public class BossObject : MonoBehaviour 
 {
-    [SerializeField] private string bossName;
-    [SerializeField] private double health;
-    [SerializeField] private double maxHealth;
-    [SerializeField] private float _timer = 0f;
+    private string bossName;
+    private double health;
+    private double maxHealth;
+    private float _timer = 0f;
 
     [Header("UI Elements")]
-    [SerializeField] private Slider healthSlider;
-    [SerializeField] private Text healthText;
-    [SerializeField] private Text timerText;
+    private Slider healthSlider;
+    private Text healthText;
+    private Text timerText;
     private MessageSpawner _messageSpawner;
 
     public string BossName { get => bossName; set => bossName = value;}
@@ -48,6 +48,13 @@ public class BossObject : MonoBehaviour
     private void OnMouseDown() 
     {
         TakeDamage(DamageSystem.Instance.Damage);
+    }
+
+    private void Awake()
+    {
+        healthSlider = transform.Find("HealthBar").GetComponent<Slider>();
+        healthText = transform.Find("HealthText").GetComponent<Text>();
+        timerText = transform.Find("_TimerText").GetComponent<Text>();
     }
 
     private void Start()

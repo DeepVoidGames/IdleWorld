@@ -54,7 +54,7 @@
       "icon": {
         "instanceID": 28966
       },
-      "damage": 50.0,
+      "damage": 150.0,
       "damageBoostPercentage": 5.0,
       "miningEfficiency": 0.0
     },

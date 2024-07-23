@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class MonsterObject : MonoBehaviour
 {
-    [SerializeField] private string monsterName;
-    [SerializeField] private double health;
-    [SerializeField] private double maxHealth;
+    private string monsterName;
+    private double health;
+    private double maxHealth;
 
     [Header("UI Elements")]
-    [SerializeField] private Slider healthSlider;
-    [SerializeField] private Text healthText;
+    private Slider healthSlider;
+    private Text healthText;
 
     public string MonsterName { get => monsterName; set => monsterName = value;}
     public double Health { get => health; set => health = value;}
@@ -47,6 +47,12 @@ public class MonsterObject : MonoBehaviour
     private void OnMouseDown() 
     {
         TakeDamage(DamageSystem.Instance.Damage);
+    }
+
+    private void Awake()
+    {
+        healthSlider = transform.Find("HealthBar").GetComponent<Slider>();
+        healthText = transform.Find("HealthText").GetComponent<Text>();
     }
 
     private void Start()

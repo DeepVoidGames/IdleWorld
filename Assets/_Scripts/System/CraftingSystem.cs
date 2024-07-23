@@ -195,7 +195,7 @@ public class CraftingSystem : MonoBehaviour
         }
         isCrafting = false;
     }
-    
+ 
     public void SetCraftingRecipes(List<CraftingRecipe> craftingRecipes)
     {
         CraftingRecipes = craftingRecipes;

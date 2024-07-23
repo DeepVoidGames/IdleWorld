@@ -43,18 +43,18 @@
       "drops": [{ "ID": 10, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     },
     {
+      "Name": "SapphireOre",
+      "baseHealth": 600.0,
+      "chance": 0.1000000074505806,
+      "prefab": {},
+      "drops": [{ "ID": 12, "chance": 1.0, "min": 1.0, "max": 3.0 }]
+    },
+    {
       "Name": "RedDiamondOre",
       "baseHealth": 1000.0,
       "chance": 0.05000000074505806,
       "prefab": {},
       "drops": [{ "ID": 11, "chance": 1.0, "min": 1.0, "max": 3.0 }]
-    },
-    {
-      "Name": "SapphireOre",
-      "baseHealth": 600.0,
-      "chance": 0.05000000074505806,
-      "prefab": {},
-      "drops": [{ "ID": 12, "chance": 1.0, "min": 1.0, "max": 3.0 }]
     }
   ]
 }
