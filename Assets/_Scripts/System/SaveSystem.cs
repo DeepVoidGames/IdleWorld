@@ -92,6 +92,7 @@ public class SaveSystem : MonoBehaviour
             if (gameData.levelData != 0)
             {
                 LevelSystem.Instance.SetLevel(gameData.levelData);
+                ContentLocker.Instance.CheckContent(gameData.levelData);
             }
 
             // Load stage

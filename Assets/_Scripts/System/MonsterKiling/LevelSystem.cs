@@ -44,6 +44,7 @@ public class LevelSystem : MonoBehaviour
     public void ResetStage()
     {
         level++;
+        ContentLocker.Instance.CheckContent(level);
         stage = 1;
         if (level % levelToNextBiome == 0)
         {
