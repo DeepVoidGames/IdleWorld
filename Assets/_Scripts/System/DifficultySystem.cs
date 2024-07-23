@@ -56,7 +56,9 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetDamage(double baseDamage)
     {
-        return baseDamage  + baseDamage * DamagePercentage;
+        if (baseDamage == 0)
+            baseDamage = 1;
+        return baseDamage + baseDamage * DamagePercentage;
     }
 
     // Boss
@@ -104,6 +106,8 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetMiningEfficiency(double baseEfficiency)
     {
+        if (baseEfficiency == 0)
+            baseEfficiency = 1;
         return baseEfficiency + baseEfficiency * miningEfficiencyPercentage;
     }
 }
