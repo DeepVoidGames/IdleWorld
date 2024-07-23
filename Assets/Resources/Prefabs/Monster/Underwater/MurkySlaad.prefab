@@ -103,7 +103,7 @@ RectTransform:
   m_GameObject: {fileID: 2388314793199559558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2141766801579856527}
@@ -601,11 +601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb7d580ec0cd724e8bd28e9b5efd792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterName: 
-  health: 0
-  maxHealth: 0
-  healthSlider: {fileID: 9084613540754412218}
-  healthText: {fileID: 430884653925107029}
 --- !u!114 &-8365929055556619986
 MonoBehaviour:
   m_ObjectHideFlags: 0

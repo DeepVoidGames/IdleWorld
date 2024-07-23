@@ -563,11 +563,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 76eb5366bc83d0643bfd8a6b9b2a71ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.764
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 76eb5366bc83d0643bfd8a6b9b2a71ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.776
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 76eb5366bc83d0643bfd8a6b9b2a71ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -703,10 +703,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c070ee163496c34880df97a65d7c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossName: 
-  health: 0
-  maxHealth: 0
-  _timer: 0
-  healthSlider: {fileID: 0}
-  healthText: {fileID: 0}
-  timerText: {fileID: 0}
