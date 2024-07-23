@@ -51,8 +51,9 @@ public class MonsterObject : MonoBehaviour
 
     private void Awake()
     {
-        healthSlider = transform.Find("HealthBar").GetComponent<Slider>();
-        healthText = transform.Find("HealthText").GetComponent<Text>();
+        // Find in children canvas
+        healthSlider = transform.Find("Canvas/HealthBar").GetComponent<Slider>();
+        healthText = transform.Find("Canvas/HealthText").GetComponent<Text>();
     }
 
     private void Start()

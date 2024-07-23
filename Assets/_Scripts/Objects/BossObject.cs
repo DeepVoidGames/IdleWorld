@@ -52,9 +52,9 @@ public class BossObject : MonoBehaviour
 
     private void Awake()
     {
-        healthSlider = transform.Find("HealthBar").GetComponent<Slider>();
-        healthText = transform.Find("HealthText").GetComponent<Text>();
-        timerText = transform.Find("_TimerText").GetComponent<Text>();
+        healthSlider = transform.Find("Canvas/HealthBar").GetComponent<Slider>();
+        healthText = transform.Find("Canvas/HealthText").GetComponent<Text>();
+        timerText = transform.Find("Canvas/_TimerText").GetComponent<Text>();
     }
 
     private void Start()
