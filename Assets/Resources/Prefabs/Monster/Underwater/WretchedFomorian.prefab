@@ -576,7 +576,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0050000027, y: 0.075}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.53333336, y: 0}
@@ -587,7 +587,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.15}
+  m_Size: {x: 1, y: 0.7}
   m_EdgeRadius: 0
 --- !u!114 &208665241532970118
 MonoBehaviour:
@@ -601,11 +601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb7d580ec0cd724e8bd28e9b5efd792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterName: 
-  health: 0
-  maxHealth: 0
-  healthSlider: {fileID: 6726916866784427179}
-  healthText: {fileID: 3033121275082946021}
 --- !u!114 &3905277088785860446
 MonoBehaviour:
   m_ObjectHideFlags: 0
