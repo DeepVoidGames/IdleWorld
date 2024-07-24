@@ -164,6 +164,72 @@
           "Prefab": {}
         }
       ]
+    },
+    {
+      "Name": "Cursed Lands",
+      "background": {},
+      "Monsters": [
+        {
+          "Name": "AntleredRascal",
+          "BaseHealth": 3500.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "FledglingDemon",
+          "BaseHealth": 3600.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "NefariousScamp",
+          "BaseHealth": 3700.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "RascallyDemonling",
+          "BaseHealth": 3800.0,
+          "Prefab": {}
+        }
+      ],
+      "Bosses": [
+        {
+          "Name": "PitBalor",
+          "BaseHealth": 4300.0,
+          "Prefab": {}
+        }
+      ]
+    },
+    {
+      "Name": "Warped Necropolis",
+      "background": {},
+      "Monsters": [
+        {
+          "Name": "ClawedAbomination",
+          "BaseHealth": 5200.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "FoulGouger",
+          "BaseHealth": 5300.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "PointedDemonspawn",
+          "BaseHealth": 5400.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "SkeweringStalker",
+          "BaseHealth": 5500.0,
+          "Prefab": {}
+        }
+      ],
+      "Bosses": [
+        {
+          "Name": "WarpSkull",
+          "BaseHealth": 6000.0,
+          "Prefab": {}
+        }
+      ]
     }
   ]
 }
