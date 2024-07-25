@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialPosition: {x: 0, y: 0}
-  _floatingMessagePrefab: {fileID: 0}
+  _floatingMessagePrefab: {fileID: 8991085443542500502, guid: 8fbbf1f28c7691c43a68aacd91c9dd96, type: 3}
 --- !u!114 &8985279594112639793
 MonoBehaviour:
   m_ObjectHideFlags: 0
