@@ -263,6 +263,39 @@
           "Prefab": {}
         }
       ]
+    },
+    {
+      "Name": "Guardians' Bastion",
+      "background": {},
+      "Monsters": [
+        {
+          "Name": "GoblinArcher",
+          "BaseHealth": 10000.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "GoblinFanatic",
+          "BaseHealth": 10100.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "GoblinFighter",
+          "BaseHealth": 10200.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "GoblinOccultist",
+          "BaseHealth": 10300.0,
+          "Prefab": {}
+        }
+      ],
+      "Bosses": [
+        {
+          "Name": "GoblinWolfRider",
+          "BaseHealth": 11000.0,
+          "Prefab": {}
+        }
+      ]
     }
   ]
 }
