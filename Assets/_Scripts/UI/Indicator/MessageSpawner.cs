@@ -8,7 +8,8 @@ public class MessageSpawner : MonoBehaviour
 
     public void SpawnMessage(string message)
     {
-        GameObject go = Instantiate(_floatingMessagePrefab, _initialPosition, Quaternion.identity);
+        GameObject go = Instantiate(_floatingMessagePrefab, transform.position, Quaternion.identity);
+        go.transform.SetParent(transform);
         go.GetComponent<FloatingMessage>().SetText(message);
     }
 }
