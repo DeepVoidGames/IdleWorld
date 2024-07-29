@@ -64,8 +64,8 @@ public class DamageSystem : MonoBehaviour
         {
             if (MonsterSystem.Instance.CurrentMonster != null)
                 MonsterSystem.Instance.CurrentMonster.GetComponent<MonsterObject>().TakeDamage(dps);
-            else if (BossSystem.Instance.CurrentBoss != null)
-                BossSystem.Instance.CurrentBoss.GetComponent<BossObject>().TakeDamage(dps);
+           else if (BossSystem.Instance.CurrentBoss != null)
+                BossSystem.Instance.BossObject.TakeDamage(dps);
         }
     }
 

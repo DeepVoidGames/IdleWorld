@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,29 +47,32 @@ public class BossSystem : MonoBehaviour
     [Header("Boss Spawning")]
     private bool isSpawning = false;
     private GameObject currentBoss;
+    private BossObject bossObject;
     private bool pauseBoss = false;
 
     public bool IsSpawning { get => isSpawning;}
     public bool PauseBoss { get => pauseBoss; set => pauseBoss = value;}
     public GameObject CurrentBoss { get => currentBoss;}
+    public BossObject BossObject { get => bossObject;}
 
     public void SpawnBoss()
     {
         if (!isSpawning)
         {
-            Biomes biome = BiomeSystem.Instance.Bioms.Find(biome => biome.Name == BiomeSystem.Instance.CurrentBiome);
-            isSpawning = true;
-            int randomIndex = Random.Range(0, biome.Bosses.Count);
-            Boss boss = biome.Bosses[randomIndex];
-            if (boss.Prefab == null)
+            if (currentBoss != null)
             {
-                Debug.LogError("Boss prefab is null");
-                return;
+                Destroy(currentBoss);
             }
-            GameObject bossGO = Instantiate(boss.Prefab, bossSpawnParent.transform.position, Quaternion.identity);
-            bossGO.transform.SetParent(bossSpawnParent.transform);
-            currentBoss = boss.Prefab;
-            bossGO.GetComponent<BossObject>().SetBoss(boss);
+            if (pauseBoss)
+            {
+                pauseBoss = false;
+            }
+            if (MonsterSystem.Instance.CurrentMonster != null)
+            {
+                Destroy(MonsterSystem.Instance.CurrentMonster);
+            }
+            isSpawning = true;
+            StartCoroutine(SpawnBossCoroutine());
         }
     }
 
@@ -83,6 +87,25 @@ public class BossSystem : MonoBehaviour
 
     public void FailedToKill()
     {
+        isSpawning = false;
+    }
+
+    private IEnumerator SpawnBossCoroutine()
+    {
+        Biomes biome = BiomeSystem.Instance.Bioms.Find(biome => biome.Name == BiomeSystem.Instance.CurrentBiome);
+        int randomIndex = Random.Range(0, biome.Bosses.Count);
+        Boss boss = biome.Bosses[randomIndex];
+        if (boss.Prefab == null)
+        {
+            Debug.LogError("Boss prefab is null");
+            yield break;
+        }
+        GameObject bossGO = Instantiate(boss.Prefab, bossSpawnParent.transform.position, Quaternion.identity);
+        bossGO.transform.SetParent(bossSpawnParent.transform);
+        currentBoss = boss.Prefab;
+        bossGO.GetComponent<BossObject>().SetBoss(boss);
+        bossObject = bossGO.GetComponent<BossObject>();
+        yield return new WaitForSeconds(maxTimeToKillBoss);
         isSpawning = false;
     }
 }

@@ -126,7 +126,7 @@ public class MonsterSystem : MonoBehaviour
         MonsterObject monsterObject = go.GetComponent<MonsterObject>();
         currentMonster = go;
         monsterObject.SetMonster(monster);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         isSpawning = false;
     }
 

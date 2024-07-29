@@ -55,11 +55,11 @@ public class BossObject : MonoBehaviour
         healthSlider = transform.Find("Canvas/HealthBar").GetComponent<Slider>();
         healthText = transform.Find("Canvas/HealthText").GetComponent<Text>();
         timerText = transform.Find("Canvas/_TimerText").GetComponent<Text>();
+        _messageSpawner = GetComponent<MessageSpawner>();
     }
 
     private void Start()
     {
-        _messageSpawner = GetComponent<MessageSpawner>();
         UpdateHealthUI();
         _timer = BossSystem.Instance.MaxTimeToKillBoss;
     }
