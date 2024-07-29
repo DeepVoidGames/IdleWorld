@@ -57,17 +57,25 @@ public class DamageSystem : MonoBehaviour
         return weapon;
     }
 
-    private void FixedUpdate() 
+    private void Attack()
     {
-        _timerDPS += Time.deltaTime;
-        if (_timerDPS >= 1)
+        double dps = DifficultySystem.Instance.GetDPS();
+        if (dps > 0)
         {
-            double dps = DifficultySystem.Instance.GetDPS();
-            if (dps > 0)
-            {
+            if (MonsterSystem.Instance.CurrentMonster != null)
                 MonsterSystem.Instance.AtackMonster(dps);
+            else if (BossSystem.Instance.CurrentBoss != null)
                 BossSystem.Instance.AttackBoss(dps);
-            }
-        }    
+        }
+    }
+
+    private void Start() 
+    {
+        InvokeRepeating("Attack", 2f, 1f);
+    }
+
+    private void OnApplicationQuit() 
+    {
+        CancelInvoke();    
     }
 }

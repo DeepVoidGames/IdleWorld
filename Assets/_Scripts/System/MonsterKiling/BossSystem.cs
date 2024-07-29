@@ -49,6 +49,7 @@ public class BossSystem : MonoBehaviour
 
     public bool IsSpawning { get => isSpawning;}
     public bool PauseBoss { get => pauseBoss; set => pauseBoss = value;}
+    public GameObject CurrentBoss { get => currentBoss;}
 
     public void AttackBoss(double damage)
     {

@@ -44,6 +44,8 @@ public class MonsterSystem : MonoBehaviour
     private bool isSpawning = false;
     private GameObject currentMonster;
 
+    public GameObject CurrentMonster { get => currentMonster; }
+
     public void AtackMonster(double damage)
     {
         if (currentMonster == null)
