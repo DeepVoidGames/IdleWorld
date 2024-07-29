@@ -9,15 +9,33 @@ public class Hero
     public string name;
     public int level;
     public int maxLevel;
-    public double dps;
-    public double cost;
-    public double upgradeCost;
-    public double upgradeDps;
+    public double baseDPS;
+    public double baseCost;
+    public double baseUpgradeCost;
+    public double baseUpgradeDps;
     public double upgradeCostMultiplier;
     public double upgradeDpsMultiplier;
     public bool isUnlocked;
     public Sprite sprite;
     public GameObject prefab;
+
+    public double cost {
+        get {
+            return baseCost * upgradeCostMultiplier * level;
+        }
+    }
+
+    public double upgradeCost {
+        get {
+            return baseUpgradeCost * upgradeCostMultiplier * level;
+        }
+    }
+
+    public double dps {
+        get {
+            return baseDPS * upgradeDpsMultiplier * level;
+        }
+    }
 }
 
 public class TavernSystem : MonoBehaviour
@@ -92,7 +110,7 @@ public class TavernSystem : MonoBehaviour
 
     private double CalculateDps(int id)
     {
-        return heroes[id].dps + (heroes[id].upgradeDps * heroes[id].upgradeDpsMultiplier);
+        return heroes[id].dps;
     }
 
     private void UpgradeHero(int id)
@@ -102,8 +120,6 @@ public class TavernSystem : MonoBehaviour
         if (heroes[id].cost > GoldSystem.Instance.Gold)
             return;
         heroes[id].level++;
-        heroes[id].dps = CalculateDps(id);
-        heroes[id].cost = CalculateCost(id);
         GoldSystem.Instance.SpendGold(heroes[id].cost);
         UpdateUI(id);
         UISystem.Instance.UpdateLevelText();
@@ -114,8 +130,6 @@ public class TavernSystem : MonoBehaviour
         if (heroes[id].cost > GoldSystem.Instance.Gold)
             return;
         heroes[id].level = 1;
-        heroes[id].dps = heroes[id].upgradeDps;
-        heroes[id].cost = heroes[id].upgradeCost;
         heroes[id].isUnlocked = true;
         GoldSystem.Instance.SpendGold(heroes[id].cost);
         SpawnHero(id);

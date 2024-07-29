@@ -1996,10 +1996,10 @@ MonoBehaviour:
   - name: Water Dwarf
     level: 0
     maxLevel: 1000
-    dps: 5
-    cost: 1000
-    upgradeCost: 1000
-    upgradeDps: 5
+    baseDPS: 5
+    baseCost: 1000
+    baseUpgradeCost: 1000
+    baseUpgradeDps: 5
     upgradeCostMultiplier: 2
     upgradeDpsMultiplier: 1.2
     isUnlocked: 0
@@ -2008,10 +2008,10 @@ MonoBehaviour:
   - name: Fire Knight
     level: 0
     maxLevel: 1000
-    dps: 50
-    cost: 10000
-    upgradeCost: 10000
-    upgradeDps: 50
+    baseDPS: 50
+    baseCost: 10000
+    baseUpgradeCost: 10000
+    baseUpgradeDps: 50
     upgradeCostMultiplier: 2.5
     upgradeDpsMultiplier: 1.5
     isUnlocked: 0
@@ -2020,10 +2020,10 @@ MonoBehaviour:
   - name: Ground Monk
     level: 0
     maxLevel: 1000
-    dps: 100
-    cost: 100000
-    upgradeCost: 100000
-    upgradeDps: 100
+    baseDPS: 100
+    baseCost: 100000
+    baseUpgradeCost: 100000
+    baseUpgradeDps: 100
     upgradeCostMultiplier: 2.5
     upgradeDpsMultiplier: 5
     isUnlocked: 0

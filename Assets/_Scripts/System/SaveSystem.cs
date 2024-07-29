@@ -221,14 +221,7 @@ public class SaveSystem : MonoBehaviour
                         continue;
                     }
                     hero.level = heroData.heroes[i].level;
-                    hero.maxLevel = heroData.heroes[i].maxLevel;
-                    hero.dps = heroData.heroes[i].dps;
-                    hero.cost = heroData.heroes[i].cost;
-                    hero.upgradeCost = heroData.heroes[i].upgradeCost;
-                    hero.upgradeDps = heroData.heroes[i].upgradeDps;
                     hero.isUnlocked = heroData.heroes[i].isUnlocked;
-                    hero.sprite = heroData.heroes[i].sprite;
-                    hero.prefab = heroData.heroes[i].prefab;
 
                     if (hero.isUnlocked)
                     {
