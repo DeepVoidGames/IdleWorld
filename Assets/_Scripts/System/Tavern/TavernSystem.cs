@@ -99,6 +99,7 @@ public class TavernSystem : MonoBehaviour
         heroes[id].cost = CalculateCost(id);
         GoldSystem.Instance.SpendGold(heroes[id].cost);
         UpdateUI(id);
+        UISystem.Instance.UpdateLevelText();
     }
 
     private void UnlockHero(int id)
@@ -112,6 +113,7 @@ public class TavernSystem : MonoBehaviour
         GoldSystem.Instance.SpendGold(heroes[id].cost);
         SpawnHero(id);
         UpdateUI(id);
+        UISystem.Instance.UpdateLevelText();
     }   
 
     private void SpawnHero(int id)

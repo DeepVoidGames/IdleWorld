@@ -7903,7 +7903,7 @@ GameObject:
   - component: {fileID: 1140999287}
   - component: {fileID: 1140999286}
   m_Layer: 0
-  m_Name: DamageText
+  m_Name: DPSText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10904,6 +10904,7 @@ MonoBehaviour:
     - rarity: Mythical
       color: {r: 0.7798742, g: 0.21826662, b: 0.2517416, a: 1}
   damageText: {fileID: 293077112}
+  dpsText: {fileID: 1140999286}
   levelText: {fileID: 505191667}
   stageText: {fileID: 1160625904}
   goldText: {fileID: 796547719}
