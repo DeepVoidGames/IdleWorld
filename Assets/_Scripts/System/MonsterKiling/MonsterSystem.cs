@@ -46,17 +46,6 @@ public class MonsterSystem : MonoBehaviour
 
     public GameObject CurrentMonster { get => currentMonster; }
 
-    public void AtackMonster(double damage)
-    {
-        if (currentMonster == null)
-        {
-            return;
-        }
-
-        MonsterObject monsterObject = currentMonster.GetComponent<MonsterObject>();
-        monsterObject.AttackMonster(damage);
-    }
-
     public void MonsterDied()
     {
         LevelSystem.Instance.NextStage();
@@ -80,6 +69,11 @@ public class MonsterSystem : MonoBehaviour
         }
 
         if (BossSystem.Instance.IsSpawning)
+        {
+            return;
+        }
+
+        if (BossSystem.Instance.CurrentBoss != null)
         {
             return;
         }
@@ -127,7 +121,7 @@ public class MonsterSystem : MonoBehaviour
             Debug.LogError("Monster prefab not found: " + monster.Name);
             yield break;
         }
-        GameObject go = Instantiate(monster.Prefab, Vector3.zero, Quaternion.identity);
+        GameObject go = Instantiate(monster.Prefab, monsterSpawnParent.transform.position, Quaternion.identity);
         go.transform.SetParent(monsterSpawnParent.transform);
         MonsterObject monsterObject = go.GetComponent<MonsterObject>();
         currentMonster = go;

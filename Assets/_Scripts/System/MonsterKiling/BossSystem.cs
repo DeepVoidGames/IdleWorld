@@ -41,8 +41,9 @@ public class BossSystem : MonoBehaviour
 
     public float MaxTimeToKillBoss { get => maxTimeToKillBoss;}
 
-    [Header("Boss Spawning")]
     [SerializeField] private GameObject bossSpawnParent;
+
+    [Header("Boss Spawning")]
     private bool isSpawning = false;
     private GameObject currentBoss;
     private bool pauseBoss = false;
@@ -50,16 +51,6 @@ public class BossSystem : MonoBehaviour
     public bool IsSpawning { get => isSpawning;}
     public bool PauseBoss { get => pauseBoss; set => pauseBoss = value;}
     public GameObject CurrentBoss { get => currentBoss;}
-
-    public void AttackBoss(double damage)
-    {
-        if (currentBoss == null)
-        {
-            return;
-        }
-        BossObject bossObject = currentBoss.GetComponent<BossObject>();
-        bossObject.AttackBoss(damage);
-    }
 
     public void SpawnBoss()
     {
@@ -74,7 +65,7 @@ public class BossSystem : MonoBehaviour
                 Debug.LogError("Boss prefab is null");
                 return;
             }
-            GameObject bossGO = Instantiate(boss.Prefab);
+            GameObject bossGO = Instantiate(boss.Prefab, bossSpawnParent.transform.position, Quaternion.identity);
             bossGO.transform.SetParent(bossSpawnParent.transform);
             currentBoss = boss.Prefab;
             bossGO.GetComponent<BossObject>().SetBoss(boss);

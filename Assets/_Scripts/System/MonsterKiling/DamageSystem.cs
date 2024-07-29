@@ -62,10 +62,10 @@ public class DamageSystem : MonoBehaviour
         double dps = DifficultySystem.Instance.GetDPS();
         if (dps > 0)
         {
-            if (MonsterSystem.Instance.CurrentMonster != null && !BossSystem.Instance.IsSpawning)
-                MonsterSystem.Instance.AtackMonster(dps);
-            else if (BossSystem.Instance.CurrentBoss != null && BossSystem.Instance.IsSpawning)
-                BossSystem.Instance.AttackBoss(dps);
+            if (MonsterSystem.Instance.CurrentMonster != null)
+                MonsterSystem.Instance.CurrentMonster.GetComponent<MonsterObject>().TakeDamage(dps);
+            else if (BossSystem.Instance.CurrentBoss != null)
+                BossSystem.Instance.CurrentBoss.GetComponent<BossObject>().TakeDamage(dps);
         }
     }
 

@@ -44,17 +44,6 @@ public class MonsterObject : MonoBehaviour
         UpdateHealthUI();
     }
 
-    public void AttackMonster(double dps)
-    {
-        health -= dps;
-        if (health <= 0)
-        {
-            MonsterSystem.Instance.MonsterDied();
-            Destroy(gameObject);
-        }
-        UpdateHealthUI();
-    }
-
     private void OnMouseDown() 
     {
         TakeDamage(DamageSystem.Instance.Damage);
