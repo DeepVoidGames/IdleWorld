@@ -44,8 +44,6 @@ public class GoldSystem : MonoBehaviour
     {
         if (gold >= amount)
         {
-            Debug.Log("Gold: " + gold + " - " + amount);
-            Debug.Log("Gold: " + (gold - amount));
             gold = gold - amount;
             UISystem.Instance.UpdateGoldText();
         }

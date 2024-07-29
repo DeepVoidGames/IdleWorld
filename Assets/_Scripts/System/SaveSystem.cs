@@ -72,6 +72,14 @@ public class SaveSystem : MonoBehaviour
         json = JsonUtility.ToJson(inventoryData, true);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, "inventory.json"), json);
         // Debug.Log("Game saved to " + saveFilePath);
+
+        // Save hero data
+        HeroData heroData = new HeroData
+        {
+            heroes = TavernSystem.Instance.heroes
+        };
+        json = JsonUtility.ToJson(heroData, true);
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, "heroes.json"), json);
     }
 
     public void Load()
@@ -197,6 +205,44 @@ public class SaveSystem : MonoBehaviour
             Debug.LogWarning("Inventory file not found: " + Path.Combine(Application.persistentDataPath, "inventory.json"));
         }
     
+        // Load hero data
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "heroes.json")))
+        {
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "heroes.json"));
+            HeroData heroData = JsonUtility.FromJson<HeroData>(json);
+            if (heroData.heroes != null)
+            {
+                for (int i = 0; i < heroData.heroes.Count; i++)
+                {
+                    Hero hero = TavernSystem.Instance.heroes.Find(x => x.name == heroData.heroes[i].name);
+                    if (hero == null)
+                    {
+                        Debug.LogWarning("Hero not found: " + heroData.heroes[i].name);
+                        continue;
+                    }
+                    hero.level = heroData.heroes[i].level;
+                    hero.maxLevel = heroData.heroes[i].maxLevel;
+                    hero.dps = heroData.heroes[i].dps;
+                    hero.cost = heroData.heroes[i].cost;
+                    hero.upgradeCost = heroData.heroes[i].upgradeCost;
+                    hero.upgradeDps = heroData.heroes[i].upgradeDps;
+                    hero.upgradeCostMultiplier = heroData.heroes[i].upgradeCostMultiplier;
+                    hero.upgradeDpsMultiplier = heroData.heroes[i].upgradeDpsMultiplier;
+                    hero.isUnlocked = heroData.heroes[i].isUnlocked;
+                    hero.sprite = heroData.heroes[i].sprite;
+                    hero.prefab = heroData.heroes[i].prefab;
+
+                    if (hero.isUnlocked)
+                    {
+                        TavernSystem.Instance.SpawnHero(i);
+                    }
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Heroes file not found: " + Path.Combine(Application.persistentDataPath, "heroes.json"));
+        }
     }
     
     private void FixedUpdate() {
@@ -240,6 +286,11 @@ public class GameData
 public class InventoryData
 {
     public Inventory inventoryData;
+}
+
+public class HeroData
+{
+    public List<Hero> heroes;
 }
 
 public class LoadGameData : MonoBehaviour

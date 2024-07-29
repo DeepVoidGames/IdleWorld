@@ -59,6 +59,13 @@ public class TavernSystem : MonoBehaviour
         heroData.text = $"Level: {UISystem.Instance.NumberFormatInt(heroes[id].level)}\nDPS: {UISystem.Instance.NumberFormat(Instance.heroes[id].dps)}";
         heroCost.text = $"Cost: {UISystem.Instance.NumberFormat(heroes[id].cost)}";
         upgradeButton.onClick.RemoveAllListeners(); 
+        if (heroes[id].level >= heroes[id].maxLevel)
+        {
+            heroCost.text = "Max Level";
+            upgradeButton.interactable = false;
+            upgradeButton.GetComponentInChildren<Text>().text = "Max Level";
+            return;
+        }
         if (heroes[id].isUnlocked)
         {
             upgradeButton.GetComponentInChildren<Text>().text = "Upgrade";
@@ -116,9 +123,10 @@ public class TavernSystem : MonoBehaviour
         UISystem.Instance.UpdateLevelText();
     }   
 
-    private void SpawnHero(int id)
+    public void SpawnHero(int id)
     {
         GameObject hero = Instantiate(heroes[id].prefab, heroSpawnPoints[id].transform.position, Quaternion.identity);
         hero.transform.SetParent(heroSpawnPoints[id].transform);
     }
+
 }
