@@ -102,17 +102,7 @@ public class TavernSystem : MonoBehaviour
         heroPanel.SetActive(true);
         UpdateUI(id);
     }
-
-    private double CalculateCost(int id)
-    {
-        return heroes[id].cost + (heroes[id].upgradeCost * heroes[id].upgradeCostMultiplier);
-    }
-
-    private double CalculateDps(int id)
-    {
-        return heroes[id].dps;
-    }
-
+    
     private void UpgradeHero(int id)
     {
         if (heroes[id].level >= heroes[id].maxLevel)
