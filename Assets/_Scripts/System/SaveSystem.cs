@@ -226,8 +226,6 @@ public class SaveSystem : MonoBehaviour
                     hero.cost = heroData.heroes[i].cost;
                     hero.upgradeCost = heroData.heroes[i].upgradeCost;
                     hero.upgradeDps = heroData.heroes[i].upgradeDps;
-                    hero.upgradeCostMultiplier = heroData.heroes[i].upgradeCostMultiplier;
-                    hero.upgradeDpsMultiplier = heroData.heroes[i].upgradeDpsMultiplier;
                     hero.isUnlocked = heroData.heroes[i].isUnlocked;
                     hero.sprite = heroData.heroes[i].sprite;
                     hero.prefab = heroData.heroes[i].prefab;

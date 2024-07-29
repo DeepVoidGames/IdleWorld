@@ -57,7 +57,6 @@ public class BossSystem : MonoBehaviour
         {
             return;
         }
-
         BossObject bossObject = currentBoss.GetComponent<BossObject>();
         bossObject.AttackBoss(damage);
     }

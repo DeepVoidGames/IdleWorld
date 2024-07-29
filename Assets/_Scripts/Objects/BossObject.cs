@@ -47,11 +47,15 @@ public class BossObject : MonoBehaviour
 
     public void AttackBoss(double dps)
     {
+        if (BossSystem.Instance.PauseBoss)
+            return;
+        if (!BossSystem.Instance.IsSpawning)
+            return;
         health -= dps;
         if (health <= 0)
         {
             BossSystem.Instance.BossDied();
-            Destroy(gameObject);
+            DestroyImmediate(gameObject, true);
         }
         UpdateHealthUI();
     }
