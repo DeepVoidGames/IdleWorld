@@ -50,6 +50,17 @@ public class BossSystem : MonoBehaviour
     public bool IsSpawning { get => isSpawning;}
     public bool PauseBoss { get => pauseBoss; set => pauseBoss = value;}
 
+    public void AttackBoss(double damage)
+    {
+        if (currentBoss == null)
+        {
+            return;
+        }
+
+        BossObject bossObject = currentBoss.GetComponent<BossObject>();
+        bossObject.AttackBoss(damage);
+    }
+
     public void SpawnBoss()
     {
         if (!isSpawning)

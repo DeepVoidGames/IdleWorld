@@ -44,6 +44,17 @@ public class MonsterSystem : MonoBehaviour
     private bool isSpawning = false;
     private GameObject currentMonster;
 
+    public void AtackMonster(double damage)
+    {
+        if (currentMonster == null)
+        {
+            return;
+        }
+
+        MonsterObject monsterObject = currentMonster.GetComponent<MonsterObject>();
+        monsterObject.AttackMonster(damage);
+    }
+
     public void MonsterDied()
     {
         LevelSystem.Instance.NextStage();

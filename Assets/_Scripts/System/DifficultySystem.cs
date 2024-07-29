@@ -61,6 +61,17 @@ public class DifficultySystem : MonoBehaviour
         return baseDamage + baseDamage * DamagePercentage;
     }
 
+    public double GetDPS()
+    {
+        double dps = 0;
+        foreach (var hero in TavernSystem.Instance.heroes)
+        {
+            if (hero.isUnlocked)
+                dps += hero.dps;
+        }
+        return dps;
+    }
+
     // Boss
     public double GetBossHealth(double baseHealth)
     {

@@ -42,9 +42,11 @@ public class GoldSystem : MonoBehaviour
 
     public void SpendGold(double amount)
     {
-        if (Gold >= amount)
+        if (gold >= amount)
         {
-            Gold -= amount;
+            Debug.Log("Gold: " + gold + " - " + amount);
+            Debug.Log("Gold: " + (gold - amount));
+            gold = gold - amount;
             UISystem.Instance.UpdateGoldText();
         }
     }

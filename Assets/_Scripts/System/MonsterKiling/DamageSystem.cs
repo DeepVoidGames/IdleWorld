@@ -27,6 +27,8 @@ public class DamageSystem : MonoBehaviour
 
     private Items weapon;
 
+    private float _timerDPS;
+
     public double Damage
     {
         get => DifficultySystem.Instance.GetDamage(damage);
@@ -53,5 +55,19 @@ public class DamageSystem : MonoBehaviour
     public Items GetWeapon()
     {
         return weapon;
+    }
+
+    private void FixedUpdate() 
+    {
+        _timerDPS += Time.deltaTime;
+        if (_timerDPS >= 1)
+        {
+            double dps = DifficultySystem.Instance.GetDPS();
+            if (dps > 0)
+            {
+                MonsterSystem.Instance.AtackMonster(dps);
+                BossSystem.Instance.AttackBoss(dps);
+            }
+        }    
     }
 }
