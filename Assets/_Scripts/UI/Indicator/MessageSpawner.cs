@@ -10,6 +10,7 @@ public class MessageSpawner : MonoBehaviour
     {
         GameObject go = Instantiate(_floatingMessagePrefab, transform.position, Quaternion.identity);
         go.transform.SetParent(transform);
+        go.transform.localPosition = _initialPosition;
         go.GetComponent<FloatingMessage>().SetText(message);
         if (sprite != null)
         {
