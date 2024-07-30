@@ -42,7 +42,7 @@ public class InventorySystem : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject inventoryUI;
     [SerializeField] private GameObject inventorySlotPrefab;
-
+    [SerializeField] private GameObject inventoryIndicator;
     [SerializeField] private GameObject categoryUI;
     [SerializeField] private Category currentCategory;
     public Button equipedWeaponButton;
@@ -66,7 +66,9 @@ public class InventorySystem : MonoBehaviour
             slot.quantity = 0;
             inventory.inventory.Add(slot);
         }
+        
         slot.quantity += quantity;
+        inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} +{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(id));
         UpdateUI();
     }
 

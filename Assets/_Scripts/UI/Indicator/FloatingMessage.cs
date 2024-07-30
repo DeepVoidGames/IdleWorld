@@ -5,6 +5,7 @@ public class FloatingMessage : MonoBehaviour
 {
     private Rigidbody2D _rb;
     [SerializeField] private Text _text;
+    [SerializeField] private Image _image;
 
     public float InintialYVelocity = 7f;
     public float InitialXVelocityRange = 3f;
@@ -13,6 +14,11 @@ public class FloatingMessage : MonoBehaviour
     public void SetText(string text)
     {
         _text.text = text;
+    }
+
+    public void SetSprite(Sprite sprite)
+    {
+        _image.sprite = sprite;
     }
 
     private void Start() {
