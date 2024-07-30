@@ -84,9 +84,9 @@ public class DifficultySystem : MonoBehaviour
         return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
     }
 
-    public double GetBossDrop(double health)
+    public double GetBossDrop(double maxHealth)
     {
-        return health + (health * _difficultyMultiplier);
+        return maxHealth + (maxHealth * _difficultyMultiplier);
     }
 
     // Monster

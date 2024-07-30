@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 8191007073286464944}
-  InintialYVelocity: 1
+  InintialYVelocity: 0.5
   InitialXVelocityRange: 0
   LifeTime: 0.6
 --- !u!1 &4947765185566053162

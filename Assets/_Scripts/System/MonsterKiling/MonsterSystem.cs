@@ -58,7 +58,9 @@ public class MonsterSystem : MonoBehaviour
         MonsterObject monsterObject = currentMonster.GetComponent<MonsterObject>();
 
         // Gold drop
-        GoldSystem.Instance.AddGold(DifficultySystem.Instance.GetMonsterDrop(monsterObject.MaxHealth));
+        double m = DifficultySystem.Instance.GetMonsterDrop(monsterObject.MaxHealth);
+        GoldSystem.Instance.AddGold(m);
+        UISystem.Instance.MoneyIndicator(m);
     }
 
     public void SpawnMonster()

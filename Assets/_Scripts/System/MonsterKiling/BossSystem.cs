@@ -78,9 +78,10 @@ public class BossSystem : MonoBehaviour
 
     public void BossDied()
     {
-        BossObject bossObject = currentBoss.GetComponent<BossObject>();
         LevelSystem.Instance.ResetStage();
-        GoldSystem.Instance.AddGold(DifficultySystem.Instance.GetBossDrop(bossObject.MaxHealth));
+        double m = DifficultySystem.Instance.GetBossDrop(bossObject.MaxHealth);
+        GoldSystem.Instance.AddGold(m);
+        UISystem.Instance.MoneyIndicator(m);
         currentBoss = null;
         isSpawning = false;
     }
