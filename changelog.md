@@ -2,3 +2,6 @@
 
 - Fix
   - Inventory error
+- Add
+- Balans changes
+  - More rock drop rate

@@ -108,7 +108,7 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetRockDrop(double maxHealth, double minDrop)
     {
-        return UnityEngine.Random.Range((float)minDrop, (float)maxHealth) * miningDropRateMultiplier;
+        return maxHealth/2 * miningDropRateMultiplier;
     }
 
     public double GetMiningExperience(double maxHealth)
