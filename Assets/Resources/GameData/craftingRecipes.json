@@ -196,7 +196,7 @@
         },
         {
           "itemID": 28,
-          "chanceToCraft": 0.001
+          "chanceToCraft": 0.01
         }
       ]
     },
@@ -212,11 +212,11 @@
         },
         {
           "itemID": 21,
-          "chanceToCraft": 0.01
+          "chanceToCraft": 0.05
         },
         {
           "itemID": 26,
-          "chanceToCraft": 0.001
+          "chanceToCraft": 0.01
         }
       ]
     },
@@ -232,11 +232,11 @@
         },
         {
           "itemID": 22,
-          "chanceToCraft": 0.005
+          "chanceToCraft": 0.05
         },
         {
           "itemID": 25,
-          "chanceToCraft": 0.001
+          "chanceToCraft": 0.01
         }
       ]
     },
@@ -252,11 +252,11 @@
         },
         {
           "itemID": 23,
-          "chanceToCraft": 0.01
+          "chanceToCraft": 0.05
         },
         {
           "itemID": 27,
-          "chanceToCraft": 0.001
+          "chanceToCraft": 0.01
         }
       ]
     },
@@ -272,7 +272,7 @@
         },
         {
           "itemID": 24,
-          "chanceToCraft": 0.001
+          "chanceToCraft": 0.05
         }
       ]
     }

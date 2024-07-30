@@ -15,7 +15,7 @@ public class Items
         Rare,
         Epic,
         Legendary,
-        Mythic,
+        Mythical,
     }
     public Sprite icon;
 
