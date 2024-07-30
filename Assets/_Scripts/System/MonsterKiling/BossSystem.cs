@@ -48,7 +48,7 @@ public class BossSystem : MonoBehaviour
     private bool isSpawning = false;
     private GameObject currentBoss;
     private BossObject bossObject;
-    private bool pauseBoss = false;
+    private bool pauseBoss = false; //! Not used 
 
     public bool IsSpawning { get => isSpawning;}
     public bool PauseBoss { get => pauseBoss; set => pauseBoss = value;}
@@ -62,10 +62,6 @@ public class BossSystem : MonoBehaviour
             if (currentBoss != null)
             {
                 Destroy(currentBoss);
-            }
-            if (pauseBoss)
-            {
-                pauseBoss = false;
             }
             if (MonsterSystem.Instance.CurrentMonster != null)
             {
@@ -89,6 +85,7 @@ public class BossSystem : MonoBehaviour
     public void FailedToKill()
     {
         isSpawning = false;
+        currentBoss = null;
     }
 
     private IEnumerator SpawnBossCoroutine()

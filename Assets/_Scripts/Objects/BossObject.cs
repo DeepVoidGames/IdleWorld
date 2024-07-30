@@ -66,8 +66,8 @@ public class BossObject : MonoBehaviour
 
     private void Update()
     {
-         if(BossSystem.Instance.PauseBoss)
-            return;
+        // if(BossSystem.Instance.PauseBoss)
+        //     return;
         _timer -= Time.deltaTime;
         timerText.text = "Time: " + _timer.ToString("F2") + "s";
 
