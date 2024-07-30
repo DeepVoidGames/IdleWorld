@@ -46,6 +46,7 @@ public class GoldSystem : MonoBehaviour
         {
             gold = gold - amount;
             UISystem.Instance.UpdateGoldText();
+            UISystem.Instance.MoneyIndicator(amount, "-");
         }
     }
 }

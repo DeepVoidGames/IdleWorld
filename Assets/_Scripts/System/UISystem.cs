@@ -47,6 +47,7 @@ public class UISystem : MonoBehaviour {
     [SerializeField] private Text stageText;
     [Header("Gold System UI")]
     [SerializeField] private Text goldText;
+    [SerializeField] private GameObject goldPanel;
     [Header("Mining System UI")]
     [SerializeField] private Text miningLevelText;
     [SerializeField] private Text miningExperienceText;
@@ -58,6 +59,11 @@ public class UISystem : MonoBehaviour {
         stageText.text = String.Format("Stage: {0}", NumberFormatInt(LevelSystem.Instance.Stage));
         damageText.text = String.Format("Damage: {0}", NumberFormat(DamageSystem.Instance.Damage));
         dpsText.text = String.Format("DPS: {0}/s", NumberFormat(DifficultySystem.Instance.GetDPS()));
+    }
+
+    public void MoneyIndicator(double money, string prefix = "+")
+    {
+        goldPanel.GetComponent<MessageSpawner>().SpawnMessage(prefix + NumberFormat(money));
     }
 
     public void UpdateGoldText()

@@ -75,7 +75,10 @@ public class TavernSystem : MonoBehaviour
         heroImage.sprite = heroes[id].sprite;
         heroName.text = heroes[id].name;
         heroData.text = $"Level: {UISystem.Instance.NumberFormatInt(heroes[id].level)}\nDPS: {UISystem.Instance.NumberFormat(Instance.heroes[id].dps)}";
-        heroCost.text = $"Cost: {UISystem.Instance.NumberFormat(heroes[id].cost)}";
+        if (heroes[id].isUnlocked)
+            heroCost.text = $"Cost: {UISystem.Instance.NumberFormat(heroes[id].upgradeCost)}";
+        else
+            heroCost.text = $"Cost: {UISystem.Instance.NumberFormat(heroes[id].cost)}";
         upgradeButton.onClick.RemoveAllListeners(); 
         if (heroes[id].level >= heroes[id].maxLevel)
         {
@@ -107,10 +110,10 @@ public class TavernSystem : MonoBehaviour
     {
         if (heroes[id].level >= heroes[id].maxLevel)
             return;
-        if (heroes[id].cost > GoldSystem.Instance.Gold)
+        if (heroes[id].upgradeCost > GoldSystem.Instance.Gold)
             return;
         heroes[id].level++;
-        GoldSystem.Instance.SpendGold(heroes[id].cost);
+        GoldSystem.Instance.SpendGold(heroes[id].upgradeCost);
         UpdateUI(id);
         UISystem.Instance.UpdateLevelText();
     }

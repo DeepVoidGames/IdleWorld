@@ -73,14 +73,15 @@ public class SettingsSystem : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("Fullscreen"))
-            SetFullscreen(PlayerPrefs.GetInt("Fullscreen") == 1);
-        else
-            SetFullscreen(false);
-        if (PlayerPrefs.HasKey("Resolution"))
-            SetResolution(PlayerPrefs.GetInt("Resolution"));
-        else
-            Screen.SetResolution(1920, 1080, false);
+        // if (PlayerPrefs.HasKey("Fullscreen"))
+        //     SetFullscreen(PlayerPrefs.GetInt("Fullscreen") == 1);
+        // else
+        //     SetFullscreen(false);
+
+        // if (PlayerPrefs.HasKey("Resolution"))
+        //     SetResolution(PlayerPrefs.GetInt("Resolution"));
+        // else
+        //     Screen.SetResolution(1920, 1080, false);
     
         startTime = Time.time;
         if (!PlayerPrefs.HasKey("PlayTime"))
