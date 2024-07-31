@@ -24,6 +24,7 @@ public class SaveSystem : MonoBehaviour
     private string saveFilePath;
 
     private float _timer = 0f;
+    private float _autosameTimer = 0f;
 
     private void Awake()
     {
@@ -59,7 +60,8 @@ public class SaveSystem : MonoBehaviour
 
             toolData = MiningSystem.Instance.GetTool(),
             isToolEquippedData = MiningSystem.Instance.IsToolEquipped,
-            toolButtonData = InventorySystem.Instance.equipedToolButton
+            toolButtonData = InventorySystem.Instance.equipedToolButton,
+            currentCave = CaveSystem.Instance.CurrentCave != null ? CaveSystem.Instance.CurrentCave : "Stonecrest Quarry"
         };
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(saveFilePath, json);
@@ -80,6 +82,14 @@ public class SaveSystem : MonoBehaviour
         };
         json = JsonUtility.ToJson(heroData, true);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, "heroes.json"), json);
+    
+        // Save caves data
+        CaveData caveData = new CaveData
+        {
+            caves = CaveSystem.Instance.caves
+        };
+        json = JsonUtility.ToJson(caveData, true);
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, "caves.json"), json);
     }
 
     public void Load()
@@ -164,6 +174,11 @@ public class SaveSystem : MonoBehaviour
                 InventorySystem.Instance.equipedToolButton = gameData.toolButtonData;
             }
 
+            if (gameData.currentCave != null)
+            {
+                CaveSystem.Instance.CurrentCave = gameData.currentCave;
+            }
+
             Debug.Log("Game loaded from " + saveFilePath);
         }
         else
@@ -234,6 +249,30 @@ public class SaveSystem : MonoBehaviour
         {
             Debug.LogWarning("Heroes file not found: " + Path.Combine(Application.persistentDataPath, "heroes.json"));
         }
+    
+        // Load caves data
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "caves.json")))
+        {
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "caves.json"));
+            CaveData caveData = JsonUtility.FromJson<CaveData>(json);
+            if (caveData.caves != null)
+            {
+                foreach (Cave cave in caveData.caves)
+                {
+                    Cave currentCave = CaveSystem.Instance.GetCave(cave.name);
+                    if (currentCave == null)
+                    {
+                        Debug.LogWarning("Cave not found: " + cave.name);
+                        continue;
+                    }
+                    currentCave.isUnlocked = cave.isUnlocked;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Caves file not found: " + Path.Combine(Application.persistentDataPath, "caves.json"));
+        }
     }
     
     private void FixedUpdate() {
@@ -242,6 +281,14 @@ public class SaveSystem : MonoBehaviour
         {
             Save();
             _timer = 0f;
+        }
+
+        // Auto save every 5 minutes
+        _autosameTimer += Time.deltaTime;
+        if (_autosameTimer >= 300f)
+        {
+            Save();
+            _autosameTimer = 0f;
         }
     }
     
@@ -271,6 +318,7 @@ public class GameData
     public Items toolData;
     public bool isToolEquippedData;
     public UnityEngine.UI.Button toolButtonData;
+    public string currentCave;
 }
 
 [System.Serializable]
@@ -282,6 +330,11 @@ public class InventoryData
 public class HeroData
 {
     public List<Hero> heroes;
+}
+
+public class CaveData 
+{
+    public List<Cave> caves;
 }
 
 public class LoadGameData : MonoBehaviour
@@ -332,13 +385,13 @@ public class LoadGameData : MonoBehaviour
         BiomeSystem.Instance.SetCurrentBiomes(biomes);
     }
 
-    public void Rocks()
+
+    public void Caves()
     {
-        // Load rocks
-        TextAsset rocksJsonFile = Resources.Load<TextAsset>("GameData/rocks");
-        RocksDataWrapper rocksDataWrapper = JsonUtility.FromJson<RocksDataWrapper>(rocksJsonFile.text);
-        List<Rocks> rocks = rocksDataWrapper.rocks;
-        MiningSystem.Instance.SetRocks(rocks);
-        MiningSystem.Instance.SpawnRock();
+        // Load caves
+        TextAsset cavesJsonFile = Resources.Load<TextAsset>("GameData/caves");
+        CaveDataWrapper caveDataWrapper = JsonUtility.FromJson<CaveDataWrapper>(cavesJsonFile.text);
+        List<Cave> caves = caveDataWrapper.caves;
+        CaveSystem.Instance.caves = caves;
     }
 }

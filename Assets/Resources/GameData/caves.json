@@ -1,0 +1,18 @@
+{
+  "caves": [
+    {
+      "name": "Stonecrest Quarry",
+      "rocks": [
+        {
+          "name": "Stone",
+          "baseHealth": 25.0,
+          "chance": 1.0,
+          "prefab": {},
+          "drops": [{ "resourceName": "Rock", "chance": 1.0 }]
+        }
+      ],
+      "costToEnter": 5000,
+      "isUnlocked": true
+    }
+  ]
+}

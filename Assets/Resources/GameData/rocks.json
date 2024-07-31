@@ -5,7 +5,7 @@
       "baseHealth": 25.0,
       "chance": 0.800000011920929,
       "prefab": {},
-      "drops": [{ "ID": 0, "chance": 1.0, "min": 1.0, "max": 3.0 }]
+      "drops": [{ "ID": 0, "chance": 1.0 }]
     },
     {
       "Name": "RubyOre",

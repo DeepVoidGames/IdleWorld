@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 5076407047405693355}
+  _image: {fileID: 0}
   InintialYVelocity: 5
   InitialXVelocityRange: 1.5
   LifeTime: 0.6

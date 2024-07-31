@@ -27,7 +27,7 @@ public class RockObject : MonoBehaviour
 
     private void DestroyRock()
     {
-        MiningSystem.Instance.DestroyRock(this);
+        CaveSystem.Instance.DestroyRock(this);
         Destroy(gameObject);
     }
 

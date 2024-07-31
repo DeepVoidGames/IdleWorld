@@ -96,7 +96,7 @@
         },
         {
           "itemID": 29,
-          "chanceToCraft": 0.001
+          "chanceToCraft": 0.01
         }
       ]
     },
