@@ -8,6 +8,7 @@ public class Cave
     public string name;
     public List<Rocks> rocks;
     public double costToEnter;
+    public string resourceRequiredToEnter;
     public bool isUnlocked;
 }
 
@@ -79,6 +80,9 @@ public class CaveSystem : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private Image background;
+    
+    public delegate void CaveLoadedEventHandler();
+    public event CaveLoadedEventHandler OnCaveChanged;
 
     public void SpawnRock()
     {
@@ -87,50 +91,34 @@ public class CaveSystem : MonoBehaviour
             Destroy(currentRock);
         }
 
-        foreach (Cave cave in caves)
+        Cave currentCaveData = GetCave(currentCave);
+        if (currentCaveData != null)
         {
-            if (cave.name == currentCave)
+            Rocks selectedRock = GetRandomRock(currentCaveData);
+            if (selectedRock != null)
             {
-                foreach (Rocks rock in cave.rocks)
-                {
-                    float chance = Random.Range(0f, 1f);
-                    if (chance <= rock.chance)
-                    {
-                        GameObject prefab = Resources.Load<GameObject>("Prefabs/Rocks/" + rock.name);
-                        currentRock = Instantiate(prefab, rockParent.transform.position, Quaternion.identity);
-                        currentRock.transform.SetParent(rockParent.transform);
-                        RockObject rockObject = currentRock.GetComponent<RockObject>();
-                        rockObject.Health = rock.Health;
-                        rockObject.MaxHealth = rock.Health;
-                        rockObject.drops = rock.drops;
-                        return;
-                    }
-                }
+                GameObject prefab = Resources.Load<GameObject>("Prefabs/Rocks/" + selectedRock.name);
+                currentRock = Instantiate(prefab, rockParent.transform.position, Quaternion.identity);
+                currentRock.transform.SetParent(rockParent.transform);
+                RockObject rockObject = currentRock.GetComponent<RockObject>();
+                rockObject.Health = selectedRock.Health;
+                rockObject.MaxHealth = selectedRock.Health;
+                rockObject.drops = selectedRock.drops;
             }
         }
+    }
 
-        // foreach (Rocks rock in rocks)
-        // {
-        //     float chance = UnityEngine.Random.Range(0f, 1f);
-        //     Debug.Log(String.Format("Chance: {0}, Rock Chance: {1}", chance, rock.chance));
-        //     if (chance <= rock.chance)
-        //     {
-        //         currentRock = Instantiate(rock.prefab, new Vector3(rockParent.transform.position.x, rockParent.transform.position.y, rockParent.transform.position.z), Quaternion.identity);
-        //         currentRock.transform.SetParent(rockParent.transform);
-        //         RockObject rockObject = currentRock.GetComponent<RockObject>();
-        //         rockObject.Health = rock.Health;
-        //         rockObject.MaxHealth = rock.Health;
-        //         rockObject.drops = rock.drops;
-        //         return;
-        //     }
-        // }
-        
-        // currentRock = Instantiate(rocks[0].prefab, new Vector3(rockParent.transform.position.x, rockParent.transform.position.y, rockParent.transform.position.z), Quaternion.identity);
-        // currentRock.transform.SetParent(rockParent.transform);
-        // RockObject rockObjectDefault = currentRock.GetComponent<RockObject>();
-        // rockObjectDefault.Health = rocks[0].Health;
-        // rockObjectDefault.MaxHealth = rocks[0].Health;
-        // rockObjectDefault.drops = rocks[0].drops;  
+    private Rocks GetRandomRock(Cave cave)
+    {
+        foreach (Rocks rock in cave.rocks)
+        {
+            float r = Random.Range(0f, 100f);
+            if (r <= rock.chance)
+            {
+                return rock;
+            }
+        }
+        return cave.rocks[0];
     }
 
     public void DestroyRock(RockObject rockObject)
@@ -153,6 +141,38 @@ public class CaveSystem : MonoBehaviour
     private void UpdateUI()
     {
         background.sprite = Resources.Load<Sprite>("Sprites/Caves/" + currentCave);
+    }
+
+    public void UpdateCurrentCave(string name)
+    {
+        currentCave = name;
+        OnCaveChanged?.Invoke();
+        UpdateUI();
+        SpawnRock();
+    }
+
+    public void UnlockCave(string name)
+    {
+        foreach (Cave cave in caves)
+        {
+            if (cave.name == name)
+            {
+                cave.isUnlocked = true;
+            }
+        }
+        UpdateCurrentCave(name);
+    }
+    
+    public void LoadCave(string name, bool isUnlocked)
+    {
+        foreach (Cave cave in caves)
+        {
+            if (cave.name == name)
+            {
+                cave.isUnlocked = isUnlocked;
+            }
+        }
+        OnCaveChanged?.Invoke();
     }
 
     public Cave GetCave(string name)

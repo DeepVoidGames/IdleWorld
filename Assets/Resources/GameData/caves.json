@@ -6,13 +6,93 @@
         {
           "name": "Stone",
           "baseHealth": 25.0,
-          "chance": 1.0,
+          "chance": 100,
           "prefab": {},
           "drops": [{ "resourceName": "Rock", "chance": 1.0 }]
         }
       ],
       "costToEnter": 5000,
+      "resourceRequiredToEnter": "Rock",
       "isUnlocked": true
+    },
+    {
+      "name": "Ruby Land",
+      "rocks": [
+        {
+          "name": "Stone",
+          "baseHealth": 100.0,
+          "chance": 40,
+          "prefab": {},
+          "drops": [{ "resourceName": "Rock", "chance": 1.0 }]
+        },
+        {
+          "name": "RubyOre",
+          "baseHealth": 200.0,
+          "chance": 60,
+          "prefab": {},
+          "drops": [{ "resourceName": "Ruby", "chance": 1.0 }]
+        }
+      ],
+      "costToEnter": 10000,
+      "resourceRequiredToEnter": "Rock",
+      "isUnlocked": false
+    },
+    {
+      "name": "Amethyst Grotto",
+      "rocks": [
+        {
+          "name": "Stone",
+          "baseHealth": 150.0,
+          "chance": 20,
+          "prefab": {},
+          "drops": [{ "resourceName": "Rock", "chance": 1.0 }]
+        },
+        {
+          "name": "RubyOre",
+          "baseHealth": 250.0,
+          "chance": 30,
+          "prefab": {},
+          "drops": [{ "resourceName": "Ruby", "chance": 1.0 }]
+        },
+        {
+          "name": "AmethystOre",
+          "baseHealth": 350.0,
+          "chance": 50,
+          "prefab": {},
+          "drops": [{ "resourceName": "Amethyst", "chance": 1.0 }]
+        }
+      ],
+      "costToEnter": 20000,
+      "resourceRequiredToEnter": "Ruby",
+      "isUnlocked": false
+    },
+    {
+      "name": "Blue Bay",
+      "rocks": [
+        {
+          "name": "Stone",
+          "baseHealth": 400.0,
+          "chance": 10,
+          "prefab": {},
+          "drops": [{ "resourceName": "Rock", "chance": 1.0 }]
+        },
+        {
+          "name": "AquamarineOre",
+          "baseHealth": 500.0,
+          "chance": 80,
+          "prefab": {},
+          "drops": [{ "resourceName": "Amethyst", "chance": 1.0 }]
+        },
+        {
+          "name": "SapphireOre",
+          "baseHealth": 600.0,
+          "chance": 10,
+          "prefab": {},
+          "drops": [{ "resourceName": "Sapphire", "chance": 1.0 }]
+        }
+      ],
+      "costToEnter": 50000,
+      "resourceRequiredToEnter": "Amethyst"
     }
   ]
 }
