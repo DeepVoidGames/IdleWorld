@@ -7,16 +7,12 @@ public class MapTile : MonoBehaviour
     [SerializeField] private Text title;
     [SerializeField] private Text cost;
     [SerializeField] private Button button;
-    [SerializeField] private GameObject image;
-
     private Cave cave;
 
     private void UnlockCave()
     {
-        double quantity = InventorySystem.Instance.GetResourceByName(cave.resourceRequiredToEnter);
-        if (quantity >= cave.costToEnter)
+        if (MiningSystem.Instance.MiningLevel >= cave.miningLevelRequired)
         {
-            InventorySystem.Instance.RemoveItemByName(cave.resourceRequiredToEnter, cave.costToEnter);
             CaveSystem.Instance.UnlockCave(caveName);
             UpdateUI();
         }
@@ -33,13 +29,23 @@ public class MapTile : MonoBehaviour
 
     private void UpdateUI()
     {
+        if (cave == null)
+        {
+            cave = CaveSystem.Instance.GetCave(caveName);
+
+            if (cave == null)
+            {
+                Debug.LogError("Cave not found");
+                return;
+            }
+        }
+
         title.text = caveName;
         if(cave.isUnlocked)
         {
             // Change text to "Enter"
             Text text = button.GetComponentInChildren<Text>();
 
-            image.SetActive(false);
             text.text = "Enter";
             cost.text = "Unlocked";
 
@@ -62,10 +68,9 @@ public class MapTile : MonoBehaviour
             // Change text to "Unlock"
             Text text = button.GetComponentInChildren<Text>();
 
-            image.SetActive(true);
             text.text = "Unlock";
 
-            cost.text = UISystem.Instance.NumberFormat(cave.costToEnter);
+            cost.text = $"Level required: {cave.miningLevelRequired}";
 
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(UnlockCave);

@@ -7,8 +7,7 @@ public class Cave
 {
     public string name;
     public List<Rocks> rocks;
-    public double costToEnter;
-    public string resourceRequiredToEnter;
+    public double miningLevelRequired;
     public bool isUnlocked;
 }
 
@@ -32,7 +31,7 @@ public class Rocks
 [System.Serializable]
 public class Drop
 {
-    public int resourceName;
+    public string resourceName;
     public float chance;
 }
 
@@ -128,7 +127,7 @@ public class CaveSystem : MonoBehaviour
             float chance = Random.Range(0f, 1f);
             if (chance <= drop.chance)
             {
-                InventorySystem.Instance.AddItem(drop.resourceName, DifficultySystem.Instance.GetRockDrop(rockObject.MaxHealth, drop.resourceName));
+                InventorySystem.Instance.AddItemByName(drop.resourceName, DifficultySystem.Instance.GetRockDrop(rockObject.MaxHealth));
             }
         }
         Destroy(rockObject.gameObject);

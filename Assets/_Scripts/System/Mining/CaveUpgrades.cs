@@ -8,9 +8,12 @@ public class CaveUpgrades : MonoBehaviour
     [SerializeField] private string upgradeName;
     [SerializeField] private int level;
     [SerializeField] private int maxLevel;
-    [SerializeField] private double cost;
+    [SerializeField] private double baseCost;
     [SerializeField] private double costRate;
     [SerializeField] private string resourceName;
+    [SerializeField] private bool useGold;
+    private double cost;
+
 
     [Header("Damage Upgrade")]
     [SerializeField] private bool isDamageUpgrade;
@@ -24,20 +27,22 @@ public class CaveUpgrades : MonoBehaviour
     [SerializeField] private bool isMiningDropRateUpgrade;
     [SerializeField] private double miningDropRateBoostMultiplier;
 
+    [Header("Mining Efficiency Upgrade Base")]
+    [SerializeField] private bool isMiningEfficiencyUpgradeBase;
+    [SerializeField] private double miningEfficiencyBoostBase;
+
     [Header("UI")]
     [SerializeField] private Text Title;
     [SerializeField] private Text Cost;
     [SerializeField] private Text Bonus;
     [SerializeField] private Text ProgressText;
     [SerializeField] private Image ProgressImage;
+    [SerializeField] private Button BuyButton;
 
 
     private void Start()
     {
-        if(!PlayerPrefs.HasKey("CaveUpgradeLevel-" + resourceName))
-        {
-            UIUpdate(); 
-        }
+        // PlayerPrefs.DeleteKey("CaveUpgradeLevel-" + resourceName);
         Load();
         UIUpdate();
     }
@@ -59,7 +64,7 @@ public class CaveUpgrades : MonoBehaviour
         {
             if (level > 0)
             {
-                Bonus.text = "Mining Efficiency: " + miningEfficiencyBoostPercentage * level + "%";
+                Bonus.text = "Mining Efficiency: " + (miningEfficiencyBoostPercentage * level) * 100 + "%";
             }
             else
             {
@@ -77,6 +82,17 @@ public class CaveUpgrades : MonoBehaviour
                 Bonus.text = "Mining Drop Rate Multiplier: 0";
             }
         }
+        else if (isMiningEfficiencyUpgradeBase)
+        {
+            if (level > 0)
+            {
+                Bonus.text = "Mining Efficiency: " + miningEfficiencyBoostBase * level;
+            }
+            else
+            {
+                Bonus.text = "Mining Efficiency: 0";
+            }
+        }
     }
 
     private void UIUpdate()
@@ -86,62 +102,107 @@ public class CaveUpgrades : MonoBehaviour
         BonusText();
         ProgressText.text = level + "/" + maxLevel;
         ProgressBar();
+
+        if (level >= maxLevel)
+        {
+            BuyButton.interactable = false;
+            Text text = BuyButton.GetComponentInChildren<Text>();
+            text.text = "Max";
+            Cost.text = "Max Level";
+        }
     }
 
     private void ProgressBar()
     {
-        // Image min size 0, max 932.2
-        // Image min X -613.86, max -147.76
+        // Image min size 0, max 1055.4
+        // Image min X -672.7001, max -145
         float progress = (float)level / maxLevel;
-        ProgressImage.rectTransform.sizeDelta = new Vector2(932.2f * progress, ProgressImage.rectTransform.sizeDelta.y);
-        ProgressImage.rectTransform.anchoredPosition = new Vector2(-613.86f + (progress * 466.1f), ProgressImage.rectTransform.anchoredPosition.y);
-
+        ProgressImage.rectTransform.sizeDelta = new Vector2(1055.4f * progress, ProgressImage.rectTransform.sizeDelta.y);
+        ProgressImage.rectTransform.anchoredPosition = new Vector2(-672.7001f + (progress * 527.7f), ProgressImage.rectTransform.anchoredPosition.y);
     }
 
     private void Load()
     {
         level = PlayerPrefs.GetInt("CaveUpgradeLevel-" + resourceName, 0);
-        cost = cost * Math.Pow(costRate, level);
+        if (level == 0)
+        {
+            cost = (baseCost * costRate);
+            return;
+        }
+        else
+        {
+            cost = CalculateCost(); 
+        }
+        
         if(isDamageUpgrade)
         {
             DifficultySystem.Instance.AddDamagePercentage((damageBoostPercentage / 100) * level);
         }
         if (isMiningEfficiencyUpgrade)
         {
-            DifficultySystem.Instance. AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100) * level);
+            DifficultySystem.Instance.AddMiningEfficiencyPercentage(miningEfficiencyBoostPercentage * level);
         }
         if (isMiningDropRateUpgrade)
         {
-            DifficultySystem.Instance.AddMiningDropRateMultiplier((miningDropRateBoostMultiplier / 100) * level);
+            DifficultySystem.Instance.AddMiningDropRateMultiplier(miningDropRateBoostMultiplier * level);
+        }
+        if (isMiningEfficiencyUpgradeBase)
+        {
+            DifficultySystem.Instance.MiningBonusMiningEfficiency += miningEfficiencyBoostBase * level;
         }
         UIUpdate();
     }
 
-    public void BuyUpgrade()
+    private double CalculateCost()
     {
-        if (InventorySystem.Instance.GetResourceByName(resourceName) >= cost)
-        {
-            InventorySystem.Instance.RemoveItemByName(resourceName, cost);
-            level++;
-            cost *= costRate;
-            if (isDamageUpgrade)
-            {
-                DifficultySystem.Instance.AddDamagePercentage((damageBoostPercentage / 100));
-                BonusText();    
-            }
-            else if (isMiningEfficiencyUpgrade)
-            {
-                DifficultySystem.Instance.AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100));
-                BonusText();
-            }
-            else if (isMiningDropRateUpgrade)
-            {
-                DifficultySystem.Instance.AddMiningDropRateMultiplier((miningDropRateBoostMultiplier / 100));
-                BonusText();
-            }
-            UIUpdate();
-            PlayerPrefs.SetInt("CaveUpgradeLevel-" + resourceName, level);
-        }
+        return (baseCost * costRate) * level;
     }
 
+    public void BuyUpgrade()
+    {
+        if (level >= maxLevel)
+        {
+            BuyButton.interactable = false;
+            return;
+        }
+
+        if (InventorySystem.Instance.GetResourceByName(resourceName) >= cost && !useGold)
+        {
+            InventorySystem.Instance.RemoveItemByName(resourceName, cost);
+        }
+        else if (useGold && GoldSystem.Instance.Gold >= cost)
+        {
+            GoldSystem.Instance.SpendGold(cost);
+        }
+        else
+        {
+            return;
+        }
+
+        level++;
+        cost = CalculateCost();
+        if (isDamageUpgrade)
+        {
+            DifficultySystem.Instance.AddDamagePercentage((damageBoostPercentage / 100));
+            BonusText();    
+        }
+        else if (isMiningEfficiencyUpgrade)
+        {
+            DifficultySystem.Instance.AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100));
+            BonusText();
+        }
+        else if (isMiningDropRateUpgrade)
+        {
+            DifficultySystem.Instance.AddMiningDropRateMultiplier((miningDropRateBoostMultiplier / 100));
+            BonusText();
+        }
+        else if (isMiningEfficiencyUpgradeBase)
+        {
+            DifficultySystem.Instance.MiningBonusMiningEfficiency += miningEfficiencyBoostBase;
+            BonusText();
+        }
+        
+        UIUpdate();
+        PlayerPrefs.SetInt("CaveUpgradeLevel-" + resourceName, level);
+    }
 }

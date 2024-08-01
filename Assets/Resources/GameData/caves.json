@@ -11,8 +11,7 @@
           "drops": [{ "resourceName": "Rock", "chance": 1.0 }]
         }
       ],
-      "costToEnter": 5000,
-      "resourceRequiredToEnter": "Rock",
+      "miningLevelRequired": 1,
       "isUnlocked": true
     },
     {
@@ -33,8 +32,7 @@
           "drops": [{ "resourceName": "Ruby", "chance": 1.0 }]
         }
       ],
-      "costToEnter": 10000,
-      "resourceRequiredToEnter": "Rock",
+      "miningLevelRequired": 5,
       "isUnlocked": false
     },
     {
@@ -62,37 +60,50 @@
           "drops": [{ "resourceName": "Amethyst", "chance": 1.0 }]
         }
       ],
-      "costToEnter": 20000,
-      "resourceRequiredToEnter": "Ruby",
+      "miningLevelRequired": 50,
       "isUnlocked": false
     },
     {
       "name": "Blue Bay",
       "rocks": [
         {
-          "name": "Stone",
-          "baseHealth": 400.0,
-          "chance": 10,
-          "prefab": {},
-          "drops": [{ "resourceName": "Rock", "chance": 1.0 }]
-        },
-        {
           "name": "AquamarineOre",
           "baseHealth": 500.0,
-          "chance": 80,
+          "chance": 60,
           "prefab": {},
-          "drops": [{ "resourceName": "Amethyst", "chance": 1.0 }]
+          "drops": [{ "resourceName": "Aquamarine", "chance": 1.0 }]
         },
         {
           "name": "SapphireOre",
           "baseHealth": 600.0,
-          "chance": 10,
+          "chance": 40,
           "prefab": {},
           "drops": [{ "resourceName": "Sapphire", "chance": 1.0 }]
         }
       ],
-      "costToEnter": 50000,
-      "resourceRequiredToEnter": "Amethyst"
+      "miningLevelRequired": 150,
+      "isUnlocked": false
+    },
+    {
+      "name": "Crystal Cave",
+      "rocks": [
+        {
+          "name": "CalciteOre",
+          "baseHealth": 700,
+          "chance": 70,
+          "prefab": {},
+          "drops": [{ "resourceName": "Calcite", "chance": 1.0 }]
+        },
+        {
+          "name": "OpalOre",
+          "baseHealth": 800.0,
+          "chance": 30,
+          "prefab": {},
+          "drops": [{ "resourceName": "Opal", "chance": 1.0 }]
+        }
+      ],
+      "miningLevelRequired": 300,
+      "isUnlocked": false
     }
   ]
 }

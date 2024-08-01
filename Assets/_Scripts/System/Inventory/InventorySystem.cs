@@ -45,6 +45,9 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] private GameObject inventoryIndicator;
     [SerializeField] private GameObject categoryUI;
     [SerializeField] private Category currentCategory;
+
+    [SerializeField] private GameObject inventoryContent;
+
     public Button equipedWeaponButton;
     public Button equipedToolButton;
 
@@ -72,6 +75,22 @@ public class InventorySystem : MonoBehaviour
         UpdateUI();
     }
 
+    public void AddItemByName(string resourceName, double quantity)
+    {
+        InventorySlot slot = inventory.inventory.Find(x => x.item.Name == resourceName);
+        if (slot == null)
+        {
+            slot = new InventorySlot();
+            slot.item = ItemSystem.Instance.ItemsCollection.Find(x => x.Name == resourceName);
+            slot.quantity = 0;
+            inventory.inventory.Add(slot);
+        }
+        
+        slot.quantity += quantity;
+        inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} +{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(slot.item.id));
+        UpdateUI();
+    }
+
     public void RemoveItem(int id, float quantity)
     {
         InventorySlot slot =  inventory.inventory.Find(x => x.item.id == id);
@@ -83,7 +102,6 @@ public class InventorySystem : MonoBehaviour
                 inventory.inventory.Remove(slot);
             }
         }
-        inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} -{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(id));
         UpdateUI();
     }
 
@@ -108,7 +126,6 @@ public class InventorySystem : MonoBehaviour
                 inventory.inventory.Remove(slot);
             }
         }
-        inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} -{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(slot.item.id));
         UpdateUI();
     }
 
@@ -203,7 +220,24 @@ public class InventorySystem : MonoBehaviour
         }
 
         // Show the inventory UI
-        Vector3 pos = new Vector3(178.75f, -45.95f, 0);
+        Vector3 pos = new Vector3(178.75f, -48, 0);
+        
+
+        //Count all the items in the inventory with the current category
+        int itemCount = 0;
+        foreach (InventorySlot slot in inventory.inventory)
+        {
+            if (slot.item.category == currentCategory)
+            {
+                itemCount++;
+            }
+        } 
+
+        RectTransform rt = inventoryContent.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(0, Mathf.Abs(110 * itemCount));
+        rt.position = new Vector3(rt.position.x, rt.position.y, rt.position.z);  
+        
+
         foreach (InventorySlot slot in inventory.inventory)
         {
             if (slot.item.category == currentCategory)
@@ -286,7 +320,7 @@ public class InventorySystem : MonoBehaviour
                 }
                 pos.y -= 100;
             }
-        }
+        }  
     }
 
     public void SetCategory(int category)

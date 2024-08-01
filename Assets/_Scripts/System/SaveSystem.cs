@@ -387,4 +387,12 @@ public class LoadGameData : MonoBehaviour
         List<Cave> caves = caveDataWrapper.caves;
         CaveSystem.Instance.caves = caves;
     }
+
+    private void OnDestroy()
+    {
+        if (_instance == this)
+        {
+            _instance = null;
+        }
+    }
 }

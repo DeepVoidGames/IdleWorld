@@ -27,7 +27,18 @@ public class DifficultySystem : MonoBehaviour
     private double DamagePercentage;
     //Mining
     private double miningEfficiencyPercentage;
-    private double miningDropRateMultiplier = 1f;
+    private double miningDropRateMultiplier;
+    private double miningBonusMiningEfficiency;
+
+    public double MiningBonusMiningEfficiency
+    {
+        get => miningBonusMiningEfficiency;
+        set
+        {
+            miningBonusMiningEfficiency = value;
+            UISystem.Instance.UpdateMiningUI();
+        }
+    }
 
     // Difficulty for Cave Upgrades
     public void AddDamagePercentage(double value)
@@ -106,9 +117,11 @@ public class DifficultySystem : MonoBehaviour
         return baseHealth + baseHealth * MiningSystem.Instance.MiningLevel;
     }
 
-    public double GetRockDrop(double maxHealth, double minDrop)
+    public double GetRockDrop(double maxHealth)
     {
-        return maxHealth/2 * miningDropRateMultiplier;
+        if (miningDropRateMultiplier == 0)
+            return maxHealth/2;
+        return (maxHealth/2) * miningDropRateMultiplier;
     }
 
     public double GetMiningExperience(double maxHealth)
@@ -123,8 +136,9 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetMiningEfficiency(double baseEfficiency)
     {
-        if (baseEfficiency == 0)
+        if (baseEfficiency == 0 && miningBonusMiningEfficiency == 0)
             baseEfficiency = 1;
-        return baseEfficiency + baseEfficiency * miningEfficiencyPercentage;
+        double dmg = baseEfficiency + miningBonusMiningEfficiency;
+        return dmg + dmg * miningEfficiencyPercentage;
     }
 }

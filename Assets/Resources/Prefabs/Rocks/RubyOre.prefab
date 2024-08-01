@@ -312,7 +312,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!114 &7707375511365092586
 MonoBehaviour:
@@ -327,10 +327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops:
-  - ID: 1
+  - resourceName: 0
     chance: 1
-    min: 1
-    max: 2
   healthText: {fileID: 5996548220884423972}
 --- !u!114 &-3001470529185757887
 MonoBehaviour:
