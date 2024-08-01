@@ -135,7 +135,6 @@ public class CaveSystem : MonoBehaviour
         currentRock = null;
         MiningSystem.Instance.AddMiningExperience(DifficultySystem.Instance.GetMiningExperience(rockObject.MaxHealth));
         UISystem.Instance.UpdateMiningUI();
-        SpawnRock();
     }
 
     private void UpdateUI()
@@ -202,6 +201,14 @@ public class CaveSystem : MonoBehaviour
 
         UpdateUI();
         SpawnRock();
+    }
+
+    private void Update() 
+    {
+        if (currentRock == null)
+        {
+            SpawnRock();
+        }
     }
 }
 
