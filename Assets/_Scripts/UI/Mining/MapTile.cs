@@ -7,6 +7,9 @@ public class MapTile : MonoBehaviour
     [SerializeField] private Text title;
     [SerializeField] private Text cost;
     [SerializeField] private Button button;
+
+    [SerializeField] private ResourcesList[] resources;
+
     private Cave cave;
 
     private void UnlockCave()
@@ -43,6 +46,12 @@ public class MapTile : MonoBehaviour
         title.text = caveName;
         if(cave.isUnlocked)
         {
+            foreach (ResourcesList resource in resources)
+            {
+                resource.image.color = Color.white;
+                resource.text.text = $"{resource.chance}%";
+            }   
+
             // Change text to "Enter"
             Text text = button.GetComponentInChildren<Text>();
 
@@ -65,6 +74,12 @@ public class MapTile : MonoBehaviour
         }
         else
         {
+            foreach (ResourcesList resource in resources)
+            {
+                resource.image.color = Color.black;
+                resource.text.text = "???";
+            }
+
             // Change text to "Unlock"
             Text text = button.GetComponentInChildren<Text>();
 
@@ -99,4 +114,12 @@ public class MapTile : MonoBehaviour
         CaveSystem.Instance.OnCaveChanged -= UpdateUI;
     }
 
+}
+
+[System.Serializable]
+public class ResourcesList
+{
+    public Image image;
+    public Text text;
+    public string chance; 
 }

@@ -53,7 +53,7 @@ public class CaveUpgrades : MonoBehaviour
         {
             if (level > 0)
             {
-                Bonus.text = "Damage: " + damageBoostPercentage * level + "%";
+                Bonus.text = "Damage: " + (damageBoostPercentage * level) * 100 + "%";
             }
             else
             {
@@ -136,7 +136,7 @@ public class CaveUpgrades : MonoBehaviour
         
         if(isDamageUpgrade)
         {
-            DifficultySystem.Instance.AddDamagePercentage((damageBoostPercentage / 100) * level);
+            DifficultySystem.Instance.AddDamagePercentage(damageBoostPercentage * level);
         }
         if (isMiningEfficiencyUpgrade)
         {
@@ -183,17 +183,17 @@ public class CaveUpgrades : MonoBehaviour
         cost = CalculateCost();
         if (isDamageUpgrade)
         {
-            DifficultySystem.Instance.AddDamagePercentage((damageBoostPercentage / 100));
+            DifficultySystem.Instance.AddDamagePercentage(damageBoostPercentage * level);
             BonusText();    
         }
         else if (isMiningEfficiencyUpgrade)
         {
-            DifficultySystem.Instance.AddMiningEfficiencyPercentage((miningEfficiencyBoostPercentage / 100));
+            DifficultySystem.Instance.AddMiningEfficiencyPercentage(miningEfficiencyBoostPercentage * level);
             BonusText();
         }
         else if (isMiningDropRateUpgrade)
         {
-            DifficultySystem.Instance.AddMiningDropRateMultiplier((miningDropRateBoostMultiplier / 100));
+            DifficultySystem.Instance.AddMiningDropRateMultiplier(miningDropRateBoostMultiplier * level);
             BonusText();
         }
         else if (isMiningEfficiencyUpgradeBase)

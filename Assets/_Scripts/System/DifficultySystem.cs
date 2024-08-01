@@ -43,19 +43,20 @@ public class DifficultySystem : MonoBehaviour
     // Difficulty for Cave Upgrades
     public void AddDamagePercentage(double value)
     {
-        DamagePercentage += value;
+        DamagePercentage = value;
         UISystem.Instance.UpdateLevelText();
     }
 
     public void AddMiningEfficiencyPercentage(double value)
     {
-        miningEfficiencyPercentage += value;
+        miningEfficiencyPercentage = value;
         UISystem.Instance.UpdateMiningUI();
     }
 
+
     public void AddMiningDropRateMultiplier(double value)
     {
-        miningDropRateMultiplier += value;
+        miningDropRateMultiplier = value;
     }
 
     public double GetMiningEfficiencyPercentage()

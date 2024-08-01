@@ -104,6 +104,27 @@
       ],
       "miningLevelRequired": 300,
       "isUnlocked": false
+    },
+    {
+      "name": "Scarlet Crypts",
+      "rocks": [
+        {
+          "name": "RubyOre",
+          "baseHealth": 1000.0,
+          "chance": 70,
+          "prefab": {},
+          "drops": [{ "resourceName": "Ruby", "chance": 1.0 }]
+        },
+        {
+          "name": "RedDiamondOre",
+          "baseHealth": 1100.0,
+          "chance": 30,
+          "prefab": {},
+          "drops": [{ "resourceName": "Red Diamond", "chance": 1.0 }]
+        }
+      ],
+      "miningLevelRequired": 500,
+      "isUnlocked": false
     }
   ]
 }
