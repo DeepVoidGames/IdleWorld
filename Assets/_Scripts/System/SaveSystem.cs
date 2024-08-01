@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
@@ -24,7 +25,6 @@ public class SaveSystem : MonoBehaviour
     private string saveFilePath;
 
     private float _timer = 0f;
-    private float _autosameTimer = 0f;
 
     private void Awake()
     {
@@ -84,11 +84,11 @@ public class SaveSystem : MonoBehaviour
         File.WriteAllText(Path.Combine(Application.persistentDataPath, "heroes.json"), json);
     
         // Save caves data
-        CaveData caveData = new CaveData
+        CavesData cavesData = new CavesData
         {
             caves = CaveSystem.Instance.caves
         };
-        json = JsonUtility.ToJson(caveData, true);
+        json = JsonUtility.ToJson(cavesData, true);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, "caves.json"), json);
     }
 
@@ -254,18 +254,18 @@ public class SaveSystem : MonoBehaviour
         if (File.Exists(Path.Combine(Application.persistentDataPath, "caves.json")))
         {
             string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "caves.json"));
-            CaveData caveData = JsonUtility.FromJson<CaveData>(json);
-            if (caveData.caves != null)
+            CavesData cavesData = JsonUtility.FromJson<CavesData>(json);
+            if (cavesData.caves != null)
             {
-                foreach (Cave cave in caveData.caves)
+                foreach (Cave cave in cavesData.caves)
                 {
-                    Cave currentCave = CaveSystem.Instance.GetCave(cave.name);
-                    if (currentCave == null)
+                    Cave c = CaveSystem.Instance.caves.Find(x => x.name == cave.name);
+                    if (c == null)
                     {
                         Debug.LogWarning("Cave not found: " + cave.name);
                         continue;
                     }
-                    currentCave.isUnlocked = cave.isUnlocked;
+                    CaveSystem.Instance.LoadCave(cave.name, cave.isUnlocked);
                 }
             }
         }
@@ -276,19 +276,12 @@ public class SaveSystem : MonoBehaviour
     }
     
     private void FixedUpdate() {
-        _timer += Time.fixedDeltaTime;
-        if (_timer >= 5f)
+        // Auto save every 5 minutes
+        _timer += Time.deltaTime;
+        if (_timer >= 300f)
         {
             Save();
             _timer = 0f;
-        }
-
-        // Auto save every 5 minutes
-        _autosameTimer += Time.deltaTime;
-        if (_autosameTimer >= 300f)
-        {
-            Save();
-            _autosameTimer = 0f;
         }
     }
     
@@ -332,7 +325,7 @@ public class HeroData
     public List<Hero> heroes;
 }
 
-public class CaveData 
+public class CavesData
 {
     public List<Cave> caves;
 }
