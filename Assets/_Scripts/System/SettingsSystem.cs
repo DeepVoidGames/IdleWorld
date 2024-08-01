@@ -95,7 +95,7 @@ public class SettingsSystem : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer >= 60)
+        if (_timer >= 60f)
         {
             Save();
             UpdateUI();
