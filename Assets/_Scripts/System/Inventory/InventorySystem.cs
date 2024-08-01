@@ -83,6 +83,7 @@ public class InventorySystem : MonoBehaviour
                 inventory.inventory.Remove(slot);
             }
         }
+        inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} -{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(id));
         UpdateUI();
     }
 
@@ -107,6 +108,7 @@ public class InventorySystem : MonoBehaviour
                 inventory.inventory.Remove(slot);
             }
         }
+        inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} -{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(slot.item.id));
         UpdateUI();
     }
 
