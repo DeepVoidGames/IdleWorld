@@ -124,6 +124,12 @@ public class CaveUpgrades : MonoBehaviour
     private void Load()
     {
         level = PlayerPrefs.GetInt("CaveUpgradeLevel-" + resourceName, 0);
+
+        if (level > maxLevel)
+        {
+            level = maxLevel;
+        }
+
         if (level == 0)
         {
             cost = (baseCost * costRate);
