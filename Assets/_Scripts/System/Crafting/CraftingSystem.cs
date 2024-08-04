@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,6 +59,7 @@ public class CraftingSystem : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private Image craftSlotImage;
     [SerializeField] private GameObject categoryPanel;
+    [SerializeField] private Button craftButton;
     [SerializeField] private List<GameObject> chancePanels = new List<GameObject>();
 
     [Header("Crafting")]
@@ -67,11 +69,14 @@ public class CraftingSystem : MonoBehaviour
 
     public void Craft()
     {
-        if (isCrafting)
-        {
+        if (CraftSlot == null || currentCraftingType == CraftingType.None)
             return;
-        }
+        if (isCrafting)
+            return;
+        
         isCrafting = true;
+        craftButton.interactable = false;
+        StartCoroutine(StartCrafting());
         CraftingRecipe recipe = CraftingRecipes.Find(x => x.materialName == CraftSlot.Name && x.craftingType == currentCraftingType);
         if (recipe != null)
         {
@@ -81,13 +86,20 @@ public class CraftingSystem : MonoBehaviour
                 {
                     if (InventorySystem.Instance.GetResourceByName(recipe.materialName) <= 1000f)
                         return;
-                    InventorySystem.Instance.RemoveItemByName(recipe.materialName, 1);
+                    InventorySystem.Instance.RemoveItemByName(recipe.materialName, 1000);
                     InventorySystem.Instance.AddItemByName(item.itemName, 1);
                 }
             }
         }
         UpdateChancePanel(recipe);
-        isCrafting = false;
+    }
+
+    private void ClearChancePanels()
+    {
+        foreach (var panel in chancePanels)
+        {
+            panel.SetActive(false);
+        }
     }
 
     public void SlotOnClick()
@@ -96,6 +108,14 @@ public class CraftingSystem : MonoBehaviour
         {
             InventorySystem.Instance.SetCategory(1);
             InventorySystem.Instance.InventoryPanel.SetActive(true);
+        }
+
+        if (CraftSlot != null)
+        {
+            CraftSlot = null;
+            craftSlotImage.sprite = null;
+            
+            ClearChancePanels();
         }
     }
     
@@ -106,7 +126,10 @@ public class CraftingSystem : MonoBehaviour
     public void SetCraftingType(int type)
     {
         currentCraftingType = (CraftingType)type;
+        CraftSlot = null;
+        craftSlotImage.sprite = null;
         categoryPanel.SetActive(false);
+        ClearChancePanels();
     }
     
     private void UpdateChancePanel(CraftingRecipe recipe)
@@ -145,5 +168,12 @@ public class CraftingSystem : MonoBehaviour
     private void Start()
     {
         LoadGameData.Instance.CraftingRecipes();
+    }
+
+    private IEnumerator StartCrafting()
+    {
+        yield return new WaitForSeconds(1f);
+        isCrafting = false;
+        craftButton.interactable = true;
     }
 }

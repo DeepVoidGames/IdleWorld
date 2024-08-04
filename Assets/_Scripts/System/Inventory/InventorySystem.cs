@@ -74,22 +74,41 @@ public class InventorySystem : MonoBehaviour
         
         slot.quantity += quantity;
         inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} +{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(id));
+        ClearDuplicates();
         UpdateUI();
     }
 
-    public void AddItemByName(string resourceName, double quantity)
+    private void ClearDuplicates()
     {
-        InventorySlot slot = inventory.inventory.Find(x => x.item.Name == resourceName);
+        for (int i = 0; i < inventory.inventory.Count; i++)
+        {
+            for (int j = i + 1; j < inventory.inventory.Count; j++)
+            {
+                if (inventory.inventory[i].item.id == inventory.inventory[j].item.id)
+                {
+                    inventory.inventory[i].quantity += inventory.inventory[j].quantity;
+                    inventory.inventory.RemoveAt(j);
+                    j--;
+                }
+            }
+        }
+    }
+
+    public void AddItemByName(string name, double quantity)
+    {
+        int id = ItemSystem.Instance.ItemsCollection.Find(x => x.Name == name).id;
+        InventorySlot slot = inventory.inventory.Find(x => x.item.id == id);
         if (slot == null)
         {
             slot = new InventorySlot();
-            slot.item = ItemSystem.Instance.ItemsCollection.Find(x => x.Name == resourceName);
+            slot.item = ItemSystem.Instance.ItemsCollection.Find(x => x.id == id);
             slot.quantity = 0;
             inventory.inventory.Add(slot);
         }
         
         slot.quantity += quantity;
         inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} +{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(slot.item.id));
+        ClearDuplicates();
         UpdateUI();
     }
 
@@ -261,6 +280,7 @@ public class InventorySystem : MonoBehaviour
                 if (slot.item.category == Category.Material)
                 {
                     Button button = go.GetComponent<Button>();
+                    button.onClick.RemoveAllListeners();
                     var onClick = new Button.ButtonClickedEvent();
                     onClick.AddListener(() => CraftingSystem.Instance.SetCraftSlot(slot.item));
                     button.onClick = onClick;

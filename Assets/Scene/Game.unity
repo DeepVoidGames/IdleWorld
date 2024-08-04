@@ -2241,7 +2241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &201546305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5609,7 +5609,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731839519}
+      - m_Target: {fileID: 1731839523}
         m_TargetAssemblyTypeName: CaveUpgrades, Assembly-CSharp
         m_MethodName: BuyUpgrade
         m_Mode: 1
@@ -10218,7 +10218,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731839519}
+      - m_Target: {fileID: 1731839521}
         m_TargetAssemblyTypeName: CaveUpgrades, Assembly-CSharp
         m_MethodName: BuyUpgrade
         m_Mode: 1
@@ -10829,6 +10829,8 @@ GameObject:
   - component: {fileID: 816364948}
   - component: {fileID: 816364950}
   - component: {fileID: 816364949}
+  - component: {fileID: 816364952}
+  - component: {fileID: 816364951}
   m_Layer: 5
   m_Name: ExperiencePanel
   m_TagString: Untagged
@@ -10894,6 +10896,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816364947}
   m_CullTransparentMesh: 1
+--- !u!114 &816364951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816364947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16948297c5322d49a0d64472d3b9bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialPosition: {x: 0, y: -45}
+  _floatingMessagePrefab: {fileID: 8457534564469843217, guid: 1a247d91077b0584ebcf9690fe74e798, type: 3}
+--- !u!114 &816364952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816364947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbeedcd06978c245b54c776535e2836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &820672825
 GameObject:
   m_ObjectHideFlags: 0
@@ -11493,7 +11521,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731839519}
+      - m_Target: {fileID: 1731839520}
         m_TargetAssemblyTypeName: CaveUpgrades, Assembly-CSharp
         m_MethodName: BuyUpgrade
         m_Mode: 1
@@ -20393,7 +20421,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731839519}
+      - m_Target: {fileID: 1731839522}
         m_TargetAssemblyTypeName: CaveUpgrades, Assembly-CSharp
         m_MethodName: BuyUpgrade
         m_Mode: 1
@@ -23362,7 +23390,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731839519}
+      - m_Target: {fileID: 1731839518}
         m_TargetAssemblyTypeName: CaveUpgrades, Assembly-CSharp
         m_MethodName: BuyUpgrade
         m_Mode: 1
@@ -26965,7 +26993,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731839519}
+      - m_Target: {fileID: 1731839517}
         m_TargetAssemblyTypeName: CaveUpgrades, Assembly-CSharp
         m_MethodName: BuyUpgrade
         m_Mode: 1
