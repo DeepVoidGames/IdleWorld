@@ -73,24 +73,29 @@ public class CraftingSystem : MonoBehaviour
             return;
         if (isCrafting)
             return;
-        
+    
+        CraftingRecipe recipe = CraftingRecipes.Find(x => x.materialName == CraftSlot.Name && x.craftingType == currentCraftingType);
+        if (InventorySystem.Instance.GetResourceByName(recipe.materialName) <= 1000f)
+            return;
         isCrafting = true;
         craftButton.interactable = false;
         StartCoroutine(StartCrafting());
-        CraftingRecipe recipe = CraftingRecipes.Find(x => x.materialName == CraftSlot.Name && x.craftingType == currentCraftingType);
         if (recipe != null)
         {
             foreach (var item in recipe.itemsToCraft)
             {
                 if (UnityEngine.Random.Range(0f, 1f) <= item.chance)
                 {
-                    if (InventorySystem.Instance.GetResourceByName(recipe.materialName) <= 1000f)
-                        return;
+                    
                     InventorySystem.Instance.RemoveItemByName(recipe.materialName, 1000);
                     InventorySystem.Instance.AddItemByName(item.itemName, 1);
+                    UpdateChancePanel(recipe);
+                    return;
                 }
             }
         }
+        InventorySystem.Instance.RemoveItemByName(recipe.materialName, 1000);
+        InventorySystem.Instance.AddItemByName(recipe.itemsToCraft[0].itemName, 1);
         UpdateChancePanel(recipe);
     }
 
@@ -172,7 +177,7 @@ public class CraftingSystem : MonoBehaviour
 
     private IEnumerator StartCrafting()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         isCrafting = false;
         craftButton.interactable = true;
     }
