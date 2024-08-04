@@ -117,6 +117,11 @@ public class InventorySystem : MonoBehaviour
         return 0;
     }
 
+    public bool IsItemInInventory(string itemName)
+    {
+        return inventory.inventory.Exists(x => x.item.Name == itemName);
+    }
+    
     public void RemoveItemByName(string resourceName, double quantity)
     {
         InventorySlot slot = inventory.inventory.Find(x => x.item.Name == resourceName);

@@ -2,10 +2,13 @@
 
 - Rework
   - Crafting system
-- Add
-  - Enchanting system
 - Fix
   - Mining map close button
+  - Fix UI scaling
+  - Tavern display
+- Balans changes
+  - All mythicals items are now legendary :/
+  - Optimlize weapons damage
 
 # 0.5.3.0
 

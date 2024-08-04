@@ -15,8 +15,7 @@ public class ItemsToCraft
 public class CraftingRecipe
 {
     public int id;
-    public string material1Name;
-    public string material2Name;
+    public string materialName;
     public CraftingType craftingType;
     public List<ItemsToCraft> itemsToCraft = new List<ItemsToCraft>();
 
@@ -54,12 +53,42 @@ public class CraftingSystem : MonoBehaviour
         }
     }
 
+    [Header("Crafting Recipes")]
     public List<CraftingRecipe> CraftingRecipes = new List<CraftingRecipe>();
+    [Header("UI Elements")]
+    [SerializeField] private Image craftSlotImage;
+    [SerializeField] private GameObject categoryPanel;
+    [SerializeField] private List<GameObject> chancePanels = new List<GameObject>();
 
     [Header("Crafting")]
-    public List<Items> CraftSlot = new List<Items>();
+    public Items CraftSlot;
     [SerializeField] private CraftingType currentCraftingType;
     private bool isCrafting = false;
+
+    public void Craft()
+    {
+        if (isCrafting)
+        {
+            return;
+        }
+        isCrafting = true;
+        CraftingRecipe recipe = CraftingRecipes.Find(x => x.materialName == CraftSlot.Name && x.craftingType == currentCraftingType);
+        if (recipe != null)
+        {
+            foreach (var item in recipe.itemsToCraft)
+            {
+                if (UnityEngine.Random.Range(0f, 1f) <= item.chance)
+                {
+                    if (InventorySystem.Instance.GetResourceByName(recipe.materialName) <= 1000f)
+                        return;
+                    InventorySystem.Instance.RemoveItemByName(recipe.materialName, 1);
+                    InventorySystem.Instance.AddItemByName(item.itemName, 1);
+                }
+            }
+        }
+        UpdateChancePanel(recipe);
+        isCrafting = false;
+    }
 
     public void SlotOnClick()
     {
@@ -70,9 +99,43 @@ public class CraftingSystem : MonoBehaviour
         }
     }
     
+    public void OpenCategoryPanel()
+    {
+        categoryPanel.SetActive(true);
+    }
+    public void SetCraftingType(int type)
+    {
+        currentCraftingType = (CraftingType)type;
+        categoryPanel.SetActive(false);
+    }
+    
+    private void UpdateChancePanel(CraftingRecipe recipe)
+    {       
+            foreach (var panel in chancePanels)
+            {
+                panel.SetActive(false);
+            }
+
+            for (int i = 0; i < recipe.itemsToCraft.Count; i++)
+            {
+                chancePanels[i].SetActive(true);
+                chancePanels[i].transform.GetChild(0).GetComponent<Text>().text = $"{recipe.itemsToCraft[i].chance * 100}%";
+                chancePanels[i].GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIconByName(recipe.itemsToCraft[i].itemName);
+                
+                if(!InventorySystem.Instance.IsItemInInventory(recipe.itemsToCraft[i].itemName))
+                    chancePanels[i].GetComponent<Image>().color = new Color(0f, 0f, 0f, 1);
+                else
+                    chancePanels[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 1);
+            }
+    }
     public void SetCraftSlot(Items item)
     {
-        CraftSlot.Add(item);
+        CraftSlot = item;
+        craftSlotImage.sprite = item.icon;
+
+        CraftingRecipe recipe = CraftingRecipes.Find(x => x.materialName == item.Name && x.craftingType == currentCraftingType);
+        if (recipe != null)  
+            UpdateChancePanel(recipe);
     }
     public void SetCraftingRecipes(List<CraftingRecipe> craftingRecipes)
     {

@@ -59,6 +59,11 @@ public class ItemSystem : MonoBehaviour
         return ItemsCollection.Find(x => x.id == id).icon;
     }
 
+    public Sprite GetItemIconByName(string name)
+    {
+        return ItemsCollection.Find(x => x.Name == name).icon;
+    }
+
     public void SetItemsCollection(List<Items> items)
     {
         foreach (Items item in items)

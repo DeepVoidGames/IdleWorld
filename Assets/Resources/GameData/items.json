@@ -220,7 +220,7 @@
       "category": 2,
       "rarity": 3,
       "icon": {},
-      "damage": 65.0,
+      "damage": 250.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0
     },
@@ -230,7 +230,7 @@
       "category": 2,
       "rarity": 3,
       "icon": {},
-      "damage": 70.0,
+      "damage": 450.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0
     },
@@ -240,7 +240,7 @@
       "category": 2,
       "rarity": 4,
       "icon": {},
-      "damage": 125.0,
+      "damage": 500.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0
     },
@@ -250,7 +250,7 @@
       "category": 2,
       "rarity": 4,
       "icon": {},
-      "damage": 250.0,
+      "damage": 600.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0
     },
@@ -260,7 +260,7 @@
       "category": 2,
       "rarity": 4,
       "icon": {},
-      "damage": 150.0,
+      "damage": 400.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0
     },
@@ -268,9 +268,9 @@
       "Name": "Amethyst Sword",
       "id": 24,
       "category": 2,
-      "rarity": 5,
+      "rarity": 4,
       "icon": {},
-      "damage": 300.0,
+      "damage": 600.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0
     },
@@ -278,9 +278,9 @@
       "Name": "Blood Blade",
       "id": 25,
       "category": 2,
-      "rarity": 5,
+      "rarity": 4,
       "icon": {},
-      "damage": 600.0,
+      "damage": 1500.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0
     },
@@ -288,9 +288,9 @@
       "Name": "Galaxy Sword",
       "id": 26,
       "category": 2,
-      "rarity": 5,
+      "rarity": 4,
       "icon": {},
-      "damage": 400.0,
+      "damage": 1200.0,
       "damageBoostPercentage": 0.0,
       "miningEfficiency": 0
     },
@@ -298,25 +298,25 @@
       "Name": "Sapphire Dagger",
       "id": 27,
       "category": 2,
-      "rarity": 5,
+      "rarity": 4,
       "icon": {},
-      "damage": 500.0
+      "damage": 900.0
     },
     {
       "Name": "Stone Machete",
       "id": 28,
       "category": 2,
-      "rarity": 5,
+      "rarity": 4,
       "icon": {},
-      "damage": 350.0
+      "damage": 1000.0
     },
     {
       "Name": "Water Sword",
       "id": 29,
       "category": 2,
-      "rarity": 5,
+      "rarity": 4,
       "icon": {},
-      "damage": 450.0
+      "damage": 700.0
     }
   ]
 }
