@@ -40,7 +40,9 @@ public class InventorySystem : MonoBehaviour
     public Inventory inventory = new Inventory();
 
     [Header("UI")]
+    [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject inventoryUI;
+    public GameObject InventoryPanel { get { return inventoryPanel; } }
     [SerializeField] private GameObject inventorySlotPrefab;
     [SerializeField] private GameObject inventoryIndicator;
     [SerializeField] private GameObject categoryUI;
@@ -255,7 +257,7 @@ public class InventorySystem : MonoBehaviour
                 {
                     Button button = go.GetComponent<Button>();
                     var onClick = new Button.ButtonClickedEvent();
-                    onClick.AddListener(() => CraftingSystem.Instance.SetCraftSlot(slot.item.id));
+                    onClick.AddListener(() => CraftingSystem.Instance.SetCraftSlot(slot.item));
                     button.onClick = onClick;
                 }
                 

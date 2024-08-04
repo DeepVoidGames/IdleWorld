@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7393914142812972357}
   - component: {fileID: 5445983380687338984}
   - component: {fileID: 6897265650920826031}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4583429657679155581}
   - component: {fileID: 7522916354846634113}
   - component: {fileID: 7963272044094452271}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.4, y: 0.55}
   m_EdgeRadius: 0
 --- !u!114 &7934861533382762452
 MonoBehaviour:

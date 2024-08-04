@@ -114,11 +114,11 @@ public class CaveUpgrades : MonoBehaviour
 
     private void ProgressBar()
     {
-        // Image min size 0, max 1055.4
-        // Image min X -672.7001, max -145
+        // Image min size 0, max 538.88
+        // Image min X -381.63, max -112.19
         float progress = (float)level / maxLevel;
-        ProgressImage.rectTransform.sizeDelta = new Vector2(1055.4f * progress, ProgressImage.rectTransform.sizeDelta.y);
-        ProgressImage.rectTransform.anchoredPosition = new Vector2(-672.7001f + (progress * 527.7f), ProgressImage.rectTransform.anchoredPosition.y);
+        ProgressImage.rectTransform.sizeDelta = new Vector2(538.88f * progress, ProgressImage.rectTransform.sizeDelta.y);
+        ProgressImage.rectTransform.localPosition = new Vector3(-381.63f + (progress * 269.44f), ProgressImage.rectTransform.localPosition.y, ProgressImage.rectTransform.localPosition.z);
     }
 
     private void Load()
