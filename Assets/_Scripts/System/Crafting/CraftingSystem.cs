@@ -172,7 +172,7 @@ public class CraftingSystem : MonoBehaviour
 
     private IEnumerator StartCrafting()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         isCrafting = false;
         craftButton.interactable = true;
     }

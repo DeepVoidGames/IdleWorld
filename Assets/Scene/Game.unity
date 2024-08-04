@@ -3956,6 +3956,7 @@ MonoBehaviour:
   CraftingRecipes: []
   craftSlotImage: {fileID: 1586167199}
   categoryPanel: {fileID: 1202348486}
+  craftButton: {fileID: 870553795}
   chancePanels:
   - {fileID: 1387077425}
   - {fileID: 1714221647}
