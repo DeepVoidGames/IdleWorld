@@ -55,7 +55,7 @@
       "craftingType": 2,
       "itemsToCraft": [
         {
-          "itemName": 5,
+          "itemName": "Stone Pickaxe",
           "chance": 1
         }
       ]
