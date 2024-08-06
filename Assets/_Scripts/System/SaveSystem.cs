@@ -193,27 +193,8 @@ public class SaveSystem : MonoBehaviour
             InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(json);
             if (inventoryData.inventoryData != null)
             {
-                foreach (InventorySlot slot in inventoryData.inventoryData.inventory)
-                {
-                    Items item = ItemSystem.Instance.ItemsCollection.Find(x => x.id == slot.item.id);
-                    if (item == null)
-                    {
-                        Debug.LogWarning("Item not found: " + slot.item.id);
-                        continue;
-                    }
-                    slot.item.Name = item.Name;
-                    slot.item.id = item.id;
-                    slot.item.icon = item.icon;
-                    slot.item.category = item.category;
-                    slot.item.rarity = item.rarity;
-
-                    // Weapon
-                    slot.item.damage = item.damage;
-                    slot.item.damageBoostPercentage = item.damageBoostPercentage;
-                }
-                InventorySystem.Instance.inventory = inventoryData.inventoryData;
+                InventorySystem.Instance.SetInventory(inventoryData.inventoryData);
             }
-
         }
         else
         {
@@ -249,7 +230,11 @@ public class SaveSystem : MonoBehaviour
         {
             Debug.LogWarning("Heroes file not found: " + Path.Combine(Application.persistentDataPath, "heroes.json"));
         }
+
+    }
     
+    public void LoadCaves()
+    {
         // Load caves data
         if (File.Exists(Path.Combine(Application.persistentDataPath, "caves.json")))
         {
@@ -274,7 +259,7 @@ public class SaveSystem : MonoBehaviour
             Debug.LogWarning("Caves file not found: " + Path.Combine(Application.persistentDataPath, "caves.json"));
         }
     }
-    
+
     private void FixedUpdate() {
         // Auto save every 5 minutes
         _timer += Time.deltaTime;
@@ -366,7 +351,7 @@ public class LoadGameData : MonoBehaviour
         TextAsset craftingRecipesJsonFile = Resources.Load<TextAsset>("GameData/craftingRecipes");
         CraftingRecipesWrapper craftingRecipesWrapper = JsonUtility.FromJson<CraftingRecipesWrapper>(craftingRecipesJsonFile.text);
         List<CraftingRecipe> craftingRecipes = craftingRecipesWrapper.craftingRecipes;
-        CraftingSystem.Instance.SetCraftingRecipes(craftingRecipes);
+        CraftingSystem.Instance.SetCraftingCollection(craftingRecipes);
     }
 
     public void Biomes()
@@ -375,9 +360,8 @@ public class LoadGameData : MonoBehaviour
         TextAsset biomesJsonFile = Resources.Load<TextAsset>("GameData/biomes");
         BiomeDataWrapper biomeDataWrapper = JsonUtility.FromJson<BiomeDataWrapper>(biomesJsonFile.text);
         List<Biomes> biomes = biomeDataWrapper.biomes;
-        BiomeSystem.Instance.SetCurrentBiomes(biomes);
+        BiomeSystem.Instance.SetBiomesCollection(biomes);
     }
-
 
     public void Caves()
     {
@@ -385,14 +369,6 @@ public class LoadGameData : MonoBehaviour
         TextAsset cavesJsonFile = Resources.Load<TextAsset>("GameData/caves");
         CaveDataWrapper caveDataWrapper = JsonUtility.FromJson<CaveDataWrapper>(cavesJsonFile.text);
         List<Cave> caves = caveDataWrapper.caves;
-        CaveSystem.Instance.caves = caves;
-    }
-
-    private void OnDestroy()
-    {
-        if (_instance == this)
-        {
-            _instance = null;
-        }
+        CaveSystem.Instance.SetCavesCollection(caves);
     }
 }

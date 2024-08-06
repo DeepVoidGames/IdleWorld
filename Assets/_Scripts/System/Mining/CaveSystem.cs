@@ -185,6 +185,19 @@ public class CaveSystem : MonoBehaviour
         return null;
     }
 
+    public void SetCavesCollection(List<Cave> caves)
+    {
+        foreach (Cave cave in caves)
+        {
+            foreach (Rocks rock in cave.rocks)
+            {
+                rock.prefab = Resources.Load<GameObject>("Prefabs/Rocks/" + rock.name);
+            }
+        }
+        this.caves = caves;
+        SaveSystem.Instance.LoadCaves();
+    }
+
     private void Awake() 
     {
         LoadGameData.Instance.Caves();    

@@ -1,3 +1,12 @@
+# 0.5.4.1
+
+- Rework
+  - Inventory management
+    - Wipe all inventory
+- Add
+  - User authentication
+  - Game data cloud storage (now i can add balance changes without update)
+
 # 0.5.4.0
 
 - Rework

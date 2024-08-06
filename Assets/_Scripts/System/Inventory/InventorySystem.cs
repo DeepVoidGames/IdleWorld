@@ -6,7 +6,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class InventorySlot
 {
-    public Items item;
+    public string name;
+    public Items item { get { return ItemSystem.Instance.ItemsCollection.Find(x => x.Name == name); } }
     public double quantity;
 }
 
@@ -66,9 +67,11 @@ public class InventorySystem : MonoBehaviour
         InventorySlot slot = inventory.inventory.Find(x => x.item.id == id);
         if (slot == null)
         {
-            slot = new InventorySlot();
-            slot.item = ItemSystem.Instance.ItemsCollection.Find(x => x.id == id);
-            slot.quantity = 0;
+            slot = new InventorySlot
+            {
+                name = ItemSystem.Instance.ItemsCollection.Find(x => x.id == id).Name,
+                quantity = 0
+            };
             inventory.inventory.Add(slot);
         }
         
@@ -100,9 +103,11 @@ public class InventorySystem : MonoBehaviour
         InventorySlot slot = inventory.inventory.Find(x => x.item.id == id);
         if (slot == null)
         {
-            slot = new InventorySlot();
-            slot.item = ItemSystem.Instance.ItemsCollection.Find(x => x.id == id);
-            slot.quantity = 0;
+            slot = new InventorySlot()
+            {
+                name = name,
+                quantity = 0
+            };
             inventory.inventory.Add(slot);
         }
         
@@ -360,9 +365,25 @@ public class InventorySystem : MonoBehaviour
     {
         currentCategory = Category.None;
         UpdateUI();
+    }  
+
+    public void SetInventory(Inventory inventoryData)
+    {
+        foreach (InventorySlot slot in inventoryData.inventory)
+        {
+            if (slot.name == "None" || slot.name == "")
+                continue;
+            InventorySlot newSlot = new InventorySlot()
+            {
+                name = slot.name,
+                quantity = slot.quantity
+            };
+            inventory.inventory.Add(newSlot);
+        }
     }
 
-    private void Start() {
+    private void Start() 
+    {
         if (equipedWeaponButton != null)
         {
             equipedWeaponButton.transform.Find("Text").GetComponent<Text>().text = "Equipped";

@@ -66,7 +66,10 @@ public class ItemSystem : MonoBehaviour
 
     public void SetItemsCollection(List<Items> items)
     {
-        foreach (Items item in items)
+        List<Items> _items = new List<Items>();
+        _items.AddRange(items);
+        ItemsCollection.Clear();
+        foreach (Items item in _items)
         {
             if (item.category == InventorySystem.Category.Material)
                 item.icon = Resources.Load<Sprite>("Sprites/Icons/Materials/" + item.Name);
@@ -76,6 +79,7 @@ public class ItemSystem : MonoBehaviour
                 item.icon = Resources.Load<Sprite>("Sprites/Icons/Tools/" + item.Name);
             ItemsCollection.Add(item);
         }
+        _items.Clear();
     }
 
     private void Start() {

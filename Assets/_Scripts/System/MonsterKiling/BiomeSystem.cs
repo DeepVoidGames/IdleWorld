@@ -49,7 +49,7 @@ public class BiomeSystem : MonoBehaviour
 
     public string CurrentBiome { get => currentBiome; set => currentBiome = value;}
 
-    public void SetCurrentBiomes(List<Biomes> biomes)
+    public void SetBiomesCollection(List<Biomes> biomes)
     {
         foreach (var biome in biomes)
         {

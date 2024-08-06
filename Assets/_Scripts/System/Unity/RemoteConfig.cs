@@ -3,6 +3,7 @@ using Unity.Services.RemoteConfig;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class RemoteConfig : MonoBehaviour
 {
@@ -36,6 +37,30 @@ public class RemoteConfig : MonoBehaviour
 
     void ApplyRemoteSettings(ConfigResponse configResponse)
     {
-        Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config["Rocks"].ToString());
+        var config = RemoteConfigService.Instance.appConfig.config;
+
+        if (config == null)
+            return;
+
+        // Biome
+        BiomeDataWrapper biomeDataWrapper = JsonUtility.FromJson<BiomeDataWrapper>(config["Biomes"].ToString());
+        List<Biomes> biomes = biomeDataWrapper.biomes;
+        BiomeSystem.Instance.SetBiomesCollection(biomes);
+
+        // Crafting
+        CraftingRecipesWrapper craftingRecipesWrapper = JsonUtility.FromJson<CraftingRecipesWrapper>(config["CraftingRecipes"].ToString());
+        List<CraftingRecipe> craftingRecipes = craftingRecipesWrapper.craftingRecipes;
+        CraftingSystem.Instance.CraftingRecipes = craftingRecipes;
+
+        // Cave 
+        CaveDataWrapper caveDataWrapper = JsonUtility.FromJson<CaveDataWrapper>(config["Caves"].ToString());
+        List<Cave> caves = caveDataWrapper.caves;
+        CaveSystem.Instance.SetCavesCollection(caves);
+
+        // Items
+        ItemDataWrapper itemDataWrapper = JsonUtility.FromJson<ItemDataWrapper>(config["Items"].ToString());
+        List<Items> items = itemDataWrapper.items;
+        ItemSystem.Instance.SetItemsCollection(items);
+        Debug.Log("Remote Config settings have been applied");
     }
 }

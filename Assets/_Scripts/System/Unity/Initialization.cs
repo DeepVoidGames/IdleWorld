@@ -2,7 +2,6 @@ using System;
 using Unity.Services.Core;
 using Unity.Services.Authentication;
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class Initialization : MonoBehaviour
 {
@@ -25,11 +24,8 @@ public class Initialization : MonoBehaviour
             // Shows how to get a playerID
             Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}");
 
-            // Shows how to get a player name
-            Debug.Log($"Player Name: {AuthenticationService.Instance.PlayerName}");
-
-            // if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
-                //AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
+            //TODO Shows how to get a player name
+            // Debug.Log($"Player Name: {AuthenticationService.Instance.PlayerName}");
 
             // Shows how to get an access token
             // Debug.Log($"Access Token: {AuthenticationService.Instance.AccessToken}");

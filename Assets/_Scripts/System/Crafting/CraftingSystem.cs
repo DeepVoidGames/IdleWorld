@@ -165,7 +165,7 @@ public class CraftingSystem : MonoBehaviour
         if (recipe != null)  
             UpdateChancePanel(recipe);
     }
-    public void SetCraftingRecipes(List<CraftingRecipe> craftingRecipes)
+    public void SetCraftingCollection(List<CraftingRecipe> craftingRecipes)
     {
         CraftingRecipes = craftingRecipes;
     } 
