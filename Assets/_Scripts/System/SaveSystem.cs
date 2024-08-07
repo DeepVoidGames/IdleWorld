@@ -296,6 +296,14 @@ public class SaveSystem : MonoBehaviour
     {
         Save();
     }
+
+    private void OnApplicationPause(bool pauseStatus) 
+    {
+        if (pauseStatus)
+        {
+            Save();
+        }
+    }
 }
 
 [System.Serializable]
