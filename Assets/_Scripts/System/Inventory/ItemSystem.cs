@@ -20,11 +20,16 @@ public class Items
     public Sprite icon;
 
     // Weapon
-    public float damage;
+    public float baseDamage;
+    public float Damage 
+    { 
+        get => baseDamage + UpgradingSystem.Instance.GetBonus(Name, baseDamage);
+    }
     public float damageBoostPercentage;
 
     // Tools
     public float miningEfficiency;
+
 }
 
 public class ItemDataWrapper
@@ -57,6 +62,11 @@ public class ItemSystem : MonoBehaviour
     public Sprite GetItemIcon(int id)
     {
         return ItemsCollection.Find(x => x.id == id).icon;
+    }
+
+    public Items GetItemByName(string name)
+    {
+        return ItemsCollection.Find(x => x.Name == name);
     }
 
     public Sprite GetItemIconByName(string name)

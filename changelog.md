@@ -1,3 +1,9 @@
+# 0.5.4.2
+
+- Add
+  - Upgrading system
+  - UI improvements
+
 # 0.5.4.1
 
 - Rework

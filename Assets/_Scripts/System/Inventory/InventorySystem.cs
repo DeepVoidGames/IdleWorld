@@ -203,7 +203,7 @@ public class InventorySystem : MonoBehaviour
             {
                 for (int j = i + 1; j < inventory.inventory.Count; j++)
                 {
-                    if (inventory.inventory[i].item.damage < inventory.inventory[j].item.damage)
+                    if (inventory.inventory[i].item.Damage < inventory.inventory[j].item.Damage)
                     {
                         InventorySlot temp = inventory.inventory[i];
                         inventory.inventory[i] = inventory.inventory[j];
@@ -294,7 +294,18 @@ public class InventorySystem : MonoBehaviour
                 // If the category is Weapon
                 if (slot.item.category == Category.Weapon)
                 {
-                    go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", UISystem.Instance.NumberFormat(slot.item.damage), UISystem.Instance.NumberFormat((slot.item.damageBoostPercentage)));
+                    // Upgade the weapon
+                    Button _button = go.GetComponent<Button>();
+                    _button.onClick.RemoveAllListeners();
+                    var _onClick = new Button.ButtonClickedEvent();
+                    _onClick.AddListener(() => UpgradingSystem.Instance.SetUpgradeSlot(slot.item));
+                    _button.onClick = _onClick;
+                    
+                    int upgradeLevel = UpgradingSystem.Instance.GetLevel(slot.item.Name);
+                    if (upgradeLevel > 0)
+                        go.transform.Find("Title").GetComponent<Text>().text = $"{slot.item.Name} +{upgradeLevel}";
+
+                    go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", UISystem.Instance.NumberFormat(slot.item.Damage), UISystem.Instance.NumberFormat((slot.item.damageBoostPercentage)));
                     go.transform.Find("Equip").gameObject.SetActive(true);
                     Button button = go.transform.Find("Equip").GetComponent<Button>();
 
@@ -354,7 +365,7 @@ public class InventorySystem : MonoBehaviour
             }
         }  
     }
-
+    
     public void SetCategory(int category)
     {
         currentCategory = (Category)category;

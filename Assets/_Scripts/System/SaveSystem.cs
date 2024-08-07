@@ -90,6 +90,14 @@ public class SaveSystem : MonoBehaviour
         };
         json = JsonUtility.ToJson(cavesData, true);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, "caves.json"), json);
+
+        // Save upgrades
+        Upgrades upgrades = new Upgrades
+        {
+            upgrades = UpgradingSystem.Instance.Upgrades
+        };
+        json = JsonUtility.ToJson(upgrades, true);
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, "upgrades.json"), json);
     }
 
     public void Load()
@@ -231,6 +239,20 @@ public class SaveSystem : MonoBehaviour
             Debug.LogWarning("Heroes file not found: " + Path.Combine(Application.persistentDataPath, "heroes.json"));
         }
 
+        // Load Upgrades
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "upgrades.json")))
+        {
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "upgrades.json"));
+            Upgrades upgrades = JsonUtility.FromJson<Upgrades>(json);
+            if (upgrades.upgrades != null)
+            {
+                UpgradingSystem.Instance.SetUpgrades(upgrades.upgrades);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Upgrades file not found: " + Path.Combine(Application.persistentDataPath, "upgrades.json"));
+        }
     }
     
     public void LoadCaves()
@@ -299,7 +321,6 @@ public class GameData
     public string currentCave;
 }
 
-[System.Serializable]
 public class InventoryData
 {
     public Inventory inventoryData;
@@ -313,6 +334,11 @@ public class HeroData
 public class CavesData
 {
     public List<Cave> caves;
+}
+
+public class Upgrades
+{
+    public List<Upgrade> upgrades;
 }
 
 public class LoadGameData : MonoBehaviour
