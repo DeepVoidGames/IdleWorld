@@ -169,6 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops: []
   healthText: {fileID: 5882166546085257985}
+  hitMaterial: {fileID: 2100000, guid: 3c3ad8e8852f8fb4faaf9047267effb2, type: 2}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &-7221077728756037424
 MonoBehaviour:
   m_ObjectHideFlags: 0

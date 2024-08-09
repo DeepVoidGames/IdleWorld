@@ -15,18 +15,30 @@ public class RockObject : MonoBehaviour
     public double Health { get => health; set => health = value; }
     public double MaxHealth { get => maxHealth; set => maxHealth = value; }
 
+    [Header("Hit Animation")]
+    [SerializeField] private Material hitMaterial;
+    [SerializeField] private Material defaultMaterial;
     private Animator _animator;
 
     public void Damage(double damage)
     {
         _messageSpawner.SpawnMessage(String.Format("-{0}", UISystem.Instance.NumberFormat(damage)));
         _animator.Play("RockHit");
+        if (hitMaterial != null)
+            gameObject.GetComponent<Renderer>().material = hitMaterial;
         health -= damage;
         if (health <= 0)
         {
             DestroyRock();
         }
+        if (hitMaterial != null)
+            Invoke("ResetMaterial", .05f);
         UpdateUI();
+    }
+
+    private void ResetMaterial()
+    {
+        gameObject.GetComponent<Renderer>().material = defaultMaterial;
     }
 
     private void DestroyRock()
