@@ -46,9 +46,13 @@ public class MonsterSystem : MonoBehaviour
 
     public GameObject CurrentMonster { get => currentMonster; }
 
+    private ParticleSystem killEffect;
+
     public void MonsterDied()
     {
         LevelSystem.Instance.NextStage();
+        if (killEffect != null && SwitchMode.Instance.CurrentMode == 0)
+            killEffect.Play();
         MonsterDrop();
     }
 
@@ -113,6 +117,11 @@ public class MonsterSystem : MonoBehaviour
         {
             SpawnMonster();
         }
+    }
+
+    private void Awake()
+    {
+        killEffect = GameObject.Find("KillEffect").GetComponent<ParticleSystem>();
     }
 
     private IEnumerator SpawnMonsterCoroutine(int index)

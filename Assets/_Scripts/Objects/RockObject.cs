@@ -14,9 +14,13 @@ public class RockObject : MonoBehaviour
 
     public double Health { get => health; set => health = value; }
     public double MaxHealth { get => maxHealth; set => maxHealth = value; }
+
+    private Animator _animator;
+
     public void Damage(double damage)
     {
         _messageSpawner.SpawnMessage(String.Format("-{0}", UISystem.Instance.NumberFormat(damage)));
+        _animator.Play("RockHit");
         health -= damage;
         if (health <= 0)
         {
@@ -43,6 +47,7 @@ public class RockObject : MonoBehaviour
 
     void Start()
     {
+        _animator = GetComponent<Animator>();
         _messageSpawner = GetComponent<MessageSpawner>();
         UpdateUI();
     }

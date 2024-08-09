@@ -55,6 +55,8 @@ public class BossSystem : MonoBehaviour
     public GameObject CurrentBoss { get => currentBoss;}
     public BossObject BossObject { get => bossObject;}
 
+    private ParticleSystem killEffect;
+
     public void SpawnBoss()
     {
         if (!isSpawning)
@@ -80,6 +82,8 @@ public class BossSystem : MonoBehaviour
         UISystem.Instance.MoneyIndicator(m);
         currentBoss = null;
         isSpawning = false;
+        if (killEffect != null && SwitchMode.Instance.CurrentMode == 0)
+            killEffect.Play();
     }
 
     public void FailedToKill()
@@ -87,6 +91,12 @@ public class BossSystem : MonoBehaviour
         isSpawning = false;
         currentBoss = null;
     }
+
+    private void Awake()
+    {
+        killEffect = GameObject.Find("KillEffect").GetComponent<ParticleSystem>();
+    }
+
 
     private IEnumerator SpawnBossCoroutine()
     {

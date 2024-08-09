@@ -11,9 +11,28 @@ public class Mode
 
 public class SwitchMode : MonoBehaviour
 {
+    private static SwitchMode _instance;
+    public static SwitchMode Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<SwitchMode>();
+                if (_instance == null)
+                {
+                    GameObject go = new GameObject("SwitchMode");
+                    _instance = go.AddComponent<SwitchMode>();
+                }
+            }
+            return _instance;
+        }
+    }
     [SerializeField] private List<Mode> modes;
 
     private int currentMode = 0;
+
+    public int CurrentMode { get => currentMode; }
 
     public void SetMode(int mode)
     {

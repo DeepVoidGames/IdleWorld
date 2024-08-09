@@ -18,6 +18,11 @@ public class BossObject : MonoBehaviour
     public double Health { get => health; set => health = value;}
     public double MaxHealth { get => maxHealth; set => maxHealth = value;}
 
+
+    [Header("Hit Animation")]
+    [SerializeField] private Material hitMaterial;
+    [SerializeField] private Material defaultMaterial;
+
     public void SetBoss(Boss boss)
     {
         bossName = boss.Name;
@@ -36,13 +41,23 @@ public class BossObject : MonoBehaviour
     public void TakeDamage(double damage)
     {
         health -= damage;
+        // Hit Animation
+        if (hitMaterial != null)
+            gameObject.GetComponent<Renderer>().material = hitMaterial;
         _messageSpawner.SpawnMessage("-" + UISystem.Instance.NumberFormat(damage));
         if (health <= 0)
         {
             BossSystem.Instance.BossDied();
             Destroy(gameObject);
         }
+        if (hitMaterial != null)
+            Invoke("ResetMaterial", .05f);
         UpdateHealthUI();
+    }
+
+    private void ResetMaterial()
+    {
+        gameObject.GetComponent<Renderer>().material = defaultMaterial;
     }
 
     private void OnMouseDown() 

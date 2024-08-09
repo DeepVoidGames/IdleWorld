@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class MonsterObject : MonoBehaviour
 {
     private string monsterName;
-    private double health;
+    [SerializeField] private double health;
     private double maxHealth;
 
     [Header("UI Elements")]
@@ -16,6 +16,10 @@ public class MonsterObject : MonoBehaviour
     public double MaxHealth { get => maxHealth; set => maxHealth = value;}
 
     private MessageSpawner _messageSpawner;
+
+    [Header("Hit Animation")]
+    [SerializeField] private Material hitMaterial;
+    [SerializeField] private Material defaultMaterial;
 
     public void SetMonster(Monster monster)
     {
@@ -35,13 +39,23 @@ public class MonsterObject : MonoBehaviour
     public void TakeDamage(double damage)
     {
         health -= damage;
+        // Hit Animation
+        if (hitMaterial != null)
+            gameObject.GetComponent<Renderer>().material = hitMaterial;
         _messageSpawner.SpawnMessage("-" + UISystem.Instance.NumberFormat(damage));
         if (health <= 0)
         {
             MonsterSystem.Instance.MonsterDied();
             Destroy(gameObject);
         }
+        if (hitMaterial != null)
+            Invoke("ResetMaterial", .05f);
         UpdateHealthUI();
+    }
+
+    private void ResetMaterial()
+    {
+        gameObject.GetComponent<Renderer>().material = defaultMaterial;
     }
 
     private void OnMouseDown() 

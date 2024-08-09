@@ -601,6 +601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb7d580ec0cd724e8bd28e9b5efd792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  hitMaterial: {fileID: 2100000, guid: 3c3ad8e8852f8fb4faaf9047267effb2, type: 2}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &4607450883971260600
 MonoBehaviour:
   m_ObjectHideFlags: 0
