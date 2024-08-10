@@ -1914,7 +1914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061274, y: -174.4}
+  m_AnchoredPosition: {x: -0.000061035, y: -150.1}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159054108
@@ -2216,8 +2216,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: -122}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: -0.000061035, y: -105}
+  m_SizeDelta: {x: 350, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &182102970
 MonoBehaviour:
@@ -2241,7 +2241,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8f718247602b6ba4a9d8a3dc8c8e69ed, type: 3}
-    m_FontSize: 24
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -3923,7 +3923,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a4af4d018898f4587b24a1c40fd15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CraftingRecipes: []
+  CraftingRecipes:
+  - id: 0
+    materialName: Ruby
+    craftingType: 1
+    itemsToCraft:
+    - itemName: Stone Sword
+      chance: 0.8
+    - itemName: Ruby Sword
+      chance: 0.15
+    - itemName: Ruby Katana
+      chance: 0.05
+  - id: 1
+    materialName: Ruby
+    craftingType: 2
+    itemsToCraft:
+    - itemName: Stone Pickaxe
+      chance: 0.95
+    - itemName: Ruby Pickaxe
+      chance: 0.05
+  - id: 2
+    materialName: Rock
+    craftingType: 1
+    itemsToCraft:
+    - itemName: Stone Sword
+      chance: 0.9
+    - itemName: Stone Machete
+      chance: 0.001
+  - id: 3
+    materialName: Rock
+    craftingType: 2
+    itemsToCraft:
+    - itemName: Stone Pickaxe
+      chance: 1
+  - id: 4
+    materialName: Amethyst
+    craftingType: 2
+    itemsToCraft:
+    - itemName: Stone Pickaxe
+      chance: 0.8
+    - itemName: Amethyst Pickaxe
+      chance: 0.1
+  - id: 5
+    materialName: Aquamarine
+    craftingType: 2
+    itemsToCraft:
+    - itemName: Stone Pickaxe
+      chance: 0.8
+    - itemName: Aquamarine Pickaxe
+      chance: 0.1
+  - id: 6
+    materialName: Calcite
+    craftingType: 2
+    itemsToCraft:
+    - itemName: Stone Pickaxe
+      chance: 0.8
+    - itemName: Calcite Pickaxe
+      chance: 0.1
+  - id: 7
+    materialName: Opal
+    craftingType: 2
+    itemsToCraft:
+    - itemName: Stone Pickaxe
+      chance: 0.8
+    - itemName: Opal Pickaxe
+      chance: 0.05
+  - id: 8
+    materialName: Red Diamond
+    craftingType: 2
+    itemsToCraft:
+    - itemName: Stone Pickaxe
+      chance: 0.8
+    - itemName: Red Diamond Pickaxe
+      chance: 0.01
+  - id: 9
+    materialName: Sapphire
+    craftingType: 2
+    itemsToCraft:
+    - itemName: Stone Pickaxe
+      chance: 0.8
+    - itemName: Sapphire Pickaxe
+      chance: 0.05
+  - id: 10
+    materialName: Aquamarine
+    craftingType: 1
+    itemsToCraft:
+    - itemName: Stone Sword
+      chance: 0.8
+    - itemName: Aquamarine Sword
+      chance: 0.05
+    - itemName: Water Sword
+      chance: 0.01
+  - id: 11
+    materialName: Calcite
+    craftingType: 1
+    itemsToCraft:
+    - itemName: Stone Sword
+      chance: 0.8
+    - itemName: Calcite Sword
+      chance: 0.05
+    - itemName: Stone Machete
+      chance: 0.01
+  - id: 12
+    materialName: Opal
+    craftingType: 1
+    itemsToCraft:
+    - itemName: Stone Sword
+      chance: 0.8
+    - itemName: Opal Sword
+      chance: 0.05
+    - itemName: Galaxy Sword
+      chance: 0.01
+  - id: 13
+    materialName: Red Diamond
+    craftingType: 1
+    itemsToCraft:
+    - itemName: Stone Sword
+      chance: 0.8
+    - itemName: Red Diamond Sword
+      chance: 0.05
+    - itemName: Blood Blade
+      chance: 0.01
+  - id: 14
+    materialName: Sapphire
+    craftingType: 1
+    itemsToCraft:
+    - itemName: Stone Sword
+      chance: 0.8
+    - itemName: Sapphire Sword
+      chance: 0.05
+    - itemName: Sapphire Dagger
+      chance: 0.01
+  - id: 15
+    materialName: Amethyst
+    craftingType: 1
+    itemsToCraft:
+    - itemName: Stone Sword
+      chance: 0.8
+    - itemName: Amethyst Sword
+      chance: 0.05
   craftSlotImage: {fileID: 1586167199}
   categoryPanel: {fileID: 1202348486}
   craftButton: {fileID: 870553795}
@@ -4899,7 +5037,247 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b67a94ce4acc7b429bd5fb0c0682cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemsCollection: []
+  ItemsCollection:
+  - Name: Rock
+    id: 0
+    category: 1
+    rarity: 0
+    icon: {fileID: 21300000, guid: 0981914017cb92a4fbfebdab415b0e3a, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Ruby
+    id: 1
+    category: 1
+    rarity: 1
+    icon: {fileID: 21300000, guid: 169d33f7960f52645b369db7bff3af08, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Stone Sword
+    id: 2
+    category: 2
+    rarity: 1
+    icon: {fileID: 21300000, guid: cd4f33bf675f55f4c8b05d84d59e3910, type: 3}
+    baseDamage: 10
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Ruby Sword
+    id: 3
+    category: 2
+    rarity: 2
+    icon: {fileID: 21300000, guid: 4bda7431b0b44d84e8163e7d62039022, type: 3}
+    baseDamage: 20
+    damageBoostPercentage: 2
+    miningEfficiency: 0
+  - Name: Ruby Katana
+    id: 4
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: ca65bc203eb83c64c83d11b6ced6097a, type: 3}
+    baseDamage: 150
+    damageBoostPercentage: 5
+    miningEfficiency: 0
+  - Name: Stone Pickaxe
+    id: 5
+    category: 3
+    rarity: 0
+    icon: {fileID: 21300000, guid: f4ac3e32e5f8144478f325a2c03e690f, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 50
+  - Name: Ruby Pickaxe
+    id: 6
+    category: 3
+    rarity: 3
+    icon: {fileID: 21300000, guid: 509a0af13c90cf140ba8071cf03af3a1, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 150
+  - Name: Amethyst
+    id: 7
+    category: 1
+    rarity: 2
+    icon: {fileID: 21300000, guid: c9b47a82548ed5a4ebf1ac97e9327446, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Aquamarine
+    id: 8
+    category: 1
+    rarity: 2
+    icon: {fileID: 21300000, guid: 53caf39aff71b2b40984f26443dfbc17, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Calcite
+    id: 9
+    category: 1
+    rarity: 2
+    icon: {fileID: 21300000, guid: 22b8c71968c499b41a22f08f55db0ffb, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Opal
+    id: 10
+    category: 1
+    rarity: 3
+    icon: {fileID: 21300000, guid: b659df5d12a9bef4db2c9a573746214a, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Red Diamond
+    id: 11
+    category: 1
+    rarity: 4
+    icon: {fileID: 21300000, guid: 53a91760f13fd9349b8d4eed4396cfe6, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Sapphire
+    id: 12
+    category: 1
+    rarity: 3
+    icon: {fileID: 21300000, guid: f350ddcbab86c87448dc8c823943c4b5, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Amethyst Pickaxe
+    id: 13
+    category: 3
+    rarity: 3
+    icon: {fileID: 21300000, guid: e65b4858701249541af2f7d0919a1d31, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 200
+  - Name: Aquamarine Pickaxe
+    id: 14
+    category: 3
+    rarity: 3
+    icon: {fileID: 21300000, guid: a5317e7306c41ca409c3487f30b433f9, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 250
+  - Name: Calcite Pickaxe
+    id: 15
+    category: 3
+    rarity: 3
+    icon: {fileID: 21300000, guid: 85b5d95b542ad4d4db31dd8be8fe41d1, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 300
+  - Name: Opal Pickaxe
+    id: 16
+    category: 3
+    rarity: 4
+    icon: {fileID: 21300000, guid: ad1342ce3b62e7d42bfc4bfc96b8ab75, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 350
+  - Name: Red Diamond Pickaxe
+    id: 17
+    category: 3
+    rarity: 4
+    icon: {fileID: 21300000, guid: c30ba20f1ed67cd4cb565c6f293ae559, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 1500
+  - Name: Sapphire Pickaxe
+    id: 18
+    category: 3
+    rarity: 4
+    icon: {fileID: 21300000, guid: da229850eea00f742a20c29c5d9b25e1, type: 3}
+    baseDamage: 0
+    damageBoostPercentage: 0
+    miningEfficiency: 450
+  - Name: Aquamarine Sword
+    id: 19
+    category: 2
+    rarity: 3
+    icon: {fileID: 21300000, guid: fc7b16e1036da5748a5f8f7c057382e3, type: 3}
+    baseDamage: 250
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Calcite Sword
+    id: 20
+    category: 2
+    rarity: 3
+    icon: {fileID: 21300000, guid: 73145bf012100a54286af216080b8087, type: 3}
+    baseDamage: 450
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Opal Sword
+    id: 21
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: ac70938f21cb0794cb0e463a0aac326d, type: 3}
+    baseDamage: 500
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Red Diamond Sword
+    id: 22
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: bcd8fbfca0589ea4882dd93519a2f47e, type: 3}
+    baseDamage: 600
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Sapphire Sword
+    id: 23
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: f2d72ee4c9d359447b9b8c9244638eca, type: 3}
+    baseDamage: 400
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Amethyst Sword
+    id: 24
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: 036d04a40e92a2142bc4200b4fe1029e, type: 3}
+    baseDamage: 600
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Blood Blade
+    id: 25
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: bd0f13b0423043d46a800b09433ca06f, type: 3}
+    baseDamage: 1500
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Galaxy Sword
+    id: 26
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: a0f9f0070cc19184e8c6bc15dd159ccc, type: 3}
+    baseDamage: 1200
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Sapphire Dagger
+    id: 27
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: ac9867b805d8c684b8825eb758d4062e, type: 3}
+    baseDamage: 900
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Stone Machete
+    id: 28
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: 6ec692f450faa2445abdab74b96b3cf0, type: 3}
+    baseDamage: 1000
+    damageBoostPercentage: 0
+    miningEfficiency: 0
+  - Name: Water Sword
+    id: 29
+    category: 2
+    rarity: 4
+    icon: {fileID: 21300000, guid: c6c591846cb52ab4380dc8dd4f7a2dce, type: 3}
+    baseDamage: 700
+    damageBoostPercentage: 0
+    miningEfficiency: 0
 --- !u!114 &383307241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4921,6 +5299,13 @@ MonoBehaviour:
   categoryUI: {fileID: 833936608}
   currentCategory: 0
   inventoryContent: {fileID: 48487580}
+  animations:
+  - {fileID: 7400000, guid: 94a238ac42fb204408eab15017465d65, type: 2}
+  - {fileID: 7400000, guid: 4e653f5fb33987141915de812ac84e09, type: 2}
+  - {fileID: 7400000, guid: 318e9b3e0f60d3a44b781e2c595a8ca5, type: 2}
+  - {fileID: 7400000, guid: 76008baea8a8ff7418b65dc94d6d0019, type: 2}
+  - {fileID: 7400000, guid: 4291514a9028741448102a7a6c65005f, type: 2}
+  - {fileID: 7400000, guid: 5ccc050da15b0a9469fff3177eed5f45, type: 2}
   equipedWeaponButton: {fileID: 0}
   equipedToolButton: {fileID: 0}
 --- !u!1 &383614321
@@ -13680,7 +14065,178 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b09afd6e6384840b28ce28c52a5c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bioms: []
+  Bioms:
+  - Name: Forest
+    background: {fileID: 21300000, guid: 7b98a2523c13cfe4595f94994841e2d5, type: 3}
+    Monsters:
+    - Name: AcidOoze
+      BaseHealth: 10
+      Prefab: {fileID: 5605625757201260949, guid: 24163695e81922d48b5f758a2fcedaa0, type: 3}
+    - Name: DeathSlime
+      BaseHealth: 20
+      Prefab: {fileID: 6116359882760422250, guid: 892cde0b03dde5a4da1f526004763c85, type: 3}
+    - Name: OchreJelly
+      BaseHealth: 30
+      Prefab: {fileID: 1635332468116575484, guid: 0d536c506f774ef4bba51c5522154acd, type: 3}
+    - Name: RedCap
+      BaseHealth: 50
+      Prefab: {fileID: 1032740135089215750, guid: 470ba87d38d3e194faa679fe9edcb916, type: 3}
+    Bosses:
+    - Name: BlindedGrimlock
+      BaseHealth: 150
+      Prefab: {fileID: 1143826163299012661, guid: 557388cd683eec84e8c04ea4ed42f662, type: 3}
+    - Name: ShriekerMushroom
+      BaseHealth: 200
+      Prefab: {fileID: 4939725676465597107, guid: 9d4082e6bd214d24b8bb867353edb3dd, type: 3}
+  - Name: Desert
+    background: {fileID: 21300000, guid: 6e0b4b59092095042814bc0ee9656606, type: 3}
+    Monsters:
+    - Name: BloodshotEye
+      BaseHealth: 100
+      Prefab: {fileID: 1994325163910846046, guid: 0f0fb9545a56ef3459b0438cf7521ab2, type: 3}
+    - Name: BrawnyOgre
+      BaseHealth: 150
+      Prefab: {fileID: 3065844526631316754, guid: bae3d9e4ac08cb14cb7b55ca12a2c42d, type: 3}
+    - Name: ClawingHarpy
+      BaseHealth: 200
+      Prefab: {fileID: 7003062925308794975, guid: bc5266ae6f88aea4487a829fe7644b6d, type: 3}
+    - Name: CrushingCyclops
+      BaseHealth: 250
+      Prefab: {fileID: 2996499551396990257, guid: 68b144eef0ae6bf40a7a65f212ac5653, type: 3}
+    Bosses:
+    - Name: HumongousEttin
+      BaseHealth: 350
+      Prefab: {fileID: 7357765323304330353, guid: f25df8c72bc2ddb45a507ec0d56eb615, type: 3}
+    - Name: OgreMage
+      BaseHealth: 400
+      Prefab: {fileID: 4823579592497624062, guid: 1b35764fa34123f44bf02329740131a7, type: 3}
+  - Name: Swamp
+    background: {fileID: 21300000, guid: fec5edeca8a6f7d46b4aba478c18af08, type: 3}
+    Monsters:
+    - Name: IntellectDevourer
+      BaseHealth: 500
+      Prefab: {fileID: 8946380546571504636, guid: 4b04d2c8eae1e9446be903f2cada963e, type: 3}
+    - Name: OcularWatcher
+      BaseHealth: 550
+      Prefab: {fileID: 6845697281585091289, guid: a8a78e1e8b6e7d84cad821eba34d607e, type: 3}
+    - Name: SwampTroll
+      BaseHealth: 600
+      Prefab: {fileID: 1243479031079880880, guid: d9a178c5acbacff4281358208504f5e6, type: 3}
+    Bosses:
+    - Name: RearingNightmare
+      BaseHealth: 800
+      Prefab: {fileID: 1422040688101171799, guid: 986059a29c4f9c249ba4488db51b05c0, type: 3}
+  - Name: Underwater
+    background: {fileID: 21300000, guid: 540aa2a4c2726fd468bef8de9544d611, type: 3}
+    Monsters:
+    - Name: MurkySlaad
+      BaseHealth: 1000
+      Prefab: {fileID: 4579612770682952982, guid: 0c5c52b6d0b760e4b9ee243ef6ecedcd, type: 3}
+    - Name: WerewolfStalker
+      BaseHealth: 1100
+      Prefab: {fileID: 5225244109107209115, guid: 51236be7210c0df4d814c8e8d5f7768d, type: 3}
+    - Name: WretchedFomorian
+      BaseHealth: 1200
+      Prefab: {fileID: 4463743954780079093, guid: 1f0bfd5c3ed1a15418846718f4d9f726, type: 3}
+    Bosses:
+    - Name: StormGiant
+      BaseHealth: 1600
+      Prefab: {fileID: 9147757862974845808, guid: 3ae2e0c9d5dcc634c84e17f32c6cd1b1, type: 3}
+  - Name: Demon's Domain
+    background: {fileID: 21300000, guid: 66c35ae3b32ee794585c790935ce75a8, type: 3}
+    Monsters:
+    - Name: CrimsonImp
+      BaseHealth: 1800
+      Prefab: {fileID: 2917018360386471581, guid: 19ae54ebaf47d624a84daa10869eb49d, type: 3}
+    - Name: DepravedBlackguard
+      BaseHealth: 1900
+      Prefab: {fileID: 5828652292917365515, guid: 9b38f6d4d18243348b088c8193e5c287, type: 3}
+    - Name: GrinningGremlin
+      BaseHealth: 2000
+      Prefab: {fileID: 3705180902447008839, guid: d5d325d731176ab448f71adc4cc5ca64, type: 3}
+    - Name: TaintedScoundrel
+      BaseHealth: 2100
+      Prefab: {fileID: 4371980515939350387, guid: f9ee101d46949b7489c56d35acce3029, type: 3}
+    Bosses:
+    - Name: FloatingEye
+      BaseHealth: 2500
+      Prefab: {fileID: 4052145069722277387, guid: 3a53ad23dd1e7e941b26077eade6ae56, type: 3}
+  - Name: Cursed Lands
+    background: {fileID: 21300000, guid: 2638c3ad9bddb0b4e909aa2956b5429e, type: 3}
+    Monsters:
+    - Name: AntleredRascal
+      BaseHealth: 3500
+      Prefab: {fileID: 8263701714839687280, guid: 4bcbc9ca3b9bb984783781e4e609ec15, type: 3}
+    - Name: FledglingDemon
+      BaseHealth: 3600
+      Prefab: {fileID: 8397073404957429359, guid: cb45b04619574f541980aa45a82a16f4, type: 3}
+    - Name: NefariousScamp
+      BaseHealth: 3700
+      Prefab: {fileID: 5533818645641249233, guid: 11f64b94b2aab0042af5b247234dff05, type: 3}
+    - Name: RascallyDemonling
+      BaseHealth: 3800
+      Prefab: {fileID: 9028378322496110787, guid: 4e12861bd8693c649ade16cf2124fb25, type: 3}
+    Bosses:
+    - Name: PitBalor
+      BaseHealth: 4300
+      Prefab: {fileID: 9021168319752424300, guid: 28ffe04cafae563408e32cb7dec8903f, type: 3}
+  - Name: Warped Necropolis
+    background: {fileID: 21300000, guid: 0b44ab34daa6fe24c8426b26d19cba1f, type: 3}
+    Monsters:
+    - Name: ClawedAbomination
+      BaseHealth: 5200
+      Prefab: {fileID: 5267381673007837842, guid: bd36336f36208b947be746a7363dd9e2, type: 3}
+    - Name: FoulGouger
+      BaseHealth: 5300
+      Prefab: {fileID: 1148244278726695459, guid: b2a2574a645986b4588a2452750870fb, type: 3}
+    - Name: PointedDemonspawn
+      BaseHealth: 5400
+      Prefab: {fileID: 1626843579073537269, guid: ae787b488fa0b4b43bc087b5c00268ec, type: 3}
+    - Name: SkeweringStalker
+      BaseHealth: 5500
+      Prefab: {fileID: 8884751313965287485, guid: e7757b273508e914dab469065bbf115f, type: 3}
+    Bosses:
+    - Name: WarpSkull
+      BaseHealth: 6500
+      Prefab: {fileID: 2827552804609071616, guid: 82ba5045908d1f24ab62c809b3d6d7f3, type: 3}
+  - Name: Plague Swamp
+    background: {fileID: 21300000, guid: 047e5025bb8e455479503f551a7f32e3, type: 3}
+    Monsters:
+    - Name: LizardfolkArcher
+      BaseHealth: 7500
+      Prefab: {fileID: 685715002833956298, guid: 10fc1fe6a518d104d97d09da6e9ee8c3, type: 3}
+    - Name: LizardfolkGladiator
+      BaseHealth: 7600
+      Prefab: {fileID: 8598018175428856153, guid: c104f5b158e49704e86212cba69eb154, type: 3}
+    - Name: LizardfolkScout
+      BaseHealth: 7700
+      Prefab: {fileID: 2465037510594326294, guid: f394f434ba5c2a54ca667a8dcc20ca58, type: 3}
+    - Name: LizardfolkSpearman
+      BaseHealth: 7800
+      Prefab: {fileID: 9103898016037783197, guid: c544aa73fc6190443b42cb7e7a9ccfa0, type: 3}
+    Bosses:
+    - Name: BestialLizardfolk
+      BaseHealth: 8800
+      Prefab: {fileID: 5503244995504385488, guid: 0893e2688032c1c40a101299e7a12aab, type: 3}
+  - Name: Guardians' Bastion
+    background: {fileID: 21300000, guid: a2f08237d45b9504c98c3bc7cb4cfc6a, type: 3}
+    Monsters:
+    - Name: GoblinArcher
+      BaseHealth: 10000
+      Prefab: {fileID: 6532238221119625431, guid: dd245d3af29b05143a207999d26ddbc2, type: 3}
+    - Name: GoblinFanatic
+      BaseHealth: 10100
+      Prefab: {fileID: 4109932800695364777, guid: 87ba2e02e3020404e9bb8b375adec08f, type: 3}
+    - Name: GoblinFighter
+      BaseHealth: 10200
+      Prefab: {fileID: 443875220844606250, guid: f27e1efeccd7db5409b80d31a5367e04, type: 3}
+    - Name: GoblinOccultist
+      BaseHealth: 10300
+      Prefab: {fileID: 8801173693337247977, guid: 37ebd590c26d459419f41b08c91a1947, type: 3}
+    Bosses:
+    - Name: GoblinWolfRider
+      BaseHealth: 11000
+      Prefab: {fileID: 1292957297676389270, guid: ca837b684e603224fbbded308897d825, type: 3}
   currentBiome: Forest
   imageBackground: {fileID: 343833222}
 --- !u!1 &656568043
@@ -15259,7 +15815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: 50}
+  m_AnchoredPosition: {x: -0.000061035, y: 149}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784034818
@@ -19254,6 +19810,7 @@ MonoBehaviour:
   resultText: {fileID: 182102970}
   chanceText: {fileID: 159054108}
   costText: {fileID: 1825027036}
+  upgradeButton: {fileID: 1281698699}
   UpgradeSlot:
     Name: 
     id: 0
@@ -19267,6 +19824,9 @@ MonoBehaviour:
     itemName: 
     level: 0
     maxLevel: 0
+    divineLevel: 0
+    maxDivineLevel: 0
+  divineLevelMultiplier: 5
 --- !u!1 &1090076821
 GameObject:
   m_ObjectHideFlags: 0
@@ -22619,7 +23179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: -15}
+  m_AnchoredPosition: {x: -3.638e-12, y: 84}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293510082
@@ -29994,8 +30554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: -53.499996}
-  m_SizeDelta: {x: 200, y: 47}
+  m_AnchoredPosition: {x: 1.99e-13, y: 10.6}
+  m_SizeDelta: {x: 200, y: 116.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1718756828
 MonoBehaviour:
@@ -30774,7 +31334,115 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd89dc1fcb9d0c34697098afd106e72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caves: []
+  caves:
+  - name: Stonecrest Quarry
+    rocks:
+    - name: Stone
+      baseHealth: 25
+      chance: 100
+      prefab: {fileID: 8587395233251269612, guid: a7462aa8fd10b1e448ff614b407910b6, type: 3}
+      drops:
+      - resourceName: Rock
+        chance: 1
+    miningLevelRequired: 1
+    isUnlocked: 1
+  - name: Ruby Land
+    rocks:
+    - name: Stone
+      baseHealth: 100
+      chance: 40
+      prefab: {fileID: 8587395233251269612, guid: a7462aa8fd10b1e448ff614b407910b6, type: 3}
+      drops:
+      - resourceName: Rock
+        chance: 1
+    - name: RubyOre
+      baseHealth: 200
+      chance: 60
+      prefab: {fileID: 5607409309898991287, guid: adccf462e08ba67449398feb4d976945, type: 3}
+      drops:
+      - resourceName: Ruby
+        chance: 1
+    miningLevelRequired: 5
+    isUnlocked: 1
+  - name: Amethyst Grotto
+    rocks:
+    - name: Stone
+      baseHealth: 150
+      chance: 20
+      prefab: {fileID: 8587395233251269612, guid: a7462aa8fd10b1e448ff614b407910b6, type: 3}
+      drops:
+      - resourceName: Rock
+        chance: 1
+    - name: RubyOre
+      baseHealth: 250
+      chance: 30
+      prefab: {fileID: 5607409309898991287, guid: adccf462e08ba67449398feb4d976945, type: 3}
+      drops:
+      - resourceName: Ruby
+        chance: 1
+    - name: AmethystOre
+      baseHealth: 350
+      chance: 50
+      prefab: {fileID: 4411132589649900554, guid: 69c2ab5bdaeffca4d8385bc8e888e42f, type: 3}
+      drops:
+      - resourceName: Amethyst
+        chance: 1
+    miningLevelRequired: 50
+    isUnlocked: 0
+  - name: Blue Bay
+    rocks:
+    - name: AquamarineOre
+      baseHealth: 500
+      chance: 60
+      prefab: {fileID: 6626628965145914438, guid: 99f1ebe666a97204e8da84b1b6cb3646, type: 3}
+      drops:
+      - resourceName: Aquamarine
+        chance: 1
+    - name: SapphireOre
+      baseHealth: 600
+      chance: 40
+      prefab: {fileID: 4022431625833590928, guid: 112013a11d615c840b5391e24a50f1d8, type: 3}
+      drops:
+      - resourceName: Sapphire
+        chance: 1
+    miningLevelRequired: 150
+    isUnlocked: 0
+  - name: Crystal Cave
+    rocks:
+    - name: CalciteOre
+      baseHealth: 700
+      chance: 70
+      prefab: {fileID: 2386578924389896145, guid: 74a603fa8cff7374c87ffb77c28ba44e, type: 3}
+      drops:
+      - resourceName: Calcite
+        chance: 1
+    - name: OpalOre
+      baseHealth: 800
+      chance: 30
+      prefab: {fileID: 6492324776117222782, guid: 19bf07391627b424fa306fa98af3d544, type: 3}
+      drops:
+      - resourceName: Opal
+        chance: 1
+    miningLevelRequired: 300
+    isUnlocked: 0
+  - name: Scarlet Crypts
+    rocks:
+    - name: RubyOre
+      baseHealth: 1000
+      chance: 70
+      prefab: {fileID: 5607409309898991287, guid: adccf462e08ba67449398feb4d976945, type: 3}
+      drops:
+      - resourceName: Ruby
+        chance: 1
+    - name: RedDiamondOre
+      baseHealth: 1100
+      chance: 30
+      prefab: {fileID: 6583696742376370432, guid: d761ec79059fed943b9725244a4de9e4, type: 3}
+      drops:
+      - resourceName: Red Diamond
+        chance: 1
+    miningLevelRequired: 500
+    isUnlocked: 0
   rockParent: {fileID: 1941427587}
   background: {fileID: 1680157121}
 --- !u!1 &1777208254
@@ -31397,7 +32065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.035e-12, y: -92}
+  m_AnchoredPosition: {x: -0.000061035, y: -62.805}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1831619272

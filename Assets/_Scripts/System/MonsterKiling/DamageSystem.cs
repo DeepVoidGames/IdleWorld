@@ -44,12 +44,20 @@ public class DamageSystem : MonoBehaviour
     public void EquipWeapon(Items weapon)
     {
         this.weapon = weapon;
-        damage = weapon.Damage;
+        UpdateWeaponDamage();
         //TODO: Add damage boost percentage
         // if (weapon.damageBoostPercentage > 0)
         //     DifficultySystem.Instance.AddDamagePercentage(weapon.damageBoostPercentage / 100);
         isWeaponEquipped = true;
         UISystem.Instance.UpdateLevelText();
+    }
+
+    public void UpdateWeaponDamage()
+    {
+        if (weapon != null)
+        {
+            damage = weapon.Damage;
+        }
     }
 
     public Items GetWeapon()

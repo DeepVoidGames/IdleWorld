@@ -73,7 +73,7 @@ public class UISystem : MonoBehaviour {
 
     public void UpdateMiningUI()
     {
-        miningLevelText.text = String.Format("Mining Level: {0}", MiningSystem.Instance.MiningLevel);
+        miningLevelText.text = String.Format("Mining Level: {0}", NumberFormat(MiningSystem.Instance.MiningLevel));
         miningExperienceText.text = String.Format("Experience: {0} / {1}", NumberFormat(MiningSystem.Instance.MiningExperience), NumberFormat(DifficultySystem.Instance.GetMiningExperienceNeeded()));
         miningEfficiencyText.text = String.Format("Efficiency: {0}", NumberFormat(MiningSystem.Instance.MiningEfficiency));
     }

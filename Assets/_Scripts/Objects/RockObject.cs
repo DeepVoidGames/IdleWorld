@@ -18,12 +18,10 @@ public class RockObject : MonoBehaviour
     [Header("Hit Animation")]
     [SerializeField] private Material hitMaterial;
     [SerializeField] private Material defaultMaterial;
-    private Animator _animator;
 
     public void Damage(double damage)
     {
         _messageSpawner.SpawnMessage(String.Format("-{0}", UISystem.Instance.NumberFormat(damage)));
-        _animator.Play("RockHit");
         if (hitMaterial != null)
             gameObject.GetComponent<Renderer>().material = hitMaterial;
         health -= damage;
@@ -59,7 +57,6 @@ public class RockObject : MonoBehaviour
 
     void Start()
     {
-        _animator = GetComponent<Animator>();
         _messageSpawner = GetComponent<MessageSpawner>();
         UpdateUI();
     }

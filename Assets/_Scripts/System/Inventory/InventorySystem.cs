@@ -51,6 +51,8 @@ public class InventorySystem : MonoBehaviour
 
     [SerializeField] private GameObject inventoryContent;
 
+    [SerializeField] private List<AnimationClip> animations;
+ 
     public Button equipedWeaponButton;
     public Button equipedToolButton;
 
@@ -280,6 +282,7 @@ public class InventorySystem : MonoBehaviour
                 go.transform.Find("Rarity").GetComponent<Text>().text = slot.item.rarity.ToString();
                 go.transform.Find("Rarity").GetComponent<Text>().color = UISystem.Instance.GetRarityColor(slot.item.rarity);
                 go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
+                GameObject effect = go.transform.Find("Effect").gameObject;
 
                 // If the category is Material 
                 if (slot.item.category == Category.Material)
@@ -332,6 +335,22 @@ public class InventorySystem : MonoBehaviour
                     button.onClick = onClick;
                 }                
 
+                int _divineLevel = UpgradingSystem.Instance.GetDivineLevel(slot.item.Name);
+                if (_divineLevel > 0)
+                {
+                    if (effect.activeSelf)
+                    {
+                        effect.GetComponent<Animator>().Play(animations[_divineLevel - 1].name);
+                    }
+                    else
+                    {
+                        effect.SetActive(true);
+                    }
+                }
+                else
+                {
+                    effect.SetActive(false);
+                }
 
                 if (slot.item.category == Category.Tools)
                 {

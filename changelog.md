@@ -1,3 +1,14 @@
+# 0.5.4.3
+
+- Add
+  - Divine upgrade
+  - UI improvements
+- Fix
+  - Equiped item damage bug
+  - Biome loading
+- Balans changes
+  - Highest upgrade chance
+
 # 0.5.4.2
 
 - Add

@@ -64,6 +64,17 @@ public class BiomeSystem : MonoBehaviour
             }
         }
         Bioms = biomes;
+        // Get level and set current biome, but next biome every 10 levels
+        int level = LevelSystem.Instance.Level % 10;
+        if (level > 0)
+        {
+            if (level > Bioms.Count)
+            {
+                level = Bioms.Count;
+            }
+            currentBiome = Bioms[level - 1].Name;
+        }
+        UpdateBiome();
     }
 
     public void SetCurrentBiome(string biome)
@@ -82,6 +93,21 @@ public class BiomeSystem : MonoBehaviour
         }
         currentBiome = Bioms[index].Name;
         imageBackground.sprite = Bioms[index].background;
+    }
+
+    private void UpdateBiome()
+    {
+        // Get level and set current biome
+        int level = LevelSystem.Instance.Level;
+        if (level > 0)
+        {
+            if (level > Bioms.Count)
+            {
+                level = Bioms.Count;
+            }
+            currentBiome = Bioms[level - 1].Name;
+        }
+        UpdateUI();
     }
 
     private void UpdateUI()
