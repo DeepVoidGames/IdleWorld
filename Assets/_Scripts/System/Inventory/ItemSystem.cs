@@ -28,7 +28,12 @@ public class Items
     public float damageBoostPercentage;
 
     // Tools
-    public float miningEfficiency;
+    public float baseMiningEfficiency;
+
+    public float miningEfficiency 
+    {
+        get => baseMiningEfficiency + UpgradingSystem.Instance.GetBonus(Name, baseMiningEfficiency);
+    }
 
 }
 

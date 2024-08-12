@@ -256,7 +256,15 @@ public class UpgradingSystem : MonoBehaviour
                 else
                     return item.baseDamage * 1000 * upgrade.level;
             }
-            //TODO Add support for tools
+            else if(item.baseMiningEfficiency > 0)
+            {
+                if (upgrade.level == 0)
+                    return item.baseMiningEfficiency * 1000;
+                else if (upgrade.divineLevel > 0)
+                    return item.baseMiningEfficiency * 1000 * (upgrade.divineLevel * divineLevelMultiplier) * upgrade.level;
+                else
+                    return item.baseMiningEfficiency * 1000 * upgrade.level;
+            }
         }
         return cost;
     }
@@ -330,13 +338,29 @@ public class UpgradingSystem : MonoBehaviour
     public float GetBonus(string name, float baseDamage)
     {
         Upgrade upgrade = Upgrades.Find(x => x.itemName == name);
-        if (upgrade != null)
+        Items item = ItemSystem.Instance.GetItemByName(name);
+
+        if (upgrade == null)
+            return 0;
+        if(item == null)
+            return 0;
+
+        if (item.baseDamage != 0)
         {
             if (baseDamage > 0 && upgrade.divineLevel <= 0)
                 return baseDamage * (0.1f * upgrade.level);
             else if (baseDamage > 0 && (upgrade.divineLevel <= upgrade.maxDivineLevel))
                 return baseDamage * (0.1f * (upgrade.maxLevel * upgrade.divineLevel + upgrade.level));
         }
+
+        if (item.baseMiningEfficiency != 0)
+        {
+            if (upgrade.divineLevel <= 0)
+                return item.baseMiningEfficiency * (0.1f * upgrade.level);
+            else if (upgrade.divineLevel <= upgrade.maxDivineLevel)
+                return item.baseMiningEfficiency * (0.1f * (upgrade.maxLevel * upgrade.divineLevel + upgrade.level));
+        }
+
         return 0;
     }
 

@@ -10,6 +10,8 @@ public class RemoteConfig : MonoBehaviour
     public struct userAttributes {}
     public struct appAttributes {}
 
+    [SerializeField] private bool isEnbaled = true;
+
     async Task InitializeRemoteConfigAsync()
     {
             // initialize handlers for unity game services
@@ -26,6 +28,8 @@ public class RemoteConfig : MonoBehaviour
     {
         // initialize Unity's authentication and core services, however check for internet connection
         // in order to fail gracefully without throwing exception if connection does not exist
+        if (!isEnbaled)
+            return;
         if (Utilities.CheckForInternetConnection())
         {
             await InitializeRemoteConfigAsync();

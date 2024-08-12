@@ -1,7 +1,11 @@
 # 0.5.4.5
 
 - Add
-  <!--TODO - New biome -->
+  - Tools upgrade
+  - New biome
+  - UI improvements
+- Fix
+  - Boss hp
 
 # 0.5.4.4
 

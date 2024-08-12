@@ -5,22 +5,14 @@
       "id": 0,
       "category": 1,
       "rarity": 0,
-      "icon": {},
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 0.0
+      "icon": {}
     },
     {
       "Name": "Ruby",
       "id": 1,
       "category": 1,
       "rarity": 1,
-      "icon": { "instanceID": 28960 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 0.0
+      "icon": { "instanceID": 28960 }
     },
     {
       "Name": "Stone Sword",
@@ -28,10 +20,7 @@
       "category": 2,
       "rarity": 1,
       "icon": { "instanceID": 28962 },
-      "baseDamage": 10.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 10.0
+      "baseDamage": 10.0
     },
     {
       "Name": "Ruby Sword",
@@ -39,10 +28,7 @@
       "category": 2,
       "rarity": 2,
       "icon": { "instanceID": 28964 },
-      "baseDamage": 20.0,
-      "damageBoostPercentage": 2.0,
-      "miningEfficiency": 0.0,
-      "damage": 20.0
+      "baseDamage": 20.0
     },
     {
       "Name": "Ruby Katana",
@@ -50,10 +36,7 @@
       "category": 2,
       "rarity": 4,
       "icon": { "instanceID": 28966 },
-      "baseDamage": 150.0,
-      "damageBoostPercentage": 5.0,
-      "miningEfficiency": 0.0,
-      "damage": 150.0
+      "baseDamage": 150.0
     },
     {
       "Name": "Stone Pickaxe",
@@ -61,10 +44,7 @@
       "category": 3,
       "rarity": 0,
       "icon": { "instanceID": 32196 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 50.0,
-      "damage": 0.0
+      "baseMiningEfficiency": 50.0
     },
     {
       "Name": "Ruby Pickaxe",
@@ -72,76 +52,49 @@
       "category": 3,
       "rarity": 3,
       "icon": { "instanceID": 32188 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 150.0,
-      "damage": 0.0
+      "baseMiningEfficiency": 150.0
     },
     {
       "Name": "Amethyst",
       "id": 7,
       "category": 1,
       "rarity": 2,
-      "icon": { "instanceID": 28968 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 0.0
+      "icon": { "instanceID": 28968 }
     },
     {
       "Name": "Aquamarine",
       "id": 8,
       "category": 1,
       "rarity": 2,
-      "icon": { "instanceID": 28970 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 0.0
+      "icon": { "instanceID": 28970 }
     },
     {
       "Name": "Calcite",
       "id": 9,
       "category": 1,
       "rarity": 2,
-      "icon": { "instanceID": 28972 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 0.0
+      "icon": { "instanceID": 28972 }
     },
     {
       "Name": "Opal",
       "id": 10,
       "category": 1,
       "rarity": 3,
-      "icon": { "instanceID": 28974 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 0.0
+      "icon": { "instanceID": 28974 }
     },
     {
       "Name": "Red Diamond",
       "id": 11,
       "category": 1,
       "rarity": 4,
-      "icon": { "instanceID": 28976 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 0.0
+      "icon": { "instanceID": 28976 }
     },
     {
       "Name": "Sapphire",
       "id": 12,
       "category": 1,
       "rarity": 3,
-      "icon": { "instanceID": 28978 },
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0.0,
-      "damage": 0.0
+      "icon": { "instanceID": 28978 }
     },
     {
       "Name": "Amethyst Pickaxe",
@@ -149,10 +102,7 @@
       "category": 3,
       "rarity": 3,
       "icon": {},
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 200.0,
-      "damage": 0.0
+      "baseMiningEfficiency": 200.0
     },
     {
       "Name": "Aquamarine Pickaxe",
@@ -160,10 +110,7 @@
       "category": 3,
       "rarity": 3,
       "icon": {},
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 250.0,
-      "damage": 0.0
+      "baseMiningEfficiency": 250.0
     },
     {
       "Name": "Calcite Pickaxe",
@@ -171,10 +118,7 @@
       "category": 3,
       "rarity": 3,
       "icon": {},
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 300.0,
-      "damage": 0.0
+      "baseMiningEfficiency": 300.0
     },
     {
       "Name": "Opal Pickaxe",
@@ -182,10 +126,7 @@
       "category": 3,
       "rarity": 4,
       "icon": {},
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 350.0,
-      "damage": 0.0
+      "baseMiningEfficiency": 350.0
     },
     {
       "Name": "Red Diamond Pickaxe",
@@ -193,10 +134,7 @@
       "category": 3,
       "rarity": 4,
       "icon": {},
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 1500.0,
-      "damage": 0.0
+      "baseMiningEfficiency": 1500.0
     },
     {
       "Name": "Sapphire Pickaxe",
@@ -204,10 +142,7 @@
       "category": 3,
       "rarity": 4,
       "icon": {},
-      "baseDamage": 0.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 450.0,
-      "damage": 0.0
+      "baseMiningEfficiency": 450.0
     },
     {
       "Name": "Aquamarine Sword",
@@ -216,9 +151,7 @@
       "rarity": 3,
       "icon": {},
       "baseDamage": 250.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0,
-      "damage": 250.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Calcite Sword",
@@ -227,9 +160,7 @@
       "rarity": 3,
       "icon": {},
       "baseDamage": 450.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0,
-      "damage": 450.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Opal Sword",
@@ -238,9 +169,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 500.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0,
-      "damage": 500.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Red Diamond Sword",
@@ -249,9 +178,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 600.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0,
-      "damage": 600.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Sapphire Sword",
@@ -260,9 +187,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 400.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0,
-      "damage": 400.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Amethyst Sword",
@@ -271,9 +196,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 600.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0,
-      "damage": 600.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Blood Blade",
@@ -282,9 +205,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 1500.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0,
-      "damage": 1500.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Galaxy Sword",
@@ -293,9 +214,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 1200.0,
-      "damageBoostPercentage": 0.0,
-      "miningEfficiency": 0,
-      "damage": 1200.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Sapphire Dagger",
@@ -304,7 +223,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 900.0,
-      "damage": 900.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Stone Machete",
@@ -313,7 +232,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 1000.0,
-      "damage": 1000.0
+      "damageBoostPercentage": 0.0
     },
     {
       "Name": "Water Sword",
@@ -322,7 +241,7 @@
       "rarity": 4,
       "icon": {},
       "baseDamage": 700.0,
-      "damage": 700.0
+      "damageBoostPercentage": 0.0
     }
   ]
 }

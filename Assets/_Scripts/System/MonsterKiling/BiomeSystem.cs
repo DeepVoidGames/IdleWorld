@@ -51,9 +51,20 @@ public class BiomeSystem : MonoBehaviour
 
     public void SetBiomesCollection(List<Biomes> biomes)
     {
+        List<Biomes> biomesToRemove = new List<Biomes>();
+    
         foreach (var biome in biomes)
         {
             biome.background = Resources.Load<Sprite>($"Sprites/Biomes/{biome.Name}");
+    
+            if (biome.background == null)
+            {
+                // If the sprite is not found remove the biome from the list
+                Debug.LogWarning($"Biome {biome.Name} background sprite not found, removing biome from list");
+                biomesToRemove.Add(biome);
+                continue;
+            }
+    
             foreach (var monster in biome.Monsters)
             {
                 monster.Prefab = Resources.Load<GameObject>($"Prefabs/Monster/{biome.Name}/{monster.Name}");
@@ -63,6 +74,13 @@ public class BiomeSystem : MonoBehaviour
                 boss.Prefab = Resources.Load<GameObject>($"Prefabs/Boss/{biome.Name}/{boss.Name}");
             }
         }
+    
+        foreach (var biomeToRemove in biomesToRemove)
+        {
+            biomes.Remove(biomeToRemove);
+        }
+    
+        Bioms = biomes;
         UpdateBiome();
     }
 
@@ -97,8 +115,7 @@ public class BiomeSystem : MonoBehaviour
             if (level < 100)
                 biomeIndex = level / 10;
             else
-                biomeIndex = Bioms.Count - 1;
-                // biomeIndex = level / 100;
+                biomeIndex = level / 100;
             
             if (biomeIndex >= Bioms.Count)
             {

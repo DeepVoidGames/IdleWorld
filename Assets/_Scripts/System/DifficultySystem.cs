@@ -96,7 +96,7 @@ public class DifficultySystem : MonoBehaviour
     {
         if (LevelSystem.Instance.PrestigeLevel == 0)
             return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
-        return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier) * (_prestigeMultiplier * LevelSystem.Instance.PrestigeLevel);
+        return (baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier)) * (_prestigeMultiplier * LevelSystem.Instance.PrestigeLevel);
     }
 
     public double GetBossDrop(double maxHealth)

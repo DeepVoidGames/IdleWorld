@@ -273,114 +273,125 @@ public class InventorySystem : MonoBehaviour
 
         foreach (InventorySlot slot in inventory.inventory)
         {
-            if (slot.item.category == currentCategory)
+            if (slot.item.category != currentCategory)
+                continue;
+
+            GameObject go = Instantiate(inventorySlotPrefab, inventoryUI.transform);
+            go.transform.localPosition = pos;
+            go.transform.Find("Icon").GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIcon(slot.item.id);
+            go.transform.Find("Quantity").GetComponent<Text>().text = UISystem.Instance.NumberFormat(slot.quantity);
+            go.transform.Find("Rarity").GetComponent<Text>().text = slot.item.rarity.ToString();
+            go.transform.Find("Rarity").GetComponent<Text>().color = UISystem.Instance.GetRarityColor(slot.item.rarity);
+            go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
+            GameObject effect = go.transform.Find("Effect").gameObject;
+
+            // If the category is Material 
+            if (slot.item.category == Category.Material)
             {
-                GameObject go = Instantiate(inventorySlotPrefab, inventoryUI.transform);
-                go.transform.localPosition = pos;
-                go.transform.Find("Icon").GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIcon(slot.item.id);
-                go.transform.Find("Quantity").GetComponent<Text>().text = UISystem.Instance.NumberFormat(slot.quantity);
-                go.transform.Find("Rarity").GetComponent<Text>().text = slot.item.rarity.ToString();
-                go.transform.Find("Rarity").GetComponent<Text>().color = UISystem.Instance.GetRarityColor(slot.item.rarity);
-                go.transform.Find("Title").GetComponent<Text>().text = slot.item.Name;
-                GameObject effect = go.transform.Find("Effect").gameObject;
-
-                // If the category is Material 
-                if (slot.item.category == Category.Material)
-                {
-                    Button button = go.GetComponent<Button>();
-                    button.onClick.RemoveAllListeners();
-                    var onClick = new Button.ButtonClickedEvent();
-                    onClick.AddListener(() => CraftingSystem.Instance.SetCraftSlot(slot.item));
-                    button.onClick = onClick;
-                }
+                Button button = go.GetComponent<Button>();
+                button.onClick.RemoveAllListeners();
+                var onClick = new Button.ButtonClickedEvent();
+                onClick.AddListener(() => CraftingSystem.Instance.SetCraftSlot(slot.item));
+                button.onClick = onClick;
+            }
+            
+            // If the category is Weapon
+            if (slot.item.category == Category.Weapon)
+            {
+                // Upgade the weapon
+                Button _button = go.GetComponent<Button>();
+                _button.onClick.RemoveAllListeners();
+                var _onClick = new Button.ButtonClickedEvent();
+                _onClick.AddListener(() => UpgradingSystem.Instance.SetUpgradeSlot(slot.item));
+                _button.onClick = _onClick;
                 
-                // If the category is Weapon
-                if (slot.item.category == Category.Weapon)
+                int upgradeLevel = UpgradingSystem.Instance.GetLevel(slot.item.Name);
+                if (upgradeLevel > 0)
+                    go.transform.Find("Title").GetComponent<Text>().text = $"{slot.item.Name} +{upgradeLevel}";
+
+                go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", UISystem.Instance.NumberFormat(slot.item.Damage), UISystem.Instance.NumberFormat((slot.item.damageBoostPercentage)));
+                go.transform.Find("Equip").gameObject.SetActive(true);
+                Button button = go.transform.Find("Equip").GetComponent<Button>();
+
+                if (DamageSystem.Instance.GetWeapon() != null && DamageSystem.Instance.GetWeapon().id == slot.item.id)
                 {
-                    // Upgade the weapon
-                    Button _button = go.GetComponent<Button>();
-                    _button.onClick.RemoveAllListeners();
-                    var _onClick = new Button.ButtonClickedEvent();
-                    _onClick.AddListener(() => UpgradingSystem.Instance.SetUpgradeSlot(slot.item));
-                    _button.onClick = _onClick;
-                    
-                    int upgradeLevel = UpgradingSystem.Instance.GetLevel(slot.item.Name);
-                    if (upgradeLevel > 0)
-                        go.transform.Find("Title").GetComponent<Text>().text = $"{slot.item.Name} +{upgradeLevel}";
-
-                    go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Damage: {0}\nDamage Bonus: {1}%", UISystem.Instance.NumberFormat(slot.item.Damage), UISystem.Instance.NumberFormat((slot.item.damageBoostPercentage)));
-                    go.transform.Find("Equip").gameObject.SetActive(true);
-                    Button button = go.transform.Find("Equip").GetComponent<Button>();
-
-                    if (DamageSystem.Instance.GetWeapon() != null && DamageSystem.Instance.GetWeapon().id == slot.item.id)
-                    {
-                        button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
-                        equipedWeaponButton = button;
-                    }
-                    else
-                    {
-                        button.transform.Find("Text").GetComponent<Text>().text = "Equip";
-                    }
-
-                    var onClick = new Button.ButtonClickedEvent();
-                    onClick.AddListener(() => {
-                        DamageSystem.Instance.EquipWeapon(slot.item);
-                        button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
-                        if (equipedWeaponButton != null && equipedWeaponButton != button)
-                        {
-                            equipedWeaponButton.transform.Find("Text").GetComponent<Text>().text = "Equip";
-                        }
-                        equipedWeaponButton = button;
-                    });
-                    button.onClick = onClick;
-                }                
-
-                int _divineLevel = UpgradingSystem.Instance.GetDivineLevel(slot.item.Name);
-                if (_divineLevel > 0)
-                {
-                    if (effect.activeSelf)
-                    {
-                        effect.GetComponent<Animator>().Play(animations[_divineLevel - 1].name);
-                    }
-                    else
-                    {
-                        effect.SetActive(true);
-                    }
+                    button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
+                    equipedWeaponButton = button;
                 }
                 else
                 {
-                    effect.SetActive(false);
+                    button.transform.Find("Text").GetComponent<Text>().text = "Equip";
                 }
 
-                if (slot.item.category == Category.Tools)
+                var onClick = new Button.ButtonClickedEvent();
+                onClick.AddListener(() => {
+                    DamageSystem.Instance.EquipWeapon(slot.item);
+                    button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
+                    if (equipedWeaponButton != null && equipedWeaponButton != button)
+                    {
+                        equipedWeaponButton.transform.Find("Text").GetComponent<Text>().text = "Equip";
+                    }
+                    equipedWeaponButton = button;
+                });
+                button.onClick = onClick;
+            }                
+
+            if (slot.item.category == Category.Tools)
+            {
+                // Upgade the tools
+                Button _button = go.GetComponent<Button>();
+                _button.onClick.RemoveAllListeners();
+                var _onClick = new Button.ButtonClickedEvent();
+                _onClick.AddListener(() => UpgradingSystem.Instance.SetUpgradeSlot(slot.item));
+                _button.onClick = _onClick;
+                
+                int upgradeLevel = UpgradingSystem.Instance.GetLevel(slot.item.Name);
+                if (upgradeLevel > 0)
+                    go.transform.Find("Title").GetComponent<Text>().text = $"{slot.item.Name} +{upgradeLevel}";
+
+                go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Mining Efficiency: {0}", UISystem.Instance.NumberFormat(slot.item.miningEfficiency));
+                go.transform.Find("Equip").gameObject.SetActive(true);
+                Button button = go.transform.Find("Equip").GetComponent<Button>();
+
+                if (MiningSystem.Instance.GetTool() != null && MiningSystem.Instance.GetTool().id == slot.item.id)
                 {
-                    go.transform.Find("Quantity").GetComponent<Text>().text = String.Format("Mining Efficiency: {0}", UISystem.Instance.NumberFormat(slot.item.miningEfficiency));
-                    go.transform.Find("Equip").gameObject.SetActive(true);
-                    Button button = go.transform.Find("Equip").GetComponent<Button>();
-
-                    if (MiningSystem.Instance.GetTool() != null && MiningSystem.Instance.GetTool().id == slot.item.id)
-                    {
-                        button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
-                        equipedToolButton = button;
-                    }
-                    else
-                    {
-                        button.transform.Find("Text").GetComponent<Text>().text = "Equip";
-                    }
-
-                    var onClick = new Button.ButtonClickedEvent();
-                    onClick.AddListener(() => {
-                        MiningSystem.Instance.EquipTool(slot.item);
-                        button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
-                        if (equipedToolButton != null && equipedToolButton != button)
-                        {
-                            equipedToolButton.transform.Find("Text").GetComponent<Text>().text = "Equip";
-                        }
-                        equipedToolButton = button;
-                    });
-                    button.onClick = onClick;
+                    button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
+                    equipedToolButton = button;
                 }
-                pos.y -= 100;
+                else
+                {
+                    button.transform.Find("Text").GetComponent<Text>().text = "Equip";
+                }
+
+                var onClick = new Button.ButtonClickedEvent();
+                onClick.AddListener(() => {
+                    MiningSystem.Instance.EquipTool(slot.item);
+                    button.transform.Find("Text").GetComponent<Text>().text = "Equiped";
+                    if (equipedToolButton != null && equipedToolButton != button)
+                    {
+                        equipedToolButton.transform.Find("Text").GetComponent<Text>().text = "Equip";
+                    }
+                    equipedToolButton = button;
+                });
+                button.onClick = onClick;
+            }
+            pos.y -= 100;
+
+            int _divineLevel = UpgradingSystem.Instance.GetDivineLevel(slot.item.Name);
+            if (_divineLevel > 0)
+            {
+                if (effect.activeSelf)
+                {
+                    effect.GetComponent<Animator>().Play(animations[_divineLevel - 1].name);
+                }
+                else
+                {
+                    effect.SetActive(true);
+                }
+            }
+            else
+            {
+                effect.SetActive(false);
             }
         }  
     }

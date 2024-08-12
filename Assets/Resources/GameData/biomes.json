@@ -296,6 +296,39 @@
           "Prefab": {}
         }
       ]
+    },
+    {
+      "Name": "Ethereal Woods",
+      "background": {},
+      "Monsters": [
+        {
+          "Name": "HalflingBard",
+          "BaseHealth": 12000.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "HalflingRanger",
+          "BaseHealth": 12100.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "HalflingRogue",
+          "BaseHealth": 12200.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "HalflingSlinger",
+          "BaseHealth": 12300.0,
+          "Prefab": {}
+        }
+      ],
+      "Bosses": [
+        {
+          "Name": "HalflingAssassin",
+          "BaseHealth": 13000.0,
+          "Prefab": {}
+        }
+      ]
     }
   ]
 }
