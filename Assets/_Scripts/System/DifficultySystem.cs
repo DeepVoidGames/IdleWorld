@@ -22,6 +22,7 @@ public class DifficultySystem : MonoBehaviour
     }
 
     [SerializeField] private float _difficultyMultiplier = 1.2f;
+    [SerializeField] private float _prestigeMultiplier = 1f;
 
     // Damage
     private double DamagePercentage;
@@ -93,18 +94,22 @@ public class DifficultySystem : MonoBehaviour
     // Boss
     public double GetBossHealth(double baseHealth)
     {
-        return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
+        if (LevelSystem.Instance.PrestigeLevel == 0)
+            return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
+        return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier) * (_prestigeMultiplier * LevelSystem.Instance.PrestigeLevel);
     }
 
     public double GetBossDrop(double maxHealth)
     {
-        return maxHealth + (maxHealth * _difficultyMultiplier);
+        return (maxHealth + (maxHealth * _difficultyMultiplier)) * (_prestigeMultiplier * LevelSystem.Instance.PrestigeLevel);
     }
 
     // Monster
     public double GetMonsterHealth(double baseHealth)
     {
-        return baseHealth + baseHealth * LevelSystem.Instance.Level/2 + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
+        if (LevelSystem.Instance.PrestigeLevel == 0)
+            return baseHealth + baseHealth * LevelSystem.Instance.Level/2 + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
+        return (baseHealth + baseHealth * LevelSystem.Instance.Level/2 + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier)) * (_prestigeMultiplier * LevelSystem.Instance.PrestigeLevel);
     }
 
     public double GetMonsterDrop(double maxHealth)

@@ -1,3 +1,19 @@
+# 0.5.4.5
+
+- Add
+  <!--TODO - New biome -->
+
+# 0.5.4.4
+
+- Add
+  - Prestige system for slayer
+  - New hero
+  - UI improvements
+- Fix
+  - Hire button
+- Balans changes
+  - Hero max level 1000 -> 2000
+
 # 0.5.4.3
 
 - Add

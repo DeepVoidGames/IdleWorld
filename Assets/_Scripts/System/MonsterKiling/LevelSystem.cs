@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSystem : MonoBehaviour 
 {
@@ -24,7 +25,19 @@ public class LevelSystem : MonoBehaviour
     [SerializeField] private int levelToNextBiome = 10;
     [SerializeField] private int stage = 1;
     [SerializeField] private int maxStage = 10;
-    
+
+    [SerializeField] private int prestigeLevel = 0;
+    [SerializeField] private int baseLevelToPrestige = 100;
+    [SerializeField] private int levelToPrestige = 100;
+    [SerializeField] private int maxPrestigeLevel = 100;
+
+    [Header("UI Elements")]
+    [SerializeField] private Button prestigeButton;
+
+    public int PrestigeLevel {get => prestigeLevel; private set => prestigeLevel = value;}
+    public int MaxPrestigeLevel {get => maxPrestigeLevel; private set => maxPrestigeLevel = value;}
+    public int LevelToPrestige {get => levelToPrestige; private set => levelToPrestige = value;}
+
     public int Level {get => level; private set => level = value;}
     public int Stage {get => stage; private set => stage = value;}
 
@@ -61,6 +74,51 @@ public class LevelSystem : MonoBehaviour
     public void SetStage(int stage)
     {
         this.stage = stage;
+    }
+
+    public void Prestige()
+    {
+        if (prestigeLevel == maxPrestigeLevel)
+            return;
+
+        if (level == levelToPrestige)
+        {
+            prestigeLevel++;
+            level -= levelToPrestige;
+            stage = 1;
+            BiomeSystem.Instance.SetCurrentBiome(BiomeSystem.Instance.Bioms[0].Name);
+        }
+        else if (level > levelToPrestige)
+        {
+            for (int i = 0; i < levelToPrestige; i++)
+            {
+                if (prestigeLevel >= maxPrestigeLevel)
+                    break;
+                level -= levelToPrestige;
+                prestigeLevel++;
+                levelToPrestige = baseLevelToPrestige + baseLevelToPrestige * prestigeLevel;
+                UISystem.Instance.UpdateLevelText();
+                if (level < levelToPrestige)
+                    break;
+            }
+            stage = 1;
+            BiomeSystem.Instance.SetCurrentBiome(BiomeSystem.Instance.Bioms[0].Name);
+            return;
+        }
+
+        levelToPrestige = baseLevelToPrestige + baseLevelToPrestige * prestigeLevel;
+        UISystem.Instance.UpdateLevelText();
+    }
+
+    public void SetPrestigeLevel(int prestigeLevel)
+    {
+        this.prestigeLevel = prestigeLevel;
+
+        if (prestigeLevel == maxPrestigeLevel)
+            prestigeButton.interactable = false;
+
+        if (prestigeLevel != 0)
+            levelToPrestige = baseLevelToPrestige + baseLevelToPrestige * prestigeLevel;
     }
 
 }

@@ -48,7 +48,6 @@ public class SaveSystem : MonoBehaviour
             // Monster Kiling System
             levelData = LevelSystem.Instance.Level,
             stageData = LevelSystem.Instance.Stage,
-            currentBiome = BiomeSystem.Instance.CurrentBiome,
             // Weapon
             weaponData = DamageSystem.Instance.GetWeapon(),
             isWeaponEquippedData = DamageSystem.Instance.IsWeaponEquipped,
@@ -61,7 +60,8 @@ public class SaveSystem : MonoBehaviour
             toolData = MiningSystem.Instance.GetTool(),
             isToolEquippedData = MiningSystem.Instance.IsToolEquipped,
             toolButtonData = InventorySystem.Instance.equipedToolButton,
-            currentCave = CaveSystem.Instance.CurrentCave != null ? CaveSystem.Instance.CurrentCave : "Stonecrest Quarry"
+            currentCave = CaveSystem.Instance.CurrentCave != null ? CaveSystem.Instance.CurrentCave : "Stonecrest Quarry",
+            prestigeLevel = LevelSystem.Instance.PrestigeLevel
         };
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(saveFilePath, json);
@@ -127,12 +127,6 @@ public class SaveSystem : MonoBehaviour
                 LevelSystem.Instance.SetStage(gameData.stageData);
             }
 
-            // Load current biome
-            if (gameData.currentBiome != null)
-            {
-                BiomeSystem.Instance.SetCurrentBiome(gameData.currentBiome);
-            }
-            
             // Load weapon
             if (gameData.weaponData != null)
             {
@@ -185,6 +179,11 @@ public class SaveSystem : MonoBehaviour
             if (gameData.currentCave != null)
             {
                 CaveSystem.Instance.CurrentCave = gameData.currentCave;
+            }
+
+            if (gameData.prestigeLevel != 0)
+            {
+                LevelSystem.Instance.SetPrestigeLevel(gameData.prestigeLevel);
             }
 
             Debug.Log("Game loaded from " + saveFilePath);
@@ -282,7 +281,8 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate() 
+    {
         // Auto save every 5 minutes
         _timer += Time.deltaTime;
         if (_timer >= 300f)
@@ -314,7 +314,6 @@ public class GameData
     // Monster Kiling System
     public int levelData;
     public int stageData;
-    public string currentBiome;
     // Weapon
     public Items weaponData;
     public bool isWeaponEquippedData;
@@ -327,6 +326,8 @@ public class GameData
     public bool isToolEquippedData;
     public UnityEngine.UI.Button toolButtonData;
     public string currentCave;
+    // Prestige
+    public int prestigeLevel;
 }
 
 public class InventoryData

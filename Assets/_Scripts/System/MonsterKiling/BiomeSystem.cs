@@ -63,17 +63,6 @@ public class BiomeSystem : MonoBehaviour
                 boss.Prefab = Resources.Load<GameObject>($"Prefabs/Boss/{biome.Name}/{boss.Name}");
             }
         }
-        Bioms = biomes;
-        // Get level and set current biome, but next biome every 10 levels
-        int level = LevelSystem.Instance.Level % 10;
-        if (level > 0)
-        {
-            if (level > Bioms.Count)
-            {
-                level = Bioms.Count;
-            }
-            currentBiome = Bioms[level - 1].Name;
-        }
         UpdateBiome();
     }
 
@@ -81,6 +70,7 @@ public class BiomeSystem : MonoBehaviour
     {
         currentBiome = biome;
         UpdateUI();
+        MonsterSystem.Instance.ReloadMonster();
     }
 
     public void NextBiome()
@@ -97,17 +87,27 @@ public class BiomeSystem : MonoBehaviour
 
     private void UpdateBiome()
     {
-        // Get level and set current biome
+        // Get level and set current biome, but next biome every 10 levels
+        // So 0-9 levels is Forest, 10-19 is Desert, etc. 
         int level = LevelSystem.Instance.Level;
+
         if (level > 0)
         {
-            if (level > Bioms.Count)
+            int biomeIndex;
+            if (level < 100)
+                biomeIndex = level / 10;
+            else
+                biomeIndex = Bioms.Count - 1;
+                // biomeIndex = level / 100;
+            
+            if (biomeIndex >= Bioms.Count)
             {
-                level = Bioms.Count;
+                biomeIndex = Bioms.Count - 1; // Clamp the biome index to the last available biome
             }
-            currentBiome = Bioms[level - 1].Name;
+            currentBiome = Bioms[biomeIndex].Name;
         }
-        UpdateUI();
+        imageBackground.sprite = Bioms.Find(biome => biome.Name == currentBiome).background;
+        MonsterSystem.Instance.ReloadMonster();
     }
 
     private void UpdateUI()

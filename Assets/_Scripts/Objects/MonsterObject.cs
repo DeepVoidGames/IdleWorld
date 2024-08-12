@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class MonsterObject : MonoBehaviour
 {
     private string monsterName;
-    [SerializeField] private double health;
+    private double health;
     private double maxHealth;
 
     [Header("UI Elements")]

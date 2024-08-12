@@ -74,12 +74,13 @@ public class TavernSystem : MonoBehaviour
     {
         heroImage.sprite = heroes[id].sprite;
         heroName.text = heroes[id].name;
-        heroData.text = $"Level: {UISystem.Instance.NumberFormatInt(heroes[id].level)}\nDPS: {UISystem.Instance.NumberFormat(Instance.heroes[id].dps)}";
+        heroData.text = $"Level: {UISystem.Instance.NumberFormatInt(heroes[id].level)}/{UISystem.Instance.NumberFormatInt(heroes[id].maxLevel)}\nDPS: {UISystem.Instance.NumberFormat(Instance.heroes[id].dps)}";
         if (heroes[id].isUnlocked)
             heroCost.text = $"Cost: {UISystem.Instance.NumberFormat(heroes[id].upgradeCost)}";
         else
             heroCost.text = $"Cost: {UISystem.Instance.NumberFormat(heroes[id].cost)}";
         upgradeButton.onClick.RemoveAllListeners(); 
+
         if (heroes[id].level >= heroes[id].maxLevel)
         {
             heroCost.text = "Max Level";
@@ -90,11 +91,13 @@ public class TavernSystem : MonoBehaviour
         if (heroes[id].isUnlocked)
         {
             upgradeButton.GetComponentInChildren<Text>().text = "Upgrade";
+            upgradeButton.interactable = true;
             upgradeButton.onClick.AddListener(() => UpgradeHero(id));
         }
         else
         {
             upgradeButton.GetComponentInChildren<Text>().text = "Hire";
+            upgradeButton.interactable = true;
             upgradeButton.onClick.AddListener(() => UnlockHero(id));
         }  
     }

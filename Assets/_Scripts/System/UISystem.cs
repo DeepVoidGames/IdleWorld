@@ -45,6 +45,8 @@ public class UISystem : MonoBehaviour {
     [Header("Level System UI")]
     [SerializeField] private Text levelText;
     [SerializeField] private Text stageText;
+    [SerializeField] private Text prestigeLevelText;
+    [SerializeField] private Text prestigeRequirementText;
     [Header("Gold System UI")]
     [SerializeField] private Text goldText;
     [SerializeField] private GameObject goldPanel;
@@ -59,6 +61,9 @@ public class UISystem : MonoBehaviour {
         stageText.text = String.Format("Stage: {0}", NumberFormatInt(LevelSystem.Instance.Stage));
         damageText.text = String.Format("Damage: {0}", NumberFormat(DamageSystem.Instance.Damage));
         dpsText.text = String.Format("DPS: {0}/s", NumberFormat(DifficultySystem.Instance.GetDPS()));
+
+        prestigeLevelText.text = $"Prestige Level: {NumberFormatInt(LevelSystem.Instance.PrestigeLevel)}/{NumberFormatInt(LevelSystem.Instance.MaxPrestigeLevel)}\nMonster HP x{LevelSystem.Instance.PrestigeLevel + 1}";
+        prestigeRequirementText.text = $"Required Level: {NumberFormatInt(LevelSystem.Instance.LevelToPrestige)}";
     }
 
     public void MoneyIndicator(double money, string prefix = "+")

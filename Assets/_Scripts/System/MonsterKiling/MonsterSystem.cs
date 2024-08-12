@@ -103,6 +103,16 @@ public class MonsterSystem : MonoBehaviour
         StartCoroutine(SpawnMonsterCoroutine(index));
     }
 
+    public void ReloadMonster()
+    {
+        if (currentMonster != null)
+        {
+            Destroy(currentMonster);
+            currentMonster = null;
+            SpawnMonster();
+        }
+    }
+
     private void Update()
     {
         if(currentMonster != null)
