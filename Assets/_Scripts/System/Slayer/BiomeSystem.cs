@@ -103,7 +103,7 @@ public class BiomeSystem : MonoBehaviour
         imageBackground.sprite = Bioms[index].background;
     }
 
-    private void UpdateBiome()
+    public void UpdateBiome()
     {
         // Get level and set current biome, but next biome every 10 levels
         // So 0-9 levels is Forest, 10-19 is Desert, etc. 

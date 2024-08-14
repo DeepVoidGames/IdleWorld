@@ -20106,7 +20106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a27cdeb83f4aa4b88f977a82585fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnbaled: 0
+  isEnbaled: 1
 --- !u!114 &1017573992
 MonoBehaviour:
   m_ObjectHideFlags: 0

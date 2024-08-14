@@ -119,6 +119,7 @@ public class SaveSystem : MonoBehaviour
             {
                 LevelSystem.Instance.SetLevel(gameData.levelData);
                 ContentLocker.Instance.CheckContent(gameData.levelData);
+                BiomeSystem.Instance.UpdateBiome();
             }
 
             // Load stage
