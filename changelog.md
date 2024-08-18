@@ -1,3 +1,14 @@
+# 0.5.4.7
+
+- Fix
+  - Biome loading
+  - Tools mining efficiency
+
+# 0.5.4.6
+
+- Fix
+  - Fix biome loading
+
 # 0.5.4.5
 
 - Add

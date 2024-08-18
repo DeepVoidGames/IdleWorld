@@ -111,12 +111,7 @@ public class BiomeSystem : MonoBehaviour
 
         if (level > 0)
         {
-            int biomeIndex;
-            if (level < 100)
-                biomeIndex = level / 10;
-            else
-                biomeIndex = level / 100;
-            
+            int biomeIndex = level / 10;
             if (biomeIndex >= Bioms.Count)
             {
                 biomeIndex = Bioms.Count - 1; // Clamp the biome index to the last available biome
