@@ -68,6 +68,14 @@ public class BonusSystem : MonoBehaviour
         SetCard(firstCard, firstBonus.name, firstBonus.value.ToString());
         SetCard(secondCard, secondBonus.name, secondBonus.value.ToString());
         
+        if (SettingsSystem.Instance.AutomaticCardSelection)
+        {
+            //TODO If rarity was implemented, choose the card with the highest rarity
+            if (firstBonus.isBonusDamage)
+                ChooseBonus(firstBonus.name);
+            else
+                ChooseBonus(secondBonus.name);
+        }
     }
 
     private void SetCard(GameObject card, string title, string description)

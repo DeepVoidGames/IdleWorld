@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI; // Include the UI namespace for Toggle
 
 public class FullscreenToggle : MonoBehaviour
 {
-    [SerializeField] private Toggle fullscreenToggle;
+    [SerializeField] private UnityEngine.UI.Toggle fullscreenToggle;
 
     void Start()
     {

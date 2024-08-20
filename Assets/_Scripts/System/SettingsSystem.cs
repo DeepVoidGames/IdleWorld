@@ -26,6 +26,9 @@ public class SettingsSystem : MonoBehaviour
 
     [SerializeField] private float _playTime;
     [SerializeField] private float startTime;
+
+    public bool AutomaticCardSelection { get => PlayerPrefs.GetInt("AutomaticCardSelection") != 0; }
+
     [Header("UI")]
     [SerializeField] private Text playTimeText;
 
