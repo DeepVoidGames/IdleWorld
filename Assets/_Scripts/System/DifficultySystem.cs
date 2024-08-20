@@ -44,7 +44,13 @@ public class DifficultySystem : MonoBehaviour
     // Difficulty for Cave Upgrades
     public void AddDamagePercentage(double value)
     {
-        DamagePercentage = value;
+        DamagePercentage += value;
+        UISystem.Instance.UpdateLevelText();
+    }
+
+    public void RemoveDamagePercentage(double value)
+    {
+        DamagePercentage -= value;
         UISystem.Instance.UpdateLevelText();
     }
 

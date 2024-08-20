@@ -42,11 +42,22 @@ public class MonsterSystem : MonoBehaviour
     [Header("Monster Spawning")]
     [SerializeField] private GameObject monsterSpawnParent;
     private bool isSpawning = false;
+    private bool pauseSpawning = false;
     private GameObject currentMonster;
 
     public GameObject CurrentMonster { get => currentMonster; }
+    public bool PauseSpawning { get => pauseSpawning; set => pauseSpawning = value; }
 
     private ParticleSystem killEffect;
+
+    public void DestroyMonster()
+    {
+        if (currentMonster != null)
+        {
+            Destroy(currentMonster);
+            currentMonster = null;
+        }
+    }
 
     public void MonsterDied()
     {
@@ -105,6 +116,9 @@ public class MonsterSystem : MonoBehaviour
 
     public void ReloadMonster()
     {
+        if (isSpawning)
+            return;
+
         if (currentMonster != null)
         {
             Destroy(currentMonster);
@@ -115,6 +129,10 @@ public class MonsterSystem : MonoBehaviour
 
     private void Update()
     {
+        if (isSpawning)
+            return;        
+        if (pauseSpawning)
+            return;
         if(currentMonster != null)
         {
             MonsterObject monsterObject = currentMonster.GetComponent<MonsterObject>();

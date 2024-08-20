@@ -84,6 +84,7 @@ public class BossSystem : MonoBehaviour
         isSpawning = false;
         if (killEffect != null && SwitchMode.Instance.CurrentMode == 0)
             killEffect.Play();
+        BonusSystem.Instance.ShowBonus();
     }
 
     public void FailedToKill()

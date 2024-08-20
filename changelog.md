@@ -1,3 +1,8 @@
+# 0.5.4.8
+
+- Add
+  - Slayer Bonus system
+
 # 0.5.4.7
 
 - Fix

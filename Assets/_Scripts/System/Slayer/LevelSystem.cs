@@ -103,9 +103,15 @@ public class LevelSystem : MonoBehaviour
             }
             stage = 1;
             BiomeSystem.Instance.SetCurrentBiome(BiomeSystem.Instance.Bioms[0].Name);
+            BonusSystem.Instance.RestartBonus();
+            return;
+        }
+        else 
+        {
             return;
         }
 
+        BonusSystem.Instance.RestartBonus();
         levelToPrestige = baseLevelToPrestige + baseLevelToPrestige * prestigeLevel;
         UISystem.Instance.UpdateLevelText();
     }
