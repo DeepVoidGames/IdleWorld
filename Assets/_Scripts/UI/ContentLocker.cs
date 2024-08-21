@@ -44,6 +44,9 @@ public class ContentLocker : MonoBehaviour
             {
                 contents[i].button.interactable = false;
                 contents[i].button.GetComponentInChildren<Text>().text = "Level " + contents[i].levelNeeded + " Needed";
+                // Find game object in children of button and set it to false
+                if (contents[i].button.transform.childCount > 1)
+                    contents[i].button.transform.GetChild(1).gameObject.SetActive(false);
             }
         }
     }
@@ -57,6 +60,8 @@ public class ContentLocker : MonoBehaviour
                 contents[i].button.interactable = true;
                 contents[i].button.GetComponentInChildren<Text>().text = contents[i].textBefore;
                 contents[i].isLocked = false;
+                if (contents[i].button.transform.childCount > 1)
+                    contents[i].button.transform.GetChild(1).gameObject.SetActive(true);
             }
         }
     }
