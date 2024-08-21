@@ -8,6 +8,7 @@
       - 2 new ores
   - Crafting recipes
     - 2 new pickaxes
+    - 2 new weapons
 - Fix
   - Ore spawning
 

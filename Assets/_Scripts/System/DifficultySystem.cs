@@ -30,6 +30,10 @@ public class DifficultySystem : MonoBehaviour
     private double miningEfficiencyPercentage;
     private double miningDropRateMultiplier;
     private double miningBonusMiningEfficiency;
+    // Gold
+    private double goldBonus;
+    
+    public double GoldBonus { get => goldBonus; set => goldBonus = value; }
 
     public double MiningBonusMiningEfficiency
     {
@@ -120,7 +124,7 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetMonsterDrop(double maxHealth)
     {
-        return maxHealth + (maxHealth * _difficultyMultiplier);
+        return maxHealth + (maxHealth * _difficultyMultiplier) + (maxHealth + (maxHealth * _difficultyMultiplier)) * goldBonus;
     }
 
     //  Mining

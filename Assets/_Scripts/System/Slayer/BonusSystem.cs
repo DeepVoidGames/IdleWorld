@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,8 +8,10 @@ public class Bonus
 {
     public string name;
     public double value;
+    public string description;
 
     public bool isBonusDamage;
+    public bool isBonusGold;
 
     public double amount;
 }
@@ -34,15 +37,23 @@ public class BonusSystem : MonoBehaviour
     }
     
     [SerializeField] private GameObject bonusPanel;
+    [SerializeField] private GameObject bonusTextPanel;
     [SerializeField] private Text bonusText;
 
     private double _bonusDamage;
+    private double _bonusGold;
 
     [SerializeField] private GameObject firstCard;
     [SerializeField] private GameObject secondCard;
     
     public List<Bonus> bonuses = new List<Bonus>();
 
+
+    private int RandomValue(int min, int max)
+    {
+        int value = UnityEngine.Random.Range(min, max);
+        return value;
+    }
 
     public void ShowBonus()
     {
@@ -62,20 +73,91 @@ public class BonusSystem : MonoBehaviour
             return;
         }
 
-        Bonus firstBonus = bonuses[UnityEngine.Random.Range(0, bonuses.Count)];
-        Bonus secondBonus = bonuses[UnityEngine.Random.Range(0, bonuses.Count)];
+        Bonus firstBonus = bonuses[RandomValue(0, bonuses.Count)];
+        Bonus secondBonus = bonuses[RandomValue(0, bonuses.Count)];
 
-        SetCard(firstCard, firstBonus.name, firstBonus.value.ToString());
-        SetCard(secondCard, secondBonus.name, secondBonus.value.ToString());
+        SetCard(firstCard, firstBonus.name, String.Format(firstBonus.description, firstBonus.value * 100));
+        SetCard(secondCard, secondBonus.name, String.Format(secondBonus.description, secondBonus.value * 100));
         
         if (SettingsSystem.Instance.AutomaticCardSelection)
         {
             //TODO If rarity was implemented, choose the card with the highest rarity
-            if (firstBonus.isBonusDamage)
+            if (firstBonus.value > secondBonus.value)
                 ChooseBonus(firstBonus.name);
             else
                 ChooseBonus(secondBonus.name);
         }
+    }
+
+    private void ChooseBonus(string name)
+    {
+        Bonus bonus = bonuses.Find(x => x.name == name);
+        if(bonus == null)
+        {
+            Debug.LogError("Bonus is null");
+            return;
+        }
+        bonuses.Find(x => x.name == name).amount++;
+
+        if(PlayerPrefs.HasKey(name))
+            PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name) + 1);
+        else
+            PlayerPrefs.SetInt(name, 1);
+
+        if(bonus.isBonusDamage)
+        {
+            DifficultySystem.Instance.AddDamagePercentage(bonus.value);
+            _bonusDamage += bonus.value;
+        }
+
+        if(bonus.isBonusGold)
+        {
+            DifficultySystem.Instance.GoldBonus += bonus.value;
+            _bonusGold += bonus.value;
+        }
+
+        UpdateBonusText();
+        CloseCard();
+    }
+
+    public void RestartBonus()
+    {
+        _bonusDamage = 0;
+
+        foreach(Bonus bonus in bonuses)
+        {
+            PlayerPrefs.DeleteKey(bonus.name);
+            if(bonus.isBonusDamage)
+                DifficultySystem.Instance.RemoveDamagePercentage(bonus.amount * bonus.value);
+            bonus.amount = 0;
+        }
+
+        UpdateBonusText();
+    }
+
+    private void LoadBonus()
+    {
+        foreach(Bonus bonus in bonuses)
+        {
+            if(PlayerPrefs.HasKey(bonus.name))
+            {
+                bonus.amount = PlayerPrefs.GetInt(bonus.name);
+
+                if (bonus.isBonusDamage)
+                {
+                    DifficultySystem.Instance.AddDamagePercentage(bonus.amount * bonus.value);
+                    _bonusDamage += bonus.amount * bonus.value;
+                }
+
+                if (bonus.isBonusGold)
+                {
+                    DifficultySystem.Instance.GoldBonus += bonus.amount * bonus.value;
+                    _bonusGold += bonus.amount * bonus.value;
+
+                }
+            }
+        }
+        UpdateBonusText();
     }
 
     private void SetCard(GameObject card, string title, string description)
@@ -110,67 +192,22 @@ public class BonusSystem : MonoBehaviour
         MonsterSystem.Instance.PauseSpawning = false;
     }
 
-    private void ChooseBonus(string name)
-    {
-        Bonus bonus = bonuses.Find(x => x.name == name);
-        if(bonus == null)
-        {
-            Debug.LogError("Bonus is null");
-            return;
-        }
-        bonuses.Find(x => x.name == name).amount++;
-
-        if(PlayerPrefs.HasKey(name))
-            PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name) + 1);
-        else
-            PlayerPrefs.SetInt(name, 1);
-
-        if(bonus.isBonusDamage)
-        {
-            DifficultySystem.Instance.AddDamagePercentage(bonus.value);
-            _bonusDamage += bonus.value;
-        }
-
-        UpdateBonusText();
-        CloseCard();
-    }
-
-    public void RestartBonus()
-    {
-        _bonusDamage = 0;
-
-        foreach(Bonus bonus in bonuses)
-        {
-            PlayerPrefs.DeleteKey(bonus.name);
-            if(bonus.isBonusDamage)
-                DifficultySystem.Instance.RemoveDamagePercentage(bonus.amount * bonus.value);
-            bonus.amount = 0;
-        }
-
-        UpdateBonusText();
-    }
-
     private void UpdateBonusText()
     {
-        bonusText.text = $"Bonus Damage: {_bonusDamage * 100}%";
-    }
-
-    private void LoadBonus()
-    {
-        foreach(Bonus bonus in bonuses)
+        if (_bonusDamage == 0 && _bonusGold == 0)
         {
-            if(PlayerPrefs.HasKey(bonus.name))
-            {
-                bonus.amount = PlayerPrefs.GetInt(bonus.name);
-
-                if (bonus.isBonusDamage)
-                {
-                    DifficultySystem.Instance.AddDamagePercentage(bonus.amount * bonus.value);
-                    _bonusDamage += bonus.amount * bonus.value;
-                }
-            }
+            bonusTextPanel.SetActive(false);
+            return;
         }
-        UpdateBonusText();
+        string _bonusText = "";
+    
+        if (_bonusDamage != 0)
+            _bonusText += $"Bonus Gold: {_bonusGold * 100}%\n";
+        if (_bonusGold != 0)
+            _bonusText += $"Bonus Damage: {_bonusDamage * 100}%\n";
+    
+        bonusText.text = _bonusText;
+        bonusTextPanel.SetActive(true);
     }
 
     private void Start()

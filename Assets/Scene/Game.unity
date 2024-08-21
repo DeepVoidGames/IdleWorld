@@ -4000,25 +4000,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contents:
   - button: {fileID: 363055197}
-    text: {fileID: 443054578}
     textBefore: Mining
     isLocked: 1
     levelNeeded: 2
   - button: {fileID: 1057777694}
-    text: {fileID: 1841982494}
     textBefore: Inventory
     isLocked: 1
     levelNeeded: 2
   - button: {fileID: 1258552679}
-    text: {fileID: 212393042}
     textBefore: Tavern
     isLocked: 1
     levelNeeded: 5
   - button: {fileID: 1696599131}
-    text: {fileID: 87269896}
     textBefore: Crafting
     isLocked: 1
     levelNeeded: 3
+  - button: {fileID: 1084803930}
+    textBefore: Prestige
+    isLocked: 1
+    levelNeeded: 100
 --- !u!1 &272562086
 GameObject:
   m_ObjectHideFlags: 0
@@ -16426,7 +16426,7 @@ GameObject:
   - component: {fileID: 675168045}
   - component: {fileID: 675168044}
   m_Layer: 5
-  m_Name: BonusPanel
+  m_Name: BonusTextPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20469,17 +20469,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusPanel: {fileID: 2062982366}
+  bonusTextPanel: {fileID: 675168042}
   bonusText: {fileID: 382444192}
   firstCard: {fileID: 839212600}
   secondCard: {fileID: 20191011}
   bonuses:
-  - name: Percentage Damage Boost II
-    value: 0.1
-    isBonusDamage: 1
-    amount: 0
-  - name: Percentage Damage Boost I
+  - name: Damage Percentage Boost I
     value: 0.05
+    description: '{0}% Damage Boost'
     isBonusDamage: 1
+    isBonusGold: 0
+    amount: 0
+  - name: Damage Percentage Boost II
+    value: 0.1
+    description: '{0}% Damage Boost'
+    isBonusDamage: 1
+    isBonusGold: 0
+    amount: 0
+  - name: Gold Percentage Boost I
+    value: 0.01
+    description: '{0}% Gold Boost'
+    isBonusDamage: 0
+    isBonusGold: 1
+    amount: 0
+  - name: Gold Percentage Boost II
+    value: 0.05
+    description: '{0}% Gold Boost'
+    isBonusDamage: 0
+    isBonusGold: 1
     amount: 0
 --- !u!1 &895447968
 GameObject:
