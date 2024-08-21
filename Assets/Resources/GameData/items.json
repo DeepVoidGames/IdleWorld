@@ -272,6 +272,22 @@
       "rarity": 4,
       "icon": {},
       "baseMiningEfficiency": 5000.0
+    },
+    {
+      "Name": "Eudialit Sword",
+      "id": 34,
+      "category": 2,
+      "rarity": 3,
+      "icon": {},
+      "baseDamage": 5000.0
+    },
+    {
+      "Name": "Hematyt Blade",
+      "id": 35,
+      "category": 2,
+      "rarity": 4,
+      "icon": {},
+      "baseDamage": 7500.0
     }
   ]
 }
