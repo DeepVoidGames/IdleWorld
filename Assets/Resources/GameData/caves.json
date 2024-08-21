@@ -125,6 +125,27 @@
       ],
       "miningLevelRequired": 500,
       "isUnlocked": false
+    },
+    {
+      "name": "Dark Mine",
+      "rocks": [
+        {
+          "name": "EudialitOre",
+          "baseHealth": 10000.0,
+          "chance": 70,
+          "prefab": {},
+          "drops": [{ "resourceName": "Eudialit", "chance": 1.0 }]
+        },
+        {
+          "name": "HematytOre",
+          "baseHealth": 15000.0,
+          "chance": 30,
+          "prefab": {},
+          "drops": [{ "resourceName": "Hematyt", "chance": 1.0 }]
+        }
+      ],
+      "miningLevelRequired": 1000,
+      "isUnlocked": false
     }
   ]
 }

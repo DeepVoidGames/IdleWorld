@@ -242,6 +242,36 @@
       "icon": {},
       "baseDamage": 700.0,
       "damageBoostPercentage": 0.0
+    },
+    {
+      "Name": "Eudialit",
+      "id": 30,
+      "category": 1,
+      "rarity": 3,
+      "icon": {}
+    },
+    {
+      "Name": "Hematyt",
+      "id": 31,
+      "category": 1,
+      "rarity": 4,
+      "icon": {}
+    },
+    {
+      "Name": "Eudialit Pickaxe",
+      "id": 32,
+      "category": 3,
+      "rarity": 3,
+      "icon": {},
+      "baseMiningEfficiency": 3000.0
+    },
+    {
+      "Name": "Hematyt Pickaxe",
+      "id": 33,
+      "category": 3,
+      "rarity": 4,
+      "icon": {},
+      "baseMiningEfficiency": 5000.0
     }
   ]
 }

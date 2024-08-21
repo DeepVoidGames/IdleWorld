@@ -41,7 +41,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Sword",
-          "chance": 0.9
+          "chance": 0.99
         },
         {
           "itemName": "Stone Machete",
@@ -67,7 +67,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Pickaxe",
-          "chance": 0.8
+          "chance": 0.99
         },
         {
           "itemName": "Amethyst Pickaxe",
@@ -82,7 +82,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Pickaxe",
-          "chance": 0.8
+          "chance": 0.99
         },
         {
           "itemName": "Aquamarine Pickaxe",
@@ -97,7 +97,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Pickaxe",
-          "chance": 0.8
+          "chance": 0.99
         },
         {
           "itemName": "Calcite Pickaxe",
@@ -112,7 +112,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Pickaxe",
-          "chance": 0.8
+          "chance": 0.95
         },
         {
           "itemName": "Opal Pickaxe",
@@ -127,7 +127,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Pickaxe",
-          "chance": 0.8
+          "chance": 0.99
         },
         {
           "itemName": "Red Diamond Pickaxe",
@@ -142,7 +142,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Pickaxe",
-          "chance": 0.8
+          "chance": 0.95
         },
         {
           "itemName": "Sapphire Pickaxe",
@@ -157,7 +157,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Sword",
-          "chance": 0.8
+          "chance": 0.94
         },
         {
           "itemName": "Aquamarine Sword",
@@ -176,7 +176,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Sword",
-          "chance": 0.8
+          "chance": 0.94
         },
         {
           "itemName": "Calcite Sword",
@@ -195,7 +195,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Sword",
-          "chance": 0.8
+          "chance": 0.94
         },
         {
           "itemName": "Opal Sword",
@@ -214,7 +214,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Sword",
-          "chance": 0.8
+          "chance": 0.94
         },
         {
           "itemName": "Red Diamond Sword",
@@ -233,7 +233,7 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Sword",
-          "chance": 0.8
+          "chance": 0.94
         },
         {
           "itemName": "Sapphire Sword",
@@ -252,11 +252,41 @@
       "itemsToCraft": [
         {
           "itemName": "Stone Sword",
-          "chance": 0.8
+          "chance": 0.95
         },
         {
           "itemName": "Amethyst Sword",
           "chance": 0.05
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "materialName": "Eudialit",
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Pickaxe",
+          "chance": 0.95
+        },
+        {
+          "itemName": "Eudialit Pickaxe",
+          "chance": 0.05
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "materialName": "Hematyt",
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Pickaxe",
+          "chance": 0.99
+        },
+        {
+          "itemName": "Hematyt Pickaxe",
+          "chance": 0.01
         }
       ]
     }

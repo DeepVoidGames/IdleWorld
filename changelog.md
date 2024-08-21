@@ -1,7 +1,15 @@
-# 0.5.4.8
+# 0.5.5.0
 
 - Add
   - Slayer Bonus system
+  - Automatic card selection option in the settings
+  - Add new cave
+    - Dark Cave
+      - 2 new ores
+  - Crafting recipes
+    - 2 new pickaxes
+- Fix
+  - Ore spawning
 
 # 0.5.4.7
 

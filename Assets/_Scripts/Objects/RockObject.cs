@@ -9,7 +9,7 @@ public class RockObject : MonoBehaviour
     private double health;
     private double maxHealth;
 
-    [SerializeField] private Text healthText;
+    private Text healthText;
     private MessageSpawner _messageSpawner;
 
     public double Health { get => health; set => health = value; }
@@ -58,6 +58,7 @@ public class RockObject : MonoBehaviour
     void Start()
     {
         _messageSpawner = GetComponent<MessageSpawner>();
+        healthText = transform.Find("Canvas").Find("HealthText").GetComponent<Text>();
         UpdateUI();
     }
 }

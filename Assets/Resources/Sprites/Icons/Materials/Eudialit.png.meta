@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a032eca74bf4c5a43aa3111493bb48f0
+guid: 83c8878fb08d4ff489b8c1e7fd462d75
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,24 +119,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: resources_basic_0
+      name: Eudialit_0
       rect:
         serializedVersion: 2
         x: 1
@@ -150,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5efb71236dbea0e4f8ea785d9917b685
-      internalID: 31406893
+      spriteID: 42c49970b7cf86e45a7a5094d2dc4183
+      internalID: 1519388963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_1
+      name: Eudialit_1
       rect:
         serializedVersion: 2
         x: 24
@@ -171,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f88258909e2a2e34db28a7f589cae118
-      internalID: -1311993845
+      spriteID: b6b34a1c4afe2ad44916a42d811e23cf
+      internalID: 1835789447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_2
+      name: Eudialit_2
       rect:
         serializedVersion: 2
         x: 49
@@ -192,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f52aa1ef467804baec6f7151eaf9dd
-      internalID: -1421093541
+      spriteID: adbfaee3194c69848a71186e5968be27
+      internalID: -307434922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_3
+      name: Eudialit_3
       rect:
         serializedVersion: 2
         x: 72
@@ -213,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fefd0b648f05654595f2a54fa5cbfbc
-      internalID: 1757842591
+      spriteID: c084557b88f4754469645f835f54fe4b
+      internalID: 1457456543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_4
+      name: Eudialit_4
       rect:
         serializedVersion: 2
         x: 98
@@ -234,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da33388b64f06ce41af97016fb8b1b9c
-      internalID: -1342569787
+      spriteID: b87960ed6b4ad0040acffaeff40d5b09
+      internalID: 1919480782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_5
+      name: Eudialit_5
       rect:
         serializedVersion: 2
         x: 121
@@ -255,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce2fbbc698b10a243a66f7505f3ed730
-      internalID: 727978847
+      spriteID: e758e66bbcca5b24daa6209aaaf1919c
+      internalID: 1135564862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_6
+      name: Eudialit_6
       rect:
         serializedVersion: 2
         x: 145
@@ -276,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bafd728a55304145a968a2a0dcc99cc
-      internalID: -800979701
+      spriteID: 87a66a9d16dabdb4d8744eb1b77ff34a
+      internalID: -425212301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_7
+      name: Eudialit_7
       rect:
         serializedVersion: 2
         x: 168
@@ -297,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e565e2a75e74ca944bf429ed8b9d9aa6
-      internalID: 1406790767
+      spriteID: d7692d864d7cb7048aafe36485f459b6
+      internalID: -110573227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_8
+      name: Eudialit_8
       rect:
         serializedVersion: 2
         x: 193
@@ -318,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2381b27a5c061fa408a79b436b1a73d7
-      internalID: -50180079
+      spriteID: 239bc0e781c4cf442aa67381517ffe5d
+      internalID: -1357772995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_9
+      name: Eudialit_9
       rect:
         serializedVersion: 2
         x: 216
@@ -339,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e56629b85098415409adbc47fc50ac28
-      internalID: -1448199996
+      spriteID: ea53fab6c150704448203770a28392c8
+      internalID: -1544905436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_10
+      name: Eudialit_10
       rect:
         serializedVersion: 2
         x: 1
@@ -360,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99a8c5a4b1f0ae742872c556c9e3ed30
-      internalID: 1851881960
+      spriteID: 1af8822e0c532fa44a9a59c559e1eecf
+      internalID: 1528220124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_11
+      name: Eudialit_11
       rect:
         serializedVersion: 2
         x: 24
@@ -381,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f8efa7106f18f548a708b2c9af06188
-      internalID: -2038920277
+      spriteID: 7ebd7455ab1494440a2be94cb1e43f4b
+      internalID: -1836512174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_12
+      name: Eudialit_12
       rect:
         serializedVersion: 2
         x: 48
@@ -402,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdc367b0b7c7ca14d94b80b729e290a9
-      internalID: 1246189415
+      spriteID: 11eb177b490cc6040b83a8ca1be122b1
+      internalID: 716133488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_13
+      name: Eudialit_13
       rect:
         serializedVersion: 2
         x: 72
@@ -423,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40b6810ab8ef7434daee5dfc411cb7c2
-      internalID: 137739026
+      spriteID: 8fde0d9b94311824297f13d0dd70c1f1
+      internalID: 1532185886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_14
+      name: Eudialit_14
       rect:
         serializedVersion: 2
         x: 96
@@ -444,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1019a44508ca7d41b3289ec0b267a47
-      internalID: 221560354
+      spriteID: 1299e7b6341e6fe42b96dd2f83175575
+      internalID: 437417196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_15
+      name: Eudialit_15
       rect:
         serializedVersion: 2
         x: 121
@@ -465,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cd183c254a03d44e8b8663aa5bc59f2
-      internalID: -1512486121
+      spriteID: a5ec135a2a15a744ea5699d5a437ea82
+      internalID: -1749583860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_16
+      name: Eudialit_16
       rect:
         serializedVersion: 2
         x: 144
@@ -486,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc962bb3ddf0c4643bf574ca4a4d4da3
-      internalID: 585455362
+      spriteID: 8f30a05a359ae8641a6f90e5fd782fb1
+      internalID: 1215889225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_17
+      name: Eudialit_17
       rect:
         serializedVersion: 2
         x: 168
@@ -507,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1ded6880f61e6e4b892fd0dcf232324
-      internalID: -2135793484
+      spriteID: 7c00e2070e2007644952594e08816465
+      internalID: -1822793937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_18
+      name: Eudialit_18
       rect:
         serializedVersion: 2
         x: 192
@@ -528,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a13a4f5d7b651554b8d4777c83efbad0
-      internalID: 1757492890
+      spriteID: 492adee4e3e688049b09ebc2dff7011c
+      internalID: 938105906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_19
+      name: Eudialit_19
       rect:
         serializedVersion: 2
         x: 5
@@ -549,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b94880ce594ee75489b8e7b355f80858
-      internalID: -1411312825
+      spriteID: e2651b52aa9e2a34581e2cf51ae9aca9
+      internalID: 1784022676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_20
+      name: Eudialit_20
       rect:
         serializedVersion: 2
         x: 27
@@ -570,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6c7bcb55ebf56149b02d3feeea25e2e
-      internalID: 1451613474
+      spriteID: d4b1bbc42efd2594492784472d36f335
+      internalID: 1756572685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_21
+      name: Eudialit_21
       rect:
         serializedVersion: 2
         x: 52
@@ -591,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32c8f2be5b7830d41bf53575e06835b7
-      internalID: -723044815
+      spriteID: d9f2a7789dbbc3c4ea0e30536d3d48f0
+      internalID: -2131813664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_22
+      name: Eudialit_22
       rect:
         serializedVersion: 2
         x: 74
@@ -612,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75e6db44c4d53e64aae9b06d719157a4
-      internalID: -1147665526
+      spriteID: 8eb6a8bdc40fa024cb5bf0e90592ccd7
+      internalID: 1814554168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_23
+      name: Eudialit_23
       rect:
         serializedVersion: 2
         x: 98
@@ -633,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3623cab3ba5da8145bad3472fb7092a8
-      internalID: 702876618
+      spriteID: c01230f58cd690f419a34a2d23840ce5
+      internalID: 991141987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_24
+      name: Eudialit_24
       rect:
         serializedVersion: 2
         x: 120
@@ -654,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edfd5c74ee23fe64d806955efda9868f
-      internalID: 1739163166
+      spriteID: 24a94bc3f9b894a4f9a44e01052c3106
+      internalID: 1622543062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_25
+      name: Eudialit_25
       rect:
         serializedVersion: 2
         x: 149
@@ -675,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39d569f1a8fe88f4e80191628d8385f3
-      internalID: -41658829
+      spriteID: 79cbba6f17a6419419ae0bb496d98c57
+      internalID: -664641330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_26
+      name: Eudialit_26
       rect:
         serializedVersion: 2
         x: 172
@@ -696,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83c469bac3950434a99a33f28ab5de42
-      internalID: -1567137506
+      spriteID: 56b2263cb9e28e44591422373f691c68
+      internalID: -1293678520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_27
+      name: Eudialit_27
       rect:
         serializedVersion: 2
         x: 192
@@ -717,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42ec11de9e8711947812e2bbd3a3d2e3
-      internalID: 347627195
+      spriteID: a877d4733f1a8c04398f63ecc2732a56
+      internalID: -266401926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_28
+      name: Eudialit_28
       rect:
         serializedVersion: 2
         x: 2
@@ -738,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25c052de4c63c4149bca8b12c5397da7
-      internalID: 741555775
+      spriteID: 5327a8e660769894d8ff67038843861f
+      internalID: 878745222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_29
+      name: Eudialit_29
       rect:
         serializedVersion: 2
         x: 27
@@ -759,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5022551163ec0144c8b3bb5ff0ae2adf
-      internalID: 2093882452
+      spriteID: 07a75efb41af02a4991dacca65f3e466
+      internalID: -604943169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_30
+      name: Eudialit_30
       rect:
         serializedVersion: 2
         x: 49
@@ -780,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4475f0c97893952458fdb6ca7bbd9019
-      internalID: -1545757027
+      spriteID: aec6bc83f3e73da498725f1eba747d45
+      internalID: 1823774939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_31
+      name: Eudialit_31
       rect:
         serializedVersion: 2
         x: 74
@@ -801,14 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9a65dd61eacb1a41aa185148ba8a4d7
-      internalID: 1675224426
+      spriteID: 4b51896c48da93a43b5894f3f68d1529
+      internalID: -1898236008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_32
+      name: Eudialit_32
       rect:
         serializedVersion: 2
         x: 98
@@ -822,14 +809,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15ae100785c0be94aaa108ed8f64a74a
-      internalID: -235550121
+      spriteID: 252c1c381b277b14292db547019b2bb3
+      internalID: 1588666361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_33
+      name: Eudialit_33
       rect:
         serializedVersion: 2
         x: 121
@@ -843,14 +830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd3384b07b473b84a8a66cc9854ff159
-      internalID: 2042083668
+      spriteID: e8e034dedfe6a534797499fa19e86511
+      internalID: -572400663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_34
+      name: Eudialit_34
       rect:
         serializedVersion: 2
         x: 146
@@ -864,14 +851,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 813da95694bdfec428024953e97f8218
-      internalID: -887177811
+      spriteID: 1e05f6b5aebc2ff47bcea6336998d910
+      internalID: 1259959786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_35
+      name: Eudialit_35
       rect:
         serializedVersion: 2
         x: 170
@@ -885,14 +872,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 600bb0a8bda45b244bbf58220ff30ad1
-      internalID: -825721071
+      spriteID: 12ea9abea35343142b88adc55248aea9
+      internalID: -951605792
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_36
+      name: Eudialit_36
       rect:
         serializedVersion: 2
         x: 194
@@ -906,14 +893,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c24b6b33a81e06347b5a48af6831081e
-      internalID: -899947021
+      spriteID: 7f812b2b98ca85048b41eaa7c2f6eb67
+      internalID: 972140438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_37
+      name: Eudialit_37
       rect:
         serializedVersion: 2
         x: 220
@@ -927,14 +914,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fa51db81293783488e583bc9978c54d
-      internalID: -1507520250
+      spriteID: 1a36afbac2842224ab5ad6e6c9c8b7d8
+      internalID: -984981417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_38
+      name: Eudialit_38
       rect:
         serializedVersion: 2
         x: 3
@@ -948,14 +935,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fe78bd8010910f4eb9c07428acfb49b
-      internalID: -1792928349
+      spriteID: 0e5f04c807d514645a9ffe7d2cc8be87
+      internalID: -1926931021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_39
+      name: Eudialit_39
       rect:
         serializedVersion: 2
         x: 27
@@ -969,14 +956,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ed5e1048361a7840a7b991f8be2cd82
-      internalID: 1033255631
+      spriteID: eb8e6817db5066e45bedb61ff02c1c06
+      internalID: 1624895597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_40
+      name: Eudialit_40
       rect:
         serializedVersion: 2
         x: 50
@@ -990,14 +977,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9c12a501211ed14bb6fedab4903cabb
-      internalID: -864283970
+      spriteID: 2135ab5ce501e694ea157d354a1b9e40
+      internalID: 210192294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_41
+      name: Eudialit_41
       rect:
         serializedVersion: 2
         x: 73
@@ -1011,14 +998,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4347b6cbfb2ea6040904359453d57bb0
-      internalID: 1244645558
+      spriteID: 632257999ff83274ea168b5a630264c1
+      internalID: 1669123463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_42
+      name: Eudialit_42
       rect:
         serializedVersion: 2
         x: 99
@@ -1032,14 +1019,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69e75b1c9195eeb4f93c5d2f4d1c71be
-      internalID: 1049666336
+      spriteID: a8ce16026bb1ba445bb06085744cfa5b
+      internalID: 518307738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_43
+      name: Eudialit_43
       rect:
         serializedVersion: 2
         x: 123
@@ -1053,14 +1040,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2fc164a66fb0524c99442a7bda73ad5
-      internalID: 543321954
+      spriteID: 7cd1e23de7b7c114f9b12a2274ad8e60
+      internalID: 181920481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_44
+      name: Eudialit_44
       rect:
         serializedVersion: 2
         x: 145
@@ -1074,14 +1061,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42dc424dc523e654393143ea87f4ef19
-      internalID: 1547857607
+      spriteID: c96eb231c0b6b2a4e8458b2170b34142
+      internalID: 1344264977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_45
+      name: Eudialit_45
       rect:
         serializedVersion: 2
         x: 171
@@ -1095,14 +1082,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cb62541a50c76a41966dc717830f12c
-      internalID: -60893171
+      spriteID: 6fad58116013a82449db84fec526f2d3
+      internalID: -1151864768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_46
+      name: Eudialit_46
       rect:
         serializedVersion: 2
         x: 195
@@ -1116,14 +1103,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0837829c561e13c48949939889e4cbeb
-      internalID: -2096737411
+      spriteID: d6617177f2dac6e418a36882a9c95022
+      internalID: 979928761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_47
+      name: Eudialit_47
       rect:
         serializedVersion: 2
         x: 220
@@ -1137,14 +1124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fe14007b777dca4faf6e9e5ab37b425
-      internalID: -867462090
+      spriteID: 1183a2a52c2590d48b0820f80bb2e06a
+      internalID: 277007135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_48
+      name: Eudialit_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1158,14 +1145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 636bc1d68763c564787d8086f6ecb28c
-      internalID: -1037879526
+      spriteID: c411260c6978f424684264b6916d361e
+      internalID: 1721954925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_49
+      name: Eudialit_49
       rect:
         serializedVersion: 2
         x: 24
@@ -1179,14 +1166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b1b919984463d44d9a8e107cd1fa3da
-      internalID: -1375324067
+      spriteID: d3d3f9833c78c2944af29a734f259b44
+      internalID: -1003748022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_50
+      name: Eudialit_50
       rect:
         serializedVersion: 2
         x: 48
@@ -1200,14 +1187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f554a8e36f384a54dbfcbf8e922f1ed5
-      internalID: -994648699
+      spriteID: 8ba5351e3ba68424b87f7ea79c837ec5
+      internalID: -110064803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_51
+      name: Eudialit_51
       rect:
         serializedVersion: 2
         x: 72
@@ -1221,14 +1208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b06809585be7eb6479debc8d143f90cb
-      internalID: 212267104
+      spriteID: 7ef2df9f414a9614d8011b7487f06940
+      internalID: 985528558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_52
+      name: Eudialit_52
       rect:
         serializedVersion: 2
         x: 96
@@ -1242,14 +1229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28165a06b1ceb7048bbcb5219e8b7840
-      internalID: 1121111384
+      spriteID: f8c70389e0fa706479b85bda3e824220
+      internalID: -258118779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_53
+      name: Eudialit_53
       rect:
         serializedVersion: 2
         x: 121
@@ -1263,14 +1250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1f19ccf63f12ee409566153c78ff90c
-      internalID: 350255869
+      spriteID: fb4ce59fa1b06814ea96f0a6c9a6394d
+      internalID: 327018723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_54
+      name: Eudialit_54
       rect:
         serializedVersion: 2
         x: 168
@@ -1284,14 +1271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33ad0accbd9f1414c89e14e561b5dfba
-      internalID: 1131765894
+      spriteID: ee3ed8966722c194abdda285f564f720
+      internalID: 1081773261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_55
+      name: Eudialit_55
       rect:
         serializedVersion: 2
         x: 193
@@ -1305,14 +1292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af2c4ef59d0e01145b83bb1a6be27ee4
-      internalID: -1923909852
+      spriteID: 613e7c43c9a8ba64fb8c8969f839b8fe
+      internalID: 1511138030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_56
+      name: Eudialit_56
       rect:
         serializedVersion: 2
         x: 220
@@ -1326,14 +1313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 525153c128edd544da8c14795f2c008f
-      internalID: -1201405609
+      spriteID: 322cd150abb54db4ba880fc52a5fc8ff
+      internalID: 1503346664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_57
+      name: Eudialit_57
       rect:
         serializedVersion: 2
         x: 4
@@ -1347,14 +1334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 711c55a0d89808a449ce79d8b33b529d
-      internalID: -2109806839
+      spriteID: 6c44ecbcf44ec7d4dba97767f07d54ab
+      internalID: 550378943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_58
+      name: Eudialit_58
       rect:
         serializedVersion: 2
         x: 26
@@ -1368,14 +1355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fbd5712ad0670144a6de1c422389e20
-      internalID: 1125566509
+      spriteID: 2f37812c107c17f47a278148124f0b2c
+      internalID: -797723927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_59
+      name: Eudialit_59
       rect:
         serializedVersion: 2
         x: 50
@@ -1389,14 +1376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b641aba32872aa54e8bc4e87ad8c6485
-      internalID: -2095833727
+      spriteID: 4889ff688d45a6f47976e8482580fde8
+      internalID: -353340355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_60
+      name: Eudialit_60
       rect:
         serializedVersion: 2
         x: 72
@@ -1410,14 +1397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9627a0e1d3a1f4c4e83161a98b291163
-      internalID: 1739651126
+      spriteID: fa605a58e8d15cf42a6ec820232f69eb
+      internalID: -2101770851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_61
+      name: Eudialit_61
       rect:
         serializedVersion: 2
         x: 96
@@ -1431,14 +1418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f233713b0951024fba681a2aace7595
-      internalID: 188086659
+      spriteID: 31fa0a4123d32ec4d8b034702f1508ef
+      internalID: -1983394322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_62
+      name: Eudialit_62
       rect:
         serializedVersion: 2
         x: 121
@@ -1452,14 +1439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11a8d9adacb72694b96ee4de85ed9f02
-      internalID: 807020968
+      spriteID: 00394eae0100b5643bf1465935d3273d
+      internalID: 1329764564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_63
+      name: Eudialit_63
       rect:
         serializedVersion: 2
         x: 146
@@ -1473,14 +1460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9794b5367e20d654ebf2055eba8769dd
-      internalID: -203322305
+      spriteID: a7a763fbb9c9f2848905fae0af79e3f8
+      internalID: -1733061549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_64
+      name: Eudialit_64
       rect:
         serializedVersion: 2
         x: 170
@@ -1494,14 +1481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c0ab6e36275fc74bbaf73679689212a
-      internalID: 1538156845
+      spriteID: c93342539d90e8a408f68084e328bad7
+      internalID: 636125251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_65
+      name: Eudialit_65
       rect:
         serializedVersion: 2
         x: 194
@@ -1515,14 +1502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e4050a7649bf642ab94872fd1a0b30
-      internalID: -1204772249
+      spriteID: a2f72a99dbc412840b82236053eca71a
+      internalID: 1260972658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_66
+      name: Eudialit_66
       rect:
         serializedVersion: 2
         x: 218
@@ -1536,14 +1523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a70a28e81ff67d349a69db74af042a14
-      internalID: 1335645580
+      spriteID: 38654c10dc599fb47bd911b60a43fe42
+      internalID: -1646836111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_67
+      name: Eudialit_67
       rect:
         serializedVersion: 2
         x: 242
@@ -1557,14 +1544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daa3da05086712d439deb7b3630fa104
-      internalID: -1911393064
+      spriteID: fd39610967e4ece4ea605fcc539b3bae
+      internalID: -1511581514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_68
+      name: Eudialit_68
       rect:
         serializedVersion: 2
         x: 3
@@ -1578,14 +1565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5efd538a3c8c3c74a8866ca778d4c67b
-      internalID: -1761477193
+      spriteID: 84b3e834d067dde4fa58c8b660cffab7
+      internalID: 913178352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_69
+      name: Eudialit_69
       rect:
         serializedVersion: 2
         x: 26
@@ -1599,14 +1586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eff1e3580fa6574ab1000d7763b59b5
-      internalID: -134423932
+      spriteID: bf52e51d7fc168240a8e60757af61a97
+      internalID: -756695729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_70
+      name: Eudialit_70
       rect:
         serializedVersion: 2
         x: 50
@@ -1620,14 +1607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0c44d24af246934f8acd3aa8da8bc50
-      internalID: -1853414925
+      spriteID: 9fd075ff3b25b4b4d8f9f77c15c0a550
+      internalID: 997296934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_71
+      name: Eudialit_71
       rect:
         serializedVersion: 2
         x: 73
@@ -1641,14 +1628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b3b9b8ab9489ca4897bd5d456ce1d0c
-      internalID: -140969853
+      spriteID: 19d99112046628744a5a83124360ba16
+      internalID: 1176632205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_72
+      name: Eudialit_72
       rect:
         serializedVersion: 2
         x: 99
@@ -1662,14 +1649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4405afadfd51de94ab9b7f2a37f84cd5
-      internalID: -47088542
+      spriteID: adcf3f28e6b32224698da26e63ba0af9
+      internalID: -129442780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_73
+      name: Eudialit_73
       rect:
         serializedVersion: 2
         x: 124
@@ -1683,14 +1670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f1155d5381cccd45bbc86df7f76df6a
-      internalID: -803407922
+      spriteID: 592007b2ce20f594a955380f6a6f89ac
+      internalID: 1839503041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_74
+      name: Eudialit_74
       rect:
         serializedVersion: 2
         x: 146
@@ -1704,14 +1691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6037c08a54d8aaf47a6cc6c8f7f1595b
-      internalID: 1848094711
+      spriteID: 150fba856e2ee3643ab35ab0b5932453
+      internalID: 1326998583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_75
+      name: Eudialit_75
       rect:
         serializedVersion: 2
         x: 2
@@ -1725,14 +1712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f62f3a7913ebae24e91816d878799bb1
-      internalID: 724081251
+      spriteID: 2d802dd10768014479c90282033e7e36
+      internalID: 1239458929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_76
+      name: Eudialit_76
       rect:
         serializedVersion: 2
         x: 25
@@ -1746,14 +1733,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37086942c8b66e24990df60b896719f7
-      internalID: -233142314
+      spriteID: 7e1c91dedfc7ee948b3e3822bd1068d1
+      internalID: 749693669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_77
+      name: Eudialit_77
       rect:
         serializedVersion: 2
         x: 49
@@ -1767,14 +1754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1355e14a6986ef6499e979e2c8967edf
-      internalID: 2046822514
+      spriteID: b542e8ef2b4bd6e49b75cea7b4532b65
+      internalID: 455394171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_78
+      name: Eudialit_78
       rect:
         serializedVersion: 2
         x: 73
@@ -1788,14 +1775,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92cb464adcc883949b535b09be3817e5
-      internalID: -580105562
+      spriteID: b32c0763fbd353645b133921696d4024
+      internalID: -1904081945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_79
+      name: Eudialit_79
       rect:
         serializedVersion: 2
         x: 97
@@ -1809,14 +1796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adda00109ba17734cb03cc8288786a88
-      internalID: 52450943
+      spriteID: dace4e6e0f802684a9798cf0425cf748
+      internalID: 37551319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_80
+      name: Eudialit_80
       rect:
         serializedVersion: 2
         x: 121
@@ -1830,14 +1817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a59e7eb51bda24e409be8fc4798d720d
-      internalID: 1951001084
+      spriteID: 87e533d6cb6b6e94f9815face9b6ab02
+      internalID: 235136337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_81
+      name: Eudialit_81
       rect:
         serializedVersion: 2
         x: 145
@@ -1851,14 +1838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7e2ba5c0de240b45be0c0b83d8275bc
-      internalID: -828223792
+      spriteID: 114feff6c3e76174699499ea5db36e82
+      internalID: -1427086358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_82
+      name: Eudialit_82
       rect:
         serializedVersion: 2
         x: 169
@@ -1872,14 +1859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c6f8c51f3c08b447a0f0f60416c6973
-      internalID: -1064056442
+      spriteID: a5e55f43c8e03d549b7c3f50ef7c77d8
+      internalID: 957032525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_83
+      name: Eudialit_83
       rect:
         serializedVersion: 2
         x: 193
@@ -1893,14 +1880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75e16fb8696191a4fb55db5e3ea51e59
-      internalID: 561805005
+      spriteID: 6af5541bdb0bd4641be1621cc02cb51f
+      internalID: 220566210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_84
+      name: Eudialit_84
       rect:
         serializedVersion: 2
         x: 217
@@ -1914,14 +1901,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 081894a0b8506b74d90cd0fc2f6f749a
-      internalID: -516738152
+      spriteID: 0f10493e74858c84285a7a7cf6dcaac9
+      internalID: -210925414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_85
+      name: Eudialit_85
       rect:
         serializedVersion: 2
         x: 241
@@ -1935,14 +1922,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bba6c98988eb5744a3941e56883fb82
-      internalID: 885126053
+      spriteID: 74272f5d62d4c734fa2d5f17737a3c1b
+      internalID: -2104628343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_86
+      name: Eudialit_86
       rect:
         serializedVersion: 2
         x: 3
@@ -1956,14 +1943,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df53a6ae8819d5f4381edf5a0787463e
-      internalID: 1071335030
+      spriteID: 3382d6d78df228946ab93cbd8b598ef2
+      internalID: -1320661927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_87
+      name: Eudialit_87
       rect:
         serializedVersion: 2
         x: 24
@@ -1977,14 +1964,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5a6f0a44817fcd4c8b7f22767a47996
-      internalID: 1385175324
+      spriteID: 58198531958389a4aa9cd1ce645b304e
+      internalID: -1148942804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_88
+      name: Eudialit_88
       rect:
         serializedVersion: 2
         x: 48
@@ -1998,14 +1985,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fc58e141ffda3a4690c830a5562c903
-      internalID: -2114819406
+      spriteID: 5283cce521fcecc4c8b6bc0b36293f8a
+      internalID: -781920004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_89
+      name: Eudialit_89
       rect:
         serializedVersion: 2
         x: 73
@@ -2019,14 +2006,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ac3c732dac73e942bf7ad7c5421eb04
-      internalID: -1049797612
+      spriteID: 3f9d0c01eb0fa2e43851fcedc1bbe59c
+      internalID: -212176830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_90
+      name: Eudialit_90
       rect:
         serializedVersion: 2
         x: 96
@@ -2040,14 +2027,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d8812dc83963ea48b47153a3dd8ef0c
-      internalID: 462018522
+      spriteID: aa9302cd165447044add59186b0ab72c
+      internalID: 671093969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_91
+      name: Eudialit_91
       rect:
         serializedVersion: 2
         x: 121
@@ -2061,14 +2048,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04a62eabcfcce3847b9fb1ce9a8f66ce
-      internalID: 115847382
+      spriteID: a3dc3d9a48131294c9121e4d90e0fcff
+      internalID: -1280451085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_92
+      name: Eudialit_92
       rect:
         serializedVersion: 2
         x: 144
@@ -2082,14 +2069,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2b00c1a828f0cb4b80b161b369c6ea5
-      internalID: 881585997
+      spriteID: d391a29095d198f4dac7296e8084e671
+      internalID: -1115125759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_93
+      name: Eudialit_93
       rect:
         serializedVersion: 2
         x: 2
@@ -2103,14 +2090,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5e8121e72fefb545b7b5c4d3b1037c3
-      internalID: -327208284
+      spriteID: 70087703372dba9479f485596066b4d6
+      internalID: 1000153365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_94
+      name: Eudialit_94
       rect:
         serializedVersion: 2
         x: 28
@@ -2124,14 +2111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20c24d785d756c9499ed63d14721b33c
-      internalID: -924398682
+      spriteID: 38b89f6ee1755894bbd46a49f6d0562a
+      internalID: 73054505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_95
+      name: Eudialit_95
       rect:
         serializedVersion: 2
         x: 50
@@ -2145,14 +2132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36e210b1d9fabd644a9b4217c2c942e8
-      internalID: -1594161582
+      spriteID: 14a8656330e35884cac2db46a2e4ce11
+      internalID: -534970568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_96
+      name: Eudialit_96
       rect:
         serializedVersion: 2
         x: 76
@@ -2166,14 +2153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ffc5afb47367aa4aa0e7282e8fda198
-      internalID: 1357153682
+      spriteID: 6bec13aee7ca58f4abb341500d6f6874
+      internalID: -709480094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_97
+      name: Eudialit_97
       rect:
         serializedVersion: 2
         x: 98
@@ -2187,14 +2174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc3da29d4c371c84e8e2fc9cc9d8458a
-      internalID: -516619119
+      spriteID: 08b5f36ce4680404ea0d5a612e35fd9a
+      internalID: 638140186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_98
+      name: Eudialit_98
       rect:
         serializedVersion: 2
         x: 124
@@ -2208,14 +2195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c31dee48570ee34a878c15a405d5b2a
-      internalID: 490946516
+      spriteID: 4a1d23e11596cc0408948e6b896d2f73
+      internalID: -336737707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_99
+      name: Eudialit_99
       rect:
         serializedVersion: 2
         x: 146
@@ -2229,14 +2216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64c687ed7064f594389b27600d3c52a8
-      internalID: -592496722
+      spriteID: 649fef52ac1986640a70e45731cecef0
+      internalID: -347262249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_100
+      name: Eudialit_100
       rect:
         serializedVersion: 2
         x: 172
@@ -2250,14 +2237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c6678ab84553664e8e2bef8e10f706c
-      internalID: 691983902
+      spriteID: 52642237b3740fa46be28ae60131a98b
+      internalID: 16288708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_101
+      name: Eudialit_101
       rect:
         serializedVersion: 2
         x: 194
@@ -2271,14 +2258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc2948a7999075f4e9302a7a7cef87c3
-      internalID: -46515823
+      spriteID: 3c92ae0d7a5c23a49b65e083f51b9a2d
+      internalID: 1130256890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_102
+      name: Eudialit_102
       rect:
         serializedVersion: 2
         x: 219
@@ -2292,14 +2279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 575fd3ffb07bc8444a79d9d26e939e98
-      internalID: 870164600
+      spriteID: 76a693d9e5077004e87359ecd14eb979
+      internalID: -245571970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources_basic_103
+      name: Eudialit_103
       rect:
         serializedVersion: 2
         x: 242
@@ -2313,8 +2300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1839617f5e37d4c4394636100bbb0022
-      internalID: -1010158673
+      spriteID: ac5f09e3078c75942ae78405158548b0
+      internalID: 162757465
       vertices: []
       indices: 
       edges: []
@@ -2330,110 +2317,110 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      resources_basic_0: 31406893
-      resources_basic_1: -1311993845
-      resources_basic_10: 1851881960
-      resources_basic_100: 691983902
-      resources_basic_101: -46515823
-      resources_basic_102: 870164600
-      resources_basic_103: -1010158673
-      resources_basic_11: -2038920277
-      resources_basic_12: 1246189415
-      resources_basic_13: 137739026
-      resources_basic_14: 221560354
-      resources_basic_15: -1512486121
-      resources_basic_16: 585455362
-      resources_basic_17: -2135793484
-      resources_basic_18: 1757492890
-      resources_basic_19: -1411312825
-      resources_basic_2: -1421093541
-      resources_basic_20: 1451613474
-      resources_basic_21: -723044815
-      resources_basic_22: -1147665526
-      resources_basic_23: 702876618
-      resources_basic_24: 1739163166
-      resources_basic_25: -41658829
-      resources_basic_26: -1567137506
-      resources_basic_27: 347627195
-      resources_basic_28: 741555775
-      resources_basic_29: 2093882452
-      resources_basic_3: 1757842591
-      resources_basic_30: -1545757027
-      resources_basic_31: 1675224426
-      resources_basic_32: -235550121
-      resources_basic_33: 2042083668
-      resources_basic_34: -887177811
-      resources_basic_35: -825721071
-      resources_basic_36: -899947021
-      resources_basic_37: -1507520250
-      resources_basic_38: -1792928349
-      resources_basic_39: 1033255631
-      resources_basic_4: -1342569787
-      resources_basic_40: -864283970
-      resources_basic_41: 1244645558
-      resources_basic_42: 1049666336
-      resources_basic_43: 543321954
-      resources_basic_44: 1547857607
-      resources_basic_45: -60893171
-      resources_basic_46: -2096737411
-      resources_basic_47: -867462090
-      resources_basic_48: -1037879526
-      resources_basic_49: -1375324067
-      resources_basic_5: 727978847
-      resources_basic_50: -994648699
-      resources_basic_51: 212267104
-      resources_basic_52: 1121111384
-      resources_basic_53: 350255869
-      resources_basic_54: 1131765894
-      resources_basic_55: -1923909852
-      resources_basic_56: -1201405609
-      resources_basic_57: -2109806839
-      resources_basic_58: 1125566509
-      resources_basic_59: -2095833727
-      resources_basic_6: -800979701
-      resources_basic_60: 1739651126
-      resources_basic_61: 188086659
-      resources_basic_62: 807020968
-      resources_basic_63: -203322305
-      resources_basic_64: 1538156845
-      resources_basic_65: -1204772249
-      resources_basic_66: 1335645580
-      resources_basic_67: -1911393064
-      resources_basic_68: -1761477193
-      resources_basic_69: -134423932
-      resources_basic_7: 1406790767
-      resources_basic_70: -1853414925
-      resources_basic_71: -140969853
-      resources_basic_72: -47088542
-      resources_basic_73: -803407922
-      resources_basic_74: 1848094711
-      resources_basic_75: 724081251
-      resources_basic_76: -233142314
-      resources_basic_77: 2046822514
-      resources_basic_78: -580105562
-      resources_basic_79: 52450943
-      resources_basic_8: -50180079
-      resources_basic_80: 1951001084
-      resources_basic_81: -828223792
-      resources_basic_82: -1064056442
-      resources_basic_83: 561805005
-      resources_basic_84: -516738152
-      resources_basic_85: 885126053
-      resources_basic_86: 1071335030
-      resources_basic_87: 1385175324
-      resources_basic_88: -2114819406
-      resources_basic_89: -1049797612
-      resources_basic_9: -1448199996
-      resources_basic_90: 462018522
-      resources_basic_91: 115847382
-      resources_basic_92: 881585997
-      resources_basic_93: -327208284
-      resources_basic_94: -924398682
-      resources_basic_95: -1594161582
-      resources_basic_96: 1357153682
-      resources_basic_97: -516619119
-      resources_basic_98: 490946516
-      resources_basic_99: -592496722
+      Eudialit_0: 1519388963
+      Eudialit_1: 1835789447
+      Eudialit_10: 1528220124
+      Eudialit_100: 16288708
+      Eudialit_101: 1130256890
+      Eudialit_102: -245571970
+      Eudialit_103: 162757465
+      Eudialit_11: -1836512174
+      Eudialit_12: 716133488
+      Eudialit_13: 1532185886
+      Eudialit_14: 437417196
+      Eudialit_15: -1749583860
+      Eudialit_16: 1215889225
+      Eudialit_17: -1822793937
+      Eudialit_18: 938105906
+      Eudialit_19: 1784022676
+      Eudialit_2: -307434922
+      Eudialit_20: 1756572685
+      Eudialit_21: -2131813664
+      Eudialit_22: 1814554168
+      Eudialit_23: 991141987
+      Eudialit_24: 1622543062
+      Eudialit_25: -664641330
+      Eudialit_26: -1293678520
+      Eudialit_27: -266401926
+      Eudialit_28: 878745222
+      Eudialit_29: -604943169
+      Eudialit_3: 1457456543
+      Eudialit_30: 1823774939
+      Eudialit_31: -1898236008
+      Eudialit_32: 1588666361
+      Eudialit_33: -572400663
+      Eudialit_34: 1259959786
+      Eudialit_35: -951605792
+      Eudialit_36: 972140438
+      Eudialit_37: -984981417
+      Eudialit_38: -1926931021
+      Eudialit_39: 1624895597
+      Eudialit_4: 1919480782
+      Eudialit_40: 210192294
+      Eudialit_41: 1669123463
+      Eudialit_42: 518307738
+      Eudialit_43: 181920481
+      Eudialit_44: 1344264977
+      Eudialit_45: -1151864768
+      Eudialit_46: 979928761
+      Eudialit_47: 277007135
+      Eudialit_48: 1721954925
+      Eudialit_49: -1003748022
+      Eudialit_5: 1135564862
+      Eudialit_50: -110064803
+      Eudialit_51: 985528558
+      Eudialit_52: -258118779
+      Eudialit_53: 327018723
+      Eudialit_54: 1081773261
+      Eudialit_55: 1511138030
+      Eudialit_56: 1503346664
+      Eudialit_57: 550378943
+      Eudialit_58: -797723927
+      Eudialit_59: -353340355
+      Eudialit_6: -425212301
+      Eudialit_60: -2101770851
+      Eudialit_61: -1983394322
+      Eudialit_62: 1329764564
+      Eudialit_63: -1733061549
+      Eudialit_64: 636125251
+      Eudialit_65: 1260972658
+      Eudialit_66: -1646836111
+      Eudialit_67: -1511581514
+      Eudialit_68: 913178352
+      Eudialit_69: -756695729
+      Eudialit_7: -110573227
+      Eudialit_70: 997296934
+      Eudialit_71: 1176632205
+      Eudialit_72: -129442780
+      Eudialit_73: 1839503041
+      Eudialit_74: 1326998583
+      Eudialit_75: 1239458929
+      Eudialit_76: 749693669
+      Eudialit_77: 455394171
+      Eudialit_78: -1904081945
+      Eudialit_79: 37551319
+      Eudialit_8: -1357772995
+      Eudialit_80: 235136337
+      Eudialit_81: -1427086358
+      Eudialit_82: 957032525
+      Eudialit_83: 220566210
+      Eudialit_84: -210925414
+      Eudialit_85: -2104628343
+      Eudialit_86: -1320661927
+      Eudialit_87: -1148942804
+      Eudialit_88: -781920004
+      Eudialit_89: -212176830
+      Eudialit_9: -1544905436
+      Eudialit_90: 671093969
+      Eudialit_91: -1280451085
+      Eudialit_92: -1115125759
+      Eudialit_93: 1000153365
+      Eudialit_94: 73054505
+      Eudialit_95: -534970568
+      Eudialit_96: -709480094
+      Eudialit_97: 638140186
+      Eudialit_98: -336737707
+      Eudialit_99: -347262249
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
