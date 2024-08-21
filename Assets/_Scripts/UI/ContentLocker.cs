@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class Content
 {
     public Button button;
-    public Text text;
     public string textBefore;
     public bool isLocked;
     public int levelNeeded;
@@ -44,7 +43,7 @@ public class ContentLocker : MonoBehaviour
             if (contents[i].isLocked)
             {
                 contents[i].button.interactable = false;
-                contents[i].text.text = "Level " + contents[i].levelNeeded + " Needed";
+                contents[i].button.GetComponentInChildren<Text>().text = "Level " + contents[i].levelNeeded + " Needed";
             }
         }
     }
@@ -56,7 +55,7 @@ public class ContentLocker : MonoBehaviour
             if (contents[i].levelNeeded <= level)
             {
                 contents[i].button.interactable = true;
-                contents[i].text.text = contents[i].textBefore;
+                contents[i].button.GetComponentInChildren<Text>().text = contents[i].textBefore;
                 contents[i].isLocked = false;
             }
         }
