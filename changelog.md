@@ -3,9 +3,10 @@
 - Add
   - Slayer Bonus system
   - Automatic card selection option in the settings
-  - Add new cave
+  - New cave
     - Dark Cave
       - 2 new ores
+  - New Biome
   - Crafting recipes
     - 2 new pickaxes
     - 2 new weapons

@@ -329,6 +329,39 @@
           "Prefab": {}
         }
       ]
+    },
+    {
+      "Name": "Bonegrave Marsh",
+      "background": {},
+      "Monsters": [
+        {
+          "Name": "BoundCadaver",
+          "BaseHealth": 20000.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "BrittleArcher",
+          "BaseHealth": 21000,
+          "Prefab": {}
+        },
+        {
+          "Name": "DecrepitBones",
+          "BaseHealth": 22000,
+          "Prefab": {}
+        },
+        {
+          "Name": "SandGhoul",
+          "BaseHealth": 23000,
+          "Prefab": {}
+        }
+      ],
+      "Bosses": [
+        {
+          "Name": "UnravelingCrawler",
+          "BaseHealth": 25000,
+          "Prefab": {}
+        }
+      ]
     }
   ]
 }
