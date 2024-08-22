@@ -10,8 +10,10 @@
   - Crafting recipes
     - 2 new pickaxes
     - 2 new weapons
+  - Now u can hold buttons to buy/upgrades 😎
 - Fix
   - Ore spawning
+  - Fix cave upgrades bonus
 
 # 0.5.4.7
 

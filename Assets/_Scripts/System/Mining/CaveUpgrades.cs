@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CaveUpgrades : MonoBehaviour
@@ -32,17 +34,60 @@ public class CaveUpgrades : MonoBehaviour
     [SerializeField] private double miningEfficiencyBoostBase;
 
     [Header("UI")]
-    [SerializeField] private Text Title;
-    [SerializeField] private Text Cost;
-    [SerializeField] private Text Bonus;
-    [SerializeField] private Text ProgressText;
-    [SerializeField] private Image ProgressImage;
-    [SerializeField] private Button BuyButton;
+    [SerializeField] private GameObject UpgradePanel;
+    private Text Title;
+    private Text Cost;
+    private Text Bonus;
+    private Text ProgressText;
+    private Image ProgressImage;
+    private Button BuyButton;
 
+
+    private Coroutine buyCoroutine;
 
     private void Start()
     {
         // PlayerPrefs.DeleteKey("CaveUpgradeLevel-" + resourceName);
+        Title = UpgradePanel.transform.Find("Title").GetComponent<Text>();
+        Cost = UpgradePanel.transform.Find("CostPanel").Find("CostText").GetComponent<Text>();
+        Bonus = UpgradePanel.transform.Find("Bonus").GetComponent<Text>();
+        ProgressText = UpgradePanel.transform.Find("ProgressText").GetComponent<Text>();
+        ProgressImage = UpgradePanel.transform.Find("ProgressImage").GetComponent<Image>();
+        BuyButton = UpgradePanel.transform.Find("BuyButton").GetComponent<Button>();
+
+        if(Title == null || Cost == null || Bonus == null || ProgressText == null || ProgressImage == null || BuyButton == null)
+        {
+            Debug.LogError("UI Elements not found");
+            return;
+        }
+
+        if (BuyButton != null)
+        {
+            BuyButton.onClick.RemoveAllListeners();
+            BuyButton.onClick.AddListener(BuyUpgrade);
+
+            EventTrigger trigger = BuyButton.GetComponent<EventTrigger>();
+            if (trigger == null)
+            {
+                trigger = BuyButton.gameObject.AddComponent<EventTrigger>();
+            }
+
+            EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerDown
+            };
+            pointerDownEntry.callback.AddListener((data) => { OnPointerDown((PointerEventData)data); });
+            trigger.triggers.Add(pointerDownEntry);
+
+            EventTrigger.Entry pointerUpEntry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerUp
+            };
+            pointerUpEntry.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
+            trigger.triggers.Add(pointerUpEntry);
+
+        }
+
         Load();
         UIUpdate();
     }
@@ -75,11 +120,11 @@ public class CaveUpgrades : MonoBehaviour
         {
             if (level > 0)
             {
-                Bonus.text = "Mining Drop Rate Multiplier: " + miningDropRateBoostMultiplier * level + "";
+                Bonus.text = "Ore Drop Rate Multiplier: " + miningDropRateBoostMultiplier * level + "";
             }
             else
             {
-                Bonus.text = "Mining Drop Rate Multiplier: 0";
+                Bonus.text = "Ore Drop Rate Multiplier: 0";
             }
         }
         else if (isMiningEfficiencyUpgradeBase)
@@ -189,17 +234,17 @@ public class CaveUpgrades : MonoBehaviour
         cost = CalculateCost();
         if (isDamageUpgrade)
         {
-            DifficultySystem.Instance.AddDamagePercentage(damageBoostPercentage * level);
+            DifficultySystem.Instance.AddDamagePercentage(damageBoostPercentage);
             BonusText();    
         }
         else if (isMiningEfficiencyUpgrade)
         {
-            DifficultySystem.Instance.AddMiningEfficiencyPercentage(miningEfficiencyBoostPercentage * level);
+            DifficultySystem.Instance.AddMiningEfficiencyPercentage(miningEfficiencyBoostPercentage);
             BonusText();
         }
         else if (isMiningDropRateUpgrade)
         {
-            DifficultySystem.Instance.AddMiningDropRateMultiplier(miningDropRateBoostMultiplier * level);
+            DifficultySystem.Instance.AddMiningDropRateMultiplier(miningDropRateBoostMultiplier);
             BonusText();
         }
         else if (isMiningEfficiencyUpgradeBase)
@@ -210,5 +255,28 @@ public class CaveUpgrades : MonoBehaviour
         
         UIUpdate();
         PlayerPrefs.SetInt("CaveUpgradeLevel-" + resourceName, level);
+    }
+
+    private void OnPointerDown(PointerEventData data)
+    {
+        buyCoroutine = StartCoroutine(ContinuousBuy());
+    }
+
+    private void OnPointerUp(PointerEventData data)
+    {
+        if (buyCoroutine != null)
+        {
+            StopCoroutine(buyCoroutine);
+            buyCoroutine = null;
+        }
+    }
+
+    private IEnumerator ContinuousBuy()
+    {
+        while (true)
+        {
+            BuyUpgrade();
+            yield return new WaitForSeconds(0.1f); // Adjust the interval as needed
+        }
     }
 }
