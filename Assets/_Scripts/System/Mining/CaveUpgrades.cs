@@ -273,10 +273,15 @@ public class CaveUpgrades : MonoBehaviour
 
     private IEnumerator ContinuousBuy()
     {
+        float waitTime = 0.25f; // Initial wait time
+        float minWaitTime = 0.01f; // Minimum wait time
+        float speedUpFactor = 0.95f; // Factor to speed up the upgrade
+
         while (true)
         {
             BuyUpgrade();
-            yield return new WaitForSeconds(0.1f); // Adjust the interval as needed
+            yield return new WaitForSeconds(waitTime);
+            waitTime = Mathf.Max(minWaitTime, waitTime * speedUpFactor); // Decrease wait time but not below minWaitTime
         }
     }
 }

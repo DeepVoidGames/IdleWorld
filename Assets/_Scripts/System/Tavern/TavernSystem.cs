@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -70,6 +71,9 @@ public class TavernSystem : MonoBehaviour
     [SerializeField] private Text heroCost;
     [SerializeField] private Button upgradeButton;
 
+    private Coroutine upgradeCoroutine;
+
+
     private void UpdateUI(int id)
     {
         heroImage.sprite = heroes[id].sprite;
@@ -92,7 +96,28 @@ public class TavernSystem : MonoBehaviour
         {
             upgradeButton.GetComponentInChildren<Text>().text = "Upgrade";
             upgradeButton.interactable = true;
-            upgradeButton.onClick.AddListener(() => UpgradeHero(id));
+            // Remove all listeners to prevent multiple listeners
+            // upgradeButton.onClick.AddListener(() => UpgradeHero(id));
+
+            EventTrigger trigger = upgradeButton.GetComponent<EventTrigger>();
+            if (trigger == null)
+            {
+                trigger = upgradeButton.gameObject.AddComponent<EventTrigger>();
+            }
+            trigger.triggers.Clear();
+            EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerDown
+            };
+            pointerDownEntry.callback.AddListener((data) => { OnPointerDown((PointerEventData)data, id); });
+            trigger.triggers.Add(pointerDownEntry);
+
+            EventTrigger.Entry pointerUpEntry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerUp
+            };
+            pointerUpEntry.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
+            trigger.triggers.Add(pointerUpEntry);
         }
         else
         {
@@ -137,6 +162,34 @@ public class TavernSystem : MonoBehaviour
     {
         GameObject hero = Instantiate(heroes[id].prefab, heroSpawnPoints[id].transform.position, Quaternion.identity);
         hero.transform.SetParent(heroSpawnPoints[id].transform);
+    }
+
+    private void OnPointerDown(PointerEventData data, int id)
+    {
+        upgradeCoroutine = StartCoroutine(ContinuousUpgrade(id));
+    }
+
+    private void OnPointerUp(PointerEventData data)
+    {
+        if (upgradeCoroutine != null)
+        {
+            StopCoroutine(upgradeCoroutine);
+            upgradeCoroutine = null;
+        }
+    }
+
+    private IEnumerator ContinuousUpgrade(int id)
+    {
+        float waitTime = 0.25f; // Initial wait time
+        float minWaitTime = 0.01f; // Minimum wait time
+        float speedUpFactor = 0.95f; // Factor to speed up the upgrade
+
+        while (true)
+        {
+            UpgradeHero(id);
+            yield return new WaitForSeconds(waitTime);
+            waitTime = Mathf.Max(minWaitTime, waitTime * speedUpFactor); // Decrease wait time but not below minWaitTime
+        }
     }
 
 }
