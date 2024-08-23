@@ -180,9 +180,9 @@ public class TavernSystem : MonoBehaviour
 
     private IEnumerator ContinuousUpgrade(int id)
     {
-        float waitTime = 0.25f; // Initial wait time
-        float minWaitTime = 0.01f; // Minimum wait time
-        float speedUpFactor = 0.95f; // Factor to speed up the upgrade
+        float waitTime = 0.2f; // Initial wait time
+        float minWaitTime = 0.1f; // Minimum wait time
+        float speedUpFactor = 0.01f; // Factor to speed up the upgrade
 
         while (true)
         {

@@ -1,3 +1,11 @@
+# 0.5.5.1
+
+- Add
+  - UI improvements
+    - All fonts size are bigger
+- Fix
+  - Fix holding buttons to buy/upgrades speed
+
 # 0.5.5.0
 
 - Add
