@@ -11,6 +11,7 @@
     - 2 new pickaxes
     - 2 new weapons
   - Now u can hold buttons to buy/upgrades 😎
+  - UI improvements
 - Fix
   - Ore spawning
   - Fix cave upgrades bonus

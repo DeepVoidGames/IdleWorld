@@ -55,6 +55,9 @@ public class UISystem : MonoBehaviour {
     [SerializeField] private Text miningExperienceText;
     [SerializeField] private Text miningEfficiencyText;
 
+    [Header("Stats UI")]
+    [SerializeField] private Text statsText;
+
     public void UpdateLevelText()
     {
         levelText.text = String.Format("Slayer Level: {0}", NumberFormatInt(LevelSystem.Instance.Level));
@@ -88,6 +91,16 @@ public class UISystem : MonoBehaviour {
         UpdateLevelText();
         UpdateGoldText();
         UpdateMiningUI();
+    }
+
+    public void UpdateStatsText()
+    {
+        statsText.text = 
+                        $"Damage bonus: {NumberFormat(DifficultySystem.Instance.GetDamagePercentage() * 100)}%\n"+
+                        $"Gold bonus: {NumberFormat(DifficultySystem.Instance.GoldBonus * 100)}%\n"+
+                        $"Mining Efficiency bonus: + {NumberFormat(DifficultySystem.Instance.MiningBonusMiningEfficiency)}\n"+
+                        $"Mining Efficiency bonus: {NumberFormat(DifficultySystem.Instance.MiningEfficiencyPercentage*100)}%\n"+
+                        $"Mining Drop Rate: {DifficultySystem.Instance.MiningDropRateMultiplier}\n";
     }
 
     public string NumberFormat(double number)

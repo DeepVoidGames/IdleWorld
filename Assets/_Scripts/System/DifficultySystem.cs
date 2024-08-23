@@ -33,7 +33,10 @@ public class DifficultySystem : MonoBehaviour
     // Gold
     private double goldBonus;
     
-    public double GoldBonus { get => goldBonus; set => goldBonus = value; }
+    public double GoldBonus { get => goldBonus; set { goldBonus = value; UISystem.Instance.UpdateStatsText(); } }
+    public double MiningDropRateMultiplier { get => miningDropRateMultiplier; }
+
+    public double MiningEfficiencyPercentage { get => miningEfficiencyPercentage; }
 
     public double MiningBonusMiningEfficiency
     {
@@ -42,6 +45,7 @@ public class DifficultySystem : MonoBehaviour
         {
             miningBonusMiningEfficiency = value;
             UISystem.Instance.UpdateMiningUI();
+            UISystem.Instance.UpdateStatsText();
         }
     }
 
@@ -50,24 +54,33 @@ public class DifficultySystem : MonoBehaviour
     {
         DamagePercentage += value;
         UISystem.Instance.UpdateLevelText();
+        UISystem.Instance.UpdateStatsText();
+    }
+
+    public double GetDamagePercentage()
+    {
+        return DamagePercentage;
     }
 
     public void RemoveDamagePercentage(double value)
     {
         DamagePercentage -= value;
         UISystem.Instance.UpdateLevelText();
+        UISystem.Instance.UpdateStatsText();
     }
 
     public void AddMiningEfficiencyPercentage(double value)
     {
-        miningEfficiencyPercentage = value;
+        miningEfficiencyPercentage += value;
         UISystem.Instance.UpdateMiningUI();
+        UISystem.Instance.UpdateStatsText();
     }
 
 
     public void AddMiningDropRateMultiplier(double value)
     {
         miningDropRateMultiplier = value;
+        UISystem.Instance.UpdateStatsText();
     }
 
     public double GetMiningEfficiencyPercentage()
