@@ -262,7 +262,7 @@
     },
     {
       "id": 16,
-      "materialName": "Eudialit",
+      "materialName": "Eudialyte",
       "craftingType": 2,
       "itemsToCraft": [
         {
@@ -270,14 +270,14 @@
           "chance": 0.95
         },
         {
-          "itemName": "Eudialit Pickaxe",
+          "itemName": "Eudialyte Pickaxe",
           "chance": 0.05
         }
       ]
     },
     {
       "id": 17,
-      "materialName": "Hematyt",
+      "materialName": "Hematite",
       "craftingType": 2,
       "itemsToCraft": [
         {
@@ -285,14 +285,14 @@
           "chance": 0.99
         },
         {
-          "itemName": "Hematyt Pickaxe",
+          "itemName": "Hematite Pickaxe",
           "chance": 0.01
         }
       ]
     },
     {
       "id": 18,
-      "materialName": "Eudialit",
+      "materialName": "Eudialyte",
       "craftingType": 1,
       "itemsToCraft": [
         {
@@ -300,14 +300,14 @@
           "chance": 0.95
         },
         {
-          "itemName": "Eudialit Sword",
+          "itemName": "Eudialyte Sword",
           "chance": 0.05
         }
       ]
     },
     {
       "id": 19,
-      "materialName": "Hematyt",
+      "materialName": "Hematite",
       "craftingType": 1,
       "itemsToCraft": [
         {
@@ -315,7 +315,67 @@
           "chance": 0.99
         },
         {
-          "itemName": "Hematyt Blade",
+          "itemName": "Hematite Blade",
+          "chance": 0.01
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "materialName": "Agate",
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Sword",
+          "chance": 0.95
+        },
+        {
+          "itemName": "Agate Sword",
+          "chance": 0.05
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "materialName": "Jadeite",
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Sword",
+          "chance": 0.99
+        },
+        {
+          "itemName": "Jadeite Sword",
+          "chance": 0.01
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "materialName": "Agate",
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Pickaxe",
+          "chance": 0.95
+        },
+        {
+          "itemName": "Agate Pickaxe",
+          "chance": 0.05
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "materialName": "Jadeite",
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Pickaxe",
+          "chance": 0.99
+        },
+        {
+          "itemName": "Jadeite Pickaxe",
           "chance": 0.01
         }
       ]

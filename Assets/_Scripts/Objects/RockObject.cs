@@ -22,15 +22,23 @@ public class RockObject : MonoBehaviour
     public void Damage(double damage)
     {
         _messageSpawner.SpawnMessage(String.Format("-{0}", UISystem.Instance.NumberFormat(damage)));
-        if (hitMaterial != null)
-            gameObject.GetComponent<Renderer>().material = hitMaterial;
+        // if (hitMaterial != null)
+        //     gameObject.GetComponent<Renderer>().material = hitMaterial;
         health -= damage;
         if (health <= 0)
         {
             DestroyRock();
         }
-        if (hitMaterial != null)
-            Invoke("ResetMaterial", .05f);
+        // if (hitMaterial != null)
+        //     Invoke("ResetMaterial", .05f);
+
+        // Material Color Effects -> Fade -> Fade Amount
+        // max 0.235 min -0.1
+        // Material Color Effects -> Fade -> Fade Amount
+        // Shader range: -0.1 to 1
+        float fadeAmount = Mathf.Clamp(0.235f - (0.235f * ((float)health / (float)maxHealth)), -0.1f, 1.0f);
+        this.gameObject.GetComponent<SpriteRenderer>().material.SetFloat("_FadeAmount", fadeAmount);
+
         UpdateUI();
     }
 

@@ -29,7 +29,10 @@ public class RemoteConfig : MonoBehaviour
         // initialize Unity's authentication and core services, however check for internet connection
         // in order to fail gracefully without throwing exception if connection does not exist
         if (!isEnbaled)
+        {
+            Debug.LogWarning("Remote Config is disabled");
             return;
+        }
         if (Utilities.CheckForInternetConnection())
         {
             await InitializeRemoteConfigAsync();

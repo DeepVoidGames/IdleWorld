@@ -244,21 +244,21 @@
       "damageBoostPercentage": 0.0
     },
     {
-      "Name": "Eudialit",
+      "Name": "Eudialyte",
       "id": 30,
       "category": 1,
       "rarity": 3,
       "icon": {}
     },
     {
-      "Name": "Hematyt",
+      "Name": "Hematite",
       "id": 31,
       "category": 1,
       "rarity": 4,
       "icon": {}
     },
     {
-      "Name": "Eudialit Pickaxe",
+      "Name": "Eudialyte Pickaxe",
       "id": 32,
       "category": 3,
       "rarity": 3,
@@ -266,7 +266,7 @@
       "baseMiningEfficiency": 3000.0
     },
     {
-      "Name": "Hematyt Pickaxe",
+      "Name": "Hematite Pickaxe",
       "id": 33,
       "category": 3,
       "rarity": 4,
@@ -274,7 +274,7 @@
       "baseMiningEfficiency": 5000.0
     },
     {
-      "Name": "Eudialit Sword",
+      "Name": "Eudialyte Sword",
       "id": 34,
       "category": 2,
       "rarity": 3,
@@ -282,12 +282,58 @@
       "baseDamage": 5000.0
     },
     {
-      "Name": "Hematyt Blade",
+      "Name": "Hematite Blade",
       "id": 35,
       "category": 2,
       "rarity": 4,
       "icon": {},
       "baseDamage": 7500.0
+    },
+    {
+      "Name": "Agate",
+      "id": 36,
+      "category": 1,
+      "rarity": 3,
+      "icon": {}
+    },
+    {
+      "Name": "Jadeite",
+      "id": 37,
+      "category": 1,
+      "rarity": 4,
+      "icon": {}
+    },
+    {
+      "Name": "Agate Pickaxe",
+      "id": 38,
+      "category": 3,
+      "rarity": 3,
+      "icon": {},
+      "baseMiningEfficiency": 7500.0
+    },
+    {
+      "Name": "Jadeite Pickaxe",
+      "id": 39,
+      "category": 3,
+      "rarity": 4,
+      "icon": {},
+      "baseMiningEfficiency": 10000.0
+    },
+    {
+      "Name": "Agate Sword",
+      "id": 40,
+      "category": 2,
+      "rarity": 3,
+      "icon": {},
+      "baseDamage": 10000.0
+    },
+    {
+      "Name": "Jadeite Sword",
+      "id": 41,
+      "category": 2,
+      "rarity": 4,
+      "icon": {},
+      "baseDamage": 15000.0
     }
   ]
 }

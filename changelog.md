@@ -1,3 +1,14 @@
+# 0.5.5.2
+
+- Add
+  - New cave
+    - 2 new ores
+  - New rock anim
+  - UI improvements
+  - New background effect
+- Fix
+  - Items names, some item can disappear from inventory
+
 # 0.5.5.1
 
 - Add

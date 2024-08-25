@@ -130,21 +130,42 @@
       "name": "Dark Mine",
       "rocks": [
         {
-          "name": "EudialitOre",
+          "name": "EudialyteOre",
           "baseHealth": 10000.0,
           "chance": 70,
           "prefab": {},
-          "drops": [{ "resourceName": "Eudialit", "chance": 1.0 }]
+          "drops": [{ "resourceName": "Eudialyte", "chance": 1.0 }]
         },
         {
-          "name": "HematytOre",
+          "name": "HematiteOre",
           "baseHealth": 15000.0,
           "chance": 30,
           "prefab": {},
-          "drops": [{ "resourceName": "Hematyt", "chance": 1.0 }]
+          "drops": [{ "resourceName": "Hematite", "chance": 1.0 }]
         }
       ],
       "miningLevelRequired": 1000,
+      "isUnlocked": false
+    },
+    {
+      "name": "Jade Valley",
+      "rocks": [
+        {
+          "name": "AgateOre",
+          "baseHealth": 20000.0,
+          "chance": 70,
+          "prefab": {},
+          "drops": [{ "resourceName": "Agate", "chance": 1.0 }]
+        },
+        {
+          "name": "JadeiteOre",
+          "baseHealth": 25000.0,
+          "chance": 30,
+          "prefab": {},
+          "drops": [{ "resourceName": "Jadeite", "chance": 1.0 }]
+        }
+      ],
+      "miningLevelRequired": 2000,
       "isUnlocked": false
     }
   ]

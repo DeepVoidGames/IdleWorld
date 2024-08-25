@@ -252,8 +252,11 @@ public class InventorySystem : MonoBehaviour
             }
         }
 
-        // Show the inventory UI
-        Vector3 pos = new Vector3(178.75f, -48, 0);
+        //  Set the position of the inventory content
+
+        Vector3 pos = new Vector3(178.75f, -70, 0);
+        float padding = 10;
+        float slotHeight = 134;
         
 
         //Count all the items in the inventory with the current category
@@ -266,8 +269,9 @@ public class InventorySystem : MonoBehaviour
             }
         } 
 
+        // Set the size of the inventory content
         RectTransform rt = inventoryContent.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(0, Mathf.Abs(110 * itemCount));
+        rt.sizeDelta = new Vector2(0, Mathf.Abs((slotHeight + padding) * itemCount));
         rt.position = new Vector3(rt.position.x, rt.position.y, rt.position.z);  
         
 
@@ -375,7 +379,7 @@ public class InventorySystem : MonoBehaviour
                 });
                 button.onClick = onClick;
             }
-            pos.y -= 100;
+            pos.y -= slotHeight + padding;
 
             int _divineLevel = UpgradingSystem.Instance.GetDivineLevel(slot.item.Name);
             if (_divineLevel > 0)
@@ -413,6 +417,8 @@ public class InventorySystem : MonoBehaviour
         foreach (InventorySlot slot in inventoryData.inventory)
         {
             if (slot.name == "None" || slot.name == "")
+                continue;
+            if (ItemSystem.Instance.ItemsCollection.Find(x => x.Name == slot.name) == null)
                 continue;
             InventorySlot newSlot = new InventorySlot()
             {
