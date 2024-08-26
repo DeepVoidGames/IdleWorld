@@ -1,3 +1,8 @@
+# 0.5.5.3
+
+- Fix
+  - Frame rate drop
+
 # 0.5.5.2
 
 - Add

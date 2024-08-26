@@ -7,6 +7,7 @@ public class Mode
     public GameObject _object;
     public Vector3 _position;
     public GameObject _UIPanel;
+    public bool _canBeDisabled;
 }
 
 public class SwitchMode : MonoBehaviour
@@ -46,10 +47,17 @@ public class SwitchMode : MonoBehaviour
             BossSystem.Instance.PauseBoss = false;
 
         if (modes[currentMode]._UIPanel != null)
+        {
             modes[currentMode]._UIPanel.SetActive(false);
+            // if (modes[currentMode]._canBeDisabled)
+            //     modes[currentMode]._object.SetActive(false);
+        }
+            
 
         modes[currentMode]._object.transform.position = new Vector3(modes[currentMode]._position.x, modes[currentMode]._position.y, 100);
         currentMode = mode;
+        // if (modes[currentMode]._canBeDisabled)
+        //         modes[currentMode]._object.SetActive(true);
         modes[currentMode]._UIPanel.SetActive(true);
         modes[currentMode]._object.transform.position = new Vector3(0, 0, 100);
         return;
