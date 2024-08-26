@@ -505,7 +505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &20191012
 Animator:
   serializedVersion: 5
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 746521866, guid: dfb2e6214583c8c4c8134cdff7708333, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fa007402caf2e64c9e992fb3d17a1ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -583,7 +583,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 224.99997, y: 0}
-  m_SizeDelta: {x: 300, y: 400}
+  m_SizeDelta: {x: 350, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20191016
 MonoBehaviour:
@@ -1347,8 +1347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -92.49999}
-  m_SizeDelta: {x: 300, y: 215}
+  m_AnchoredPosition: {x: -1.06, y: -89.61}
+  m_SizeDelta: {x: 253.02, y: 179.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79606347
 MonoBehaviour:
@@ -1372,7 +1372,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8f718247602b6ba4a9d8a3dc8c8e69ed, type: 3}
-    m_FontSize: 34
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2956,8 +2956,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 169.4}
-  m_SizeDelta: {x: 300, y: 61.3}
+  m_AnchoredPosition: {x: -1.06, y: 162.28}
+  m_SizeDelta: {x: 253.02, y: 47.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &210196909
 MonoBehaviour:
@@ -2981,7 +2981,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8f718247602b6ba4a9d8a3dc8c8e69ed, type: 3}
-    m_FontSize: 34
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -17150,6 +17150,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809039207}
   m_CullTransparentMesh: 1
+--- !u!21 &814500981
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &816364947
 GameObject:
   m_ObjectHideFlags: 0
@@ -17384,7 +17424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &839212601
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17403,7 +17443,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -215, y: 0}
-  m_SizeDelta: {x: 300, y: 400}
+  m_SizeDelta: {x: 350, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839212602
 MonoBehaviour:
@@ -17482,7 +17522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 814500981}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -17490,7 +17530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 746521866, guid: dfb2e6214583c8c4c8134cdff7708333, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fa007402caf2e64c9e992fb3d17a1ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17776,8 +17816,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 169.4}
-  m_SizeDelta: {x: 300, y: 61.3}
+  m_AnchoredPosition: {x: -1.3, y: 162.15}
+  m_SizeDelta: {x: 253.52, y: 46.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849006705
 MonoBehaviour:
@@ -17801,7 +17841,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8f718247602b6ba4a9d8a3dc8c8e69ed, type: 3}
-    m_FontSize: 34
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -18729,6 +18769,14 @@ MonoBehaviour:
   bonusPanel: {fileID: 2062982366}
   bonusTextPanel: {fileID: 675168042}
   bonusText: {fileID: 382444192}
+  bonusImagesCards:
+  - {fileID: 21300000, guid: 12958e7ca54d18b44afe72188fa9d81f, type: 3}
+  - {fileID: 21300000, guid: 1d36e144f26bfff4eb870605b1179a16, type: 3}
+  - {fileID: 21300000, guid: 7cbe7124df26e3c4aa11c3db1946e6ff, type: 3}
+  - {fileID: 21300000, guid: 378f52e08c442d34e91a75b69d9e132d, type: 3}
+  - {fileID: 21300000, guid: dbde5f60bd185064982519329ac781b0, type: 3}
+  - {fileID: 21300000, guid: 8b4d1f12e430ca3499019edafa581225, type: 3}
+  backImageCard: {fileID: 21300000, guid: 5fa007402caf2e64c9e992fb3d17a1ea, type: 3}
   firstCard: {fileID: 839212600}
   secondCard: {fileID: 20191011}
   bonuses:
@@ -18738,24 +18786,28 @@ MonoBehaviour:
     isBonusDamage: 1
     isBonusGold: 0
     amount: 0
+    rarity: 0
   - name: Damage Percentage Boost II
     value: 0.1
     description: '{0}% Damage Boost'
     isBonusDamage: 1
     isBonusGold: 0
     amount: 0
+    rarity: 1
   - name: Gold Percentage Boost I
     value: 0.01
     description: '{0}% Gold Boost'
     isBonusDamage: 0
     isBonusGold: 1
     amount: 0
+    rarity: 0
   - name: Gold Percentage Boost II
     value: 0.05
     description: '{0}% Gold Boost'
     isBonusDamage: 0
     isBonusGold: 1
     amount: 0
+    rarity: 1
 --- !u!1 &895447968
 GameObject:
   m_ObjectHideFlags: 0
@@ -35438,8 +35490,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -92.49999}
-  m_SizeDelta: {x: 300, y: 215}
+  m_AnchoredPosition: {x: -1.3, y: -89.96}
+  m_SizeDelta: {x: 253.52, y: 179.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000007087
 MonoBehaviour:
@@ -35463,7 +35515,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8f718247602b6ba4a9d8a3dc8c8e69ed, type: 3}
-    m_FontSize: 34
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2

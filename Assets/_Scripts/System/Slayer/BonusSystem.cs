@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,8 +15,20 @@ public class Bonus
     public bool isBonusGold;
 
     public double amount;
-}
 
+    public Rarity rarity;
+    public enum Rarity
+    {
+        Common,
+        Uncommon,
+        Rare,
+        Epic,
+        Legendary,
+        Mythical,
+    }
+
+}
+// Common 70% Uncommon 20% Rare 7% Epic 2% Legendary 0.9% Mythical 0.1%
 public class BonusSystem : MonoBehaviour 
 {
     private static BonusSystem _instance;
@@ -36,16 +49,22 @@ public class BonusSystem : MonoBehaviour
         }
     }
     
+    [Header("UI")]
     [SerializeField] private GameObject bonusPanel;
     [SerializeField] private GameObject bonusTextPanel;
     [SerializeField] private Text bonusText;
+    [Header("Bonuses Image Cards")]
+    [SerializeField] private List<Sprite> bonusImagesCards;
+    [SerializeField] private Sprite backImageCard;
 
     private double _bonusDamage;
     private double _bonusGold;
 
+    [Header("Bonuses Cards")]
     [SerializeField] private GameObject firstCard;
     [SerializeField] private GameObject secondCard;
     
+    [Header("Bonuses")]
     public List<Bonus> bonuses = new List<Bonus>();
 
 
@@ -73,11 +92,11 @@ public class BonusSystem : MonoBehaviour
             return;
         }
 
-        Bonus firstBonus = bonuses[RandomValue(0, bonuses.Count)];
-        Bonus secondBonus = bonuses[RandomValue(0, bonuses.Count)];
+        Bonus firstBonus = GetRandomBonus();
+        Bonus secondBonus = GetRandomBonus();
 
-        SetCard(firstCard, firstBonus.name, String.Format(firstBonus.description, firstBonus.value * 100));
-        SetCard(secondCard, secondBonus.name, String.Format(secondBonus.description, secondBonus.value * 100));
+        SetCard(firstCard, firstBonus.name, String.Format(firstBonus.description, firstBonus.value * 100), (int)firstBonus.rarity);
+        SetCard(secondCard, secondBonus.name, String.Format(secondBonus.description, secondBonus.value * 100), (int)secondBonus.rarity);
         
         if (SettingsSystem.Instance.AutomaticCardSelection)
         {
@@ -86,6 +105,41 @@ public class BonusSystem : MonoBehaviour
                 ChooseBonus(firstBonus.name);
             else
                 ChooseBonus(secondBonus.name);
+        }
+    }
+
+    private Bonus GetRandomBonus()
+    {
+        int rarity = RandomValue(0, 100);
+        if (rarity < 70)
+        {
+            List<Bonus> commonBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Common);
+            return commonBonuses[RandomValue(0, commonBonuses.Count)];
+        }
+        else if (rarity < 90)
+        {
+            List<Bonus> uncommonBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Uncommon);
+            return uncommonBonuses[RandomValue(0, uncommonBonuses.Count)];
+        }
+        else if (rarity < 97)
+        {
+            List<Bonus> rareBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Rare);
+            return rareBonuses[RandomValue(0, rareBonuses.Count)];
+        }
+        else if (rarity < 99)
+        {
+            List<Bonus> epicBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Epic);
+            return epicBonuses[RandomValue(0, epicBonuses.Count)];
+        }
+        else if (rarity < 99.9)
+        {
+            List<Bonus> legendaryBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Legendary);
+            return legendaryBonuses[RandomValue(0, legendaryBonuses.Count)];
+        }
+        else
+        {
+            List<Bonus> mythicalBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Mythical);
+            return mythicalBonuses[RandomValue(0, mythicalBonuses.Count)];
         }
     }
 
@@ -160,7 +214,7 @@ public class BonusSystem : MonoBehaviour
         UpdateBonusText();
     }
 
-    private void SetCard(GameObject card, string title, string description)
+    private void SetCard(GameObject card, string title, string description, int rarityIndex)
     {
         Text titleText = card.transform.Find("CardData").Find("Title").GetComponent<Text>();
         Text descriptionText = card.transform.Find("CardData").Find("Description").GetComponent<Text>();
@@ -176,6 +230,18 @@ public class BonusSystem : MonoBehaviour
 
         card.GetComponent<Button>().onClick.RemoveAllListeners();
         card.GetComponent<Button>().onClick.AddListener(() => ChooseBonus(title));
+
+        card.GetComponent<Image>().sprite = bonusImagesCards[rarityIndex];
+        card.transform.gameObject.SetActive(true);
+        StartCoroutine(ChangeCardBackgroud(card));
+
+
+    }
+
+    private IEnumerator ChangeCardBackgroud(GameObject card)
+    {
+        yield return new WaitForSeconds(1);
+        card.GetComponent<Image>().sprite = backImageCard;
     }
 
     private void CloseCard()
