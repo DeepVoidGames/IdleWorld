@@ -18781,28 +18781,28 @@ MonoBehaviour:
   secondCard: {fileID: 20191011}
   bonuses:
   - name: Damage Percentage Boost I
-    value: 0.05
+    value: 0.01
     description: '{0}% Damage Boost'
     isBonusDamage: 1
     isBonusGold: 0
     amount: 0
     rarity: 0
   - name: Damage Percentage Boost II
-    value: 0.1
+    value: 0.05
     description: '{0}% Damage Boost'
     isBonusDamage: 1
     isBonusGold: 0
     amount: 0
     rarity: 1
   - name: Damage Percentage Boost II
-    value: 0.25
+    value: 0.07
     description: '{0}% Damage Boost'
     isBonusDamage: 1
     isBonusGold: 0
     amount: 0
     rarity: 3
   - name: Damage Percentage Boost III
-    value: 0.5
+    value: 0.1
     description: '{0}% Damage Boost'
     isBonusDamage: 1
     isBonusGold: 0

@@ -362,6 +362,39 @@
           "Prefab": {}
         }
       ]
+    },
+    {
+      "Name": "Occult Hollow",
+      "background": {},
+      "Monsters": [
+        {
+          "Name": "AdeptNecromancer",
+          "BaseHealth": 30000.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "CorruptedTreant",
+          "BaseHealth": 31000.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "NovicePyromancer",
+          "BaseHealth": 32000.0,
+          "Prefab": {}
+        },
+        {
+          "Name": "VileWitch",
+          "BaseHealth": 33000.0,
+          "Prefab": {}
+        }
+      ],
+      "Bosses": [
+        {
+          "Name": "ExpertDruid",
+          "BaseHealth": 35000.0,
+          "Prefab": {}
+        }
+      ]
     }
   ]
 }
