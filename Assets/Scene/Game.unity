@@ -18794,6 +18794,20 @@ MonoBehaviour:
     isBonusGold: 0
     amount: 0
     rarity: 1
+  - name: Damage Percentage Boost II
+    value: 0.25
+    description: '{0}% Damage Boost'
+    isBonusDamage: 1
+    isBonusGold: 0
+    amount: 0
+    rarity: 3
+  - name: Damage Percentage Boost III
+    value: 0.5
+    description: '{0}% Damage Boost'
+    isBonusDamage: 1
+    isBonusGold: 0
+    amount: 0
+    rarity: 4
   - name: Gold Percentage Boost I
     value: 0.01
     description: '{0}% Gold Boost'
@@ -18808,6 +18822,27 @@ MonoBehaviour:
     isBonusGold: 1
     amount: 0
     rarity: 1
+  - name: Gold Percentage Boost III
+    value: 0.07
+    description: '{0}% Gold Boost'
+    isBonusDamage: 0
+    isBonusGold: 1
+    amount: 0
+    rarity: 2
+  - name: Gold Percentage Boost IV
+    value: 0.1
+    description: '{0}% Gold Boost'
+    isBonusDamage: 0
+    isBonusGold: 1
+    amount: 0
+    rarity: 3
+  - name: Gold Percentage Boost V
+    value: 0.15
+    description: '{0}% Gold Boost'
+    isBonusDamage: 0
+    isBonusGold: 1
+    amount: 0
+    rarity: 4
 --- !u!1 &895447968
 GameObject:
   m_ObjectHideFlags: 0
@@ -22183,7 +22218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: efbb38bb127cc924c947b102652c510c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bf68d64a0d589944b747f782c89f1b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -30103,7 +30138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 83c8878fb08d4ff489b8c1e7fd462d75, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2acb3a5bfcad734bbe9d284fd5dc311, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

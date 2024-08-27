@@ -268,9 +268,9 @@ public class BonusSystem : MonoBehaviour
         string _bonusText = "";
     
         if (_bonusDamage != 0)
-            _bonusText += $"Bonus Gold: {_bonusGold * 100}%\n";
+            _bonusText += $"Bonus Damage: {UISystem.Instance.NumberFormat(_bonusDamage * 100)}%\n";
         if (_bonusGold != 0)
-            _bonusText += $"Bonus Damage: {_bonusDamage * 100}%\n";
+            _bonusText += $"Bonus Gold: {UISystem.Instance.NumberFormat(_bonusGold * 100)}%\n";
     
         bonusText.text = _bonusText;
         bonusTextPanel.SetActive(true);

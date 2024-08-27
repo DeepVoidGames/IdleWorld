@@ -1,3 +1,11 @@
+# 0.5.5.4
+
+- Add
+  - Card rarity
+- Fix
+  - Card drop rate
+  - Card stats display
+
 # 0.5.5.3
 
 - Fix
