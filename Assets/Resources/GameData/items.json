@@ -287,7 +287,7 @@
       "category": 2,
       "rarity": 4,
       "icon": {},
-      "baseDamage": 7500.0
+      "baseDamage": 9000.0
     },
     {
       "Name": "Agate",
@@ -325,7 +325,7 @@
       "category": 2,
       "rarity": 3,
       "icon": {},
-      "baseDamage": 10000.0
+      "baseDamage": 7000.0
     },
     {
       "Name": "Jadeite Sword",

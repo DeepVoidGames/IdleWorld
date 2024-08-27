@@ -2,6 +2,9 @@
 
 - Add
   - Card rarity
+- Balans changes
+  - Weapon damage
+  - Cards
 - Fix
   - Card drop rate
   - Card stats display
