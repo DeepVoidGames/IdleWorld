@@ -102,6 +102,66 @@ public class SaveSystem : MonoBehaviour
 
     public void Load()
     {   
+        // Load inventory data
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "inventory.json")))
+        {   
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "inventory.json"));
+            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(json);
+            if (inventoryData.inventoryData != null)
+            {
+                InventorySystem.Instance.SetInventory(inventoryData.inventoryData);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Inventory file not found: " + Path.Combine(Application.persistentDataPath, "inventory.json"));
+        }
+    
+        // Load hero data
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "heroes.json")))
+        {
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "heroes.json"));
+            HeroData heroData = JsonUtility.FromJson<HeroData>(json);
+            if (heroData.heroes != null)
+            {
+                for (int i = 0; i < heroData.heroes.Count; i++)
+                {
+                    Hero hero = TavernSystem.Instance.heroes.Find(x => x.name == heroData.heroes[i].name);
+                    if (hero == null)
+                    {
+                        Debug.LogWarning("Hero not found: " + heroData.heroes[i].name);
+                        continue;
+                    }
+                    hero.level = heroData.heroes[i].level;
+                    hero.isUnlocked = heroData.heroes[i].isUnlocked;
+
+                    if (hero.isUnlocked)
+                    {
+                        TavernSystem.Instance.SpawnHero(i);
+                    }
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Heroes file not found: " + Path.Combine(Application.persistentDataPath, "heroes.json"));
+        }
+
+        // Load Upgrades
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "upgrades.json")))
+        {
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "upgrades.json"));
+            Upgrades upgrades = JsonUtility.FromJson<Upgrades>(json);
+            if (upgrades.upgrades != null)
+            {
+                UpgradingSystem.Instance.SetUpgrades(upgrades.upgrades);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Upgrades file not found: " + Path.Combine(Application.persistentDataPath, "upgrades.json"));
+        }
+    
         // Load game data
         if (File.Exists(saveFilePath))
         {
@@ -194,65 +254,6 @@ public class SaveSystem : MonoBehaviour
             Debug.LogWarning("Save file not found: " + saveFilePath);
         }
 
-        // Load inventory data
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "inventory.json")))
-        {   
-            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "inventory.json"));
-            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(json);
-            if (inventoryData.inventoryData != null)
-            {
-                InventorySystem.Instance.SetInventory(inventoryData.inventoryData);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Inventory file not found: " + Path.Combine(Application.persistentDataPath, "inventory.json"));
-        }
-    
-        // Load hero data
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "heroes.json")))
-        {
-            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "heroes.json"));
-            HeroData heroData = JsonUtility.FromJson<HeroData>(json);
-            if (heroData.heroes != null)
-            {
-                for (int i = 0; i < heroData.heroes.Count; i++)
-                {
-                    Hero hero = TavernSystem.Instance.heroes.Find(x => x.name == heroData.heroes[i].name);
-                    if (hero == null)
-                    {
-                        Debug.LogWarning("Hero not found: " + heroData.heroes[i].name);
-                        continue;
-                    }
-                    hero.level = heroData.heroes[i].level;
-                    hero.isUnlocked = heroData.heroes[i].isUnlocked;
-
-                    if (hero.isUnlocked)
-                    {
-                        TavernSystem.Instance.SpawnHero(i);
-                    }
-                }
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Heroes file not found: " + Path.Combine(Application.persistentDataPath, "heroes.json"));
-        }
-
-        // Load Upgrades
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "upgrades.json")))
-        {
-            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "upgrades.json"));
-            Upgrades upgrades = JsonUtility.FromJson<Upgrades>(json);
-            if (upgrades.upgrades != null)
-            {
-                UpgradingSystem.Instance.SetUpgrades(upgrades.upgrades);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Upgrades file not found: " + Path.Combine(Application.persistentDataPath, "upgrades.json"));
-        }
     }
     
     public void LoadCaves()

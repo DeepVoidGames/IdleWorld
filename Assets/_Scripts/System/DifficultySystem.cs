@@ -108,9 +108,11 @@ public class DifficultySystem : MonoBehaviour
         return dps;
     }
 
-    public double GetIdleReward()
+    public double GetIdleReward(float value = 0)
     {
         double health = BiomeSystem.Instance.Bioms.Find(x => x.Name == BiomeSystem.Instance.CurrentBiome).Monsters[0].Health;
+        if (value != 0)
+            return health + (health * _difficultyMultiplier) * value;
         return health + (health * _difficultyMultiplier) * IdleSystem.Instance.IdleTime / 60 / 60;
     }
 

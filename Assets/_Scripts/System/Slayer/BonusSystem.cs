@@ -217,6 +217,7 @@ public class BonusSystem : MonoBehaviour
     private void SetCard(GameObject card, string title, string description, int rarityIndex)
     {
         Text titleText = card.transform.Find("CardData").Find("Title").GetComponent<Text>();
+        titleText.color = UISystem.Instance.GetRarityColor((Items.Rarity)rarityIndex);
         Text descriptionText = card.transform.Find("CardData").Find("Description").GetComponent<Text>();
 
         if(titleText == null || descriptionText == null)

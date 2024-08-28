@@ -1,7 +1,17 @@
+# 0.5.5.5
+
+- Add
+  - Card title color by rarity
+- Fix
+  - Crafting chance display
+- Balans changes
+  - Mining upgrades rebalance
+
 # 0.5.5.4
 
 - Add
   - Card rarity
+  - New biome
 - Balans changes
   - Weapon damage
   - Cards

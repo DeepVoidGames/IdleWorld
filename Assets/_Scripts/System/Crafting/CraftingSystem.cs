@@ -138,24 +138,57 @@ public class CraftingSystem : MonoBehaviour
     }
     
     private void UpdateChancePanel(CraftingRecipe recipe)
-    {       
-            foreach (var panel in chancePanels)
+    {
+        // Ukryj wszystkie panele szans
+        foreach (var panel in chancePanels)
+        {
+            panel.SetActive(false);
+        }
+
+        // Zmienna pomocnicza do przechowywania szansy na niewytworzenie poprzednich przedmiotów
+        float remainingProbability = 1.0f;
+        float[] chances = new float[recipe.itemsToCraft.Count];
+
+        // Przejdź przez wszystkie przedmioty i oblicz szanse
+        for (int i = 0; i < recipe.itemsToCraft.Count; i++)
+        {
+            if (i == 0)
             {
-                panel.SetActive(false);
+                // Dla pierwszego przedmiotu, szansa jest 1 - (szansa na wytworzenie każdego z kolejnych przedmiotów)
+                chances[i] = recipe.itemsToCraft[i].chance;
+            }
+            else
+            {
+                // Szansa na wytworzenie bieżącego przedmiotu, uwzględniając prawdopodobieństwo niewytworzenia poprzednich
+                chances[i] = recipe.itemsToCraft[i].chance * remainingProbability;
             }
 
-            for (int i = 0; i < recipe.itemsToCraft.Count; i++)
-            {
-                chancePanels[i].SetActive(true);
-                chancePanels[i].transform.GetChild(0).GetComponent<Text>().text = $"{recipe.itemsToCraft[i].chance * 100}%";
-                chancePanels[i].GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIconByName(recipe.itemsToCraft[i].itemName);
-                
-                if(!InventorySystem.Instance.IsItemInInventory(recipe.itemsToCraft[i].itemName))
-                    chancePanels[i].GetComponent<Image>().color = new Color(0f, 0f, 0f, 1);
-                else
-                    chancePanels[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 1);
-            }
+            // Aktualizuj remainingProbability
+            remainingProbability *= (1 - recipe.itemsToCraft[i].chance);
+        }
+
+        // Aktualizuj panele szans
+        for (int i = 0; i < recipe.itemsToCraft.Count; i++)
+        {
+            // Aktywuj panel dla danego przedmiotu
+            chancePanels[i].SetActive(true);
+
+            // Ustaw tekst z procentową szansą
+            chancePanels[i].transform.GetChild(0).GetComponent<Text>().text = $"{chances[i] * 100:F2}%";
+
+            // Ustaw ikonę przedmiotu
+            chancePanels[i].GetComponent<Image>().sprite = ItemSystem.Instance.GetItemIconByName(recipe.itemsToCraft[i].itemName);
+
+            // Zmień kolor ikony w zależności od tego, czy przedmiot jest w ekwipunku
+            if (!InventorySystem.Instance.IsItemInInventory(recipe.itemsToCraft[i].itemName))
+                chancePanels[i].GetComponent<Image>().color = new Color(0f, 0f, 0f, 1); // Czarne tło, jeśli brak w ekwipunku
+            else
+                chancePanels[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 1); // Białe tło, jeśli jest w ekwipunku
+        }
     }
+
+
+
     public void SetCraftSlot(Items item)
     {
         CraftSlot = item;
@@ -165,6 +198,7 @@ public class CraftingSystem : MonoBehaviour
         if (recipe != null)  
             UpdateChancePanel(recipe);
     }
+
     public void SetCraftingCollection(List<CraftingRecipe> craftingRecipes)
     {
         CraftingRecipes = craftingRecipes;

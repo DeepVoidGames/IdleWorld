@@ -337,6 +337,9 @@ public class UpgradingSystem : MonoBehaviour
 
     public float GetBonus(string name, float baseDamage)
     {
+        //! 
+        float bonusMultiplier = 0.1f;
+
         Upgrade upgrade = Upgrades.Find(x => x.itemName == name);
         Items item = ItemSystem.Instance.GetItemByName(name);
 
@@ -348,17 +351,17 @@ public class UpgradingSystem : MonoBehaviour
         if (item.baseDamage != 0)
         {
             if (baseDamage > 0 && upgrade.divineLevel <= 0)
-                return baseDamage * (0.1f * upgrade.level);
+                return baseDamage * (bonusMultiplier * upgrade.level);
             else if (baseDamage > 0 && (upgrade.divineLevel <= upgrade.maxDivineLevel))
-                return baseDamage * (0.1f * (upgrade.maxLevel * upgrade.divineLevel + upgrade.level));
+                return baseDamage * (bonusMultiplier * (upgrade.maxLevel * upgrade.divineLevel + upgrade.level));
         }
 
         if (item.baseMiningEfficiency != 0)
         {
-            if (upgrade.divineLevel <= 0)
-                return item.baseMiningEfficiency * (0.1f * upgrade.level);
-            else if (upgrade.divineLevel <= upgrade.maxDivineLevel)
-                return item.baseMiningEfficiency * (0.1f * (upgrade.maxLevel * upgrade.divineLevel + upgrade.level));
+            if(baseDamage > 0 && upgrade.divineLevel <= 0)
+                return baseDamage * (bonusMultiplier * upgrade.level);
+            else if (baseDamage > 0 && (upgrade.divineLevel <= upgrade.maxDivineLevel))
+                return baseDamage * (bonusMultiplier * (upgrade.maxLevel * upgrade.divineLevel + upgrade.level));
         }
 
         return 0;
