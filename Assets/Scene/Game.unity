@@ -32737,14 +32737,8 @@ MonoBehaviour:
   costRate: 10
   resourceName: Rock
   useGold: 0
-  isDamageUpgrade: 0
-  damageBoostPercentage: 0
-  isMiningEfficiencyUpgrade: 0
-  miningEfficiencyBoostPercentage: 0
-  isMiningDropRateUpgrade: 0
-  miningDropRateBoostMultiplier: 0
-  isMiningEfficiencyUpgradeBase: 1
-  miningEfficiencyBoostBase: 20
+  boostValue: 15
+  upgradeType: 3
   UpgradePanel: {fileID: 1360155428}
 --- !u!114 &1731839518
 MonoBehaviour:
@@ -32760,19 +32754,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Resources Drop Rate I
   level: 0
-  maxLevel: 25
+  maxLevel: 20
   baseCost: 1000
   costRate: 10
   resourceName: Ruby
   useGold: 0
-  isDamageUpgrade: 0
-  damageBoostPercentage: 0
-  isMiningEfficiencyUpgrade: 0
-  miningEfficiencyBoostPercentage: 0
-  isMiningDropRateUpgrade: 1
-  miningDropRateBoostMultiplier: 0.5
-  isMiningEfficiencyUpgradeBase: 0
-  miningEfficiencyBoostBase: 0
+  boostValue: 0.5
+  upgradeType: 4
   UpgradePanel: {fileID: 123838501}
 --- !u!114 &1731839519
 MonoBehaviour:
@@ -32788,19 +32776,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Mining Efficiency Upgrades I
   level: 0
-  maxLevel: 1000
+  maxLevel: 1500
   baseCost: 1000
   costRate: 10
   resourceName: 
   useGold: 1
-  isDamageUpgrade: 0
-  damageBoostPercentage: 0
-  isMiningEfficiencyUpgrade: 0
-  miningEfficiencyBoostPercentage: 0
-  isMiningDropRateUpgrade: 0
-  miningDropRateBoostMultiplier: 0
-  isMiningEfficiencyUpgradeBase: 1
-  miningEfficiencyBoostBase: 10
+  boostValue: 10
+  upgradeType: 3
   UpgradePanel: {fileID: 599136713}
 --- !u!114 &1731839520
 MonoBehaviour:
@@ -32821,14 +32803,8 @@ MonoBehaviour:
   costRate: 30
   resourceName: Amethyst
   useGold: 0
-  isDamageUpgrade: 0
-  damageBoostPercentage: 0
-  isMiningEfficiencyUpgrade: 1
-  miningEfficiencyBoostPercentage: 0.1
-  isMiningDropRateUpgrade: 0
-  miningDropRateBoostMultiplier: 0
-  isMiningEfficiencyUpgradeBase: 0
-  miningEfficiencyBoostBase: 0
+  boostValue: 0.1
+  upgradeType: 2
   UpgradePanel: {fileID: 2123883366}
 --- !u!114 &1731839521
 MonoBehaviour:
@@ -32844,19 +32820,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Mining Efficiency Upgrades III
   level: 0
-  maxLevel: 50
+  maxLevel: 100
   baseCost: 100000
   costRate: 5
   resourceName: Aquamarine
   useGold: 0
-  isDamageUpgrade: 0
-  damageBoostPercentage: 0
-  isMiningEfficiencyUpgrade: 0
-  miningEfficiencyBoostPercentage: 0
-  isMiningDropRateUpgrade: 0
-  miningDropRateBoostMultiplier: 0
-  isMiningEfficiencyUpgradeBase: 1
-  miningEfficiencyBoostBase: 50
+  boostValue: 25
+  upgradeType: 3
   UpgradePanel: {fileID: 1113655962}
 --- !u!114 &1731839522
 MonoBehaviour:
@@ -32872,19 +32842,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Mining Efficiency Upgrades IV
   level: 0
-  maxLevel: 50
+  maxLevel: 100
   baseCost: 1000000
   costRate: 25
   resourceName: Calcite
   useGold: 0
-  isDamageUpgrade: 0
-  damageBoostPercentage: 0
-  isMiningEfficiencyUpgrade: 0
-  miningEfficiencyBoostPercentage: 0
-  isMiningDropRateUpgrade: 0
-  miningDropRateBoostMultiplier: 0
-  isMiningEfficiencyUpgradeBase: 1
-  miningEfficiencyBoostBase: 100
+  boostValue: 45
+  upgradeType: 3
   UpgradePanel: {fileID: 1448091309}
 --- !u!114 &1731839523
 MonoBehaviour:
@@ -32900,19 +32864,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Damage Boost Percentage I
   level: 0
-  maxLevel: 100
+  maxLevel: 50
   baseCost: 1000000
   costRate: 10
   resourceName: Red Diamond
   useGold: 0
-  isDamageUpgrade: 1
-  damageBoostPercentage: 0.025
-  isMiningEfficiencyUpgrade: 0
-  miningEfficiencyBoostPercentage: 0
-  isMiningDropRateUpgrade: 0
-  miningDropRateBoostMultiplier: 0
-  isMiningEfficiencyUpgradeBase: 0
-  miningEfficiencyBoostBase: 0
+  boostValue: 0.01
+  upgradeType: 0
   UpgradePanel: {fileID: 1989276632}
 --- !u!114 &1731839524
 MonoBehaviour:
@@ -32928,19 +32886,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Mining Efficiency Upgrades V
   level: 0
-  maxLevel: 50
+  maxLevel: 100
   baseCost: 10000000
   costRate: 30
   resourceName: Eudialyte
   useGold: 0
-  isDamageUpgrade: 0
-  damageBoostPercentage: 0
-  isMiningEfficiencyUpgrade: 0
-  miningEfficiencyBoostPercentage: 0
-  isMiningDropRateUpgrade: 0
-  miningDropRateBoostMultiplier: 0
-  isMiningEfficiencyUpgradeBase: 1
-  miningEfficiencyBoostBase: 150
+  boostValue: 65
+  upgradeType: 3
   UpgradePanel: {fileID: 1731376802}
 --- !u!114 &1731839525
 MonoBehaviour:
@@ -32956,19 +32908,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Damage Boost Percentage II
   level: 0
-  maxLevel: 100
+  maxLevel: 50
   baseCost: 1000000
   costRate: 15
   resourceName: Hematite
   useGold: 0
-  isDamageUpgrade: 1
-  damageBoostPercentage: 0.05
-  isMiningEfficiencyUpgrade: 0
-  miningEfficiencyBoostPercentage: 0
-  isMiningDropRateUpgrade: 0
-  miningDropRateBoostMultiplier: 0
-  isMiningEfficiencyUpgradeBase: 0
-  miningEfficiencyBoostBase: 0
+  boostValue: 0.01
+  upgradeType: 0
   UpgradePanel: {fileID: 226039595}
 --- !u!1 &1739700866
 GameObject:

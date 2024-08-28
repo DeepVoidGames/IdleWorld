@@ -4,6 +4,7 @@
   - Card title color by rarity
 - Fix
   - Crafting chance display
+  - Cave upgrade double click
 - Balans changes
   - Mining upgrades rebalance
 

@@ -23,11 +23,11 @@ public class CraftingRecipe
 }
 
 public enum CraftingType
-    {
-        None,
-        Weapon,
-        Tools,
-    }
+{
+    None,
+    Weapon,
+    Tools,
+}
 
 public class CraftingRecipesWrapper
 {

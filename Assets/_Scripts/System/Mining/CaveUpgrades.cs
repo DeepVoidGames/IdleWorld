@@ -11,27 +11,22 @@ public class CaveUpgrades : MonoBehaviour
     [SerializeField] private int level;
     [SerializeField] private int maxLevel;
     [SerializeField] private double baseCost;
+    private double cost;
     [SerializeField] private double costRate;
     [SerializeField] private string resourceName;
     [SerializeField] private bool useGold;
-    private double cost;
+    [SerializeField] private double boostValue;
 
+    [SerializeField] private UpgradeType upgradeType;
+    private enum UpgradeType
+    {
+        DamagePercentage,
+        DamageBase,
+        MiningEfficiencyPercentage,
+        MiningEfficiencyBase,
+        MiningDropRateMultiplier,
+    }
 
-    [Header("Damage Upgrade")]
-    [SerializeField] private bool isDamageUpgrade;
-    [SerializeField] private double damageBoostPercentage;
-
-    [Header("Resource Upgrade")]
-    [SerializeField] private bool isMiningEfficiencyUpgrade;
-    [SerializeField] private double miningEfficiencyBoostPercentage;
-
-    [Header("Mining Drop Rate Upgrade")]
-    [SerializeField] private bool isMiningDropRateUpgrade;
-    [SerializeField] private double miningDropRateBoostMultiplier;
-
-    [Header("Mining Efficiency Upgrade Base")]
-    [SerializeField] private bool isMiningEfficiencyUpgradeBase;
-    [SerializeField] private double miningEfficiencyBoostBase;
 
     [Header("UI")]
     [SerializeField] private GameObject UpgradePanel;
@@ -64,8 +59,6 @@ public class CaveUpgrades : MonoBehaviour
         if (BuyButton != null)
         {
             BuyButton.onClick.RemoveAllListeners();
-            BuyButton.onClick.AddListener(BuyUpgrade);
-
             EventTrigger trigger = BuyButton.GetComponent<EventTrigger>();
             if (trigger == null)
             {
@@ -94,44 +87,44 @@ public class CaveUpgrades : MonoBehaviour
 
     private void BonusText()
     {
-        if (isDamageUpgrade)
+        if (upgradeType == UpgradeType.DamagePercentage)
         {
             if (level > 0)
             {
-                Bonus.text = "Damage: " + (damageBoostPercentage * level) * 100 + "%";
+                Bonus.text = "Damage: " + (boostValue * level) * 100 + "%";
             }
             else
             {
                 Bonus.text = "Damage: 0%";
             }
         }
-        else if (isMiningEfficiencyUpgrade)
+        else if (upgradeType == UpgradeType.MiningEfficiencyPercentage)
         {
             if (level > 0)
             {
-                Bonus.text = "Mining Efficiency: " + (miningEfficiencyBoostPercentage * level) * 100 + "%";
+                Bonus.text = "Mining Efficiency: " + (boostValue * level) * 100 + "%";
             }
             else
             {
                 Bonus.text = "Mining Efficiency: 0%";
             }
         }
-        else if (isMiningDropRateUpgrade)
+        else if (upgradeType == UpgradeType.MiningDropRateMultiplier)
         {
             if (level > 0)
             {
-                Bonus.text = "Ore Drop Rate Multiplier: " + miningDropRateBoostMultiplier * level + "";
+                Bonus.text = "Ore Drop Rate Multiplier: " + boostValue * level + "";
             }
             else
             {
                 Bonus.text = "Ore Drop Rate Multiplier: 0";
             }
         }
-        else if (isMiningEfficiencyUpgradeBase)
+        else if (upgradeType == UpgradeType.MiningEfficiencyBase)
         {
             if (level > 0)
             {
-                Bonus.text = "Mining Efficiency: " + miningEfficiencyBoostBase * level;
+                Bonus.text = "Mining Efficiency: " + boostValue * level;
             }
             else
             {
@@ -185,21 +178,21 @@ public class CaveUpgrades : MonoBehaviour
             cost = CalculateCost(); 
         }
         
-        if(isDamageUpgrade)
+        if(upgradeType == UpgradeType.DamagePercentage)
         {
-            DifficultySystem.Instance.AddDamagePercentage(damageBoostPercentage * level);
+            DifficultySystem.Instance.AddDamagePercentage(boostValue * level);
         }
-        if (isMiningEfficiencyUpgrade)
+        if (upgradeType == UpgradeType.MiningEfficiencyPercentage)
         {
-            DifficultySystem.Instance.AddMiningEfficiencyPercentage(miningEfficiencyBoostPercentage * level);
+            DifficultySystem.Instance.AddMiningEfficiencyPercentage(boostValue * level);
         }
-        if (isMiningDropRateUpgrade)
+        if (upgradeType == UpgradeType.MiningDropRateMultiplier)
         {
-            DifficultySystem.Instance.AddMiningDropRateMultiplier(miningDropRateBoostMultiplier * level);
+            DifficultySystem.Instance.AddMiningDropRateMultiplier(boostValue * level);
         }
-        if (isMiningEfficiencyUpgradeBase)
+        if (upgradeType == UpgradeType.MiningEfficiencyBase)
         {
-            DifficultySystem.Instance.MiningBonusMiningEfficiency += miningEfficiencyBoostBase * level;
+            DifficultySystem.Instance.MiningBonusMiningEfficiency += boostValue * level;
         }
         UIUpdate();
     }
@@ -232,27 +225,23 @@ public class CaveUpgrades : MonoBehaviour
 
         level++;
         cost = CalculateCost();
-        if (isDamageUpgrade)
+        if (upgradeType == UpgradeType.DamagePercentage)
         {
-            DifficultySystem.Instance.AddDamagePercentage(damageBoostPercentage);
-            BonusText();    
+            DifficultySystem.Instance.AddDamagePercentage(boostValue);  
         }
-        else if (isMiningEfficiencyUpgrade)
+        else if (upgradeType == UpgradeType.MiningEfficiencyPercentage)
         {
-            DifficultySystem.Instance.AddMiningEfficiencyPercentage(miningEfficiencyBoostPercentage);
-            BonusText();
+            DifficultySystem.Instance.AddMiningEfficiencyPercentage(boostValue);
         }
-        else if (isMiningDropRateUpgrade)
+        else if (upgradeType == UpgradeType.MiningDropRateMultiplier)
         {
-            DifficultySystem.Instance.AddMiningDropRateMultiplier(miningDropRateBoostMultiplier);
-            BonusText();
+            DifficultySystem.Instance.AddMiningDropRateMultiplier(boostValue);
         }
-        else if (isMiningEfficiencyUpgradeBase)
+        else if (upgradeType == UpgradeType.MiningEfficiencyBase)
         {
-            DifficultySystem.Instance.MiningBonusMiningEfficiency += miningEfficiencyBoostBase;
-            BonusText();
+            DifficultySystem.Instance.MiningBonusMiningEfficiency += boostValue;
         }
-        
+        BonusText();
         UIUpdate();
         PlayerPrefs.SetInt("CaveUpgradeLevel-" + resourceName, level);
     }
@@ -275,7 +264,7 @@ public class CaveUpgrades : MonoBehaviour
     {
         float waitTime = 0.2f; // Initial wait time
         float minWaitTime = 0.1f; // Minimum wait time
-        float speedUpFactor = 0.125f; // Factor to speed up the upgrade
+        float speedUpFactor = 0.01f; // Factor to speed up the upgrade
 
         while (true)
         {
