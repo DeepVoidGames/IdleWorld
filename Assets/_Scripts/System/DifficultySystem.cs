@@ -76,6 +76,12 @@ public class DifficultySystem : MonoBehaviour
         UISystem.Instance.UpdateStatsText();
     }
 
+    public void RemoveMiningEfficiencyPercentage(double value)
+    {
+        miningEfficiencyPercentage -= value;
+        UISystem.Instance.UpdateMiningUI();
+        UISystem.Instance.UpdateStatsText();
+    }
 
     public void AddMiningDropRateMultiplier(double value)
     {

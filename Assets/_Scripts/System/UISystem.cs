@@ -58,6 +58,10 @@ public class UISystem : MonoBehaviour {
     [Header("Stats UI")]
     [SerializeField] private Text statsText;
 
+    [Header("Potions System UI")]
+    [SerializeField] private Text potionText;
+    [SerializeField] private Image potionIcon;
+
     public void UpdateLevelText()
     {
         levelText.text = String.Format("Slayer Level: {0}", NumberFormatInt(LevelSystem.Instance.Level));
@@ -86,13 +90,6 @@ public class UISystem : MonoBehaviour {
         miningEfficiencyText.text = String.Format("Efficiency: {0}", NumberFormat(MiningSystem.Instance.MiningEfficiency));
     }
 
-    public void LoadUI()
-    {
-        UpdateLevelText();
-        UpdateGoldText();
-        UpdateMiningUI();
-    }
-
     public void UpdateStatsText()
     {
         statsText.text = 
@@ -101,6 +98,29 @@ public class UISystem : MonoBehaviour {
                         $"Mining Efficiency bonus: + {NumberFormat(DifficultySystem.Instance.MiningBonusMiningEfficiency)}\n"+
                         $"Mining Efficiency bonus: {NumberFormat(DifficultySystem.Instance.MiningEfficiencyPercentage*100)}%\n"+
                         $"Mining Drop Rate: {DifficultySystem.Instance.MiningDropRateMultiplier}\n";
+    }
+
+    public void UpdatePotionUI()
+    {
+        if (PotionsSystem.Instance.currentPotion != null)
+        {
+            potionText.text = $"{(PotionsSystem.Instance.Timer / 60).ToString("F1")}m";
+            potionIcon.sprite = ItemSystem.Instance.GetItemIcon(PotionsSystem.Instance.currentPotion.id);
+            potionIcon.gameObject.SetActive(true);
+        }
+        else
+        {
+            potionText.text = "";
+            potionIcon.gameObject.SetActive(false);
+            potionIcon.sprite = null;
+        }
+    }
+
+    public void LoadUI()
+    {
+        UpdateLevelText();
+        UpdateGoldText();
+        UpdateMiningUI();
     }
 
     public string NumberFormat(double number)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,6 +34,18 @@ public class Items
     public float miningEfficiency 
     {
         get => baseMiningEfficiency + UpgradingSystem.Instance.GetBonus(Name, baseMiningEfficiency);
+    }
+
+    //Potions
+    public string description;
+    public PotionType potionType;
+    public float potionValue;
+    public float potionDuration;
+    public enum PotionType
+    {
+        Damage,
+        Gold,
+        MiningEfficiency
     }
 
 }
@@ -92,9 +105,16 @@ public class ItemSystem : MonoBehaviour
                 item.icon = Resources.Load<Sprite>("Sprites/Icons/Weapons/" + item.Name);
             else if (item.category == InventorySystem.Category.Tools)
                 item.icon = Resources.Load<Sprite>("Sprites/Icons/Tools/" + item.Name);
+            else if (item.category == InventorySystem.Category.Potion)
+                item.icon = Resources.Load<Sprite>("Sprites/Icons/Potions/" + item.Name);
             ItemsCollection.Add(item);
         }
         _items.Clear();
+    }
+
+    public Items GetItem(int id)
+    {
+        return ItemsCollection.Find(x => x.id == id);
     }
 
     private void Start() {

@@ -1,6 +1,8 @@
 # 0.5.5.5
 
 - Add
+  - Potion system
+    - 2 new potions
   - Card title color by rarity
 - Fix
   - Crafting chance display
