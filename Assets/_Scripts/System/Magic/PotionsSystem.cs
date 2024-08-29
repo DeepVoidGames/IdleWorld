@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // TODO Load/Save Current Potion
 
@@ -19,13 +20,22 @@ public class PotionsSystem : MonoBehaviour
         }
     }
 
+    [Header("Potion Cooldown")]
     [SerializeField] private float getPotionCooldown = 1800f;
     [SerializeField] private bool isPotionCooldown = false;
-    private float _potionCooldownTimer;
-
+    
+    [Header("Potion")]
     public Items currentPotion;
-    private float _timer;
+
+    [Header("Potion Timer")]
+    [SerializeField] private float _timer;
     public float Timer { get => _timer; }
+
+    [Header("Potion Cooldown Timer")]
+    [SerializeField] private float _potionCooldownTimer;
+
+    [Header("UI")]
+    [SerializeField] private Button getPotionButton;
 
     public void GetRandomPotion()
     {
@@ -39,13 +49,19 @@ public class PotionsSystem : MonoBehaviour
     private IEnumerator GetPotionCooldown()
     {
         isPotionCooldown = true;
-        _potionCooldownTimer = getPotionCooldown;
+        if (_potionCooldownTimer <= 0)
+            _potionCooldownTimer = getPotionCooldown;
         while (_potionCooldownTimer > 0)
         {
             _potionCooldownTimer -= Time.deltaTime;
+            getPotionButton.interactable = false;
+            getPotionButton.GetComponentInChildren<Text>().text = $"Cooldown {(int)_potionCooldownTimer / 60}m";
             yield return null;
         }
+        getPotionButton.interactable = true;
+        getPotionButton.GetComponentInChildren<Text>().text = "Get Potion";
         isPotionCooldown = false;
+        yield return null;
     }
 
     public void UsePotion(Items item)
@@ -94,6 +110,9 @@ public class PotionsSystem : MonoBehaviour
             DifficultySystem.Instance.RemoveMiningEfficiencyPercentage(currentPotion.potionValue);
         }
         currentPotion = null;
+        PlayerPrefs.DeleteKey("PotionID");
+        PlayerPrefs.DeleteKey("PotionDuration");
+        UISystem.Instance.UpdatePotionUI();
     }
 
     private void LoadPotion()
@@ -101,16 +120,29 @@ public class PotionsSystem : MonoBehaviour
         if (PlayerPrefs.HasKey("PotionID"))
         {
             currentPotion = ItemSystem.Instance.GetItem(PlayerPrefs.GetInt("PotionID"));
-            currentPotion.potionDuration = PlayerPrefs.GetFloat("PotionDuration");
+            _timer = PlayerPrefs.GetFloat("PotionDuration");
             AddPotionBonus();
+        }
+
+        if (PlayerPrefs.HasKey("PotionCooldown"))
+        {
+            _potionCooldownTimer = PlayerPrefs.GetFloat("PotionCooldown");
+            if (_potionCooldownTimer > 0)
+            {
+                StartCoroutine(GetPotionCooldown());
+            }
         }
     }
 
     private void SavePotion()
     {
+        if (isPotionCooldown)
+            PlayerPrefs.SetFloat("PotionCooldown", _potionCooldownTimer);
+        else 
+            PlayerPrefs.DeleteKey("PotionCooldown");
         if (currentPotion == null)
             return;
-        if (currentPotion.potionDuration <= 0)
+        if (_timer <= 0)
         {
             RemovePotionBonus();
             return;
@@ -121,7 +153,8 @@ public class PotionsSystem : MonoBehaviour
 
     private IEnumerator PotionDuration()
     {
-        _timer = currentPotion.potionDuration;
+        if (_timer <= 0)
+            _timer = currentPotion.potionDuration;
         while (_timer > 0)
         {
             _timer -= Time.deltaTime;
@@ -129,6 +162,7 @@ public class PotionsSystem : MonoBehaviour
             yield return null;
         }
         RemovePotionBonus();
+        yield return null;
     }
 
     private void Start() 

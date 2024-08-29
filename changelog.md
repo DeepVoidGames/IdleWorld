@@ -2,7 +2,7 @@
 
 - Add
   - Potion system
-    - 2 new potions
+    - 3 new potions
   - Card title color by rarity
   - Mana system
 - Fix

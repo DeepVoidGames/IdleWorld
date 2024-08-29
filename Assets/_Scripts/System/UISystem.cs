@@ -102,6 +102,7 @@ public class UISystem : MonoBehaviour {
 
     public void UpdatePotionUI()
     {
+        // Check if there is a potion active
         if (PotionsSystem.Instance.currentPotion != null)
         {
             potionText.text = $"{(PotionsSystem.Instance.Timer / 60).ToString("F1")}m";

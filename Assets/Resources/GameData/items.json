@@ -365,7 +365,7 @@
       "icon": {},
       "description": "A potion that increases your mining efficiency by {0}% for {1} minutes.\nAmount: {2}",
       "potionType": 2,
-      "potionValue": 0.5,
+      "potionValue": 1,
       "potionDuration": 360
     }
   ]
