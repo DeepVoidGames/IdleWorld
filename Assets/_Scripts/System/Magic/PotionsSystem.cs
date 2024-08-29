@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// TODO Load/Save Current Potion
-
 public class PotionsSystem : MonoBehaviour
 {
     private static PotionsSystem _instance;
@@ -41,8 +39,35 @@ public class PotionsSystem : MonoBehaviour
     {
         if (isPotionCooldown)
             return;
+        // Common - 70% | Uncommon - 20% | Rare - 7% | Epic - 2% | Legendary - 1%
         List<Items> potions = ItemSystem.Instance.ItemsCollection.FindAll(x => x.category == InventorySystem.Category.Potion);
-        InventorySystem.Instance.AddItem(potions[Random.Range(0, potions.Count)].id, 1);
+        Items potion;        
+        float rarity = UnityEngine.Random.Range(0f, 100f);
+        if (rarity < 70)
+        {
+            potion = potions.FindAll(x => x.rarity == Items.Rarity.Common)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Common).Count)];
+        }
+        else if (rarity < 90)
+        {
+            potion = potions.FindAll(x => x.rarity == Items.Rarity.Uncommon)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Uncommon).Count)];
+        }
+        else if (rarity < 97)
+        {
+            potion = potions.FindAll(x => x.rarity == Items.Rarity.Rare)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Rare).Count)];
+        }
+        else if (rarity < 99)
+        {
+            potion = potions.FindAll(x => x.rarity == Items.Rarity.Epic)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Epic).Count)];
+        }
+        else if (rarity < 99.9)
+        {
+            potion = potions.FindAll(x => x.rarity == Items.Rarity.Legendary)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Legendary).Count)];
+        }
+        else
+        {
+            potion = potions.FindAll(x => x.rarity == Items.Rarity.Mythical)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Mythical).Count)];
+        }
+        
         StartCoroutine(GetPotionCooldown());
     }
 

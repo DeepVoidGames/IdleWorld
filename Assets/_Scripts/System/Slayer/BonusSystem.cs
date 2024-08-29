@@ -110,7 +110,7 @@ public class BonusSystem : MonoBehaviour
 
     private Bonus GetRandomBonus()
     {
-        int rarity = RandomValue(0, 100);
+        float rarity = UnityEngine.Random.Range(0f, 100f);
         if (rarity < 70)
         {
             List<Bonus> commonBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Common);

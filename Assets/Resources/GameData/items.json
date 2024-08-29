@@ -339,7 +339,7 @@
       "Name": "Chaos Potion",
       "id": 42,
       "category": 4,
-      "rarity": 2,
+      "rarity": 1,
       "icon": {},
       "description": "A potion that increases your damage by {0}% for {1} minutes.\nAmount: {2}",
       "potionType": 0,
@@ -350,7 +350,7 @@
       "Name": "Gold Potion",
       "id": 43,
       "category": 4,
-      "rarity": 2,
+      "rarity": 3,
       "icon": {},
       "description": "A potion that increases your gold gain by {0}% for {1} minutes.\nAmount: {2}",
       "potionType": 1,
@@ -367,6 +367,17 @@
       "potionType": 2,
       "potionValue": 1,
       "potionDuration": 360
+    },
+    {
+      "Name": "Mining Maniac Potion",
+      "id": 45,
+      "category": 4,
+      "rarity": 4,
+      "icon": {},
+      "description": "A potion that increases your mining efficiency by {0}% for {1} minutes.\nAmount: {2}",
+      "potionType": 2,
+      "potionValue": 2.5,
+      "potionDuration": 3600
     }
   ]
 }
