@@ -1,9 +1,10 @@
-# 0.5.5.5
+# 0.5.6.0
 
 - Add
   - Potion system
     - 2 new potions
   - Card title color by rarity
+  - Mana system
 - Fix
   - Crafting chance display
   - Cave upgrade double click

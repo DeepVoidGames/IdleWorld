@@ -71,14 +71,13 @@ public class IdleSystem : MonoBehaviour
     private void Start()
     {
         idleTime = PlayerPrefs.GetFloat("IdleTime", 0);
+        idleChestTime = PlayerPrefs.GetFloat("IdleChestTime", 0);
         string lastExitTime = PlayerPrefs.GetString("LastExitTime", System.DateTime.Now.ToString());
         System.DateTime lastExit = System.DateTime.Parse(lastExitTime);
         System.TimeSpan timeSpan = System.DateTime.Now - lastExit;
         idleTime += (float)timeSpan.TotalSeconds;
+        idleChestTime += (float)timeSpan.TotalSeconds;
 
-        // If idle time is greater than min idle time, show the chest
-        if (idleTime > 0)
-            idleChestTime = idleTime;
         UIUpdate();
         StartCoroutine(Idle());
         GetIdleReward();
@@ -87,6 +86,17 @@ public class IdleSystem : MonoBehaviour
     private void OnApplicationQuit() 
     {
         PlayerPrefs.SetFloat("IdleTime", idleTime);
+        PlayerPrefs.SetFloat("IdleChestTime", idleChestTime);
         PlayerPrefs.SetString("LastExitTime", System.DateTime.Now.ToString());
+    }
+
+    private void OnApplicationPause(bool pauseStatus) 
+    {
+        if (pauseStatus)
+        {
+            PlayerPrefs.SetFloat("IdleTime", idleTime);
+            PlayerPrefs.SetFloat("IdleChestTime", idleChestTime);
+            PlayerPrefs.SetString("LastExitTime", System.DateTime.Now.ToString());
+        }
     }
 }

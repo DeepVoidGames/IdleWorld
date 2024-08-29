@@ -27,7 +27,7 @@ public class ManaSystem : MonoBehaviour
 
     private void UIUpdate()
     {
-        textMana.text = "Mana: " + mana;
+        textMana.text = $"Mana: {UISystem.Instance.NumberFormat(mana)}";
     }
 
     public void AddMana(double value)
