@@ -98,6 +98,16 @@ public class SaveSystem : MonoBehaviour
         };
         json = JsonUtility.ToJson(upgrades, true);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, "upgrades.json"), json);
+
+        // Save magic data
+        MagicData magicData = new MagicData
+        {
+            manaData = ManaSystem.Instance.GetMana(),
+            manaPerHourData = ManaSystem.Instance.GetManaPerHour()
+        };
+        json = JsonUtility.ToJson(magicData, true);
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, "magic.json"), json);
+
     }
 
     public void Load()
@@ -254,6 +264,24 @@ public class SaveSystem : MonoBehaviour
             Debug.LogWarning("Save file not found: " + saveFilePath);
         }
 
+        // Load magic data
+        if (File.Exists(Path.Combine(Application.persistentDataPath, "magic.json")))
+        {
+            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "magic.json"));
+            MagicData magicData = JsonUtility.FromJson<MagicData>(json);
+            if (magicData.manaData != 0)
+            {
+                ManaSystem.Instance.AddMana(magicData.manaData);
+            }
+            if (magicData.manaPerHourData != 0)
+            {
+                ManaSystem.Instance.SetManaPerHour(magicData.manaPerHourData);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Magic file not found: " + Path.Combine(Application.persistentDataPath, "magic.json"));
+        }
     }
     
     public void LoadCaves()
@@ -350,6 +378,12 @@ public class CavesData
 public class Upgrades
 {
     public List<Upgrade> upgrades;
+}
+
+public class MagicData
+{
+    public double manaData;
+    public double manaPerHourData;
 }
 
 public class LoadGameData : MonoBehaviour

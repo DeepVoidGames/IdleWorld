@@ -22268,6 +22268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleTime: 0
   minIdleTime: 300
+  idleChestTime: 0
   textIdleTime: {fileID: 1363442364}
   chestObject: {fileID: 4441164}
 --- !u!1 &1096380152
@@ -29891,7 +29892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1528843531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34700,6 +34701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1787014978}
   - component: {fileID: 1787014979}
+  - component: {fileID: 1787014980}
   m_Layer: 0
   m_Name: _PotionsSystem
   m_TagString: Untagged
@@ -34749,6 +34751,21 @@ MonoBehaviour:
     potionType: 0
     potionValue: 0
     potionDuration: 0
+--- !u!114 &1787014980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787014977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e72f2d71d6e244bb83cb1d81af0b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mana: 0
+  manaPerHour: 10
+  textMana: {fileID: 1374625842}
 --- !u!1 &1787702731
 GameObject:
   m_ObjectHideFlags: 0

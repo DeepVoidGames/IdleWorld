@@ -115,12 +115,8 @@ public class PotionsSystem : MonoBehaviour
             RemovePotionBonus();
             return;
         }
-
-        if (PlayerPrefs.HasKey("PotionID"))
-        {
-            PlayerPrefs.SetInt("PotionID", currentPotion.id);
-            PlayerPrefs.SetFloat("PotionDuration", currentPotion.potionDuration);
-        }
+        PlayerPrefs.SetInt("PotionID", currentPotion.id);
+        PlayerPrefs.SetFloat("PotionDuration", _timer);
     }
 
     private IEnumerator PotionDuration()
