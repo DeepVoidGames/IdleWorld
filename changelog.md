@@ -5,6 +5,7 @@
     - 3 new potions
   - Card title color by rarity
   - Mana system
+  - Auto crafting system
 - Fix
   - Crafting chance display
   - Cave upgrade double click

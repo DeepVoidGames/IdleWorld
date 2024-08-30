@@ -60,6 +60,7 @@ public class CraftingSystem : MonoBehaviour
     [SerializeField] private Image craftSlotImage;
     [SerializeField] private GameObject categoryPanel;
     [SerializeField] private Button craftButton;
+    [SerializeField] private Button autoCraftButton;
     [SerializeField] private List<GameObject> chancePanels = new List<GameObject>();
 
     [Header("Crafting")]
@@ -106,10 +107,12 @@ public class CraftingSystem : MonoBehaviour
         {
             isAutoCrafting = false;
             craftButton.interactable = true;
+            autoCraftButton.GetComponentInChildren<Text>().text = "Auto Crafting";
             return;
         }
         isAutoCrafting = true;
         craftButton.interactable = false;
+        autoCraftButton.GetComponentInChildren<Text>().text = "Stop Auto Crafting";
         StartCoroutine(AutoCraftCoroutine());
     }
 
@@ -239,5 +242,6 @@ public class CraftingSystem : MonoBehaviour
             Craft();
             yield return new WaitForSeconds(.15f);
         }
+        yield return null;
     }
 }
