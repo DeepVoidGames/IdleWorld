@@ -66,6 +66,7 @@ public class CraftingSystem : MonoBehaviour
     public Items CraftSlot;
     [SerializeField] private CraftingType currentCraftingType;
     private bool isCrafting = false;
+    private bool isAutoCrafting = false;
 
     public void Craft()
     {
@@ -99,6 +100,19 @@ public class CraftingSystem : MonoBehaviour
         UpdateChancePanel(recipe);
     }
 
+    public void AutoCraft()
+    {   
+        if (isAutoCrafting)
+        {
+            isAutoCrafting = false;
+            craftButton.interactable = true;
+            return;
+        }
+        isAutoCrafting = true;
+        craftButton.interactable = false;
+        StartCoroutine(AutoCraftCoroutine());
+    }
+
     private void ClearChancePanels()
     {
         foreach (var panel in chancePanels)
@@ -126,10 +140,12 @@ public class CraftingSystem : MonoBehaviour
     
     public void OpenCategoryPanel()
     {
+        isAutoCrafting = false;
         categoryPanel.SetActive(true);
     }
     public void SetCraftingType(int type)
     {
+        isAutoCrafting = false;
         currentCraftingType = (CraftingType)type;
         CraftSlot = null;
         craftSlotImage.sprite = null;
@@ -188,11 +204,11 @@ public class CraftingSystem : MonoBehaviour
     }
 
 
-
     public void SetCraftSlot(Items item)
     {
         CraftSlot = item;
         craftSlotImage.sprite = item.icon;
+        isAutoCrafting = false;
 
         CraftingRecipe recipe = CraftingRecipes.Find(x => x.materialName == item.Name && x.craftingType == currentCraftingType);
         if (recipe != null)  
@@ -214,5 +230,14 @@ public class CraftingSystem : MonoBehaviour
         yield return new WaitForSeconds(.25f);
         isCrafting = false;
         craftButton.interactable = true;
+    }
+
+    private IEnumerator AutoCraftCoroutine()
+    {
+        while (isAutoCrafting)
+        {
+            Craft();
+            yield return new WaitForSeconds(.15f);
+        }
     }
 }
