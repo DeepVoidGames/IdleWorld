@@ -9,11 +9,13 @@
   - Card title color by rarity
   - Mana system
   - Auto crafting system
+  - Mining upgrade
 - Fix
   - Crafting chance display
   - Cave upgrade double click
 - Balans changes
   - Mining upgrades rebalance
+  - Monster HP rebalance
 
 # 0.5.5.4
 

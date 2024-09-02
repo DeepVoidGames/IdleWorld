@@ -25,6 +25,7 @@ public class CaveUpgrades : MonoBehaviour
         MiningEfficiencyPercentage,
         MiningEfficiencyBase,
         MiningDropRateMultiplier,
+        HealthBoost
     }
 
 
@@ -194,6 +195,10 @@ public class CaveUpgrades : MonoBehaviour
         {
             DifficultySystem.Instance.MiningBonusMiningEfficiency += boostValue * level;
         }
+        if (upgradeType == UpgradeType.HealthBoost)
+        {
+            HealthSystem.Instance.AddHealthBoost(boostValue * level);
+        }
         UIUpdate();
     }
 
@@ -240,6 +245,10 @@ public class CaveUpgrades : MonoBehaviour
         else if (upgradeType == UpgradeType.MiningEfficiencyBase)
         {
             DifficultySystem.Instance.MiningBonusMiningEfficiency += boostValue;
+        }
+        else if (upgradeType == UpgradeType.HealthBoost)
+        {
+            HealthSystem.Instance.AddHealthBoost(boostValue);
         }
         BonusText();
         UIUpdate();

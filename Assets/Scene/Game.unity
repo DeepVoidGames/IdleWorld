@@ -14785,6 +14785,117 @@ Transform:
   - {fileID: 366354945}
   m_Father: {fileID: 1426123158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &545835002
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1520862421}
+    m_Modifications:
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1441.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.50006104
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -309
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166181575988136468, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_Name
+      value: Mining Upgrade #10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185924571136866658, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8bf68d64a0d589944b747f782c89f1b4, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+--- !u!224 &545835003 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1553303917782821284, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+  m_PrefabInstance: {fileID: 545835002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &545835004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5166181575988136468, guid: abdb4e263314d3c40b6f5ebda8d6dc87, type: 3}
+  m_PrefabInstance: {fileID: 545835002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &553203045
 GameObject:
   m_ObjectHideFlags: 0
@@ -31375,6 +31486,7 @@ RectTransform:
   - {fileID: 1989276631}
   - {fileID: 1731376803}
   - {fileID: 226039594}
+  - {fileID: 545835003}
   m_Father: {fileID: 1921569387}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -33424,7 +33536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1649664429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35624,6 +35736,7 @@ GameObject:
   - component: {fileID: 1731839523}
   - component: {fileID: 1731839524}
   - component: {fileID: 1731839525}
+  - component: {fileID: 1731839526}
   m_Layer: 0
   m_Name: _CaveUpgrades
   m_TagString: Untagged
@@ -35844,6 +35957,28 @@ MonoBehaviour:
   boostValue: 0.01
   upgradeType: 0
   UpgradePanel: {fileID: 226039595}
+--- !u!114 &1731839526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731839515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644dbb9a7c69394409d04d9f0036081b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: Health Boost
+  level: 0
+  maxLevel: 50
+  baseCost: 1000000
+  costRate: 15
+  resourceName: Jadeite
+  useGold: 0
+  boostValue: 5
+  upgradeType: 5
+  UpgradePanel: {fileID: 545835004}
 --- !u!1 &1739700866
 GameObject:
   m_ObjectHideFlags: 0
@@ -36508,7 +36643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1787702732
 RectTransform:
   m_ObjectHideFlags: 0
