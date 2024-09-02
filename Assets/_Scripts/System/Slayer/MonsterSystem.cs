@@ -7,12 +7,21 @@ public class Monster
 {
     public string Name;
     public double BaseHealth;
+    public double BaseDamage;
 
     public double Health
     {
         get
         {
             return DifficultySystem.Instance.GetMonsterHealth(BaseHealth);
+        }
+    }
+
+    public double Damage
+    {
+        get
+        {
+            return DifficultySystem.Instance.GetMobsDamage(BaseDamage);
         }
     }
 
@@ -132,6 +141,8 @@ public class MonsterSystem : MonoBehaviour
         if (isSpawning)
             return;        
         if (pauseSpawning)
+            return;
+        if (HealthSystem.Instance.IsDead)
             return;
         if(currentMonster != null)
         {

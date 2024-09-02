@@ -21,6 +21,11 @@ public class FloatingMessage : MonoBehaviour
         _image.sprite = sprite;
     }
 
+    public void SetColor(UnityEngine.Color color)
+    {
+        _text.color = color;
+    }
+
     private void Start() {
         _rb.velocity = new Vector2(Random.Range(-InitialXVelocityRange, InitialXVelocityRange), InintialYVelocity);
         Destroy(gameObject, LifeTime);

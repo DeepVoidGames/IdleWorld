@@ -21,11 +21,14 @@ public class LevelSystem : MonoBehaviour
         }
     }
 
+    [Header("Level System")]
     [SerializeField] private int level = 1;
     [SerializeField] private int levelToNextBiome = 10;
+    [Header("Stage System")]
     [SerializeField] private int stage = 1;
-    [SerializeField] private int maxStage = 10;
+    [SerializeField] private int maxStage = 100;
 
+    [Header("Prestige System")]
     [SerializeField] private int prestigeLevel = 0;
     [SerializeField] private int baseLevelToPrestige = 100;
     [SerializeField] private int levelToPrestige = 100;
@@ -103,7 +106,7 @@ public class LevelSystem : MonoBehaviour
             }
             stage = 1;
             BiomeSystem.Instance.SetCurrentBiome(BiomeSystem.Instance.Bioms[0].Name);
-            BonusSystem.Instance.RestartBonus();
+            BonusSystem.Instance.RestartBonuses();
             return;
         }
         else 
@@ -111,8 +114,16 @@ public class LevelSystem : MonoBehaviour
             return;
         }
 
-        BonusSystem.Instance.RestartBonus();
+        BonusSystem.Instance.RestartBonuses();
         levelToPrestige = baseLevelToPrestige + baseLevelToPrestige * prestigeLevel;
+        UISystem.Instance.UpdateLevelText();
+    }
+
+    public void RestetSlayer()
+    {
+        level = 1;
+        stage = 1;
+        BiomeSystem.Instance.SetCurrentBiome(BiomeSystem.Instance.Bioms[0].Name);
         UISystem.Instance.UpdateLevelText();
     }
 
@@ -126,5 +137,4 @@ public class LevelSystem : MonoBehaviour
         if (prestigeLevel != 0)
             levelToPrestige = baseLevelToPrestige + baseLevelToPrestige * prestigeLevel;
     }
-
 }

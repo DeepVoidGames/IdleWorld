@@ -21,13 +21,11 @@ public class DamageSystem : MonoBehaviour
         }
     }
 
+    [Header("Damage System")]
     [SerializeField] private double damage;
-
-    [SerializeField] private bool isWeaponEquipped;
-
-    private Items weapon;
-
-    private float _timerDPS;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float criticalChance;
+    [SerializeField] private double criticalDamage;
 
     public double Damage
     {
@@ -35,11 +33,35 @@ public class DamageSystem : MonoBehaviour
         set => damage = value;
     }
 
+    public float AttackSpeed
+    {
+        get => attackSpeed;
+        set => attackSpeed = value;
+    }
+
+    public float CriticalChance
+    {
+        get => criticalChance;
+        set => criticalChance = value;
+    }
+
+    public double CriticalDamage
+    {
+        get => criticalDamage;
+        set => criticalDamage = value;
+    }
+
+    [Header("Weapon System")]
+    [SerializeField] private bool isWeaponEquipped;
+
     public bool IsWeaponEquipped
     {
         get => isWeaponEquipped;
         set => isWeaponEquipped = value;
     }
+    private Items weapon;
+
+    private float _timerDPS;
 
     public void EquipWeapon(Items weapon)
     {
@@ -71,7 +93,7 @@ public class DamageSystem : MonoBehaviour
         if (dps > 0)
         {
             if (MonsterSystem.Instance.CurrentMonster != null)
-                MonsterSystem.Instance.CurrentMonster.GetComponent<MonsterObject>().TakeDamage(dps);
+                MonsterSystem.Instance.CurrentMonster.GetComponent<MonsterObject>().TakeDamage(dps, new Color(1, 0.2987421f, 0.9054203f, 1));
            else if (BossSystem.Instance.CurrentBoss != null)
                 BossSystem.Instance.BossObject.TakeDamage(dps);
         }

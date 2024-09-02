@@ -11,8 +11,13 @@ public class Bonus
     public double value;
     public string description;
 
-    public bool isBonusDamage;
-    public bool isBonusGold;
+    public Type type;
+    public enum Type
+    {
+        DamagePercentage,
+        GoldPercentage,
+        HealthBoost,
+    }
 
     public double amount;
 
@@ -26,8 +31,8 @@ public class Bonus
         Legendary,
         Mythical,
     }
-
 }
+
 // Common 70% Uncommon 20% Rare 7% Epic 2% Legendary 0.9% Mythical 0.1%
 public class BonusSystem : MonoBehaviour 
 {
@@ -57,9 +62,6 @@ public class BonusSystem : MonoBehaviour
     [SerializeField] private List<Sprite> bonusImagesCards;
     [SerializeField] private Sprite backImageCard;
 
-    private double _bonusDamage;
-    private double _bonusGold;
-
     [Header("Bonuses Cards")]
     [SerializeField] private GameObject firstCard;
     [SerializeField] private GameObject secondCard;
@@ -67,11 +69,14 @@ public class BonusSystem : MonoBehaviour
     [Header("Bonuses")]
     public List<Bonus> bonuses = new List<Bonus>();
 
-
-    private int RandomValue(int min, int max)
+    private void Start()
     {
-        int value = UnityEngine.Random.Range(min, max);
-        return value;
+        LoadBonuses();
+    }
+
+    private int GetRandomValue(int min, int max)
+    {
+        return UnityEngine.Random.Range(min, max);
     }
 
     public void ShowBonus()
@@ -80,166 +85,139 @@ public class BonusSystem : MonoBehaviour
         MonsterSystem.Instance.DestroyMonster();
         bonusPanel.SetActive(true);
 
-        if(bonuses.Count == 0)
+        if (bonuses.Count < 2)
         {
-            Debug.LogError("Bonuses is empty");
-            return;
-        }
-
-        if(bonuses.Count < 2)
-        {
-            Debug.LogError("Bonuses is less than 2");
+            Debug.LogError("Not enough bonuses to display.");
             return;
         }
 
         Bonus firstBonus = GetRandomBonus();
         Bonus secondBonus = GetRandomBonus();
 
-        SetCard(firstCard, firstBonus.name, String.Format(firstBonus.description, firstBonus.value * 100), (int)firstBonus.rarity);
-        SetCard(secondCard, secondBonus.name, String.Format(secondBonus.description, secondBonus.value * 100), (int)secondBonus.rarity);
+        SetCard(firstCard, firstBonus);
+        SetCard(secondCard, secondBonus);
         
         if (SettingsSystem.Instance.AutomaticCardSelection)
         {
-            //TODO If rarity was implemented, choose the card with the highest rarity
-            if (firstBonus.value > secondBonus.value)
-                ChooseBonus(firstBonus.name);
-            else
-                ChooseBonus(secondBonus.name);
+            ChooseBonus(firstBonus.value > secondBonus.value ? firstBonus.name : secondBonus.name);
         }
     }
 
     private Bonus GetRandomBonus()
     {
         float rarity = UnityEngine.Random.Range(0f, 100f);
-        if (rarity < 70)
+        List<Bonus> selectedBonuses = rarity switch
         {
-            List<Bonus> commonBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Common);
-            return commonBonuses[RandomValue(0, commonBonuses.Count)];
-        }
-        else if (rarity < 90)
-        {
-            List<Bonus> uncommonBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Uncommon);
-            return uncommonBonuses[RandomValue(0, uncommonBonuses.Count)];
-        }
-        else if (rarity < 97)
-        {
-            List<Bonus> rareBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Rare);
-            return rareBonuses[RandomValue(0, rareBonuses.Count)];
-        }
-        else if (rarity < 99)
-        {
-            List<Bonus> epicBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Epic);
-            return epicBonuses[RandomValue(0, epicBonuses.Count)];
-        }
-        else if (rarity < 99.9)
-        {
-            List<Bonus> legendaryBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Legendary);
-            return legendaryBonuses[RandomValue(0, legendaryBonuses.Count)];
-        }
-        else
-        {
-            List<Bonus> mythicalBonuses = bonuses.FindAll(x => x.rarity == Bonus.Rarity.Mythical);
-            return mythicalBonuses[RandomValue(0, mythicalBonuses.Count)];
-        }
+            < 70 => bonuses.FindAll(x => x.rarity == Bonus.Rarity.Common),
+            < 90 => bonuses.FindAll(x => x.rarity == Bonus.Rarity.Uncommon),
+            < 97 => bonuses.FindAll(x => x.rarity == Bonus.Rarity.Rare),
+            < 99 => bonuses.FindAll(x => x.rarity == Bonus.Rarity.Epic),
+            < 99.9f => bonuses.FindAll(x => x.rarity == Bonus.Rarity.Legendary),
+            _ => bonuses.FindAll(x => x.rarity == Bonus.Rarity.Mythical),
+        };
+
+        return selectedBonuses[GetRandomValue(0, selectedBonuses.Count)];
     }
 
     private void ChooseBonus(string name)
     {
         Bonus bonus = bonuses.Find(x => x.name == name);
-        if(bonus == null)
+        if (bonus == null)
         {
-            Debug.LogError("Bonus is null");
+            Debug.LogError("Bonus not found.");
             return;
         }
-        bonuses.Find(x => x.name == name).amount++;
 
-        if(PlayerPrefs.HasKey(name))
-            PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name) + 1);
-        else
-            PlayerPrefs.SetInt(name, 1);
+        bonus.amount++;
+        PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name, 0) + 1);
 
-        if(bonus.isBonusDamage)
-        {
-            DifficultySystem.Instance.AddDamagePercentage(bonus.value);
-            _bonusDamage += bonus.value;
-        }
-
-        if(bonus.isBonusGold)
-        {
-            DifficultySystem.Instance.GoldBonus += bonus.value;
-            _bonusGold += bonus.value;
-        }
-
+        ApplyBonusEffect(bonus);
         UpdateBonusText();
         CloseCard();
     }
 
-    public void RestartBonus()
+    private void ApplyBonusEffect(Bonus bonus, double amount = 1)
     {
-        _bonusDamage = 0;
+        switch (bonus.type)
+        {
+            case Bonus.Type.DamagePercentage:
+                DifficultySystem.Instance.AddDamagePercentage(amount);
+                break;
+            case Bonus.Type.GoldPercentage:
+                DifficultySystem.Instance.GoldBonus += amount;
+                break;
+            case Bonus.Type.HealthBoost:
+                HealthSystem.Instance.AddHealthBoost(amount);
+                break;
+        }
+    }
 
-        foreach(Bonus bonus in bonuses)
+    public void RestartBonuses()
+    {
+        foreach (Bonus bonus in bonuses)
         {
             PlayerPrefs.DeleteKey(bonus.name);
-            if(bonus.isBonusDamage)
-                DifficultySystem.Instance.RemoveDamagePercentage(bonus.amount * bonus.value);
+            RemoveBonusEffect(bonus);
             bonus.amount = 0;
         }
 
         UpdateBonusText();
     }
 
-    private void LoadBonus()
+    private void RemoveBonusEffect(Bonus bonus)
     {
-        foreach(Bonus bonus in bonuses)
+        switch (bonus.type)
         {
-            if(PlayerPrefs.HasKey(bonus.name))
+            case Bonus.Type.DamagePercentage:
+                DifficultySystem.Instance.RemoveDamagePercentage((bonus.amount / 100) * bonus.value);
+                break;
+            case Bonus.Type.GoldPercentage:
+                DifficultySystem.Instance.GoldBonus -= (bonus.amount / 100) * bonus.value;
+                break;
+            case Bonus.Type.HealthBoost:
+                HealthSystem.Instance.RemoveHealthBoost(bonus.amount * bonus.value);
+                break;
+        }
+    }
+
+    private void LoadBonuses()
+    {
+        foreach (Bonus bonus in bonuses)
+        {
+            if (PlayerPrefs.HasKey(bonus.name))
             {
                 bonus.amount = PlayerPrefs.GetInt(bonus.name);
-
-                if (bonus.isBonusDamage)
-                {
-                    DifficultySystem.Instance.AddDamagePercentage(bonus.amount * bonus.value);
-                    _bonusDamage += bonus.amount * bonus.value;
-                }
-
-                if (bonus.isBonusGold)
-                {
-                    DifficultySystem.Instance.GoldBonus += bonus.amount * bonus.value;
-                    _bonusGold += bonus.amount * bonus.value;
-
-                }
+                ApplyBonusEffect(bonus, bonus.value * bonus.amount);
             }
         }
         UpdateBonusText();
     }
 
-    private void SetCard(GameObject card, string title, string description, int rarityIndex)
+    private void SetCard(GameObject card, Bonus bonus)
     {
-        Text titleText = card.transform.Find("CardData").Find("Title").GetComponent<Text>();
-        titleText.color = UISystem.Instance.GetRarityColor((Items.Rarity)rarityIndex);
-        Text descriptionText = card.transform.Find("CardData").Find("Description").GetComponent<Text>();
+        Text titleText = card.transform.Find("CardData/Title").GetComponent<Text>();
+        Text descriptionText = card.transform.Find("CardData/Description").GetComponent<Text>();
 
-        if(titleText == null || descriptionText == null)
+        if (titleText == null || descriptionText == null)
         {
-            Debug.LogError("Title or Description is null");
+            Debug.LogError("Card title or description is missing.");
             return;
         }
 
-        titleText.text = title;
-        descriptionText.text = description;
+        titleText.color = UISystem.Instance.GetRarityColor((Items.Rarity)bonus.rarity);
+        titleText.text = bonus.name;
+        descriptionText.text = string.Format(bonus.description, bonus.value);
 
-        card.GetComponent<Button>().onClick.RemoveAllListeners();
-        card.GetComponent<Button>().onClick.AddListener(() => ChooseBonus(title));
+        Button cardButton = card.GetComponent<Button>();
+        cardButton.onClick.RemoveAllListeners();
+        cardButton.onClick.AddListener(() => ChooseBonus(bonus.name));
 
-        card.GetComponent<Image>().sprite = bonusImagesCards[rarityIndex];
-        card.transform.gameObject.SetActive(true);
-        StartCoroutine(ChangeCardBackgroud(card));
-
-
+        card.GetComponent<Image>().sprite = bonusImagesCards[(int)bonus.rarity];
+        card.SetActive(true);
+        StartCoroutine(ChangeCardBackground(card));
     }
 
-    private IEnumerator ChangeCardBackgroud(GameObject card)
+    private IEnumerator ChangeCardBackground(GameObject card)
     {
         yield return new WaitForSeconds(1);
         card.GetComponent<Image>().sprite = backImageCard;
@@ -248,38 +226,47 @@ public class BonusSystem : MonoBehaviour
     private void CloseCard()
     {
         bonusPanel.SetActive(false);
-        firstCard.transform.Find("CardData").Find("Title").GetComponent<Text>().text = "";
-        firstCard.transform.Find("CardData").Find("Description").GetComponent<Text>().text = "";
-        firstCard.transform.Find("CardData").gameObject.SetActive(false);
-
-        secondCard.transform.Find("CardData").Find("Title").GetComponent<Text>().text = "";
-        secondCard.transform.Find("CardData").Find("Description").GetComponent<Text>().text = "";
-        secondCard.transform.Find("CardData").gameObject.SetActive(false);
-
+        ResetCard(firstCard);
+        ResetCard(secondCard);
         MonsterSystem.Instance.PauseSpawning = false;
+    }
+
+    private void ResetCard(GameObject card)
+    {
+        card.transform.Find("CardData/Title").GetComponent<Text>().text = "";
+        card.transform.Find("CardData/Description").GetComponent<Text>().text = "";
+        card.transform.Find("CardData").gameObject.SetActive(false);
     }
 
     private void UpdateBonusText()
     {
-        if (_bonusDamage == 0 && _bonusGold == 0)
+        bool hasActiveBonuses = false;
+        bonusText.text = "";
+
+        foreach (Bonus.Type type in Enum.GetValues(typeof(Bonus.Type)))
         {
-            bonusTextPanel.SetActive(false);
-            return;
+            double totalValue = 0;
+            foreach (Bonus bonus in bonuses)
+            {
+                if (bonus.type == type && bonus.amount > 0)
+                {
+                    hasActiveBonuses = true;
+                    totalValue += bonus.amount * bonus.value;
+                }
+            }
+
+            if (totalValue > 0)
+            {
+                bonusText.text += type switch
+                {
+                    Bonus.Type.DamagePercentage => $"\nDamage: +{totalValue * 100}%",
+                    Bonus.Type.GoldPercentage => $"\nGold: +{totalValue * 100}%",
+                    Bonus.Type.HealthBoost => $"\nHealth: +{totalValue}",
+                    _ => bonusText.text
+                };
+            }
         }
-        string _bonusText = "";
-    
-        if (_bonusDamage != 0)
-            _bonusText += $"Bonus Damage: {UISystem.Instance.NumberFormat(_bonusDamage * 100)}%\n";
-        if (_bonusGold != 0)
-            _bonusText += $"Bonus Gold: {UISystem.Instance.NumberFormat(_bonusGold * 100)}%\n";
-    
-        bonusText.text = _bonusText;
-        bonusTextPanel.SetActive(true);
-    }
 
-    private void Start()
-    {
-        LoadBonus();
+        bonusTextPanel.SetActive(hasActiveBonuses);
     }
-
 }

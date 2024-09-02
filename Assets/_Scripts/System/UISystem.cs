@@ -67,7 +67,7 @@ public class UISystem : MonoBehaviour {
         levelText.text = String.Format("Slayer Level: {0}", NumberFormatInt(LevelSystem.Instance.Level));
         stageText.text = String.Format("Stage: {0}", NumberFormatInt(LevelSystem.Instance.Stage));
         damageText.text = String.Format("Damage: {0}", NumberFormat(DamageSystem.Instance.Damage));
-        dpsText.text = String.Format("DPS: {0}/s", NumberFormat(DifficultySystem.Instance.GetDPS()));
+        dpsText.text = String.Format("Hero Damage: {0}/s", NumberFormat(DifficultySystem.Instance.GetDPS()));
 
         prestigeLevelText.text = $"Prestige Level: {NumberFormatInt(LevelSystem.Instance.PrestigeLevel)}/{NumberFormatInt(LevelSystem.Instance.MaxPrestigeLevel)}\nMonster HP x{LevelSystem.Instance.PrestigeLevel + 1}";
         prestigeRequirementText.text = $"Required Level: {NumberFormatInt(LevelSystem.Instance.LevelToPrestige)}";

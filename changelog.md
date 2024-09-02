@@ -1,5 +1,8 @@
 # 0.5.6.0
 
+- Rework
+  - Slayer System
+    - RougeLike system
 - Add
   - Potion system
     - 3 new potions

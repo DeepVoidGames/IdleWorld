@@ -6,6 +6,7 @@ public class MonsterObject : MonoBehaviour
     private string monsterName;
     private double health;
     private double maxHealth;
+    private double damage;
 
     [Header("UI Elements")]
     private Slider healthSlider;
@@ -14,6 +15,7 @@ public class MonsterObject : MonoBehaviour
     public string MonsterName { get => monsterName; set => monsterName = value;}
     public double Health { get => health; set => health = value;}
     public double MaxHealth { get => maxHealth; set => maxHealth = value;}
+    public double Damage { get => damage; set => damage = value;}
 
     private MessageSpawner _messageSpawner;
 
@@ -26,6 +28,7 @@ public class MonsterObject : MonoBehaviour
         monsterName = monster.Name;
         health = monster.Health;
         maxHealth = monster.Health;
+        damage = monster.Damage;
         UpdateHealthUI();
     }
 
@@ -36,13 +39,13 @@ public class MonsterObject : MonoBehaviour
         healthText.text = UISystem.Instance.NumberFormat(health) + " / " + UISystem.Instance.NumberFormat(maxHealth);
     }
 
-    public void TakeDamage(double damage)
+    public void TakeDamage(double damage, Color color = default(Color))
     {
         health -= damage;
         // Hit Animation
         if (hitMaterial != null)
             gameObject.GetComponent<Renderer>().material = hitMaterial;
-        _messageSpawner.SpawnMessage("-" + UISystem.Instance.NumberFormat(damage));
+        _messageSpawner.SpawnMessage("-" + UISystem.Instance.NumberFormat(damage), color: color);
         if (health <= 0)
         {
             MonsterSystem.Instance.MonsterDied();
@@ -58,10 +61,10 @@ public class MonsterObject : MonoBehaviour
         gameObject.GetComponent<Renderer>().material = defaultMaterial;
     }
 
-    private void OnMouseDown() 
-    {
-        TakeDamage(DamageSystem.Instance.Damage);
-    }
+    // private void OnMouseDown() 
+    // {
+    //     TakeDamage(DamageSystem.Instance.Damage);
+    // }
 
     private void Awake()
     {

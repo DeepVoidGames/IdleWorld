@@ -11,6 +11,7 @@ public class Content
     public Button button;
     public string textBefore;
     public bool isLocked;
+    public bool isDisabled;
     public int levelNeeded;
 }
 
@@ -42,6 +43,14 @@ public class ContentLocker : MonoBehaviour
         {
             if (contents[i].isLocked)
             {
+                if (contents[i].isDisabled)
+                {
+                    contents[i].button.interactable = false;
+                    contents[i].button.GetComponentInChildren<Text>().text = "Disabled";
+                    if (contents[i].button.transform.childCount > 1)
+                        contents[i].button.transform.GetChild(1).gameObject.SetActive(false);
+                    continue;
+                }
                 contents[i].button.interactable = false;
                 contents[i].button.GetComponentInChildren<Text>().text = "Level " + contents[i].levelNeeded + " Needed";
                 // Find game object in children of button and set it to false

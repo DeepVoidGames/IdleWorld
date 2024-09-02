@@ -6,6 +6,7 @@ public class BossObject : MonoBehaviour
     private string bossName;
     private double health;
     private double maxHealth;
+    private double damage;
     private float _timer = 0f;
 
     [Header("UI Elements")]
@@ -17,6 +18,7 @@ public class BossObject : MonoBehaviour
     public string BossName { get => bossName; set => bossName = value;}
     public double Health { get => health; set => health = value;}
     public double MaxHealth { get => maxHealth; set => maxHealth = value;}
+    public double Damage { get => damage; set => damage = value;}
 
 
     [Header("Hit Animation")]
@@ -28,6 +30,7 @@ public class BossObject : MonoBehaviour
         bossName = boss.Name;
         health = boss.Health;
         maxHealth = boss.Health;
+        damage = boss.Damage;
         UpdateHealthUI();
     }
 
@@ -60,10 +63,10 @@ public class BossObject : MonoBehaviour
         gameObject.GetComponent<Renderer>().material = defaultMaterial;
     }
 
-    private void OnMouseDown() 
-    {
-        TakeDamage(DamageSystem.Instance.Damage);
-    }
+    // private void OnMouseDown() 
+    // {
+    //     TakeDamage(DamageSystem.Instance.Damage);
+    // }
 
     private void Awake()
     {

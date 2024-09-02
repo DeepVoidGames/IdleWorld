@@ -7,12 +7,21 @@ public class Boss
 {
     public string Name;
     public double BaseHealth;
+    public double BaseDamage;
 
     public double Health
     {
         get
         {
             return DifficultySystem.Instance.GetBossHealth(BaseHealth);
+        }
+    }
+
+    public double Damage
+    {
+        get
+        {
+            return DifficultySystem.Instance.GetMobsDamage(BaseDamage);
         }
     }
 
@@ -38,6 +47,7 @@ public class BossSystem : MonoBehaviour
             return _instance;
         }
     }
+
     [SerializeField] private float maxTimeToKillBoss = 30f;
 
     public float MaxTimeToKillBoss { get => maxTimeToKillBoss;}
@@ -87,6 +97,15 @@ public class BossSystem : MonoBehaviour
         BonusSystem.Instance.ShowBonus();
     }
 
+    public void DestroyBoss()
+    {
+        if (currentBoss != null)
+        {
+            Destroy(currentBoss);
+            currentBoss = null;
+        }
+    }
+
     public void FailedToKill()
     {
         isSpawning = false;
@@ -97,7 +116,6 @@ public class BossSystem : MonoBehaviour
     {
         killEffect = GameObject.Find("KillEffect").GetComponent<ParticleSystem>();
     }
-
 
     private IEnumerator SpawnBossCoroutine()
     {

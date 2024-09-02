@@ -1064,6 +1064,55 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.0074696494}
   m_SizeDelta: {x: 0, y: 800}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &50805225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 50805226}
+  - component: {fileID: 50805227}
+  m_Layer: 0
+  m_Name: _HealthSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &50805226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50805225}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 887421180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &50805227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50805225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027718a5f8007c94aa5ee866dc939d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  healthBar: {fileID: 372672177}
+  healthText: {fileID: 1859567941}
+  gameOverScreen: {fileID: 1692433291}
 --- !u!1 &51489088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4158,26 +4207,32 @@ MonoBehaviour:
   - button: {fileID: 1040508307}
     textBefore: Mining
     isLocked: 1
+    isDisabled: 0
     levelNeeded: 2
   - button: {fileID: 1057777694}
     textBefore: Inventory
     isLocked: 1
+    isDisabled: 0
     levelNeeded: 2
   - button: {fileID: 1258552679}
     textBefore: Tavern
     isLocked: 1
+    isDisabled: 0
     levelNeeded: 5
   - button: {fileID: 1696599131}
     textBefore: Crafting
     isLocked: 1
+    isDisabled: 0
     levelNeeded: 3
   - button: {fileID: 1084803930}
     textBefore: Prestige
     isLocked: 1
+    isDisabled: 1
     levelNeeded: 100
   - button: {fileID: 404336660}
     textBefore: Magic
     isLocked: 1
+    isDisabled: 0
     levelNeeded: 10
 --- !u!1 &275186626
 GameObject:
@@ -4254,6 +4309,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275186626}
   m_CullTransparentMesh: 1
+--- !u!1 &283663818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283663819}
+  - component: {fileID: 283663820}
+  m_Layer: 0
+  m_Name: _SlayerSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &283663819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283663818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 887421180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283663820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283663818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d92c315218a52b04b8104da8a1796404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &288775463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4911,6 +5010,7 @@ MonoBehaviour:
   craftSlotImage: {fileID: 1586167199}
   categoryPanel: {fileID: 1202348486}
   craftButton: {fileID: 870553795}
+  autoCraftButton: {fileID: 0}
   chancePanels:
   - {fileID: 1387077425}
   - {fileID: 1714221647}
@@ -6066,6 +6166,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372043126}
   m_CullTransparentMesh: 1
+--- !u!1 &372672175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372672176}
+  - component: {fileID: 372672178}
+  - component: {fileID: 372672177}
+  m_Layer: 5
+  m_Name: Bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &372672176
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372672175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1409654992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 490, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &372672177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372672175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.8156863}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &372672178
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372672175}
+  m_CullTransparentMesh: 1
 --- !u!1 &382444190
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,7 +6902,7 @@ GameObject:
   - component: {fileID: 397774018}
   - component: {fileID: 397774017}
   m_Layer: 5
-  m_Name: DPSPanel
+  m_Name: HeroPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14043,7 +14218,7 @@ MonoBehaviour:
   level: 1
   levelToNextBiome: 10
   stage: 1
-  maxStage: 10
+  maxStage: 100
   prestigeLevel: 0
   baseLevelToPrestige: 100
   levelToPrestige: 100
@@ -15875,190 +16050,240 @@ MonoBehaviour:
     Monsters:
     - Name: AcidOoze
       BaseHealth: 10
+      BaseDamage: 0
       Prefab: {fileID: 5605625757201260949, guid: 24163695e81922d48b5f758a2fcedaa0, type: 3}
     - Name: DeathSlime
       BaseHealth: 20
+      BaseDamage: 0
       Prefab: {fileID: 6116359882760422250, guid: 892cde0b03dde5a4da1f526004763c85, type: 3}
     - Name: OchreJelly
       BaseHealth: 30
+      BaseDamage: 0
       Prefab: {fileID: 1635332468116575484, guid: 0d536c506f774ef4bba51c5522154acd, type: 3}
     - Name: RedCap
       BaseHealth: 50
+      BaseDamage: 0
       Prefab: {fileID: 1032740135089215750, guid: 470ba87d38d3e194faa679fe9edcb916, type: 3}
     Bosses:
     - Name: BlindedGrimlock
       BaseHealth: 150
+      BaseDamage: 0
       Prefab: {fileID: 1143826163299012661, guid: 557388cd683eec84e8c04ea4ed42f662, type: 3}
     - Name: ShriekerMushroom
       BaseHealth: 200
+      BaseDamage: 0
       Prefab: {fileID: 4939725676465597107, guid: 9d4082e6bd214d24b8bb867353edb3dd, type: 3}
   - Name: Desert
     background: {fileID: 21300000, guid: 6e0b4b59092095042814bc0ee9656606, type: 3}
     Monsters:
     - Name: BloodshotEye
       BaseHealth: 100
+      BaseDamage: 0
       Prefab: {fileID: 1994325163910846046, guid: 0f0fb9545a56ef3459b0438cf7521ab2, type: 3}
     - Name: BrawnyOgre
       BaseHealth: 150
+      BaseDamage: 0
       Prefab: {fileID: 3065844526631316754, guid: bae3d9e4ac08cb14cb7b55ca12a2c42d, type: 3}
     - Name: ClawingHarpy
       BaseHealth: 200
+      BaseDamage: 0
       Prefab: {fileID: 7003062925308794975, guid: bc5266ae6f88aea4487a829fe7644b6d, type: 3}
     - Name: CrushingCyclops
       BaseHealth: 250
+      BaseDamage: 0
       Prefab: {fileID: 2996499551396990257, guid: 68b144eef0ae6bf40a7a65f212ac5653, type: 3}
     Bosses:
     - Name: HumongousEttin
       BaseHealth: 350
+      BaseDamage: 0
       Prefab: {fileID: 7357765323304330353, guid: f25df8c72bc2ddb45a507ec0d56eb615, type: 3}
     - Name: OgreMage
       BaseHealth: 400
+      BaseDamage: 0
       Prefab: {fileID: 4823579592497624062, guid: 1b35764fa34123f44bf02329740131a7, type: 3}
   - Name: Swamp
     background: {fileID: 21300000, guid: fec5edeca8a6f7d46b4aba478c18af08, type: 3}
     Monsters:
     - Name: IntellectDevourer
       BaseHealth: 500
+      BaseDamage: 0
       Prefab: {fileID: 8946380546571504636, guid: 4b04d2c8eae1e9446be903f2cada963e, type: 3}
     - Name: OcularWatcher
       BaseHealth: 550
+      BaseDamage: 0
       Prefab: {fileID: 6845697281585091289, guid: a8a78e1e8b6e7d84cad821eba34d607e, type: 3}
     - Name: SwampTroll
       BaseHealth: 600
+      BaseDamage: 0
       Prefab: {fileID: 1243479031079880880, guid: d9a178c5acbacff4281358208504f5e6, type: 3}
     Bosses:
     - Name: RearingNightmare
       BaseHealth: 800
+      BaseDamage: 0
       Prefab: {fileID: 1422040688101171799, guid: 986059a29c4f9c249ba4488db51b05c0, type: 3}
   - Name: Underwater
     background: {fileID: 21300000, guid: 540aa2a4c2726fd468bef8de9544d611, type: 3}
     Monsters:
     - Name: MurkySlaad
       BaseHealth: 1000
+      BaseDamage: 0
       Prefab: {fileID: 4579612770682952982, guid: 0c5c52b6d0b760e4b9ee243ef6ecedcd, type: 3}
     - Name: WerewolfStalker
       BaseHealth: 1100
+      BaseDamage: 0
       Prefab: {fileID: 5225244109107209115, guid: 51236be7210c0df4d814c8e8d5f7768d, type: 3}
     - Name: WretchedFomorian
       BaseHealth: 1200
+      BaseDamage: 0
       Prefab: {fileID: 4463743954780079093, guid: 1f0bfd5c3ed1a15418846718f4d9f726, type: 3}
     Bosses:
     - Name: StormGiant
       BaseHealth: 1600
+      BaseDamage: 0
       Prefab: {fileID: 9147757862974845808, guid: 3ae2e0c9d5dcc634c84e17f32c6cd1b1, type: 3}
   - Name: Demon's Domain
     background: {fileID: 21300000, guid: 66c35ae3b32ee794585c790935ce75a8, type: 3}
     Monsters:
     - Name: CrimsonImp
       BaseHealth: 1800
+      BaseDamage: 0
       Prefab: {fileID: 2917018360386471581, guid: 19ae54ebaf47d624a84daa10869eb49d, type: 3}
     - Name: DepravedBlackguard
       BaseHealth: 1900
+      BaseDamage: 0
       Prefab: {fileID: 5828652292917365515, guid: 9b38f6d4d18243348b088c8193e5c287, type: 3}
     - Name: GrinningGremlin
       BaseHealth: 2000
+      BaseDamage: 0
       Prefab: {fileID: 3705180902447008839, guid: d5d325d731176ab448f71adc4cc5ca64, type: 3}
     - Name: TaintedScoundrel
       BaseHealth: 2100
+      BaseDamage: 0
       Prefab: {fileID: 4371980515939350387, guid: f9ee101d46949b7489c56d35acce3029, type: 3}
     Bosses:
     - Name: FloatingEye
       BaseHealth: 2500
+      BaseDamage: 0
       Prefab: {fileID: 4052145069722277387, guid: 3a53ad23dd1e7e941b26077eade6ae56, type: 3}
   - Name: Cursed Lands
     background: {fileID: 21300000, guid: 2638c3ad9bddb0b4e909aa2956b5429e, type: 3}
     Monsters:
     - Name: AntleredRascal
       BaseHealth: 3500
+      BaseDamage: 0
       Prefab: {fileID: 8263701714839687280, guid: 4bcbc9ca3b9bb984783781e4e609ec15, type: 3}
     - Name: FledglingDemon
       BaseHealth: 3600
+      BaseDamage: 0
       Prefab: {fileID: 8397073404957429359, guid: cb45b04619574f541980aa45a82a16f4, type: 3}
     - Name: NefariousScamp
       BaseHealth: 3700
+      BaseDamage: 0
       Prefab: {fileID: 5533818645641249233, guid: 11f64b94b2aab0042af5b247234dff05, type: 3}
     - Name: RascallyDemonling
       BaseHealth: 3800
+      BaseDamage: 0
       Prefab: {fileID: 9028378322496110787, guid: 4e12861bd8693c649ade16cf2124fb25, type: 3}
     Bosses:
     - Name: PitBalor
       BaseHealth: 4300
+      BaseDamage: 0
       Prefab: {fileID: 9021168319752424300, guid: 28ffe04cafae563408e32cb7dec8903f, type: 3}
   - Name: Warped Necropolis
     background: {fileID: 21300000, guid: 0b44ab34daa6fe24c8426b26d19cba1f, type: 3}
     Monsters:
     - Name: ClawedAbomination
       BaseHealth: 5200
+      BaseDamage: 0
       Prefab: {fileID: 5267381673007837842, guid: bd36336f36208b947be746a7363dd9e2, type: 3}
     - Name: FoulGouger
       BaseHealth: 5300
+      BaseDamage: 0
       Prefab: {fileID: 1148244278726695459, guid: b2a2574a645986b4588a2452750870fb, type: 3}
     - Name: PointedDemonspawn
       BaseHealth: 5400
+      BaseDamage: 0
       Prefab: {fileID: 1626843579073537269, guid: ae787b488fa0b4b43bc087b5c00268ec, type: 3}
     - Name: SkeweringStalker
       BaseHealth: 5500
+      BaseDamage: 0
       Prefab: {fileID: 8884751313965287485, guid: e7757b273508e914dab469065bbf115f, type: 3}
     Bosses:
     - Name: WarpSkull
       BaseHealth: 6500
+      BaseDamage: 0
       Prefab: {fileID: 2827552804609071616, guid: 82ba5045908d1f24ab62c809b3d6d7f3, type: 3}
   - Name: Plague Swamp
     background: {fileID: 21300000, guid: 047e5025bb8e455479503f551a7f32e3, type: 3}
     Monsters:
     - Name: LizardfolkArcher
       BaseHealth: 7500
+      BaseDamage: 0
       Prefab: {fileID: 685715002833956298, guid: 10fc1fe6a518d104d97d09da6e9ee8c3, type: 3}
     - Name: LizardfolkGladiator
       BaseHealth: 7600
+      BaseDamage: 0
       Prefab: {fileID: 8598018175428856153, guid: c104f5b158e49704e86212cba69eb154, type: 3}
     - Name: LizardfolkScout
       BaseHealth: 7700
+      BaseDamage: 0
       Prefab: {fileID: 2465037510594326294, guid: f394f434ba5c2a54ca667a8dcc20ca58, type: 3}
     - Name: LizardfolkSpearman
       BaseHealth: 7800
+      BaseDamage: 0
       Prefab: {fileID: 9103898016037783197, guid: c544aa73fc6190443b42cb7e7a9ccfa0, type: 3}
     Bosses:
     - Name: BestialLizardfolk
       BaseHealth: 8800
+      BaseDamage: 0
       Prefab: {fileID: 5503244995504385488, guid: 0893e2688032c1c40a101299e7a12aab, type: 3}
   - Name: Guardians' Bastion
     background: {fileID: 21300000, guid: a2f08237d45b9504c98c3bc7cb4cfc6a, type: 3}
     Monsters:
     - Name: GoblinArcher
       BaseHealth: 10000
+      BaseDamage: 0
       Prefab: {fileID: 6532238221119625431, guid: dd245d3af29b05143a207999d26ddbc2, type: 3}
     - Name: GoblinFanatic
       BaseHealth: 10100
+      BaseDamage: 0
       Prefab: {fileID: 4109932800695364777, guid: 87ba2e02e3020404e9bb8b375adec08f, type: 3}
     - Name: GoblinFighter
       BaseHealth: 10200
+      BaseDamage: 0
       Prefab: {fileID: 443875220844606250, guid: f27e1efeccd7db5409b80d31a5367e04, type: 3}
     - Name: GoblinOccultist
       BaseHealth: 10300
+      BaseDamage: 0
       Prefab: {fileID: 8801173693337247977, guid: 37ebd590c26d459419f41b08c91a1947, type: 3}
     Bosses:
     - Name: GoblinWolfRider
       BaseHealth: 11000
+      BaseDamage: 0
       Prefab: {fileID: 1292957297676389270, guid: ca837b684e603224fbbded308897d825, type: 3}
   - Name: Ethereal Woods
     background: {fileID: 21300000, guid: 3fd4a92c7738bba4e8b8231fd6dfc88a, type: 3}
     Monsters:
     - Name: HalflingBard
       BaseHealth: 12000
+      BaseDamage: 0
       Prefab: {fileID: 8819656374555176230, guid: 65c0698951a0f6a40b73465315bc932a, type: 3}
     - Name: HalflingRanger
       BaseHealth: 12100
+      BaseDamage: 0
       Prefab: {fileID: 5638240621764922724, guid: a85b5f8e04db5d44ebaf57d94addcf93, type: 3}
     - Name: HalflingRogue
       BaseHealth: 12200
+      BaseDamage: 0
       Prefab: {fileID: 6734714930366808196, guid: 83f88a116b7609a45880f66279b1f78a, type: 3}
     - Name: HalflingSlinger
       BaseHealth: 12300
+      BaseDamage: 0
       Prefab: {fileID: 4348217071585196378, guid: 8bd594f978be6654388b68a82c85cd69, type: 3}
     Bosses:
     - Name: HalflingAssassin
       BaseHealth: 13000
+      BaseDamage: 0
       Prefab: {fileID: 3741661429874407125, guid: e45d9a804d18ed14e9ed00147f0c31ec, type: 3}
   currentBiome: Forest
   imageBackground: {fileID: 343833222}
@@ -20172,6 +20397,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 283663819}
+  - {fileID: 50805226}
   - {fileID: 510477255}
   - {fileID: 765563899}
   - {fileID: 1599165879}
@@ -20243,66 +20470,63 @@ MonoBehaviour:
   - name: Damage Percentage Boost I
     value: 0.01
     description: '{0}% Damage Boost'
-    isBonusDamage: 1
-    isBonusGold: 0
+    type: 0
     amount: 0
     rarity: 0
   - name: Damage Percentage Boost II
     value: 0.05
     description: '{0}% Damage Boost'
-    isBonusDamage: 1
-    isBonusGold: 0
+    type: 0
     amount: 0
     rarity: 1
   - name: Damage Percentage Boost II
     value: 0.07
     description: '{0}% Damage Boost'
-    isBonusDamage: 1
-    isBonusGold: 0
+    type: 0
     amount: 0
     rarity: 3
   - name: Damage Percentage Boost III
     value: 0.1
     description: '{0}% Damage Boost'
-    isBonusDamage: 1
-    isBonusGold: 0
+    type: 0
     amount: 0
     rarity: 4
   - name: Gold Percentage Boost I
     value: 0.01
     description: '{0}% Gold Boost'
-    isBonusDamage: 0
-    isBonusGold: 1
+    type: 1
     amount: 0
     rarity: 0
   - name: Gold Percentage Boost II
     value: 0.05
     description: '{0}% Gold Boost'
-    isBonusDamage: 0
-    isBonusGold: 1
+    type: 1
     amount: 0
     rarity: 1
   - name: Gold Percentage Boost III
     value: 0.07
     description: '{0}% Gold Boost'
-    isBonusDamage: 0
-    isBonusGold: 1
+    type: 1
     amount: 0
     rarity: 2
   - name: Gold Percentage Boost IV
     value: 0.1
     description: '{0}% Gold Boost'
-    isBonusDamage: 0
-    isBonusGold: 1
+    type: 1
     amount: 0
     rarity: 3
   - name: Gold Percentage Boost V
     value: 0.15
     description: '{0}% Gold Boost'
-    isBonusDamage: 0
-    isBonusGold: 1
+    type: 1
     amount: 0
     rarity: 4
+  - name: Health Boost I
+    value: 5
+    description: +{0} Health Boost
+    type: 2
+    amount: 0
+    rarity: 1
 --- !u!1 &895447968
 GameObject:
   m_ObjectHideFlags: 0
@@ -23896,7 +24120,7 @@ GameObject:
   - component: {fileID: 1141106853}
   - component: {fileID: 1141106852}
   m_Layer: 5
-  m_Name: DPSText
+  m_Name: HeroText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28106,6 +28330,85 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000015258789, y: 245.15002}
   m_SizeDelta: {x: 649.5, y: 50.000015}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1366417755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1366417756}
+  - component: {fileID: 1366417758}
+  - component: {fileID: 1366417757}
+  m_Layer: 5
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1366417756
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366417755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1692433292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 90}
+  m_SizeDelta: {x: 565, y: 48}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1366417757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366417755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8f718247602b6ba4a9d8a3dc8c8e69ed, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 48
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: You died
+--- !u!222 &1366417758
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366417755}
+  m_CullTransparentMesh: 1
 --- !u!1 &1370456191
 GameObject:
   m_ObjectHideFlags: 0
@@ -29462,6 +29765,83 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405432456}
+  m_CullTransparentMesh: 1
+--- !u!1 &1409654991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1409654992}
+  - component: {fileID: 1409654994}
+  - component: {fileID: 1409654993}
+  m_Layer: 5
+  m_Name: HealthBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1409654992
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409654991}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 372672176}
+  - {fileID: 1859567940}
+  m_Father: {fileID: 1528843531}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -265}
+  m_SizeDelta: {x: 490, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1409654993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409654991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.33647794, b: 0.33647794, a: 0.8156863}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1409654994
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409654991}
   m_CullTransparentMesh: 1
 --- !u!1 &1415980997
 GameObject:
@@ -31114,6 +31494,8 @@ RectTransform:
   - {fileID: 2020084575}
   - {fileID: 2062982367}
   - {fileID: 675168043}
+  - {fileID: 1409654992}
+  - {fileID: 1692433292}
   m_Father: {fileID: 1608107701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -32374,6 +32756,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  attackSpeed: 0
+  criticalChance: 0
+  criticalDamage: 0
   isWeaponEquipped: 0
 --- !u!1 &1608107700
 GameObject:
@@ -34149,6 +34534,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687191236}
+  m_CullTransparentMesh: 1
+--- !u!1 &1692433291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692433292}
+  - component: {fileID: 1692433294}
+  - component: {fileID: 1692433293}
+  m_Layer: 5
+  m_Name: Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1692433292
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692433291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1366417756}
+  m_Father: {fileID: 1528843531}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1692433293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692433291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 0.9019608}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1692433294
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692433291}
   m_CullTransparentMesh: 1
 --- !u!1 &1696577890
 GameObject:
@@ -37130,6 +37591,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845101275}
   m_CullTransparentMesh: 1
+--- !u!1 &1859567939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1859567940}
+  - component: {fileID: 1859567942}
+  - component: {fileID: 1859567941}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1859567940
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859567939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1409654992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000030517578, y: 30}
+  m_SizeDelta: {x: 490, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1859567941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859567939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8f718247602b6ba4a9d8a3dc8c8e69ed, type: 3}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Health: 100/100'
+--- !u!222 &1859567942
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859567939}
+  m_CullTransparentMesh: 1
 --- !u!1 &1873965613
 GameObject:
   m_ObjectHideFlags: 0
@@ -38217,7 +38757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 18.799988}
+  m_AnchoredPosition: {x: 0, y: 18.799927}
   m_SizeDelta: {x: 0, y: -137.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1954800464
@@ -40299,7 +40839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 18.799988}
+  m_AnchoredPosition: {x: 0, y: 18.799927}
   m_SizeDelta: {x: 0, y: -137.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2095816647
