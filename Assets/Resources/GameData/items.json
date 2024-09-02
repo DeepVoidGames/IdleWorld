@@ -378,6 +378,17 @@
       "potionType": 2,
       "potionValue": 2.5,
       "potionDuration": 3600
+    },
+    {
+      "Name": "Damage Potion",
+      "id": 46,
+      "category": 4,
+      "rarity": 0,
+      "icon": {},
+      "description": "A potion that increases your damage by {0}% for {1} minutes.\nAmount: {2}",
+      "potionType": 0,
+      "potionValue": 0.25,
+      "potionDuration": 360
     }
   ]
 }

@@ -12,19 +12,19 @@
         },
         {
           "Name": "DeathSlime",
-          "BaseHealth": 20.0,
+          "BaseHealth": 50.0,
           "BaseDamage": 0.2,
           "Prefab": {}
         },
         {
           "Name": "OchreJelly",
-          "BaseHealth": 30.0,
+          "BaseHealth": 90.0,
           "BaseDamage": 0.3,
           "Prefab": {}
         },
         {
           "Name": "RedCap",
-          "BaseHealth": 50.0,
+          "BaseHealth": 140.0,
           "BaseDamage": 0.5,
           "Prefab": {}
         }
@@ -32,13 +32,13 @@
       "Bosses": [
         {
           "Name": "BlindedGrimlock",
-          "BaseHealth": 150.0,
+          "BaseHealth": 240.0,
           "BaseDamage": 1.5,
           "Prefab": {}
         },
         {
           "Name": "ShriekerMushroom",
-          "BaseHealth": 200.0,
+          "BaseHealth": 340.0,
           "BaseDamage": 2.0,
           "Prefab": {}
         }
@@ -50,25 +50,25 @@
       "Monsters": [
         {
           "Name": "BloodshotEye",
-          "BaseHealth": 100.0,
+          "BaseHealth": 500.0,
           "BaseDamage": 1.0,
           "Prefab": {}
         },
         {
           "Name": "BrawnyOgre",
-          "BaseHealth": 150.0,
+          "BaseHealth": 600.0,
           "BaseDamage": 1.5,
           "Prefab": {}
         },
         {
           "Name": "ClawingHarpy",
-          "BaseHealth": 200.0,
+          "BaseHealth": 700.0,
           "BaseDamage": 2.0,
           "Prefab": {}
         },
         {
           "Name": "CrushingCyclops",
-          "BaseHealth": 250.0,
+          "BaseHealth": 800.0,
           "BaseDamage": 2.5,
           "Prefab": {}
         }
@@ -76,13 +76,13 @@
       "Bosses": [
         {
           "Name": "HumongousEttin",
-          "BaseHealth": 350.0,
+          "BaseHealth": 1000.0,
           "BaseDamage": 3.5,
           "Prefab": {}
         },
         {
           "Name": "OgreMage",
-          "BaseHealth": 400.0,
+          "BaseHealth": 1500.0,
           "BaseDamage": 4.0,
           "Prefab": {}
         }
@@ -94,19 +94,19 @@
       "Monsters": [
         {
           "Name": "IntellectDevourer",
-          "BaseHealth": 500.0,
+          "BaseHealth": 2000.0,
           "BaseDamage": 5.0,
           "Prefab": {}
         },
         {
           "Name": "OcularWatcher",
-          "BaseHealth": 550.0,
+          "BaseHealth": 2500.0,
           "BaseDamage": 5.5,
           "Prefab": {}
         },
         {
           "Name": "SwampTroll",
-          "BaseHealth": 600.0,
+          "BaseHealth": 3000.0,
           "BaseDamage": 6.0,
           "Prefab": {}
         }
@@ -114,7 +114,7 @@
       "Bosses": [
         {
           "Name": "RearingNightmare",
-          "BaseHealth": 800.0,
+          "BaseHealth": 4000.0,
           "BaseDamage": 8.0,
           "Prefab": {}
         }
@@ -126,19 +126,19 @@
       "Monsters": [
         {
           "Name": "MurkySlaad",
-          "BaseHealth": 1000.0,
+          "BaseHealth": 5000.0,
           "BaseDamage": 10.0,
           "Prefab": {}
         },
         {
           "Name": "WerewolfStalker",
-          "BaseHealth": 1100.0,
+          "BaseHealth": 6000.0,
           "BaseDamage": 11.0,
           "Prefab": {}
         },
         {
           "Name": "WretchedFomorian",
-          "BaseHealth": 1200.0,
+          "BaseHealth": 7000.0,
           "BaseDamage": 12.0,
           "Prefab": {}
         }
@@ -146,7 +146,7 @@
       "Bosses": [
         {
           "Name": "StormGiant",
-          "BaseHealth": 1600.0,
+          "BaseHealth": 8000.0,
           "BaseDamage": 16.0,
           "Prefab": {}
         }
@@ -158,24 +158,24 @@
       "Monsters": [
         {
           "Name": "CrimsonImp",
-          "BaseHealth": 1800.0,
+          "BaseHealth": 9000.0,
           "BaseDamage": 18.0,
           "Prefab": {}
         },
         {
           "Name": "DepravedBlackguard",
-          "BaseHealth": 1900.0,
+          "BaseHealth": 10000.0,
           "BaseDamage": 19.0,
           "Prefab": {}
         },
         {
           "Name": "GrinningGremlin",
-          "BaseHealth": 2000.0,
+          "BaseHealth": 11000.0,
           "Prefab": {}
         },
         {
           "Name": "TaintedScoundrel",
-          "BaseHealth": 2100.0,
+          "BaseHealth": 12000.0,
           "BaseDamage": 21.0,
           "Prefab": {}
         }
@@ -183,7 +183,7 @@
       "Bosses": [
         {
           "Name": "FloatingEye",
-          "BaseHealth": 2500.0,
+          "BaseHealth": 13000.0,
           "BaseDamage": 25.0,
           "Prefab": {}
         }
@@ -195,25 +195,25 @@
       "Monsters": [
         {
           "Name": "AntleredRascal",
-          "BaseHealth": 3500.0,
+          "BaseHealth": 14000.0,
           "BaseDamage": 35.0,
           "Prefab": {}
         },
         {
           "Name": "FledglingDemon",
-          "BaseHealth": 3600.0,
+          "BaseHealth": 15000.0,
           "BaseDamage": 36.0,
           "Prefab": {}
         },
         {
           "Name": "NefariousScamp",
-          "BaseHealth": 3700.0,
+          "BaseHealth": 16000.0,
           "BaseDamage": 37.0,
           "Prefab": {}
         },
         {
           "Name": "RascallyDemonling",
-          "BaseHealth": 3800.0,
+          "BaseHealth": 17000.0,
           "BaseDamage": 38.0,
           "Prefab": {}
         }
@@ -221,7 +221,7 @@
       "Bosses": [
         {
           "Name": "PitBalor",
-          "BaseHealth": 4300.0,
+          "BaseHealth": 18000.0,
           "BaseDamage": 43.0,
           "Prefab": {}
         }
@@ -233,25 +233,25 @@
       "Monsters": [
         {
           "Name": "ClawedAbomination",
-          "BaseHealth": 5200.0,
+          "BaseHealth": 19000.0,
           "BaseDamage": 52.0,
           "Prefab": {}
         },
         {
           "Name": "FoulGouger",
-          "BaseHealth": 5300.0,
+          "BaseHealth": 20000.0,
           "BaseDamage": 53.0,
           "Prefab": {}
         },
         {
           "Name": "PointedDemonspawn",
-          "BaseHealth": 5400.0,
+          "BaseHealth": 21000.0,
           "BaseDamage": 54.0,
           "Prefab": {}
         },
         {
           "Name": "SkeweringStalker",
-          "BaseHealth": 5500.0,
+          "BaseHealth": 22000.0,
           "BaseDamage": 55.0,
           "Prefab": {}
         }
@@ -259,7 +259,7 @@
       "Bosses": [
         {
           "Name": "WarpSkull",
-          "BaseHealth": 6500.0,
+          "BaseHealth": 23000.0,
           "BaseDamage": 65.0,
           "Prefab": {}
         }
@@ -271,25 +271,25 @@
       "Monsters": [
         {
           "Name": "LizardfolkArcher",
-          "BaseHealth": 7500.0,
+          "BaseHealth": 24000.0,
           "BaseDamage": 75.0,
           "Prefab": {}
         },
         {
           "Name": "LizardfolkGladiator",
-          "BaseHealth": 7600.0,
+          "BaseHealth": 25000.0,
           "BaseDamage": 76.0,
           "Prefab": {}
         },
         {
           "Name": "LizardfolkScout",
-          "BaseHealth": 7700.0,
+          "BaseHealth": 26000.0,
           "BaseDamage": 77.0,
           "Prefab": {}
         },
         {
           "Name": "LizardfolkSpearman",
-          "BaseHealth": 7800.0,
+          "BaseHealth": 27000.0,
           "BaseDamage": 78.0,
           "Prefab": {}
         }
@@ -297,7 +297,7 @@
       "Bosses": [
         {
           "Name": "BestialLizardfolk",
-          "BaseHealth": 8800.0,
+          "BaseHealth": 28000.0,
           "BaseDamage": 88.0,
           "Prefab": {}
         }
@@ -309,25 +309,25 @@
       "Monsters": [
         {
           "Name": "GoblinArcher",
-          "BaseHealth": 10000.0,
+          "BaseHealth": 29000.0,
           "BaseDamage": 100.0,
           "Prefab": {}
         },
         {
           "Name": "GoblinFanatic",
-          "BaseHealth": 10100.0,
+          "BaseHealth": 30000.0,
           "BaseDamage": 101.0,
           "Prefab": {}
         },
         {
           "Name": "GoblinFighter",
-          "BaseHealth": 10200.0,
+          "BaseHealth": 31000.0,
           "BaseDamage": 102.0,
           "Prefab": {}
         },
         {
           "Name": "GoblinOccultist",
-          "BaseHealth": 10300.0,
+          "BaseHealth": 32000.0,
           "BaseDamage": 103.0,
           "Prefab": {}
         }
@@ -335,7 +335,7 @@
       "Bosses": [
         {
           "Name": "GoblinWolfRider",
-          "BaseHealth": 11000.0,
+          "BaseHealth": 33000.0,
           "BaseDamage": 110.0,
           "Prefab": {}
         }
@@ -347,25 +347,25 @@
       "Monsters": [
         {
           "Name": "HalflingBard",
-          "BaseHealth": 12000.0,
+          "BaseHealth": 34000.0,
           "BaseDamage": 120.0,
           "Prefab": {}
         },
         {
           "Name": "HalflingRanger",
-          "BaseHealth": 12100.0,
+          "BaseHealth": 35000.0,
           "BaseDamage": 121.0,
           "Prefab": {}
         },
         {
           "Name": "HalflingRogue",
-          "BaseHealth": 12200.0,
+          "BaseHealth": 36000.0,
           "BaseDamage": 122.0,
           "Prefab": {}
         },
         {
           "Name": "HalflingSlinger",
-          "BaseHealth": 12300.0,
+          "BaseHealth": 37000.0,
           "BaseDamage": 123.0,
           "Prefab": {}
         }
@@ -373,7 +373,7 @@
       "Bosses": [
         {
           "Name": "HalflingAssassin",
-          "BaseHealth": 13000.0,
+          "BaseHealth": 38000.0,
           "BaseDamage": 130.0,
           "Prefab": {}
         }
@@ -385,25 +385,25 @@
       "Monsters": [
         {
           "Name": "BoundCadaver",
-          "BaseHealth": 20000.0,
+          "BaseHealth": 39000.0,
           "BaseDamage": 200.0,
           "Prefab": {}
         },
         {
           "Name": "BrittleArcher",
-          "BaseHealth": 21000,
+          "BaseHealth": 40000,
           "BaseDamage": 210.0,
           "Prefab": {}
         },
         {
           "Name": "DecrepitBones",
-          "BaseHealth": 22000,
+          "BaseHealth": 41000,
           "BaseDamage": 220.0,
           "Prefab": {}
         },
         {
           "Name": "SandGhoul",
-          "BaseHealth": 23000,
+          "BaseHealth": 42000,
           "BaseDamage": 230.0,
           "Prefab": {}
         }
@@ -411,7 +411,7 @@
       "Bosses": [
         {
           "Name": "UnravelingCrawler",
-          "BaseHealth": 25000,
+          "BaseHealth": 43000,
           "BaseDamage": 250.0,
           "Prefab": {}
         }
@@ -423,25 +423,25 @@
       "Monsters": [
         {
           "Name": "AdeptNecromancer",
-          "BaseHealth": 30000.0,
+          "BaseHealth": 44000,
           "BaseDamage": 300.0,
           "Prefab": {}
         },
         {
           "Name": "CorruptedTreant",
-          "BaseHealth": 31000.0,
+          "BaseHealth": 45000,
           "BaseDamage": 310.0,
           "Prefab": {}
         },
         {
           "Name": "NovicePyromancer",
-          "BaseHealth": 32000.0,
+          "BaseHealth": 46000,
           "BaseDamage": 320.0,
           "Prefab": {}
         },
         {
           "Name": "VileWitch",
-          "BaseHealth": 33000.0,
+          "BaseHealth": 47000,
           "BaseDamage": 330.0,
           "Prefab": {}
         }
@@ -449,7 +449,7 @@
       "Bosses": [
         {
           "Name": "ExpertDruid",
-          "BaseHealth": 35000.0,
+          "BaseHealth": 48000,
           "BaseDamage": 350.0,
           "Prefab": {}
         }

@@ -34,13 +34,12 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] private GameObject gameOverScreen;
 
-
     private void UpdateUI()
     {
         // 100% = X: 0, Y: 0 | W: 490, H: 30
         // 0% = X: -245, Y: 0 | W: 0, H: 30
         healthBar.rectTransform.sizeDelta = new Vector2((float)health * 4.9f, 30);
-        healthText.text = $"{health} / 100";
+        healthText.text = $"Health: {UISystem.Instance.NumberFormat(health)} / {UISystem.Instance.NumberFormat(maxHealth)}";
     }
 
     public void AddHealthBoost(double value)
@@ -70,7 +69,8 @@ public class HealthSystem : MonoBehaviour
         LevelSystem.Instance.RestetSlayer();
         yield return new WaitForSeconds(5f);
         gameOverScreen.SetActive(false);
-        health = maxHealth;
+        health = 100;
+        maxHealth = 100;
     }
 
     private void Death()

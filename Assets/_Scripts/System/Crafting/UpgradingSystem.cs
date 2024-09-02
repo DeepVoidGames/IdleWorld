@@ -107,7 +107,10 @@ public class UpgradingSystem : MonoBehaviour
     [SerializeField] private Upgrade upgrade;
     private bool isUpgrading = false;
 
+    [Header("Divine Upgrade")]
+
     [SerializeField] private float divineLevelMultiplier = 5f;
+    private float bonusMultiplier = 0.05f;
     private int divineLevelRequirement = 50;
 
     public void Upgrade()
@@ -337,9 +340,6 @@ public class UpgradingSystem : MonoBehaviour
 
     public float GetBonus(string name, float baseDamage)
     {
-        //! 
-        float bonusMultiplier = 0.1f;
-
         Upgrade upgrade = Upgrades.Find(x => x.itemName == name);
         Items item = ItemSystem.Instance.GetItemByName(name);
 

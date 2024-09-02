@@ -206,7 +206,19 @@ public class BonusSystem : MonoBehaviour
 
         titleText.color = UISystem.Instance.GetRarityColor((Items.Rarity)bonus.rarity);
         titleText.text = bonus.name;
-        descriptionText.text = string.Format(bonus.description, bonus.value);
+
+        switch (bonus.type)
+        {
+            case Bonus.Type.DamagePercentage:
+                descriptionText.text = string.Format(bonus.description, bonus.value * 100);
+                break;
+            case Bonus.Type.GoldPercentage:
+                descriptionText.text = string.Format(bonus.description, bonus.value * 100);
+                break;
+            default:
+                descriptionText.text = string.Format(bonus.description, bonus.value);
+                break;
+        }
 
         Button cardButton = card.GetComponent<Button>();
         cardButton.onClick.RemoveAllListeners();
