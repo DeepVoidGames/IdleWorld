@@ -41,8 +41,8 @@ public class LevelSystem : MonoBehaviour
     public int MaxPrestigeLevel {get => maxPrestigeLevel; private set => maxPrestigeLevel = value;}
     public int LevelToPrestige {get => levelToPrestige; private set => levelToPrestige = value;}
 
-    public float HighestStage => PlayerPrefs.GetInt("HighestStage", 0);
-    public float HighestLevel => PlayerPrefs.GetInt("HighestLevel", 0);
+    public float HighestStage => PlayerPrefs.GetInt("HighscoreStage", 0);
+    public float HighestLevel => PlayerPrefs.GetInt("HighscoreLevel", 0);
 
     public int Level {get => level; private set => level = value;}
     public int Stage {get => stage; private set => stage = value;}

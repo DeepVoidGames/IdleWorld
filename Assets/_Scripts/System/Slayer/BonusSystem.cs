@@ -131,7 +131,7 @@ public class BonusSystem : MonoBehaviour
         bonus.amount++;
         PlayerPrefs.SetInt(name, PlayerPrefs.GetInt(name, 0) + 1);
 
-        ApplyBonusEffect(bonus);
+        ApplyBonusEffect(bonus, bonus.value);
         UpdateBonusText();
         CloseCard();
     }

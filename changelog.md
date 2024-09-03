@@ -13,6 +13,8 @@
 - Fix
   - Crafting chance display
   - Cave upgrade double click
+  - Bonus calc
+  - Craft panel ui
 - Balans changes
   - Mining upgrades rebalance
   - Monster HP rebalance

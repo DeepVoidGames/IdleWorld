@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Rune
@@ -8,18 +10,14 @@ public class Rune
     public string name;
     public double value;
     public string description;
-    public double amount;
+    public int level;
+    public int maxLevel; 
 
-    public Rarity rarity;
-    public enum Rarity
-    {
-        Common,
-        Uncommon,
-        Rare,
-        Epic,
-        Legendary,
-        Mythical,
-    }
+    public double baseCost;
+    public double costMultiplier;
+    public double cost;
+    
+    public Items.Rarity rarity;
 
     public Type type;
     public enum Type
@@ -35,10 +33,14 @@ public class Rune
     public BonusType bonusType;
     public enum BonusType
     {
-        Damage,
-        Gold,
+        DamagePercentage,
+        GoldPercentage,
     }
 
+    public Rune()
+    {
+        cost = baseCost * level * costMultiplier;
+    }
 }
 
 public class RuneData
@@ -69,5 +71,67 @@ public class RunesSystem : MonoBehaviour
 
     [Header("Runes")]
     public List<Rune> runes = new List<Rune>();
+
+    [Header("UI")]
+    [SerializeField] private GameObject runePanel;
+
+    private void LoadRunes()
+    {
+        foreach (Rune rune in runes)
+        {
+            AddBonus(rune, true);
+        }
+    }
+
+    private void AddBonus(Rune rune, bool isLoad = false)
+    {
+        double value = rune.value;
+        if (isLoad)
+            value = rune.value * rune.level;
+
+        switch (rune.bonusType)
+        {
+            case Rune.BonusType.DamagePercentage:
+                DifficultySystem.Instance.AddDamagePercentage(value);
+                break;
+            case Rune.BonusType.GoldPercentage:
+                DifficultySystem.Instance.GoldBonus += value;
+                break;
+        }
+    }
+
+    private void UpgradeRune(int index)
+    {
+        Rune rune = runes[index];
+
+        if(rune.level >= rune.maxLevel)
+            return;
+        if(rune.cost < ManaSystem.Instance.GetMana())
+            return;
+
+        ManaSystem.Instance.RemoveMana(rune.cost);
+        rune.level++;
+        AddBonus(rune);
+    }
+
+    public void OpenPanel(int index)
+    {
+        runePanel.SetActive(true);
+        runePanel.transform.Find("TitleText").GetComponent<Text>().text = runes[index].name;
+        runePanel.transform.Find("TitleText").GetComponent<Text>().color = UISystem.Instance.GetRarityColor(runes[index].rarity);
+        runePanel.transform.Find("LevelText").GetComponent<Text>().text = $"Level: {runes[index].level}/{runes[index].maxLevel}";
+        runePanel.transform.Find("BonusText").GetComponent<Text>().text = String.Format(runes[index].description, runes[index].value * runes[index].level);
+        runePanel.transform.Find("CostText").GetComponent<Text>().text = UISystem.Instance.NumberFormat(runes[index].cost);
+
+        runePanel.transform.Find("UpgradeButton").GetComponent<Button>().onClick.RemoveAllListeners();
+        runePanel.transform.Find("UpgradeButton").GetComponent<Button>().onClick.AddListener(() => UpgradeRune(index));
+    }
     
+
+    private void Start()
+    {
+        runePanel.SetActive(false);
+        LoadRunes();
+    }
+
 }

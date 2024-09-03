@@ -64,14 +64,13 @@ public class ContentLocker : MonoBehaviour
     {
         for (int i = 0; i < contents.Length; i++)
         {
-            if (contents[i].levelNeeded <= level)
-            {
-                contents[i].button.interactable = true;
-                contents[i].button.GetComponentInChildren<Text>().text = contents[i].textBefore;
-                contents[i].isLocked = false;
-                if (contents[i].button.transform.childCount > 1)
-                    contents[i].button.transform.GetChild(1).gameObject.SetActive(true);
-            }
+            if (contents[i].levelNeeded > level && contents[i].levelNeeded > LevelSystem.Instance.HighestLevel)
+                continue;
+            contents[i].button.interactable = true;
+            contents[i].button.GetComponentInChildren<Text>().text = contents[i].textBefore;
+            contents[i].isLocked = false;
+            if (contents[i].button.transform.childCount > 1)
+                contents[i].button.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
 }
