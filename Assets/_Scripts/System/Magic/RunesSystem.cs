@@ -15,7 +15,10 @@ public class Rune
 
     public double baseCost;
     public double costMultiplier;
-    public double cost;
+    public double cost
+    {
+        get => baseCost * level * costMultiplier;
+    }
     
     public Items.Rarity rarity;
 
@@ -35,11 +38,6 @@ public class Rune
     {
         DamagePercentage,
         GoldPercentage,
-    }
-
-    public Rune()
-    {
-        cost = baseCost * level * costMultiplier;
     }
 }
 
@@ -106,12 +104,11 @@ public class RunesSystem : MonoBehaviour
 
         if(rune.level >= rune.maxLevel)
             return;
-        if(rune.cost < ManaSystem.Instance.GetMana())
+        if(ManaSystem.Instance.GetMana() < rune.cost)
             return;
-
-        ManaSystem.Instance.RemoveMana(rune.cost);
         rune.level++;
         AddBonus(rune);
+        ManaSystem.Instance.RemoveMana(rune.cost);
     }
 
     public void OpenPanel(int index)

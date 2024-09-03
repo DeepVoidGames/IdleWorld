@@ -9,7 +9,7 @@
   - 12 unique ores
   - 9 unique cave upgrades
 - Magic
-  - 3 potions to obtain
+  - 4 potions to obtain
 - Other features
   - Crafting
     - 18 unique weapons to craft

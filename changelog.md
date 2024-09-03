@@ -4,6 +4,7 @@
   - Slayer System
     - RougeLike system
 - Add
+  - 5 New bonuses
   - Potion system
     - 3 new potions
   - Card title color by rarity
