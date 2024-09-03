@@ -23,6 +23,6 @@ public class MiningExpShow : MonoBehaviour
 
     private void ShowMiningExp(double experienceAdded)
     {
-        _messageSpawner.SpawnMessage("+" + UISystem.Instance.NumberFormat(experienceAdded) + " Mining Exp");
+        _messageSpawner.SpawnMessage("+" + UISystem.Instance.NumberFormat(experienceAdded) + " Mining Exp", color: new Color(0.41f, 1f, 0.39f, 1f));
     }
 }

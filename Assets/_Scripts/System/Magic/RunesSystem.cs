@@ -98,22 +98,8 @@ public class RunesSystem : MonoBehaviour
         }
     }
 
-    private void UpgradeRune(int index)
+    private void UpdateUI(int index)
     {
-        Rune rune = runes[index];
-
-        if(rune.level >= rune.maxLevel)
-            return;
-        if(ManaSystem.Instance.GetMana() < rune.cost)
-            return;
-        rune.level++;
-        AddBonus(rune);
-        ManaSystem.Instance.RemoveMana(rune.cost);
-    }
-
-    public void OpenPanel(int index)
-    {
-        runePanel.SetActive(true);
         runePanel.transform.Find("TitleText").GetComponent<Text>().text = runes[index].name;
         runePanel.transform.Find("TitleText").GetComponent<Text>().color = UISystem.Instance.GetRarityColor(runes[index].rarity);
         runePanel.transform.Find("LevelText").GetComponent<Text>().text = $"Level: {runes[index].level}/{runes[index].maxLevel}";
@@ -123,7 +109,25 @@ public class RunesSystem : MonoBehaviour
         runePanel.transform.Find("UpgradeButton").GetComponent<Button>().onClick.RemoveAllListeners();
         runePanel.transform.Find("UpgradeButton").GetComponent<Button>().onClick.AddListener(() => UpgradeRune(index));
     }
-    
+
+    private void UpgradeRune(int index)
+    {
+        Rune rune = runes[index];
+        if(rune.level >= rune.maxLevel)
+            return;
+        if(ManaSystem.Instance.GetMana() < rune.cost)
+            return;
+        rune.level++;
+        AddBonus(rune);
+        ManaSystem.Instance.RemoveMana(rune.cost);
+        UpdateUI(index);
+    }
+
+    public void OpenPanel(int index)
+    {
+        runePanel.SetActive(true);
+        UpdateUI(index);
+    }
 
     private void Start()
     {

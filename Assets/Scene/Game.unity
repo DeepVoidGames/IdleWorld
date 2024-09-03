@@ -19434,8 +19434,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 530.3, y: 0}
-  m_SizeDelta: {x: -1060.5, y: 0}
+  m_AnchoredPosition: {x: 530.3, y: 2.269989}
+  m_SizeDelta: {x: -1060.5, y: -100.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820035211
 MonoBehaviour:
@@ -28655,7 +28655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: -280}
+  m_AnchoredPosition: {x: -545, y: -315}
   m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341801798
@@ -36892,7 +36892,7 @@ MonoBehaviour:
   costRate: 15
   resourceName: Jadeite
   useGold: 0
-  boostValue: 5
+  boostValue: 15
   upgradeType: 5
   UpgradePanel: {fileID: 545835004}
 --- !u!1 &1739700866
@@ -40119,7 +40119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 540, y: -280}
+  m_AnchoredPosition: {x: 545, y: -315}
   m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1975645086

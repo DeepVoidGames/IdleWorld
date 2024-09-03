@@ -288,6 +288,11 @@ public class CaveUpgrades : MonoBehaviour
 
         while (true)
         {
+            if (InventorySystem.Instance.GetResourceByName(resourceName) < cost && !useGold)
+            {
+                yield break; // Stop the coroutine if out of resources
+            }
+
             BuyUpgrade();
             yield return new WaitForSeconds(waitTime);
             waitTime = Mathf.Max(minWaitTime, waitTime * speedUpFactor); // Decrease wait time but not below minWaitTime

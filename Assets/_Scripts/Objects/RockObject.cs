@@ -21,7 +21,7 @@ public class RockObject : MonoBehaviour
 
     public void Damage(double damage)
     {
-        _messageSpawner.SpawnMessage(String.Format("-{0}", UISystem.Instance.NumberFormat(damage)));
+        _messageSpawner.SpawnMessage(String.Format("-{0}", UISystem.Instance.NumberFormat(damage)), color: new Color(1f, 0.33f, 0.33f, 1f));
         // if (hitMaterial != null)
         //     gameObject.GetComponent<Renderer>().material = hitMaterial;
         health -= damage;
