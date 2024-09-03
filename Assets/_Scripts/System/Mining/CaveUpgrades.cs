@@ -132,6 +132,17 @@ public class CaveUpgrades : MonoBehaviour
                 Bonus.text = "Mining Efficiency: 0";
             }
         }
+        else if (upgradeType == UpgradeType.HealthBoost)
+        {
+            if (level > 0)
+            {
+                Bonus.text = "Health Boost: " + boostValue * level;
+            }
+            else
+            {
+                Bonus.text = "Health Boost: 0";
+            }
+        }
     }
 
     private void UIUpdate()

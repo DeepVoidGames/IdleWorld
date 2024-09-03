@@ -25,6 +25,8 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private double health = 100;
     [SerializeField] private double maxHealth = 100;
 
+    private double baseMaxHealth = 100;
+
     public bool IsDead => health <= 0;
     public double Health { get => health; set => health = value; }
 
@@ -38,7 +40,8 @@ public class HealthSystem : MonoBehaviour
     {
         // 100% = X: 0, Y: 0 | W: 490, H: 30
         // 0% = X: -245, Y: 0 | W: 0, H: 30
-        healthBar.rectTransform.sizeDelta = new Vector2((float)health * 4.9f, 30);
+        float clampedWidth = Mathf.Clamp((float)health * 4.9f, 0f, 490f);
+        healthBar.rectTransform.sizeDelta = new Vector2(clampedWidth, 30);
         healthText.text = $"Health: {UISystem.Instance.NumberFormat(health)} / {UISystem.Instance.NumberFormat(maxHealth)}";
     }
 
@@ -46,6 +49,7 @@ public class HealthSystem : MonoBehaviour
     {
         health += value;
         maxHealth += value;
+        baseMaxHealth += value;
         UpdateUI();
     }
 
@@ -53,6 +57,7 @@ public class HealthSystem : MonoBehaviour
     {
         health -= value;
         maxHealth -= value;
+        baseMaxHealth -= value;
         UpdateUI();
     }
 
@@ -69,8 +74,18 @@ public class HealthSystem : MonoBehaviour
         LevelSystem.Instance.RestetSlayer();
         yield return new WaitForSeconds(5f);
         gameOverScreen.SetActive(false);
-        health = 100;
-        maxHealth = 100;
+        maxHealth = baseMaxHealth;
+        health = maxHealth;
+    }
+
+    private void SaveHighscore()
+    {
+        if (LevelSystem.Instance.Level > PlayerPrefs.GetInt("HighscoreLevel", 0))
+                PlayerPrefs.SetInt("HighscoreLevel", LevelSystem.Instance.Level);
+        if (LevelSystem.Instance.Stage > PlayerPrefs.GetInt("HighscoreStage", 0))
+            PlayerPrefs.SetInt("HighscoreStage", LevelSystem.Instance.Stage);
+        gameOverScreen.transform.Find("LevelText").GetComponent<Text>().text = $"Highest Level: {PlayerPrefs.GetInt("HighscoreLevel")}";
+        gameOverScreen.transform.Find("StageText").GetComponent<Text>().text = $"Highest Stage: {PlayerPrefs.GetInt("HighscoreStage")}";
     }
 
     private void Death()
@@ -84,6 +99,7 @@ public class HealthSystem : MonoBehaviour
                 BossSystem.Instance.DestroyBoss();
 
             //TODO Show Game Over Screen
+            SaveHighscore();
             gameOverScreen.SetActive(true);
             BonusSystem.Instance.RestartBonuses();
             StartCoroutine(SlayerDied());
