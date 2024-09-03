@@ -16,6 +16,7 @@
   - Cave upgrade double click
   - Bonus calc
   - Craft panel ui
+  - Autocrafting
 - Balans changes
   - Mining upgrades rebalance
   - Monster HP rebalance

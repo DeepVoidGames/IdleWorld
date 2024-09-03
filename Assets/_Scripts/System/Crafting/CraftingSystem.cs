@@ -116,6 +116,13 @@ public class CraftingSystem : MonoBehaviour
         StartCoroutine(AutoCraftCoroutine());
     }
 
+    private void StopAutoCrafting()
+    {
+        isAutoCrafting = false;
+        craftButton.interactable = true;
+        autoCraftButton.GetComponentInChildren<Text>().text = "Auto Crafting";
+    }
+
     private void ClearChancePanels()
     {
         foreach (var panel in chancePanels)
@@ -143,12 +150,13 @@ public class CraftingSystem : MonoBehaviour
     
     public void OpenCategoryPanel()
     {
-        isAutoCrafting = false;
+        StopAutoCrafting();
         categoryPanel.SetActive(true);
     }
+
     public void SetCraftingType(int type)
     {
-        isAutoCrafting = false;
+        StopAutoCrafting();
         currentCraftingType = (CraftingType)type;
         CraftSlot = null;
         craftSlotImage.sprite = null;
@@ -206,12 +214,11 @@ public class CraftingSystem : MonoBehaviour
         }
     }
 
-
     public void SetCraftSlot(Items item)
     {
         CraftSlot = item;
         craftSlotImage.sprite = item.icon;
-        isAutoCrafting = false;
+        StopAutoCrafting();
 
         CraftingRecipe recipe = CraftingRecipes.Find(x => x.materialName == item.Name && x.craftingType == currentCraftingType);
         if (recipe != null)  

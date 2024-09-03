@@ -5211,7 +5211,7 @@ MonoBehaviour:
   craftSlotImage: {fileID: 1586167199}
   categoryPanel: {fileID: 1202348486}
   craftButton: {fileID: 870553795}
-  autoCraftButton: {fileID: 0}
+  autoCraftButton: {fileID: 1318564929}
   chancePanels:
   - {fileID: 1387077425}
   - {fileID: 1714221647}
