@@ -77,6 +77,7 @@ public class RunesSystem : MonoBehaviour
     {
         foreach (Rune rune in runes)
         {
+            rune.level = PlayerPrefs.GetInt(rune.name, 0);
             AddBonus(rune, true);
         }
     }
@@ -85,7 +86,7 @@ public class RunesSystem : MonoBehaviour
     {
         double value = rune.value;
         if (isLoad)
-            value = rune.value * rune.level;
+            value = value * rune.level;
 
         switch (rune.bonusType)
         {
@@ -103,7 +104,7 @@ public class RunesSystem : MonoBehaviour
         runePanel.transform.Find("TitleText").GetComponent<Text>().text = runes[index].name;
         runePanel.transform.Find("TitleText").GetComponent<Text>().color = UISystem.Instance.GetRarityColor(runes[index].rarity);
         runePanel.transform.Find("LevelText").GetComponent<Text>().text = $"Level: {runes[index].level}/{runes[index].maxLevel}";
-        runePanel.transform.Find("BonusText").GetComponent<Text>().text = String.Format(runes[index].description, runes[index].value * runes[index].level);
+        runePanel.transform.Find("BonusText").GetComponent<Text>().text = String.Format(runes[index].description, runes[index].value * runes[index].level * 100);
         runePanel.transform.Find("CostText").GetComponent<Text>().text = UISystem.Instance.NumberFormat(runes[index].cost);
 
         runePanel.transform.Find("UpgradeButton").GetComponent<Button>().onClick.RemoveAllListeners();
@@ -117,10 +118,12 @@ public class RunesSystem : MonoBehaviour
             return;
         if(ManaSystem.Instance.GetMana() < rune.cost)
             return;
-        rune.level++;
-        AddBonus(rune);
         ManaSystem.Instance.RemoveMana(rune.cost);
+        rune.level++;    
+        AddBonus(rune);
+        PlayerPrefs.SetInt(rune.name, rune.level);
         UpdateUI(index);
+        
     }
 
     public void OpenPanel(int index)
