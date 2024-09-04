@@ -43,23 +43,23 @@ public class PotionsSystem : MonoBehaviour
         List<Items> potions = ItemSystem.Instance.ItemsCollection.FindAll(x => x.category == InventorySystem.Category.Potion);
         Items potion;        
         float rarity = UnityEngine.Random.Range(0f, 100f);
-        if (rarity < 70)
+        if (rarity < 70f)
         {
             potion = potions.FindAll(x => x.rarity == Items.Rarity.Common)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Common).Count)];
         }
-        else if (rarity < 90)
+        else if (rarity < 90f)
         {
             potion = potions.FindAll(x => x.rarity == Items.Rarity.Uncommon)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Uncommon).Count)];
         }
-        else if (rarity < 97)
+        else if (rarity < 97f)
         {
             potion = potions.FindAll(x => x.rarity == Items.Rarity.Rare)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Rare).Count)];
         }
-        else if (rarity < 99)
+        else if (rarity < 99f)
         {
             potion = potions.FindAll(x => x.rarity == Items.Rarity.Epic)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Epic).Count)];
         }
-        else if (rarity < 99.9)
+        else if (rarity < 99.9f)
         {
             potion = potions.FindAll(x => x.rarity == Items.Rarity.Legendary)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Legendary).Count)];
         }
@@ -67,7 +67,7 @@ public class PotionsSystem : MonoBehaviour
         {
             potion = potions.FindAll(x => x.rarity == Items.Rarity.Mythical)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Mythical).Count)];
         }
-        
+        InventorySystem.Instance.AddItem(potion.id, 1);
         StartCoroutine(GetPotionCooldown());
     }
 

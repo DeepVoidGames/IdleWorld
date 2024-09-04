@@ -1,4 +1,4 @@
-# 0.5.6.0
+# 0.6.0.0
 
 - Rework
   - Slayer System
@@ -6,11 +6,11 @@
 - Add
   - 5 New bonuses
   - Potion system
-    - 3 new potions
+    - 6 new potions
   - Card title color by rarity
   - Mana system
   - Auto crafting system
-  - Mining upgrade
+  - 2 Mining upgrade
 - Fix
   - Crafting chance display
   - Cave upgrade double click
@@ -20,6 +20,7 @@
 - Balans changes
   - Mining upgrades rebalance
   - Monster HP rebalance
+  - Base HP 100 -> 200
 
 # 0.5.5.4
 

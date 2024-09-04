@@ -78,7 +78,7 @@ public class TavernSystem : MonoBehaviour
     {
         heroImage.sprite = heroes[id].sprite;
         heroName.text = heroes[id].name;
-        heroData.text = $"Level: {UISystem.Instance.NumberFormatInt(heroes[id].level)}/{UISystem.Instance.NumberFormatInt(heroes[id].maxLevel)}\nDPS: {UISystem.Instance.NumberFormat(Instance.heroes[id].dps)}";
+        heroData.text = $"Level: {UISystem.Instance.NumberFormatInt(heroes[id].level)}/{UISystem.Instance.NumberFormatInt(heroes[id].maxLevel)}\nHero Damage: {UISystem.Instance.NumberFormat(Instance.heroes[id].dps)}";
         if (heroes[id].isUnlocked)
             heroCost.text = $"Cost: {UISystem.Instance.NumberFormat(heroes[id].upgradeCost)}";
         else

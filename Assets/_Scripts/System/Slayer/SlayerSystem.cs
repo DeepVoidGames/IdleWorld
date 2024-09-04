@@ -91,7 +91,7 @@ public class SlayerSystem : MonoBehaviour
         }
         else
         {
-            Debug.Log("No monster or boss found to attack.");
+            // Debug.Log("No monster or boss found to attack.");
         }
     }
 

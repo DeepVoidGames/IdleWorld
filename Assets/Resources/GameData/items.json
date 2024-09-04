@@ -389,6 +389,17 @@
       "potionType": 0,
       "potionValue": 0.25,
       "potionDuration": 360
+    },
+    {
+      "Name": "Gold Maniac Potion",
+      "id": 47,
+      "category": 4,
+      "rarity": 5,
+      "icon": {},
+      "description": "A potion that increases your gold gain by {0}% for {1} minutes.\nAmount: {2}",
+      "potionType": 1,
+      "potionValue": 1.5,
+      "potionDuration": 3600
     }
   ]
 }

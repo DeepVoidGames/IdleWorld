@@ -13,19 +13,19 @@
         {
           "Name": "DeathSlime",
           "BaseHealth": 50.0,
-          "BaseDamage": 0.2,
+          "BaseDamage": 0.1,
           "Prefab": {}
         },
         {
           "Name": "OchreJelly",
           "BaseHealth": 90.0,
-          "BaseDamage": 0.3,
+          "BaseDamage": 0.1,
           "Prefab": {}
         },
         {
           "Name": "RedCap",
           "BaseHealth": 140.0,
-          "BaseDamage": 0.5,
+          "BaseDamage": 0.1,
           "Prefab": {}
         }
       ],
@@ -33,13 +33,13 @@
         {
           "Name": "BlindedGrimlock",
           "BaseHealth": 240.0,
-          "BaseDamage": 1.5,
+          "BaseDamage": 1.0,
           "Prefab": {}
         },
         {
           "Name": "ShriekerMushroom",
           "BaseHealth": 340.0,
-          "BaseDamage": 2.0,
+          "BaseDamage": 1.0,
           "Prefab": {}
         }
       ]
