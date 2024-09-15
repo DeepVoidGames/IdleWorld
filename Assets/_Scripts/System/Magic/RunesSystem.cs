@@ -15,9 +15,14 @@ public class Rune
 
     public double baseCost;
     public double costMultiplier;
-    public double cost
+
+    public double cost => GetCost();
+
+    public double GetCost()
     {
-        get => baseCost * level * costMultiplier;
+        if (level == 0)
+            return baseCost;
+        return baseCost * level * costMultiplier;
     }
     
     public Items.Rarity rarity;
@@ -36,8 +41,11 @@ public class Rune
     public BonusType bonusType;
     public enum BonusType
     {
+        DamageBase,
         DamagePercentage,
         GoldPercentage,
+        HealtBase,
+        ManaBase,
     }
 }
 
@@ -90,11 +98,20 @@ public class RunesSystem : MonoBehaviour
 
         switch (rune.bonusType)
         {
+            case Rune.BonusType.DamageBase:
+                DamageSystem.Instance.Damage += value;
+                break;
             case Rune.BonusType.DamagePercentage:
-                DifficultySystem.Instance.AddDamagePercentage(value);
+                DifficultySystem.Instance.AddDamagePercentage(value / 100);
                 break;
             case Rune.BonusType.GoldPercentage:
-                DifficultySystem.Instance.GoldBonus += value;
+                DifficultySystem.Instance.GoldBonus += value / 100;
+                break;
+            case Rune.BonusType.HealtBase:
+                HealthSystem.Instance.AddHealthBoost(value);
+                break;
+            case Rune.BonusType.ManaBase:
+                ManaSystem.Instance.AddManaPerHour(value);
                 break;
         }
     }
@@ -104,7 +121,12 @@ public class RunesSystem : MonoBehaviour
         runePanel.transform.Find("TitleText").GetComponent<Text>().text = runes[index].name;
         runePanel.transform.Find("TitleText").GetComponent<Text>().color = UISystem.Instance.GetRarityColor(runes[index].rarity);
         runePanel.transform.Find("LevelText").GetComponent<Text>().text = $"Level: {runes[index].level}/{runes[index].maxLevel}";
-        runePanel.transform.Find("BonusText").GetComponent<Text>().text = String.Format(runes[index].description, runes[index].value * runes[index].level * 100);
+
+        if (runes[index].level <= 0)
+            runePanel.transform.Find("BonusText").GetComponent<Text>().text = String.Format(runes[index].description, runes[index].value);
+        else
+            runePanel.transform.Find("BonusText").GetComponent<Text>().text = String.Format(runes[index].description, runes[index].value * runes[index].level);
+        
         runePanel.transform.Find("CostText").GetComponent<Text>().text = UISystem.Instance.NumberFormat(runes[index].cost);
 
         runePanel.transform.Find("UpgradeButton").GetComponent<Button>().onClick.RemoveAllListeners();

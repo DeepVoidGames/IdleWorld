@@ -11,6 +11,8 @@
   - Mana system
   - Auto crafting system
   - 2 Mining upgrade
+  - Rune system
+    - 7 new runes
 - Fix
   - Crafting chance display
   - Cave upgrade double click

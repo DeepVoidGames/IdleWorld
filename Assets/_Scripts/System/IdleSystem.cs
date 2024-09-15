@@ -62,10 +62,16 @@ public class IdleSystem : MonoBehaviour
         }
     }
 
-    private void GetIdleReward()
+    IEnumerator IdleRewards()
     {
+        yield return new WaitForSeconds(5);
         ManaSystem.Instance.IdleReward(idleTime);
         idleTime = 0;
+    }
+
+    private void GetIdleReward()
+    {
+        StartCoroutine(IdleRewards());
     }
 
     private void Start()

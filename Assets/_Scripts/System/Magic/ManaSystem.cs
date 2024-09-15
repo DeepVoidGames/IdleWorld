@@ -27,7 +27,7 @@ public class ManaSystem : MonoBehaviour
 
     private void UIUpdate()
     {
-        textMana.text = $"Mana: {UISystem.Instance.NumberFormat(mana)}";
+        textMana.text = $"Mana: {UISystem.Instance.NumberFormat(mana)} + {UISystem.Instance.NumberFormat(manaPerHour)}/h";
     }
 
     public void AddMana(double value)
@@ -45,6 +45,11 @@ public class ManaSystem : MonoBehaviour
     public void SetManaPerHour(double value)
     {
         manaPerHour = value;
+    }
+
+    public void AddManaPerHour(double value)
+    {
+        manaPerHour += value;
     }
 
     public double GetMana()
