@@ -1,3 +1,10 @@
+# 0.6.1.0
+
+- Fix
+  - Mana text display
+- Balans changes
+  - Heros max level 2000 -> 3000
+
 # 0.6.0.0
 
 - Rework
