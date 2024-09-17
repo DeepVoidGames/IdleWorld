@@ -139,6 +139,10 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetBossDrop(double maxHealth)
     {
+        if (LevelSystem.Instance.Level < LevelSystem.Instance.HighestLevel)
+        {
+            maxHealth = maxHealth + (maxHealth * LevelSystem.Instance.HighestLevel * 2) + (LevelSystem.Instance.Stage * _difficultyMultiplier);
+        }
         return (maxHealth + (maxHealth * _difficultyMultiplier)) * (_prestigeMultiplier * LevelSystem.Instance.PrestigeLevel);
     }
 
@@ -153,6 +157,10 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetMonsterDrop(double maxHealth)
     {
+        if(LevelSystem.Instance.Level < LevelSystem.Instance.HighestLevel)
+        {
+            maxHealth = maxHealth + (maxHealth * LevelSystem.Instance.HighestLevel * 2) + (LevelSystem.Instance.Stage * _difficultyMultiplier);
+        }
         return maxHealth + (maxHealth * _difficultyMultiplier) + (maxHealth + (maxHealth * _difficultyMultiplier)) * goldBonus;
     }
 

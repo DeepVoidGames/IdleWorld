@@ -4,6 +4,7 @@
   - Mana text display
 - Balans changes
   - Heros max level 2000 -> 3000
+  - Gold drop now depends on the **HIGHEST** level optained
 
 # 0.6.0.0
 
