@@ -2,6 +2,7 @@
 
 - Fix
   - Mana text display
+  - Cave mobile display
 - Balans changes
   - Heros max level 2000 -> 3000
   - Gold drop now depends on the **HIGHEST** level optained
