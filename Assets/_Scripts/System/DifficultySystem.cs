@@ -132,8 +132,8 @@ public class DifficultySystem : MonoBehaviour
     public double GetBossHealth(double baseHealth)
     {
         return baseHealth + (baseHealth * LevelSystem.Instance.Level * 2) + (LevelSystem.Instance.Stage * _difficultyMultiplier);
-        if (LevelSystem.Instance.PrestigeLevel == 0)
-            return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
+        // if (LevelSystem.Instance.PrestigeLevel == 0)
+        //     return baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
         // return (baseHealth + (baseHealth * LevelSystem.Instance.Level) + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier)) * (_prestigeMultiplier * LevelSystem.Instance.PrestigeLevel);
     }
 
@@ -150,8 +150,8 @@ public class DifficultySystem : MonoBehaviour
     public double GetMonsterHealth(double baseHealth)
     {
         return baseHealth + (baseHealth * LevelSystem.Instance.Level * 2) + (LevelSystem.Instance.Stage * _difficultyMultiplier);
-        if (LevelSystem.Instance.PrestigeLevel == 0)
-            return baseHealth + baseHealth * LevelSystem.Instance.Level/2 + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
+        // if (LevelSystem.Instance.PrestigeLevel == 0)
+        //     return baseHealth + baseHealth * LevelSystem.Instance.Level/2 + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier);
         // return (baseHealth + baseHealth * LevelSystem.Instance.Level/2 + (LevelSystem.Instance.Stage * _difficultyMultiplier) + (DamageSystem.Instance.Damage * _difficultyMultiplier)) * (_prestigeMultiplier * LevelSystem.Instance.PrestigeLevel);
     }
 

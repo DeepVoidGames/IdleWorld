@@ -1,5 +1,8 @@
 # 0.6.1.0
 
+- Add
+  - UI changes
+    - New bonus stats display
 - Fix
   - Mana text display
   - Cave mobile display

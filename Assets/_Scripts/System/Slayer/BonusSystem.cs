@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum BonusType
+{
+    DamagePercentage,
+    GoldPercentage,
+    HealthBoost,
+}
+
 [System.Serializable]
 public class Bonus 
 {
@@ -11,14 +18,7 @@ public class Bonus
     public double value;
     public string description;
 
-    public Type type;
-    public enum Type
-    {
-        DamagePercentage,
-        GoldPercentage,
-        HealthBoost,
-    }
-
+    public BonusType type;
     public double amount;
 
     public Rarity rarity;
@@ -32,6 +32,16 @@ public class Bonus
         Mythical,
     }
 }
+
+[System.Serializable]
+public class UIBonus
+{
+    public BonusType bonusType;
+    public GameObject panel;
+    public Text title;
+    public Text data;
+}
+
 
 // Common 70% Uncommon 20% Rare 7% Epic 2% Legendary 0.9% Mythical 0.1%
 public class BonusSystem : MonoBehaviour 
@@ -55,9 +65,9 @@ public class BonusSystem : MonoBehaviour
     }
     
     [Header("UI")]
-    [SerializeField] private GameObject bonusPanel;
-    [SerializeField] private GameObject bonusTextPanel;
-    [SerializeField] private Text bonusText;
+    [SerializeField] private List<UIBonus> uiBonuses;
+    [SerializeField] private List<Color> bonusColors;
+
     [Header("Bonuses Image Cards")]
     [SerializeField] private List<Sprite> bonusImagesCards;
     [SerializeField] private Sprite backImageCard;
@@ -83,7 +93,7 @@ public class BonusSystem : MonoBehaviour
     {
         MonsterSystem.Instance.PauseSpawning = true;
         MonsterSystem.Instance.DestroyMonster();
-        bonusPanel.SetActive(true);
+        // bonusPanel.SetActive(true);
 
         if (bonuses.Count < 2)
         {
@@ -140,13 +150,13 @@ public class BonusSystem : MonoBehaviour
     {
         switch (bonus.type)
         {
-            case Bonus.Type.DamagePercentage:
+            case BonusType.DamagePercentage:
                 DifficultySystem.Instance.AddDamagePercentage(amount);
                 break;
-            case Bonus.Type.GoldPercentage:
+            case BonusType.GoldPercentage:
                 DifficultySystem.Instance.GoldBonus += amount;
                 break;
-            case Bonus.Type.HealthBoost:
+            case BonusType.HealthBoost:
                 HealthSystem.Instance.AddHealthBoost(amount);
                 break;
         }
@@ -168,13 +178,13 @@ public class BonusSystem : MonoBehaviour
     {
         switch (bonus.type)
         {
-            case Bonus.Type.DamagePercentage:
+            case BonusType.DamagePercentage:
                 DifficultySystem.Instance.RemoveDamagePercentage((bonus.amount / 100) * bonus.value);
                 break;
-            case Bonus.Type.GoldPercentage:
+            case BonusType.GoldPercentage:
                 DifficultySystem.Instance.GoldBonus -= (bonus.amount / 100) * bonus.value;
                 break;
-            case Bonus.Type.HealthBoost:
+            case BonusType.HealthBoost:
                 HealthSystem.Instance.RemoveHealthBoost(bonus.amount * bonus.value);
                 break;
         }
@@ -209,10 +219,10 @@ public class BonusSystem : MonoBehaviour
 
         switch (bonus.type)
         {
-            case Bonus.Type.DamagePercentage:
+            case BonusType.DamagePercentage:
                 descriptionText.text = string.Format(bonus.description, bonus.value * 100);
                 break;
-            case Bonus.Type.GoldPercentage:
+            case BonusType.GoldPercentage:
                 descriptionText.text = string.Format(bonus.description, bonus.value * 100);
                 break;
             default:
@@ -237,7 +247,7 @@ public class BonusSystem : MonoBehaviour
 
     private void CloseCard()
     {
-        bonusPanel.SetActive(false);
+        // bonusPanel.SetActive(false);
         ResetCard(firstCard);
         ResetCard(secondCard);
         MonsterSystem.Instance.PauseSpawning = false;
@@ -250,35 +260,69 @@ public class BonusSystem : MonoBehaviour
         card.transform.Find("CardData").gameObject.SetActive(false);
     }
 
+    private Color ColorCalculation(double totalValue, int startValue)
+    {
+        int a = startValue;
+        int index = 0;
+        for (int i = 0; i < bonusColors.Count; i++)
+        {
+            if (totalValue >= a)
+            {
+                index = i;
+            }
+            else
+                break;
+            a = a * 10;
+        }
+        return bonusColors[index];
+    }
+
     private void UpdateBonusText()
     {
-        bool hasActiveBonuses = false;
-        bonusText.text = "";
+        // bool hasActiveBonuses = false;
+        // bonusText.text = "";
 
-        foreach (Bonus.Type type in Enum.GetValues(typeof(Bonus.Type)))
+        foreach (UIBonus uiBonus in uiBonuses)
         {
             double totalValue = 0;
             foreach (Bonus bonus in bonuses)
             {
-                if (bonus.type == type && bonus.amount > 0)
+                if (bonus.type == uiBonus.bonusType && bonus.amount > 0)
                 {
-                    hasActiveBonuses = true;
+                    // hasActiveBonuses = true;
                     totalValue += bonus.amount * bonus.value;
                 }
             }
 
             if (totalValue > 0)
             {
-                bonusText.text += type switch
+                uiBonus.panel.SetActive(true);
+                uiBonus.title.text = uiBonus.bonusType switch
                 {
-                    Bonus.Type.DamagePercentage => $"\nDamage: +{totalValue * 100}%",
-                    Bonus.Type.GoldPercentage => $"\nGold: +{totalValue * 100}%",
-                    Bonus.Type.HealthBoost => $"\nHealth: +{totalValue}",
-                    _ => bonusText.text
+                    BonusType.DamagePercentage => "Damage",
+                    BonusType.GoldPercentage => "Gold",
+                    BonusType.HealthBoost => "Health",
+                    _ => uiBonus.title.text
+                };
+
+                uiBonus.data.text = uiBonus.bonusType switch
+                {
+                    BonusType.DamagePercentage => string.Format("{0}%", totalValue * 100),
+                    BonusType.GoldPercentage => string.Format("{0}%", totalValue * 100),
+                    BonusType.HealthBoost => totalValue.ToString(),
+                    _ => uiBonus.data.text
+                };
+
+                uiBonus.data.color = uiBonus.bonusType switch
+                {
+                    BonusType.HealthBoost => ColorCalculation(totalValue, 100),
+                    _ => ColorCalculation(totalValue, 10)
                 };
             }
+            else
+            {
+                uiBonus.panel.SetActive(false);
+            }
         }
-
-        bonusTextPanel.SetActive(hasActiveBonuses);
     }
 }
