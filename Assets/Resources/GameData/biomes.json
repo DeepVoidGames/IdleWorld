@@ -1,460 +1,460 @@
 {
-  "biomes": [
-    {
-      "Name": "Forest",
-      "background": {},
-      "Monsters": [
+    "biomes": [
         {
-          "Name": "AcidOoze",
-          "BaseHealth": 10.0,
-          "BaseDamage": 0.05,
-          "Prefab": {}
+            "Name": "Forest",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "AcidOoze",
+                    "BaseHealth": 10.0,
+                    "BaseDamage": 0.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "DeathSlime",
+                    "BaseHealth": 50.0,
+                    "BaseDamage": 1.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "OchreJelly",
+                    "BaseHealth": 90.0,
+                    "BaseDamage": 1.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "RedCap",
+                    "BaseHealth": 140.0,
+                    "BaseDamage": 2.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "BlindedGrimlock",
+                    "BaseHealth": 240.0,
+                    "BaseDamage": 2.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "ShriekerMushroom",
+                    "BaseHealth": 340.0,
+                    "BaseDamage": 3.0,
+                    "Prefab": {}
+                }
+            ]
         },
         {
-          "Name": "DeathSlime",
-          "BaseHealth": 50.0,
-          "BaseDamage": 0.05,
-          "Prefab": {}
+            "Name": "Desert",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "BloodshotEye",
+                    "BaseHealth": 500.0,
+                    "BaseDamage": 10.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "BrawnyOgre",
+                    "BaseHealth": 600.0,
+                    "BaseDamage": 11.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "ClawingHarpy",
+                    "BaseHealth": 700.0,
+                    "BaseDamage": 11.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "CrushingCyclops",
+                    "BaseHealth": 800.0,
+                    "BaseDamage": 12.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "HumongousEttin",
+                    "BaseHealth": 1000.0,
+                    "BaseDamage": 12.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "OgreMage",
+                    "BaseHealth": 1500.0,
+                    "BaseDamage": 13.0,
+                    "Prefab": {}
+                }
+            ]
         },
         {
-          "Name": "OchreJelly",
-          "BaseHealth": 90.0,
-          "BaseDamage": 0.05,
-          "Prefab": {}
+            "Name": "Swamp",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "IntellectDevourer",
+                    "BaseHealth": 2000.0,
+                    "BaseDamage": 20.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "OcularWatcher",
+                    "BaseHealth": 2500.0,
+                    "BaseDamage": 21.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "SwampTroll",
+                    "BaseHealth": 3000.0,
+                    "BaseDamage": 21.5,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "RearingNightmare",
+                    "BaseHealth": 4000.0,
+                    "BaseDamage": 22.0,
+                    "Prefab": {}
+                }
+            ]
         },
         {
-          "Name": "RedCap",
-          "BaseHealth": 140.0,
-          "BaseDamage": 0.05,
-          "Prefab": {}
+            "Name": "Underwater",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "MurkySlaad",
+                    "BaseHealth": 5000.0,
+                    "BaseDamage": 30.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "WerewolfStalker",
+                    "BaseHealth": 6000.0,
+                    "BaseDamage": 31.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "WretchedFomorian",
+                    "BaseHealth": 7000.0,
+                    "BaseDamage": 31.5,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "StormGiant",
+                    "BaseHealth": 8000.0,
+                    "BaseDamage": 32.0,
+                    "Prefab": {}
+                }
+            ]
+        },
+        {
+            "Name": "Demon's Domain",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "CrimsonImp",
+                    "BaseHealth": 9000.0,
+                    "BaseDamage": 40.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "DepravedBlackguard",
+                    "BaseHealth": 10000.0,
+                    "BaseDamage": 41.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "GrinningGremlin",
+                    "BaseHealth": 11000.0,
+                    "BaseDamage": 41.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "TaintedScoundrel",
+                    "BaseHealth": 12000.0,
+                    "BaseDamage": 42.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "FloatingEye",
+                    "BaseHealth": 13000.0,
+                    "BaseDamage": 42.5,
+                    "Prefab": {}
+                }
+            ]
+        },
+        {
+            "Name": "Cursed Lands",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "AntleredRascal",
+                    "BaseHealth": 14000.0,
+                    "BaseDamage": 50.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "FledglingDemon",
+                    "BaseHealth": 15000.0,
+                    "BaseDamage": 51.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "NefariousScamp",
+                    "BaseHealth": 16000.0,
+                    "BaseDamage": 51.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "RascallyDemonling",
+                    "BaseHealth": 17000.0,
+                    "BaseDamage": 52.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "PitBalor",
+                    "BaseHealth": 18000.0,
+                    "BaseDamage": 52.5,
+                    "Prefab": {}
+                }
+            ]
+        },
+        {
+            "Name": "Warped Necropolis",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "ClawedAbomination",
+                    "BaseHealth": 19000.0,
+                    "BaseDamage": 60.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "FoulGouger",
+                    "BaseHealth": 20000.0,
+                    "BaseDamage": 61.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "PointedDemonspawn",
+                    "BaseHealth": 21000.0,
+                    "BaseDamage": 61.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "SkeweringStalker",
+                    "BaseHealth": 22000.0,
+                    "BaseDamage": 62.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "WarpSkull",
+                    "BaseHealth": 23000.0,
+                    "BaseDamage": 62.5,
+                    "Prefab": {}
+                }
+            ]
+        },
+        {
+            "Name": "Plague Swamp",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "LizardfolkArcher",
+                    "BaseHealth": 24000.0,
+                    "BaseDamage": 70.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "LizardfolkGladiator",
+                    "BaseHealth": 25000.0,
+                    "BaseDamage": 71.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "LizardfolkScout",
+                    "BaseHealth": 26000.0,
+                    "BaseDamage": 71.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "LizardfolkSpearman",
+                    "BaseHealth": 27000.0,
+                    "BaseDamage": 72.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "BestialLizardfolk",
+                    "BaseHealth": 28000.0,
+                    "BaseDamage": 72.5,
+                    "Prefab": {}
+                }
+            ]
+        },
+        {
+            "Name": "Guardians' Bastion",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "GoblinArcher",
+                    "BaseHealth": 29000.0,
+                    "BaseDamage": 80.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "GoblinFanatic",
+                    "BaseHealth": 30000.0,
+                    "BaseDamage": 81.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "GoblinFighter",
+                    "BaseHealth": 31000.0,
+                    "BaseDamage": 81.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "GoblinOccultist",
+                    "BaseHealth": 32000.0,
+                    "BaseDamage": 82.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "GoblinWolfRider",
+                    "BaseHealth": 33000.0,
+                    "BaseDamage": 82.5,
+                    "Prefab": {}
+                }
+            ]
+        },
+        {
+            "Name": "Ethereal Woods",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "HalflingBard",
+                    "BaseHealth": 34000.0,
+                    "BaseDamage": 90.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "HalflingRanger",
+                    "BaseHealth": 35000.0,
+                    "BaseDamage": 91.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "HalflingRogue",
+                    "BaseHealth": 36000.0,
+                    "BaseDamage": 91.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "HalflingSlinger",
+                    "BaseHealth": 37000.0,
+                    "BaseDamage": 92.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "HalflingAssassin",
+                    "BaseHealth": 38000.0,
+                    "BaseDamage": 92.5,
+                    "Prefab": {}
+                }
+            ]
+        },
+        {
+            "Name": "Bonegrave Marsh",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "BoundCadaver",
+                    "BaseHealth": 39000.0,
+                    "BaseDamage": 100.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "BrittleArcher",
+                    "BaseHealth": 40000,
+                    "BaseDamage": 101.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "DecrepitBones",
+                    "BaseHealth": 41000,
+                    "BaseDamage": 101.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "SandGhoul",
+                    "BaseHealth": 42000,
+                    "BaseDamage": 102.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "UnravelingCrawler",
+                    "BaseHealth": 43000,
+                    "BaseDamage": 102.5,
+                    "Prefab": {}
+                }
+            ]
+        },
+        {
+            "Name": "Occult Hollow",
+            "background": {},
+            "Monsters": [
+                {
+                    "Name": "AdeptNecromancer",
+                    "BaseHealth": 44000,
+                    "BaseDamage": 110.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "CorruptedTreant",
+                    "BaseHealth": 45000,
+                    "BaseDamage": 111.0,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "NovicePyromancer",
+                    "BaseHealth": 46000,
+                    "BaseDamage": 111.5,
+                    "Prefab": {}
+                },
+                {
+                    "Name": "VileWitch",
+                    "BaseHealth": 47000,
+                    "BaseDamage": 112.0,
+                    "Prefab": {}
+                }
+            ],
+            "Bosses": [
+                {
+                    "Name": "ExpertDruid",
+                    "BaseHealth": 48000,
+                    "BaseDamage": 112.5,
+                    "Prefab": {}
+                }
+            ]
         }
-      ],
-      "Bosses": [
-        {
-          "Name": "BlindedGrimlock",
-          "BaseHealth": 240.0,
-          "BaseDamage": 1.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "ShriekerMushroom",
-          "BaseHealth": 340.0,
-          "BaseDamage": 1.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Desert",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "BloodshotEye",
-          "BaseHealth": 500.0,
-          "BaseDamage": 1.2,
-          "Prefab": {}
-        },
-        {
-          "Name": "BrawnyOgre",
-          "BaseHealth": 600.0,
-          "BaseDamage": 1.2,
-          "Prefab": {}
-        },
-        {
-          "Name": "ClawingHarpy",
-          "BaseHealth": 700.0,
-          "BaseDamage": 1.2,
-          "Prefab": {}
-        },
-        {
-          "Name": "CrushingCyclops",
-          "BaseHealth": 800.0,
-          "BaseDamage": 1.2,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "HumongousEttin",
-          "BaseHealth": 1000.0,
-          "BaseDamage": 2.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "OgreMage",
-          "BaseHealth": 1500.0,
-          "BaseDamage": 2.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Swamp",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "IntellectDevourer",
-          "BaseHealth": 2000.0,
-          "BaseDamage": 3.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "OcularWatcher",
-          "BaseHealth": 2500.0,
-          "BaseDamage": 3.5,
-          "Prefab": {}
-        },
-        {
-          "Name": "SwampTroll",
-          "BaseHealth": 3000.0,
-          "BaseDamage": 3.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "RearingNightmare",
-          "BaseHealth": 4000.0,
-          "BaseDamage": 4.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Underwater",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "MurkySlaad",
-          "BaseHealth": 5000.0,
-          "BaseDamage": 5.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "WerewolfStalker",
-          "BaseHealth": 6000.0,
-          "BaseDamage": 5.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "WretchedFomorian",
-          "BaseHealth": 7000.0,
-          "BaseDamage": 5.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "StormGiant",
-          "BaseHealth": 8000.0,
-          "BaseDamage": 6.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Demon's Domain",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "CrimsonImp",
-          "BaseHealth": 9000.0,
-          "BaseDamage": 6.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "DepravedBlackguard",
-          "BaseHealth": 10000.0,
-          "BaseDamage": 6.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "GrinningGremlin",
-          "BaseHealth": 11000.0,
-          "BaseDamage": 6.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "TaintedScoundrel",
-          "BaseHealth": 12000.0,
-          "BaseDamage": 6.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "FloatingEye",
-          "BaseHealth": 13000.0,
-          "BaseDamage": 7.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Cursed Lands",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "AntleredRascal",
-          "BaseHealth": 14000.0,
-          "BaseDamage": 8.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "FledglingDemon",
-          "BaseHealth": 15000.0,
-          "BaseDamage": 8.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "NefariousScamp",
-          "BaseHealth": 16000.0,
-          "BaseDamage": 8.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "RascallyDemonling",
-          "BaseHealth": 17000.0,
-          "BaseDamage": 8.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "PitBalor",
-          "BaseHealth": 18000.0,
-          "BaseDamage": 9.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Warped Necropolis",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "ClawedAbomination",
-          "BaseHealth": 19000.0,
-          "BaseDamage": 9.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "FoulGouger",
-          "BaseHealth": 20000.0,
-          "BaseDamage": 9.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "PointedDemonspawn",
-          "BaseHealth": 21000.0,
-          "BaseDamage": 9.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "SkeweringStalker",
-          "BaseHealth": 22000.0,
-          "BaseDamage": 9.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "WarpSkull",
-          "BaseHealth": 23000.0,
-          "BaseDamage": 10.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Plague Swamp",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "LizardfolkArcher",
-          "BaseHealth": 24000.0,
-          "BaseDamage": 11.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "LizardfolkGladiator",
-          "BaseHealth": 25000.0,
-          "BaseDamage": 11.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "LizardfolkScout",
-          "BaseHealth": 26000.0,
-          "BaseDamage": 11.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "LizardfolkSpearman",
-          "BaseHealth": 27000.0,
-          "BaseDamage": 12.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "BestialLizardfolk",
-          "BaseHealth": 28000.0,
-          "BaseDamage": 13.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Guardians' Bastion",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "GoblinArcher",
-          "BaseHealth": 29000.0,
-          "BaseDamage": 14.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "GoblinFanatic",
-          "BaseHealth": 30000.0,
-          "BaseDamage": 14.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "GoblinFighter",
-          "BaseHealth": 31000.0,
-          "BaseDamage": 14.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "GoblinOccultist",
-          "BaseHealth": 32000.0,
-          "BaseDamage": 14.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "GoblinWolfRider",
-          "BaseHealth": 33000.0,
-          "BaseDamage": 15.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Ethereal Woods",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "HalflingBard",
-          "BaseHealth": 34000.0,
-          "BaseDamage": 16.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "HalflingRanger",
-          "BaseHealth": 35000.0,
-          "BaseDamage": 16.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "HalflingRogue",
-          "BaseHealth": 36000.0,
-          "BaseDamage": 16.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "HalflingSlinger",
-          "BaseHealth": 37000.0,
-          "BaseDamage": 16.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "HalflingAssassin",
-          "BaseHealth": 38000.0,
-          "BaseDamage": 17.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Bonegrave Marsh",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "BoundCadaver",
-          "BaseHealth": 39000.0,
-          "BaseDamage": 18.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "BrittleArcher",
-          "BaseHealth": 40000,
-          "BaseDamage": 19.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "DecrepitBones",
-          "BaseHealth": 41000,
-          "BaseDamage": 20.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "SandGhoul",
-          "BaseHealth": 42000,
-          "BaseDamage": 20.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "UnravelingCrawler",
-          "BaseHealth": 43000,
-          "BaseDamage": 21.0,
-          "Prefab": {}
-        }
-      ]
-    },
-    {
-      "Name": "Occult Hollow",
-      "background": {},
-      "Monsters": [
-        {
-          "Name": "AdeptNecromancer",
-          "BaseHealth": 44000,
-          "BaseDamage": 300.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "CorruptedTreant",
-          "BaseHealth": 45000,
-          "BaseDamage": 300.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "NovicePyromancer",
-          "BaseHealth": 46000,
-          "BaseDamage": 300.0,
-          "Prefab": {}
-        },
-        {
-          "Name": "VileWitch",
-          "BaseHealth": 47000,
-          "BaseDamage": 300.0,
-          "Prefab": {}
-        }
-      ],
-      "Bosses": [
-        {
-          "Name": "ExpertDruid",
-          "BaseHealth": 48000,
-          "BaseDamage": 300.0,
-          "Prefab": {}
-        }
-      ]
-    }
-  ]
+    ]
 }
