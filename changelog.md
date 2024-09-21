@@ -1,3 +1,13 @@
+# 0.6.2.0
+
+- Add
+  - New cave
+    - 2 new ores
+    - New upgrade
+  - UI Text Scaling
+- Fix
+  - Gold Rune description
+
 # 0.6.1.0
 
 - Add
@@ -6,7 +16,7 @@
 - Fix
   - Mana text display
   - Cave mobile display
-- Balans changes
+- Balance changes
   - Heros max level 2000 -> 3000
   - Gold drop now depends on the **HIGHEST** level optained
 
@@ -31,7 +41,7 @@
   - Bonus calc
   - Craft panel ui
   - Autocrafting
-- Balans changes
+- Balance changes
   - Mining upgrades rebalance
   - Monster HP rebalance
   - Base HP 100 -> 200
@@ -41,7 +51,7 @@
 - Add
   - Card rarity
   - New biome
-- Balans changes
+- Balance changes
   - Weapon damage
   - Cards
 - Fix
@@ -118,7 +128,7 @@
   - UI improvements
 - Fix
   - Hire button
-- Balans changes
+- Balance changes
   - Hero max level 1000 -> 2000
 
 # 0.5.4.3
@@ -129,7 +139,7 @@
 - Fix
   - Equiped item damage bug
   - Biome loading
-- Balans changes
+- Balance changes
   - Highest upgrade chance
 
 # 0.5.4.2
@@ -155,7 +165,7 @@
   - Mining map close button
   - Fix UI scaling
   - Tavern display
-- Balans changes
+- Balance changes
   - All mythicals items are now legendary :/
   - Optimlize weapons damage
 
@@ -177,5 +187,5 @@
 - Fix
   - Inventory error
 - Add
-- Balans changes
+- Balance changes
   - More rock drop rate

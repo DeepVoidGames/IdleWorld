@@ -5,8 +5,8 @@
     - 50 Monsters
     - 15 Bosses
 - Mining
-  - 8 unique caves
-  - 12 unique ores
+  - 9 unique caves
+  - 14 unique ores
   - 9 unique cave upgrades
 - Magic
   - 6 potions to obtain

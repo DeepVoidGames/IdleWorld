@@ -167,6 +167,27 @@
       ],
       "miningLevelRequired": 2000,
       "isUnlocked": false
+    },
+    {
+      "name": "Root Underground",
+      "rocks": [
+        {
+          "name": "ChabaziteOre",
+          "baseHealth": 35000.0,
+          "chance": 70,
+          "prefab": {},
+          "drops": [{ "resourceName": "Chabazite", "chance": 1.0 }]
+        },
+        {
+          "name": "BayldoniteOre",
+          "baseHealth": 40000.0,
+          "chance": 30,
+          "prefab": {},
+          "drops": [{ "resourceName": "Bayldonite", "chance": 1.0 }]
+        }
+      ],
+      "miningLevelRequired": 3000,
+      "isUnlocked": false
     }
   ]
 }

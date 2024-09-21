@@ -400,6 +400,20 @@
       "potionType": 1,
       "potionValue": 1.5,
       "potionDuration": 3600
+    },
+    {
+      "Name": "Bayldonite",
+      "id": 48,
+      "category": 1,
+      "rarity": 4,
+      "icon": {}
+    },
+    {
+      "Name": "Chabazite",
+      "id": 49,
+      "category": 1,
+      "rarity": 3,
+      "icon": {}
     }
   ]
 }
