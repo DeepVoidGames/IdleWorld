@@ -170,7 +170,7 @@ public class BonusSystem : MonoBehaviour
             RemoveBonusEffect(bonus);
             bonus.amount = 0;
         }
-
+    
         UpdateBonusText();
     }
 
@@ -258,6 +258,7 @@ public class BonusSystem : MonoBehaviour
         card.transform.Find("CardData/Title").GetComponent<Text>().text = "";
         card.transform.Find("CardData/Description").GetComponent<Text>().text = "";
         card.transform.Find("CardData").gameObject.SetActive(false);
+        card.SetActive(false);
     }
 
     private Color ColorCalculation(double totalValue, int startValue)

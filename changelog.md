@@ -4,9 +4,12 @@
   - New cave
     - 2 new ores
     - New upgrade
+    - New weapon & pickaxe
   - UI Text Scaling
 - Fix
   - Gold Rune description
+  - Fix card display
+  - Bonus upgrade tools display
 
 # 0.6.1.0
 

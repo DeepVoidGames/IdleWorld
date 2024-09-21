@@ -379,6 +379,66 @@
           "chance": 0.01
         }
       ]
+    },
+    {
+      "id": 26,
+      "materialName": "Chabazite",
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Sword",
+          "chance": 0.95
+        },
+        {
+          "itemName": "Chabazite Sword",
+          "chance": 0.05
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "materialName": "Bayldonite",
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Sword",
+          "chance": 0.99
+        },
+        {
+          "itemName": "Bayldonite Sword",
+          "chance": 0.01
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "materialName": "Chabazite",
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Pickaxe",
+          "chance": 0.95
+        },
+        {
+          "itemName": "Chabazite Pickaxe",
+          "chance": 0.05
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "materialName": "Bayldonite",
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Pickaxe",
+          "chance": 0.99
+        },
+        {
+          "itemName": "Bayldonite Pickaxe",
+          "chance": 0.01
+        }
+      ]
     }
   ]
 }

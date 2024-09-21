@@ -414,6 +414,38 @@
       "category": 1,
       "rarity": 3,
       "icon": {}
+    },
+    {
+      "Name": "Chabazite Sword",
+      "id": 50,
+      "category": 2,
+      "rarity": 3,
+      "icon": {},
+      "baseDamage": 10000.0
+    },
+    {
+      "Name": "Bayldonite Sword",
+      "id": 51,
+      "category": 2,
+      "rarity": 4,
+      "icon": {},
+      "baseDamage": 20000.0
+    },
+    {
+      "Name": "Chabazite Pickaxe",
+      "id": 52,
+      "category": 3,
+      "rarity": 3,
+      "icon": {},
+      "baseMiningEfficiency": 15000.0
+    },
+    {
+      "Name": "Bayldonite Pickaxe",
+      "id": 53,
+      "category": 3,
+      "rarity": 4,
+      "icon": {},
+      "baseMiningEfficiency": 20000.0
     }
   ]
 }

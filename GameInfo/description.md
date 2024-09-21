@@ -13,7 +13,7 @@
   - 7 runes to upgrade
 - Other features
   - Crafting
-    - 18 unique weapons to craft
-    - 12 unique pickaxes to craft
+    - 20 unique weapons to craft
+    - 14 unique pickaxes to craft
   - Tavern
     - 4 unique heroes to hire

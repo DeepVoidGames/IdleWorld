@@ -201,7 +201,10 @@ public class UpgradingSystem : MonoBehaviour
     {
         if (UpgradeSlot != null)
         {
-            statsText.text = $"Level: {upgrade.level} / {upgrade.maxLevel}\nDivine Level: {upgrade.divineLevel} / {upgrade.maxDivineLevel}\nBonus: {UISystem.Instance.NumberFormat(GetBonus(UpgradeSlot.Name, UpgradeSlot.baseDamage))}";
+            if (UpgradeSlot.baseDamage != 0)
+                statsText.text = $"Level: {upgrade.level} / {upgrade.maxLevel}\nDivine Level: {upgrade.divineLevel} / {upgrade.maxDivineLevel}\nBonus: {UISystem.Instance.NumberFormat(GetBonus(UpgradeSlot.Name, UpgradeSlot.baseDamage))}";
+            else if (UpgradeSlot.baseMiningEfficiency != 0)
+                statsText.text = $"Level: {upgrade.level} / {upgrade.maxLevel}\nDivine Level: {upgrade.divineLevel} / {upgrade.maxDivineLevel}\nBonus: {UISystem.Instance.NumberFormat(GetBonus(UpgradeSlot.Name, UpgradeSlot.baseMiningEfficiency))}";
             if (upgrade.IsMaxLevel() && upgrade.divineLevel < upgrade.maxDivineLevel)
             {
                 costText.gameObject.SetActive(false);

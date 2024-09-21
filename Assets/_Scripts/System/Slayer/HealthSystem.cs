@@ -36,14 +36,25 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] private GameObject gameOverScreen;
 
+    
+
     private void UpdateUI()
     {
-        // 100% = X: 0, Y: 0 | W: 490, H: 30
-        // 0% = X: -245, Y: 0 | W: 0, H: 30
-        float clampedWidth = Mathf.Clamp((float)health * 4.9f, 0f, 490f);
+        const float MaxBarWidth = 490f;
+
+        // Clamp health between 0 and maxHealth
+        health = Mathf.Clamp((float)health, 0f, (float)maxHealth);
+        
+        // Calculate the width of the health bar based on current health
+        float clampedWidth = Mathf.Clamp((float)health / (float)maxHealth * MaxBarWidth, 0f, MaxBarWidth);
+        
+        // Update health bar size
         healthBar.rectTransform.sizeDelta = new Vector2(clampedWidth, 30);
+        
+        // Update health text
         healthText.text = $"Health: {UISystem.Instance.NumberFormat(health)} / {UISystem.Instance.NumberFormat(maxHealth)}";
     }
+
 
     public void AddHealthBoost(double value)
     {
