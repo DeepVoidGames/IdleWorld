@@ -111,7 +111,7 @@ public class UpgradingSystem : MonoBehaviour
 
     [SerializeField] private float divineLevelMultiplier = 5f;
     private float bonusMultiplier = 0.05f;
-    private int divineLevelRequirement = 50;
+    private int divineLevelRequirement = 10;
 
     public void Upgrade()
     {
@@ -186,7 +186,7 @@ public class UpgradingSystem : MonoBehaviour
             _d = 1;
         }
 
-        if (!(LevelSystem.Instance.Level >= _d * divineLevelRequirement))  
+        if (!(LevelSystem.Instance.HighestLevel >= _d * divineLevelRequirement))  
         {
             resultText.text = $"You need to be level {_d * divineLevelRequirement} to perform divine upgrade!";
             isUpgrading = false;

@@ -80,6 +80,27 @@ public class HealthSystem : MonoBehaviour
             Death();
     }
 
+
+    public void HealOverTime(double healAmount, float duration)
+    {
+        StartCoroutine(HealOverTimeCoroutine(healAmount, duration));
+    }
+
+    private IEnumerator HealOverTimeCoroutine(double healAmount, float duration)
+    {
+        float time = 0;
+        float interval = 1f; // Heal every 1 second
+        double healPerInterval = healAmount / (duration / interval);
+
+        while (time < duration)
+        {
+            yield return new WaitForSeconds(interval);
+            health += healPerInterval;
+            UpdateUI();
+            time += interval;
+        }
+    }
+
     IEnumerator SlayerDied()
     {
         LevelSystem.Instance.RestetSlayer();

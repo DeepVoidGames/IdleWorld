@@ -1,3 +1,15 @@
+# 0.6.3.0
+
+- Add
+  - Potion inventory sort by rarity
+  - New potions
+    - 3 Health potion
+      <!-- TODO - New biome -->
+      <!-- TODO - New hero -->
+- Balance changes
+  - 50 -> 10 Divine level requirement
+  - Potion cost gold, not time anymore
+
 # 0.6.2.0
 
 - Add

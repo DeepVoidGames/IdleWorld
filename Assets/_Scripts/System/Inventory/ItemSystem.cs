@@ -45,7 +45,8 @@ public class Items
     {
         Damage,
         Gold,
-        MiningEfficiency
+        MiningEfficiency,
+        Health,
     }
 
 }

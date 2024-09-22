@@ -18,6 +18,8 @@ public class PotionsSystem : MonoBehaviour
         }
     }
 
+    [Header("Potion Cost")]
+    [SerializeField] private int potionCost = 1000000;
     [Header("Potion Cooldown")]
     [SerializeField] private float getPotionCooldown = 1800f;
     [SerializeField] private bool isPotionCooldown = false;
@@ -37,7 +39,7 @@ public class PotionsSystem : MonoBehaviour
 
     public void GetRandomPotion()
     {
-        if (isPotionCooldown)
+        if(!(GoldSystem.Instance.Gold >= potionCost))
             return;
         // Common - 70% | Uncommon - 20% | Rare - 7% | Epic - 2% | Legendary - 1%
         List<Items> potions = ItemSystem.Instance.ItemsCollection.FindAll(x => x.category == InventorySystem.Category.Potion);
@@ -67,8 +69,9 @@ public class PotionsSystem : MonoBehaviour
         {
             potion = potions.FindAll(x => x.rarity == Items.Rarity.Mythical)[UnityEngine.Random.Range(0, potions.FindAll(x => x.rarity == Items.Rarity.Mythical).Count)];
         }
+        GoldSystem.Instance.SpendGold(potionCost);
         InventorySystem.Instance.AddItem(potion.id, 1);
-        StartCoroutine(GetPotionCooldown());
+        // StartCoroutine(GetPotionCooldown());
     }
 
     private IEnumerator GetPotionCooldown()
@@ -117,6 +120,10 @@ public class PotionsSystem : MonoBehaviour
         {
              DifficultySystem.Instance.AddMiningEfficiencyPercentage(currentPotion.potionValue);
         }
+        else if(currentPotion.potionType == Items.PotionType.Health)
+        {
+            HealthSystem.Instance.HealOverTime(currentPotion.potionValue, currentPotion.potionDuration);
+        }
         StartCoroutine(PotionDuration());
     }
 
@@ -149,14 +156,14 @@ public class PotionsSystem : MonoBehaviour
             AddPotionBonus();
         }
 
-        if (PlayerPrefs.HasKey("PotionCooldown"))
-        {
-            _potionCooldownTimer = PlayerPrefs.GetFloat("PotionCooldown");
-            if (_potionCooldownTimer > 0)
-            {
-                StartCoroutine(GetPotionCooldown());
-            }
-        }
+        // if (PlayerPrefs.HasKey("PotionCooldown"))
+        // {
+        //     _potionCooldownTimer = PlayerPrefs.GetFloat("PotionCooldown");
+        //     if (_potionCooldownTimer > 0)
+        //     {
+        //         StartCoroutine(GetPotionCooldown());
+        //     }
+        // }
     }
 
     private void SavePotion()

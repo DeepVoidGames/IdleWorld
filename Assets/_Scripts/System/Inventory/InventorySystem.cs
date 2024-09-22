@@ -241,6 +241,10 @@ public class InventorySystem : MonoBehaviour
         {
             SortByMiningEfficiency();
         }
+        else if (currentCategory == Category.Potion)
+        {
+            SortByRarity();
+        }
     }
 
     private void SortByDamage()
@@ -449,7 +453,7 @@ public class InventorySystem : MonoBehaviour
             go.transform.Find("Title").GetComponent<Text>().text = $"{item.Name} (Active)";
         }
 
-        go.transform.Find("Quantity").GetComponent<Text>().text = String.Format(item.description, item.potionValue * 100, item.potionDuration / 60, UISystem.Instance.NumberFormat(slot.quantity));
+        go.transform.Find("Quantity").GetComponent<Text>().text = String.Format(item.description, item.potionType != Items.PotionType.Health ? item.potionValue * 100 : item.potionValue, item.potionDuration >= 60 ? item.potionDuration / 60  : item.potionDuration, slot.quantity >= 1000 ? UISystem.Instance.NumberFormat(slot.quantity) : slot.quantity.ToString());
 
         Button use = go.transform.Find("Equip").GetComponent<Button>();
         use.transform.Find("Text").GetComponent<Text>().text = "Use";
