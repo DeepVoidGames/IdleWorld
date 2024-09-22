@@ -4,11 +4,11 @@
   - Potion inventory sort by rarity
   - New potions
     - 3 Health potion
-      <!-- TODO - New biome -->
       <!-- TODO - New hero -->
 - Balance changes
   - 50 -> 10 Divine level requirement
   - Potion cost gold, not time anymore
+  - Mana regen 1 -> 10/h
 
 # 0.6.2.0
 

@@ -9,4 +9,9 @@ public class ButtonPanelHandler : MonoBehaviour
     {
         panel.SetActive(!panel.activeSelf);
     }
+
+    public void ToogleOffPanel()
+    {
+        panel.SetActive(false);
+    }
 }

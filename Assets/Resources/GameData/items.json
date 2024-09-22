@@ -455,7 +455,7 @@
       "icon": {},
       "description": "Heal you over time for {0} health per second for {1} seconds.\nAmount {2}",
       "potionType": 3,
-      "potionValue": 10,
+      "potionValue": 100,
       "potionDuration": 10
     },
     {
@@ -466,7 +466,7 @@
       "icon": {},
       "description": "Heal you over time for {0} health per second for {1} seconds.\nAmount {2}",
       "potionType": 3,
-      "potionValue": 100,
+      "potionValue": 500,
       "potionDuration": 10
     },
     {
@@ -477,7 +477,7 @@
       "icon": {},
       "description": "Heal you over time for {0} health per second for {1} seconds.\nAmount {2}",
       "potionType": 3,
-      "potionValue": 500,
+      "potionValue": 1000,
       "potionDuration": 10
     }
   ]
