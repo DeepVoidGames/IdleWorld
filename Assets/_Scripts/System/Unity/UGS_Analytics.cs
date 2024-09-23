@@ -9,43 +9,24 @@ public class UGS_Analytics : MonoBehaviour
 {
     async void Start()
     {
-        try
-        {
-            await UnityServices.InitializeAsync();
-            GiveConsent(); // Get user consent according to various legislations
-        }
-        catch (ConsentCheckException e)
-        {
-            Debug.Log(e.ToString());
-        }
+        await UnityServices.InitializeAsync();
+        GiveConsent(); // Get user consent according to various legislations
     }
 
     void OnApplicationQuit()
     {
-        try
-        {
-            CustomEvent();
-        }
-        catch (ConsentCheckException e)
-        {
-            Debug.Log(e.ToString());
-        }
+        CustomEvent();
     }
 
     private void CustomEvent()
     {
-        // Define Custom Parameters
-        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        GameDataEvent gameDataEvent = new GameDataEvent
         {
-            { "goldAmount", GoldSystem.Instance.Gold },
-            { "miningLevel", MiningSystem.Instance.MiningLevel },
-            { "slayerLevel", LevelSystem.Instance.Level }
+            GoldAmount = (float)GoldSystem.Instance.Gold,
+            MiningLevel = (int)MiningSystem.Instance.MiningLevel,
+            SlayerLevel = LevelSystem.Instance.Level
         };
-
-        #pragma warning disable CS0618 // Type or member is obsolete
-        AnalyticsService.Instance.CustomData("gameData", parameters);
-        #pragma warning restore CS0618 // Type or member is obsolete
-
+        AnalyticsService.Instance.RecordEvent(gameDataEvent);
         // You can call Events.Flush() to send the event immediately
         // AnalyticsService.Instance.Flush();
     }
@@ -56,4 +37,16 @@ public class UGS_Analytics : MonoBehaviour
         AnalyticsService.Instance.StartDataCollection();
         Debug.Log($"Consent has been provided. The SDK is now collecting data!");
     }
+}
+
+public class GameDataEvent : Unity.Services.Analytics.Event
+{
+    public GameDataEvent() : base("gameDataEvent")
+    {
+    }
+
+    public float GoldAmount { set { SetParameter("goldAmount", value); } }
+    public int MiningLevel { set { SetParameter("miningLevel", value); } }
+    public int SlayerLevel { set { SetParameter("slayerLevel", value); } }
+
 }

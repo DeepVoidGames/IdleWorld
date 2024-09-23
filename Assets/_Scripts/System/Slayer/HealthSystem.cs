@@ -30,6 +30,9 @@ public class HealthSystem : MonoBehaviour
     public bool IsDead => health <= 0;
     public double Health { get => health; set => health = value; }
 
+    public bool reviveSlayer = false;
+
+
     [Header("UI")]
     [SerializeField] private Image healthBar;
     [SerializeField] private Text healthText;
@@ -80,7 +83,6 @@ public class HealthSystem : MonoBehaviour
             Death();
     }
 
-
     public void HealOverTime(double healAmount, float duration)
     {
         StartCoroutine(HealOverTimeCoroutine(healAmount, duration));
@@ -103,11 +105,13 @@ public class HealthSystem : MonoBehaviour
 
     IEnumerator SlayerDied()
     {
+
         LevelSystem.Instance.RestetSlayer();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         gameOverScreen.SetActive(false);
         maxHealth = baseMaxHealth;
         health = maxHealth;
+        UpdateUI();
     }
 
     private void SaveHighscore()
@@ -118,6 +122,36 @@ public class HealthSystem : MonoBehaviour
             PlayerPrefs.SetInt("HighscoreStage", LevelSystem.Instance.Stage);
         gameOverScreen.transform.Find("LevelText").GetComponent<Text>().text = $"Highest Level: {PlayerPrefs.GetInt("HighscoreLevel")}";
         gameOverScreen.transform.Find("StageText").GetComponent<Text>().text = $"Highest Stage: {PlayerPrefs.GetInt("HighscoreStage")}";
+    }
+
+    IEnumerator Revive()
+    {
+        gameOverScreen.SetActive(true);
+        
+        float _timer = 0f;
+        while (true)
+        {
+            _timer += Time.deltaTime;
+            if (reviveSlayer || _timer >= 15f)
+            {
+                break;
+            }
+            yield return null;
+        }
+
+        if(reviveSlayer)
+        {
+            health = maxHealth;
+            reviveSlayer = false;
+            gameOverScreen.SetActive(false);
+        }
+        else
+        {
+            SaveHighscore();
+            BonusSystem.Instance.RestartBonuses();
+            StartCoroutine(SlayerDied());
+        }
+        UpdateUI();
     }
 
     private void Death()
@@ -131,10 +165,7 @@ public class HealthSystem : MonoBehaviour
                 BossSystem.Instance.DestroyBoss();
 
             //TODO Show Game Over Screen
-            SaveHighscore();
-            gameOverScreen.SetActive(true);
-            BonusSystem.Instance.RestartBonuses();
-            StartCoroutine(SlayerDied());
+            StartCoroutine(Revive());
         }
     }
 }

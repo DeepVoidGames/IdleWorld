@@ -30,7 +30,7 @@ public class SlayerSystem : MonoBehaviour
         isAttacking = true;
         yield return new WaitForSeconds(2f);
         if (MonsterSystem.Instance.CurrentMonster != null)
-            MonsterSystem.Instance.CurrentMonster.GetComponent<MonsterObject>().TakeDamage(DamageSystem.Instance.Damage);
+            MonsterSystem.Instance.CurrentMonster.GetComponent<MonsterObject>().TakeDamage(DamageSystem.Instance.Damage, new Color(1f, 0f, 0f, 0.8f));
         isAttacking = false;
     }
 
@@ -69,7 +69,7 @@ public class SlayerSystem : MonoBehaviour
             }
             else
             {
-                Debug.Log("No monster or boss found to attack.");
+                // Debug.Log("No monster or boss found to attack.");
             }
         }
     }

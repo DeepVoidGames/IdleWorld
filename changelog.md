@@ -1,10 +1,11 @@
 # 0.6.3.0
 
 - Add
+  - UI Changes
+  - Reward ads for revive slayer
   - Potion inventory sort by rarity
   - New potions
     - 3 Health potion
-      <!-- TODO - New hero -->
 - Balance changes
   - 50 -> 10 Divine level requirement
   - Potion cost gold, not time anymore
