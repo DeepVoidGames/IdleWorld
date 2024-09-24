@@ -30,25 +30,16 @@ public class DamageSystem : MonoBehaviour
     public double Damage
     {
         get => DifficultySystem.Instance.GetDamage(damage);
-        set => damage = value;
     }
 
-    public float AttackSpeed
+    public void AddDamageBoost(double value)
     {
-        get => attackSpeed;
-        set => attackSpeed = value;
+        damage += value;
     }
 
-    public float CriticalChance
+    public void RemoveDamageBoost(double value)
     {
-        get => criticalChance;
-        set => criticalChance = value;
-    }
-
-    public double CriticalDamage
-    {
-        get => criticalDamage;
-        set => criticalDamage = value;
+        damage -= value;
     }
 
     [Header("Weapon System")]
@@ -60,8 +51,6 @@ public class DamageSystem : MonoBehaviour
         set => isWeaponEquipped = value;
     }
     private Items weapon;
-
-    private float _timerDPS;
 
     public void EquipWeapon(Items weapon)
     {
@@ -87,6 +76,7 @@ public class DamageSystem : MonoBehaviour
         return weapon;
     }
 
+    // Attack
     private void Attack()
     {
         double dps = DifficultySystem.Instance.GetDPS();

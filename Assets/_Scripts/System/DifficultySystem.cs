@@ -116,7 +116,12 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetIdleReward(float value = 0)
     {
-        double health = BiomeSystem.Instance.Bioms.Find(x => x.Name == BiomeSystem.Instance.CurrentBiome).Monsters[0].Health;
+        float biomeIndex = LevelSystem.Instance.HighestLevel / 10;
+        if (biomeIndex >= BiomeSystem.Instance.Bioms.Count)
+        {
+            biomeIndex = BiomeSystem.Instance.Bioms.Count - 1; // Clamp the biome index to the last available biome
+        }
+        double health = BiomeSystem.Instance.Bioms[(int)biomeIndex].Monsters[0].Health;
         if (value != 0)
             return health + (health * _difficultyMultiplier) * value;
         return health + (health * _difficultyMultiplier) * IdleSystem.Instance.IdleTime / 60 / 60;

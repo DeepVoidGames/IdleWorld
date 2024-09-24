@@ -99,7 +99,7 @@ public class RunesSystem : MonoBehaviour
         switch (rune.bonusType)
         {
             case Rune.BonusType.DamageBase:
-                DamageSystem.Instance.Damage += value;
+                DamageSystem.Instance.AddDamageBoost(value);
                 break;
             case Rune.BonusType.DamagePercentage:
                 DifficultySystem.Instance.AddDamagePercentage(value / 100);

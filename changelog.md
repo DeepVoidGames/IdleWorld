@@ -1,3 +1,20 @@
+# 0.6.4.0
+
+- Add
+  - Slayer upgrades
+  - UI Changes
+  - Reward ads for revive slayer
+  - Potion inventory sort by rarity
+  - New potions
+    - 3 Health potion
+- Fix
+  - Early game balance
+- Balance changes
+  - Atack speed 1 -> 0.5
+  - 50 -> 10 Divine level requirement
+  - Potion cost gold, not time anymore
+  - Mana regen 1 -> 10/h
+
 # 0.6.3.0
 
 - Add
