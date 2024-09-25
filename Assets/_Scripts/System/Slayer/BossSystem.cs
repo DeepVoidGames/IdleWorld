@@ -26,6 +26,8 @@ public class Boss
     }
 
     public GameObject Prefab;
+
+    public List<Drop> Drops; 
 }
 
 public class BossSystem : MonoBehaviour 
@@ -84,8 +86,44 @@ public class BossSystem : MonoBehaviour
         }
     }
 
+    public Drop DropCalculator()
+    {
+        Biomes biome = BiomeSystem.Instance.Bioms.Find(biome => biome.Name == BiomeSystem.Instance.CurrentBiome);
+        Boss boss = biome.Bosses.Find(boss => boss.Name == bossObject.BossName);
+        if (boss == null)
+        {
+            Debug.LogError("Boss not found");
+            return null;
+        }
+        if (boss.Drops.Count == 0)
+        {
+            // Debug.LogError("Drops not found");
+            return null;
+        }
+        if (boss.Drops.Count == 1)
+        {
+            return boss.Drops[0];
+        }
+        List<Drop> drops = boss.Drops;
+        float random = Random.Range(0f, 100f);
+        float sum = 0f;
+        foreach (Drop drop in drops)
+        {
+            sum += drop.chance;
+            if (random <= sum)
+            {
+                return drop;
+            }
+        }
+        return null;
+    }
+
     public void BossDied()
     {
+        // Calculate the reward
+        Drop drop = DropCalculator();
+        if (drop != null)
+            InventorySystem.Instance.AddItemByName(drop.resourceName, 1f);
         LevelSystem.Instance.ResetStage();
         double m = DifficultySystem.Instance.GetBossDrop(bossObject.MaxHealth);
         GoldSystem.Instance.AddGold(m);
