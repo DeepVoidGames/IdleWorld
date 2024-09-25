@@ -22,6 +22,8 @@ public class GoldSystem : MonoBehaviour
 
     [SerializeField] private double gold;
 
+    public event System.Action<double> OnGoldChanged;
+
     public double Gold
     {
         get => gold;
@@ -31,6 +33,7 @@ public class GoldSystem : MonoBehaviour
     public void AddGold(double amount)
     {
         Gold += amount;
+        OnGoldChanged?.Invoke(gold);
         UISystem.Instance.UpdateGoldText();
     }
 
@@ -45,6 +48,7 @@ public class GoldSystem : MonoBehaviour
         if (gold >= amount)
         {
             gold = gold - amount;
+            OnGoldChanged?.Invoke(gold);
             UISystem.Instance.UpdateGoldText();
             UISystem.Instance.MoneyIndicator(amount, "-");
         }

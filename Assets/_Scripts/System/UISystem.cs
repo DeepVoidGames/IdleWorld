@@ -62,6 +62,12 @@ public class UISystem : MonoBehaviour {
     [SerializeField] private Text potionText;
     [SerializeField] private Image potionIcon;
 
+    [Header("Buy Buttons Colors")]
+    public Color buyButtonColor;
+    public Color buyButtonDisabledColor;
+    public Color buyButtonMaxedColor;
+    public Color buyButtonNeutralColor;
+
     public void UpdateLevelText()
     {
         levelText.text = String.Format("Slayer Level: {0}", NumberFormatInt(LevelSystem.Instance.Level));

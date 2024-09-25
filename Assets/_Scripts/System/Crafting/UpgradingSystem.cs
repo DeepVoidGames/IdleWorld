@@ -228,6 +228,40 @@ public class UpgradingSystem : MonoBehaviour
         InventorySystem.Instance.UpdateUI();
     }
 
+    private void UpdateUiUpgradeButton(double gold)
+    {
+        if (upgrade == null)
+            return;
+        if (UpgradeSlot.Name == "")
+            return;
+        if (upgrade.IsMaxLevel() && upgrade.divineLevel < upgrade.maxDivineLevel)
+        {
+            upgradeButton.interactable = true;
+            upgradeButton.GetComponentInChildren<Text>().text = "Divine Upgrade";
+            upgradeButton.GetComponent<Image>().color = UISystem.Instance.buyButtonNeutralColor;
+        }
+        else if (upgrade.IsMaxLevel())
+        {
+            upgradeButton.interactable = false;
+            upgradeButton.GetComponentInChildren<Text>().text = "Max Level";
+            upgradeButton.GetComponent<Image>().color = UISystem.Instance.buyButtonMaxedColor;
+        }
+        else
+        {
+            if (gold >= CalculateGoldCost())
+            {
+                upgradeButton.interactable = true;
+                upgradeButton.GetComponentInChildren<Text>().text = "Upgrade";
+                upgradeButton.GetComponent<Image>().color = UISystem.Instance.buyButtonColor;
+            }
+            else
+            {
+                upgradeButton.interactable = false;
+                upgradeButton.GetComponentInChildren<Text>().text = "Not enough gold!";
+                upgradeButton.GetComponent<Image>().color = UISystem.Instance.buyButtonDisabledColor;
+            }
+        }
+    }
     private double CalculateChance()
     {
         if (upgrade == null)
@@ -423,5 +457,15 @@ public class UpgradingSystem : MonoBehaviour
 
         if(DamageSystem.Instance.IsWeaponEquipped)
             DamageSystem.Instance.UpdateWeaponDamage();
+    }
+
+    private void Start()
+    {
+        GoldSystem.Instance.OnGoldChanged += UpdateUiUpgradeButton;
+    }
+
+    private void OnDestroy()
+    {
+        GoldSystem.Instance.OnGoldChanged -= UpdateUiUpgradeButton;
     }
 }

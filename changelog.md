@@ -1,3 +1,10 @@
+# 0.6.5.0
+
+- Add
+  - UI Changes
+- Balance changes
+  - Hearo max level 3000 -> 5000
+
 # 0.6.4.0
 
 - Add

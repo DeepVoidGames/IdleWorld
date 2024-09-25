@@ -3954,7 +3954,7 @@ MonoBehaviour:
   heroes:
   - name: Water Dwarf
     level: 1
-    maxLevel: 3000
+    maxLevel: 5000
     baseDPS: 5
     baseCost: 1000
     baseUpgradeCost: 1000
@@ -3966,7 +3966,7 @@ MonoBehaviour:
     prefab: {fileID: 6167672467676339614, guid: 22ce0b8cab46b994ea1d0970f239357b, type: 3}
   - name: Fire Knight
     level: 1
-    maxLevel: 3000
+    maxLevel: 5000
     baseDPS: 50
     baseCost: 10000
     baseUpgradeCost: 5000
@@ -3978,7 +3978,7 @@ MonoBehaviour:
     prefab: {fileID: 518401757480816705, guid: ef27693834f68b642962c69f92055c11, type: 3}
   - name: Ground Monk
     level: 1
-    maxLevel: 3000
+    maxLevel: 5000
     baseDPS: 100
     baseCost: 100000
     baseUpgradeCost: 50000
@@ -3990,7 +3990,7 @@ MonoBehaviour:
     prefab: {fileID: 1171966176139857094, guid: 4e9262daa678b77479885bfc03777f1c, type: 3}
   - name: Leaf Ranger
     level: 1
-    maxLevel: 3000
+    maxLevel: 5000
     baseDPS: 1000
     baseCost: 1000000
     baseUpgradeCost: 500000
@@ -16052,10 +16052,12 @@ MonoBehaviour:
       BaseHealth: 150
       BaseDamage: 0
       Prefab: {fileID: 1143826163299012661, guid: 557388cd683eec84e8c04ea4ed42f662, type: 3}
+      Drops: []
     - Name: ShriekerMushroom
       BaseHealth: 200
       BaseDamage: 0
       Prefab: {fileID: 4939725676465597107, guid: 9d4082e6bd214d24b8bb867353edb3dd, type: 3}
+      Drops: []
   - Name: Desert
     background: {fileID: 21300000, guid: 6e0b4b59092095042814bc0ee9656606, type: 3}
     Monsters:
@@ -16080,10 +16082,12 @@ MonoBehaviour:
       BaseHealth: 350
       BaseDamage: 0
       Prefab: {fileID: 7357765323304330353, guid: f25df8c72bc2ddb45a507ec0d56eb615, type: 3}
+      Drops: []
     - Name: OgreMage
       BaseHealth: 400
       BaseDamage: 0
       Prefab: {fileID: 4823579592497624062, guid: 1b35764fa34123f44bf02329740131a7, type: 3}
+      Drops: []
   - Name: Swamp
     background: {fileID: 21300000, guid: fec5edeca8a6f7d46b4aba478c18af08, type: 3}
     Monsters:
@@ -16104,6 +16108,7 @@ MonoBehaviour:
       BaseHealth: 800
       BaseDamage: 0
       Prefab: {fileID: 1422040688101171799, guid: 986059a29c4f9c249ba4488db51b05c0, type: 3}
+      Drops: []
   - Name: Underwater
     background: {fileID: 21300000, guid: 540aa2a4c2726fd468bef8de9544d611, type: 3}
     Monsters:
@@ -16124,6 +16129,7 @@ MonoBehaviour:
       BaseHealth: 1600
       BaseDamage: 0
       Prefab: {fileID: 9147757862974845808, guid: 3ae2e0c9d5dcc634c84e17f32c6cd1b1, type: 3}
+      Drops: []
   - Name: Demon's Domain
     background: {fileID: 21300000, guid: 66c35ae3b32ee794585c790935ce75a8, type: 3}
     Monsters:
@@ -16148,6 +16154,7 @@ MonoBehaviour:
       BaseHealth: 2500
       BaseDamage: 0
       Prefab: {fileID: 4052145069722277387, guid: 3a53ad23dd1e7e941b26077eade6ae56, type: 3}
+      Drops: []
   - Name: Cursed Lands
     background: {fileID: 21300000, guid: 2638c3ad9bddb0b4e909aa2956b5429e, type: 3}
     Monsters:
@@ -16172,6 +16179,7 @@ MonoBehaviour:
       BaseHealth: 4300
       BaseDamage: 0
       Prefab: {fileID: 9021168319752424300, guid: 28ffe04cafae563408e32cb7dec8903f, type: 3}
+      Drops: []
   - Name: Warped Necropolis
     background: {fileID: 21300000, guid: 0b44ab34daa6fe24c8426b26d19cba1f, type: 3}
     Monsters:
@@ -16196,6 +16204,7 @@ MonoBehaviour:
       BaseHealth: 6500
       BaseDamage: 0
       Prefab: {fileID: 2827552804609071616, guid: 82ba5045908d1f24ab62c809b3d6d7f3, type: 3}
+      Drops: []
   - Name: Plague Swamp
     background: {fileID: 21300000, guid: 047e5025bb8e455479503f551a7f32e3, type: 3}
     Monsters:
@@ -16220,6 +16229,7 @@ MonoBehaviour:
       BaseHealth: 8800
       BaseDamage: 0
       Prefab: {fileID: 5503244995504385488, guid: 0893e2688032c1c40a101299e7a12aab, type: 3}
+      Drops: []
   - Name: Guardians' Bastion
     background: {fileID: 21300000, guid: a2f08237d45b9504c98c3bc7cb4cfc6a, type: 3}
     Monsters:
@@ -16244,6 +16254,7 @@ MonoBehaviour:
       BaseHealth: 11000
       BaseDamage: 0
       Prefab: {fileID: 1292957297676389270, guid: ca837b684e603224fbbded308897d825, type: 3}
+      Drops: []
   - Name: Ethereal Woods
     background: {fileID: 21300000, guid: 3fd4a92c7738bba4e8b8231fd6dfc88a, type: 3}
     Monsters:
@@ -16268,6 +16279,7 @@ MonoBehaviour:
       BaseHealth: 13000
       BaseDamage: 0
       Prefab: {fileID: 3741661429874407125, guid: e45d9a804d18ed14e9ed00147f0c31ec, type: 3}
+      Drops: []
   currentBiome: Forest
   imageBackground: {fileID: 343833222}
 --- !u!1 &656568043
@@ -16795,7 +16807,6 @@ GameObject:
   - component: {fileID: 683944228}
   - component: {fileID: 683944227}
   - component: {fileID: 683944226}
-  - component: {fileID: 683944225}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -16822,19 +16833,6 @@ RectTransform:
   m_AnchoredPosition: {x: 180.09993, y: 265.5}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &683944225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683944223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f8a01eb8e16149458c68597821c9488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1237970571}
 --- !u!114 &683944226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16879,9 +16877,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 683944225}
-        m_TargetAssemblyTypeName: ButtonPanelHandler, Assembly-CSharp
-        m_MethodName: TogglePanel
+      - m_Target: {fileID: 260447724}
+        m_TargetAssemblyTypeName: TavernSystem, Assembly-CSharp
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19519,11 +19517,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-    m_HighlightedColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-    m_PressedColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-    m_SelectedColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-    m_DisabledColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 0.5019608}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -19555,7 +19553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.14901961, g: 0.52156866, b: 0.22352941, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -22060,7 +22058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _androidGameId: 5671285
-  _iOSGameId: 
+  _iOSGameId: 5671284
   _testMode: 0
   _rewardedAdsButton: {fileID: 1017573994}
 --- !u!114 &1017573994
@@ -31147,6 +31145,10 @@ MonoBehaviour:
   statsText: {fileID: 528573276}
   potionText: {fileID: 1823831885}
   potionIcon: {fileID: 731022526}
+  buyButtonColor: {r: 0.14901961, g: 0.52156866, b: 0.22352941, a: 1}
+  buyButtonDisabledColor: {r: 0.52156866, g: 0.14901961, b: 0.14901961, a: 1}
+  buyButtonMaxedColor: {r: 0.61635214, g: 0.45991066, b: 0.14924245, a: 1}
+  buyButtonNeutralColor: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 1}
 --- !u!1 &1475451435
 GameObject:
   m_ObjectHideFlags: 0
@@ -44425,6 +44427,18 @@ PrefabInstance:
     - target: {fileID: 7490510102366639219, guid: d8795c0f080eabc4cac6af70a43fda4c, type: 3}
       propertyPath: m_Name
       value: Upgrade #1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985264770479504080, guid: d8795c0f080eabc4cac6af70a43fda4c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.22352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985264770479504080, guid: d8795c0f080eabc4cac6af70a43fda4c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.52156866
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985264770479504080, guid: d8795c0f080eabc4cac6af70a43fda4c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.14901961
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

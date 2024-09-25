@@ -100,6 +100,34 @@ public class UpgradesSlayerSystem : MonoBehaviour
         };
         pointerUpEntry.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
         trigger.triggers.Add(pointerUpEntry);
+
+        UIButtonUpdate(GoldSystem.Instance.Gold);
+    }
+
+    private void UIButtonUpdate(double gold)
+    {
+        foreach (UpgradeSlayer upgrade in upgrades)
+        {
+            // Change color of button if player can afford upgrade
+            if (upgrade.level >= upgrade.maxLevel)
+            {
+                upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Image>().color = UISystem.Instance.buyButtonMaxedColor;
+                upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Button>().interactable = false;
+                continue;
+            }
+            
+            if (upgrade.Price >= gold)
+            {
+                upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Image>().color = UISystem.Instance.buyButtonDisabledColor;
+                upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Button>().interactable = false;
+            }
+            else
+            {
+                upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Image>().color = UISystem.Instance.buyButtonColor;
+                upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Button>().interactable = true;
+                
+            }
+        }
     }
 
     private UpgradeSlayer GetUpgradeByName(string name)
@@ -197,6 +225,7 @@ public class UpgradesSlayerSystem : MonoBehaviour
         {
             UIUpdate(upgrade);
         }
+        GoldSystem.Instance.OnGoldChanged += UIButtonUpdate;
     }
 
     private void OnApplicationQuit()
@@ -208,5 +237,10 @@ public class UpgradesSlayerSystem : MonoBehaviour
     {
         if (pause)
             SaveBonuses();
+    }
+
+    private void OnDestroy()
+    {
+        GoldSystem.Instance.OnGoldChanged -= UIButtonUpdate;
     }
 }

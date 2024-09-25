@@ -73,6 +73,7 @@ public class TavernSystem : MonoBehaviour
 
     private Coroutine upgradeCoroutine;
 
+    private int currentHero = -1;
 
     private void UpdateUI(int id)
     {
@@ -85,13 +86,6 @@ public class TavernSystem : MonoBehaviour
             heroCost.text = $"Cost: {UISystem.Instance.NumberFormat(heroes[id].cost)}";
         upgradeButton.onClick.RemoveAllListeners(); 
 
-        if (heroes[id].level >= heroes[id].maxLevel)
-        {
-            heroCost.text = "Max Level";
-            upgradeButton.interactable = false;
-            upgradeButton.GetComponentInChildren<Text>().text = "Max Level";
-            return;
-        }
         if (heroes[id].isUnlocked)
         {
             upgradeButton.GetComponentInChildren<Text>().text = "Upgrade";
@@ -127,13 +121,45 @@ public class TavernSystem : MonoBehaviour
         }  
     }
 
+    private void UpdateBuyButtonUI(double gold)
+    {
+        if (currentHero < 0)
+            return;
+        int id = currentHero;
+        if (heroes[id].level >= heroes[id].maxLevel)
+        {
+            heroCost.text = "Max Level";
+            upgradeButton.interactable = false;
+            upgradeButton.GetComponentInChildren<Text>().text = "Max Level";
+            upgradeButton.GetComponent<Image>().color = UISystem.Instance.buyButtonMaxedColor;
+            return;
+        }
+
+        if (heroes[id].upgradeCost > GoldSystem.Instance.Gold)
+        {
+            upgradeButton.GetComponentInChildren<Text>().text = "Not enough gold";
+            upgradeButton.GetComponent<Image>().color = UISystem.Instance.buyButtonDisabledColor;
+            return;
+        }
+        upgradeButton.GetComponentInChildren<Text>().text = "Upgrade";
+        upgradeButton.GetComponent<Image>().color = UISystem.Instance.buyButtonColor;
+    }
+
     public void OpenPanel(int id)
     {
         upgradeButton.onClick.RemoveAllListeners();   
         heroPanel.SetActive(true);
+        currentHero = id;
         UpdateUI(id);
+        UpdateBuyButtonUI(GoldSystem.Instance.Gold);
     }
     
+    public void ClosePanel()
+    {
+        heroPanel.SetActive(false);
+        currentHero = -1;
+    }
+
     private void UpgradeHero(int id)
     {
         if (heroes[id].level >= heroes[id].maxLevel)
@@ -142,6 +168,7 @@ public class TavernSystem : MonoBehaviour
             return;
         heroes[id].level++;
         GoldSystem.Instance.SpendGold(heroes[id].upgradeCost);
+        currentHero = id;
         UpdateUI(id);
         UISystem.Instance.UpdateLevelText();
     }
@@ -153,6 +180,7 @@ public class TavernSystem : MonoBehaviour
         heroes[id].level = 1;
         heroes[id].isUnlocked = true;
         GoldSystem.Instance.SpendGold(heroes[id].cost);
+        currentHero = id;
         SpawnHero(id);
         UpdateUI(id);
         UISystem.Instance.UpdateLevelText();
@@ -192,4 +220,13 @@ public class TavernSystem : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GoldSystem.Instance.OnGoldChanged += UpdateBuyButtonUI;
+    }
+
+    private void OnDestroy()
+    {
+        GoldSystem.Instance.OnGoldChanged -= UpdateBuyButtonUI;
+    }
 }
