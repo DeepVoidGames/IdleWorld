@@ -83,6 +83,7 @@ public class CaveUpgrades : MonoBehaviour
         }
 
         Load();
+        InventorySystem.Instance.OnItemChanged += OnResourceChanged;
         UIUpdate();
     }
 
@@ -159,7 +160,27 @@ public class CaveUpgrades : MonoBehaviour
             Text text = BuyButton.GetComponentInChildren<Text>();
             text.text = "Max";
             Cost.text = "Max Level";
+            BuyButton.GetComponent<Image>().color = UISystem.Instance.buyButtonMaxedColor;
         }
+        else if (!useGold && InventorySystem.Instance.GetResourceByName(resourceName) < cost)
+        {
+            BuyButton.interactable = false;
+            BuyButton.GetComponentInChildren<Text>().text = "Not Enough";
+            BuyButton.GetComponent<Image>().color = UISystem.Instance.buyButtonDisabledColor;
+        }
+        else if(useGold && GoldSystem.Instance.Gold < cost)
+        {
+            BuyButton.GetComponentInChildren<Text>().text = "Not Enough";
+            BuyButton.interactable = false;
+            BuyButton.GetComponent<Image>().color = UISystem.Instance.buyButtonDisabledColor;
+        }
+        else
+        {
+            BuyButton.GetComponentInChildren<Text>().text = "Buy";
+            BuyButton.interactable = true;
+            BuyButton.GetComponent<Image>().color = UISystem.Instance.buyButtonColor;
+        }
+
     }
 
     private void ProgressBar()
@@ -280,6 +301,14 @@ public class CaveUpgrades : MonoBehaviour
         }
     }
 
+    private void OnResourceChanged(string resourceName)
+    {
+        if (resourceName == this.resourceName)
+        {
+            UIUpdate();
+        }
+    }
+
     private IEnumerator ContinuousBuy()
     {
         float waitTime = 0.2f; // Initial wait time
@@ -298,4 +327,10 @@ public class CaveUpgrades : MonoBehaviour
             waitTime = Mathf.Max(minWaitTime, waitTime * speedUpFactor); // Decrease wait time but not below minWaitTime
         }
     }
+
+    private void OnDestroy()
+    {
+        InventorySystem.Instance.OnItemChanged -= OnResourceChanged;
+    }
+
 }

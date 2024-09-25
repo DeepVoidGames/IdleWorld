@@ -62,6 +62,9 @@ public class InventorySystem : MonoBehaviour
     public Button equipedWeaponButton;
     public Button equipedToolButton;
 
+    //! EVENT
+    public event Action<string> OnItemChanged;
+
     public enum Category
     {
         None,      
@@ -85,6 +88,7 @@ public class InventorySystem : MonoBehaviour
         }
         
         slot.quantity += quantity;
+        OnItemChanged?.Invoke(slot.item.Name);
         inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} +{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(id));
         ClearDuplicates();
         UpdateUI();
@@ -121,6 +125,7 @@ public class InventorySystem : MonoBehaviour
         }
         
         slot.quantity += quantity;
+        OnItemChanged?.Invoke(slot.item.Name);
         inventoryIndicator.GetComponent<MessageSpawner>().SpawnMessage($"{slot.item.Name} +{UISystem.Instance.NumberFormat(quantity)}", ItemSystem.Instance.GetItemIcon(slot.item.id));
         ClearDuplicates();
         UpdateUI();
@@ -137,6 +142,7 @@ public class InventorySystem : MonoBehaviour
                 inventory.inventory.Remove(slot);
             }
         }
+        OnItemChanged?.Invoke(slot.item.Name);
         UpdateUI();
     }
 
@@ -166,6 +172,7 @@ public class InventorySystem : MonoBehaviour
                 inventory.inventory.Remove(slot);
             }
         }
+        OnItemChanged?.Invoke(slot.item.Name);
         UpdateUI();
     }
 

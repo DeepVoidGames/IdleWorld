@@ -181,11 +181,11 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 8f718247602b6ba4a9d8a3dc8c8e69ed, type: 3}
     m_FontSize: 64
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 128
+    m_MaxSize: 64
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
