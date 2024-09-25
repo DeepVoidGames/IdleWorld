@@ -25,6 +25,8 @@ public class ManaSystem : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Text textMana;
 
+    public event Action<double> OnManaChanged;
+
     private void UIUpdate()
     {
         textMana.text = $"Mana: {UISystem.Instance.NumberFormat(mana)} + {UISystem.Instance.NumberFormat(manaPerHour)}/h";
@@ -33,12 +35,14 @@ public class ManaSystem : MonoBehaviour
     public void AddMana(double value)
     {
         mana += value;
+        OnManaChanged?.Invoke(mana);
         UIUpdate();
     }
 
     public void RemoveMana(double value)
     {
         mana -= value;
+        OnManaChanged?.Invoke(mana);
         UIUpdate();
     }
 

@@ -549,6 +549,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinWolfRider
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: b90271d196957f14a9bad6ba65980518, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c3ad8e8852f8fb4faaf9047267effb2, type: 2}
     - target: {fileID: 7878350319992209165, guid: b90271d196957f14a9bad6ba65980518, type: 3}
       propertyPath: m_LocalScale.x
       value: 3

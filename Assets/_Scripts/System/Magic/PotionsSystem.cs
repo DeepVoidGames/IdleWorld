@@ -197,9 +197,24 @@ public class PotionsSystem : MonoBehaviour
         yield return null;
     }
 
+    private void UpdateUIButton(double gold)
+    {
+        if (gold < potionCost)
+        {
+            getPotionButton.interactable = false;
+            getPotionButton.GetComponent<Image>().color = UISystem.Instance.buyButtonDisabledColor;
+        }
+        else
+        {
+            getPotionButton.interactable = true;
+            getPotionButton.GetComponent<Image>().color = UISystem.Instance.buyButtonColor;
+        }
+    }
+
     private void Start() 
     {
-        LoadPotion();    
+        LoadPotion();
+        GoldSystem.Instance.OnGoldChanged += UpdateUIButton;
     }
 
     private void OnApplicationQuit() 

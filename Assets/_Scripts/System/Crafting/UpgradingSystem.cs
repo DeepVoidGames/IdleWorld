@@ -232,6 +232,8 @@ public class UpgradingSystem : MonoBehaviour
     {
         if (upgrade == null)
             return;
+        if (UpgradeSlot == null)
+            return;
         if (UpgradeSlot.Name == "")
             return;
         if (upgrade.IsMaxLevel() && upgrade.divineLevel < upgrade.maxDivineLevel)

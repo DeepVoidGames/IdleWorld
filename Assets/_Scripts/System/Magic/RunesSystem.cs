@@ -81,6 +81,8 @@ public class RunesSystem : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject runePanel;
 
+    private int currentRuneIndex = -1;
+
     private void LoadRunes()
     {
         foreach (Rune rune in runes)
@@ -152,12 +154,48 @@ public class RunesSystem : MonoBehaviour
     {
         runePanel.SetActive(true);
         UpdateUI(index);
+        currentRuneIndex = index;
+        OnManaChanged(ManaSystem.Instance.GetMana());
+    }
+
+    private void OnManaChanged(double value)
+    {
+        if (!runePanel.activeSelf)
+            return;
+        if (currentRuneIndex < 0)
+            return;
+        if (currentRuneIndex >= runes.Count)
+            return;
+        
+        if (runes[currentRuneIndex].level >= runes[currentRuneIndex].maxLevel)
+        {
+            runePanel.transform.Find("UpgradeButton").GetComponent<Button>().interactable = false;
+            runePanel.transform.Find("UpgradeButton").GetComponent<Image>().color = UISystem.Instance.buyButtonMaxedColor;
+            return;
+        }
+
+        if (value < runes[currentRuneIndex].cost)
+        {
+            runePanel.transform.Find("UpgradeButton").GetComponent<Button>().interactable = false;
+            runePanel.transform.Find("UpgradeButton").GetComponent<Image>().color = UISystem.Instance.buyButtonDisabledColor;
+        }
+        else
+        {
+            runePanel.transform.Find("UpgradeButton").GetComponent<Button>().interactable = true;
+            runePanel.transform.Find("UpgradeButton").GetComponent<Image>().color = UISystem.Instance.buyButtonColor;
+        }
     }
 
     private void Start()
     {
         runePanel.SetActive(false);
         LoadRunes();
+        ManaSystem.Instance.OnManaChanged += OnManaChanged;
+    }
+
+    private void OnDestroy()
+    {
+        ManaSystem.Instance.OnManaChanged -= OnManaChanged;
     }
 
 }
