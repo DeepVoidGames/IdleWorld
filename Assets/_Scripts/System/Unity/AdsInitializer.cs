@@ -10,6 +10,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     private string _gameId;
 
     [SerializeField] private RewardedAdsButton _rewardedAdsButton;
+    [SerializeField] private InterstitialAdExample _interstitialAdExample;
  
     void Awake()
     {
@@ -36,9 +37,10 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     {
         while (!Advertisement.isInitialized)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2.5f);
         }
         _rewardedAdsButton.LoadAd();
+        _interstitialAdExample.LoadAd();
     }
  
     public void OnInitializationComplete()

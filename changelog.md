@@ -2,6 +2,7 @@
 
 - Add
   - UI Changes
+    - Add some colors
 - Balance changes
   - Hearo max level 3000 -> 5000
 
