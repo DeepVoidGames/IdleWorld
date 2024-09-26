@@ -80,26 +80,29 @@ public class UpgradesSlayerSystem : MonoBehaviour
         upgrade.panel.transform.Find("Upgrade").Find("Price").GetComponent<UnityEngine.UI.Text>().text = $"Buy\n{UISystem.Instance.NumberFormat(upgrade.Price)}";
 
         Button upgradeButton = upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Button>();
-
         EventTrigger trigger = upgradeButton.GetComponent<EventTrigger>();
         if (trigger == null)
         {
             trigger = upgradeButton.gameObject.AddComponent<EventTrigger>();
         }
         trigger.triggers.Clear();
-        EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry
-        {
-            eventID = EventTriggerType.PointerDown
-        };
-        pointerDownEntry.callback.AddListener((data) => { OnPointerDown((PointerEventData)data, upgrade.name); });
-        trigger.triggers.Add(pointerDownEntry);
 
-        EventTrigger.Entry pointerUpEntry = new EventTrigger.Entry
+        if (upgrade.level < upgrade.maxLevel)
         {
-            eventID = EventTriggerType.PointerUp
-        };
-        pointerUpEntry.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
-        trigger.triggers.Add(pointerUpEntry);
+            EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerDown
+            };
+            pointerDownEntry.callback.AddListener((data) => { OnPointerDown((PointerEventData)data, upgrade.name); });
+            trigger.triggers.Add(pointerDownEntry);
+
+            EventTrigger.Entry pointerUpEntry = new EventTrigger.Entry
+            {
+                eventID = EventTriggerType.PointerUp
+            };
+            pointerUpEntry.callback.AddListener((data) => { OnPointerUp((PointerEventData)data); });
+            trigger.triggers.Add(pointerUpEntry);
+        }
 
         UIButtonUpdate(GoldSystem.Instance.Gold);
     }
@@ -112,6 +115,7 @@ public class UpgradesSlayerSystem : MonoBehaviour
             if (upgrade.level >= upgrade.maxLevel)
             {
                 upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Image>().color = UISystem.Instance.buyButtonMaxedColor;
+                upgrade.panel.transform.Find("Upgrade").Find("Price").GetComponent<UnityEngine.UI.Text>().text = "Maxed";
                 upgrade.panel.transform.Find("Upgrade").GetComponent<UnityEngine.UI.Button>().interactable = false;
                 continue;
             }
@@ -206,6 +210,10 @@ public class UpgradesSlayerSystem : MonoBehaviour
         foreach (UpgradeSlayer upgrade in upgrades)
         {
             upgrade.level = PlayerPrefs.GetFloat(upgrade.name, 0);
+            if (upgrade.level > upgrade.maxLevel)
+            {
+                upgrade.level = upgrade.maxLevel;
+            }
             AddBonus(upgrade, true);
         }
     }
@@ -226,6 +234,7 @@ public class UpgradesSlayerSystem : MonoBehaviour
             UIUpdate(upgrade);
         }
         GoldSystem.Instance.OnGoldChanged += UIButtonUpdate;
+        UIButtonUpdate(GoldSystem.Instance.Gold);
     }
 
     private void OnApplicationQuit()
