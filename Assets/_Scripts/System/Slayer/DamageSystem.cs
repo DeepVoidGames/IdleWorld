@@ -35,6 +35,7 @@ public class DamageSystem : MonoBehaviour
     public void AddDamageBoost(double value)
     {
         damage += value;
+        UISystem.Instance.UpdateLevelText();
     }
 
     public void RemoveDamageBoost(double value)

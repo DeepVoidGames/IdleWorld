@@ -20788,7 +20788,7 @@ MonoBehaviour:
     value: 5
     basePrice: 10
     level: 0
-    maxLevel: 1000000
+    maxLevel: 10000
     priceMultiplier: 3.5
     type: 0
     panel: {fileID: 686788274}
@@ -20796,7 +20796,7 @@ MonoBehaviour:
     value: 5
     basePrice: 10
     level: 0
-    maxLevel: 1000000
+    maxLevel: 10000
     priceMultiplier: 3.5
     type: 1
     panel: {fileID: 1614735346}

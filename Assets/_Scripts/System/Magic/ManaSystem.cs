@@ -20,10 +20,12 @@ public class ManaSystem : MonoBehaviour
 
     [Header("Mana")]
     [SerializeField] private double mana;
-    [SerializeField] private double manaPerHour = 10;
+    [SerializeField] private double manaPerHour = 10f;
 
     [Header("UI")]
     [SerializeField] private Text textMana;
+
+    private bool isLoaded = false;
 
     public event Action<double> OnManaChanged;
 
@@ -49,6 +51,9 @@ public class ManaSystem : MonoBehaviour
     public void SetManaPerHour(double value)
     {
         manaPerHour = value;
+        UIUpdate();
+        StartCoroutine(ManaRegen());
+        isLoaded = true;
     }
 
     public void AddManaPerHour(double value)
@@ -75,13 +80,17 @@ public class ManaSystem : MonoBehaviour
         }
     }
 
-    public void IdleReward(float idleTime)
+    IEnumerator ManaRewards(float idleTime)
     {
+        while (!isLoaded)
+        {
+            yield return new WaitForSeconds(1);
+        }
         AddMana(idleTime / 3600 * manaPerHour);
     }
 
-    private void Start()
+    public void IdleReward(float idleTime)
     {
-        StartCoroutine(ManaRegen());
+        StartCoroutine(ManaRewards(idleTime));
     }
 }
