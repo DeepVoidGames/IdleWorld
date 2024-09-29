@@ -188,6 +188,27 @@
       ],
       "miningLevelRequired": 3000,
       "isUnlocked": false
+    },
+    {
+      "name": "Dark Rock",
+      "rocks": [
+        {
+          "name": "MithrilOre",
+          "baseHealth": 50000.0,
+          "chance": 70,
+          "prefab": {},
+          "drops": [{ "resourceName": "Mithril", "chance": 1.0 }]
+        },
+        {
+          "name": "TitaniumOre",
+          "baseHealth": 60000.0,
+          "chance": 30,
+          "prefab": {},
+          "drops": [{ "resourceName": "Titanium", "chance": 1.0 }]
+        }
+      ],
+      "miningLevelRequired": 5000,
+      "isUnlocked": false
     }
   ]
 }

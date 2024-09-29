@@ -479,6 +479,20 @@
       "potionType": 3,
       "potionValue": 1000,
       "potionDuration": 10
+    },
+    {
+      "Name": "Mithril",
+      "id": 57,
+      "category": 1,
+      "rarity": 3,
+      "icon": {}
+    },
+    {
+      "Name": "Titanium",
+      "id": 58,
+      "category": 1,
+      "rarity": 4,
+      "icon": {}
     }
   ]
 }
