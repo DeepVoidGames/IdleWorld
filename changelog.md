@@ -1,3 +1,20 @@
+# 0.6.6.0
+
+- Add
+  - New cave
+    - 2 new ores
+    - New upgrade
+    - New weapon & pickaxe
+- Balance changes
+  - Leaf Ranger Base Damage 1000 -> 500
+  - Slayer upgrades max level 10k -> 5k
+
+# 0.6.5.1
+
+- Fix
+  - Mana regen
+  - UI
+
 # 0.6.5.0
 
 - Add

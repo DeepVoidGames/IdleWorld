@@ -439,6 +439,66 @@
           "chance": 0.01
         }
       ]
+    },
+    {
+      "id": 30,
+      "materialName": "Mithril",
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Sword",
+          "chance": 0.95
+        },
+        {
+          "itemName": "Mithril Sword",
+          "chance": 0.05
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "materialName": "Mithril",
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Pickaxe",
+          "chance": 0.95
+        },
+        {
+          "itemName": "Mithril Pickaxe",
+          "chance": 0.05
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "materialName": "Titanium",
+      "craftingType": 1,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Sword",
+          "chance": 0.99
+        },
+        {
+          "itemName": "Titanium Sword",
+          "chance": 0.01
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "materialName": "Titanium",
+      "craftingType": 2,
+      "itemsToCraft": [
+        {
+          "itemName": "Stone Pickaxe",
+          "chance": 0.95
+        },
+        {
+          "itemName": "Titanium Pickaxe",
+          "chance": 0.05
+        }
+      ]
     }
   ]
 }

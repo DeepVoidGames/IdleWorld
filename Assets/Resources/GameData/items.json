@@ -493,6 +493,38 @@
       "category": 1,
       "rarity": 4,
       "icon": {}
+    },
+    {
+      "Name": "Mithril Sword",
+      "id": 59,
+      "category": 2,
+      "rarity": 3,
+      "icon": {},
+      "baseDamage": 15000.0
+    },
+    {
+      "Name": "Mithril Pickaxe",
+      "id": 60,
+      "category": 3,
+      "rarity": 3,
+      "icon": {},
+      "baseMiningEfficiency": 20000.0
+    },
+    {
+      "Name": "Titanium Sword",
+      "id": 61,
+      "category": 2,
+      "rarity": 4,
+      "icon": {},
+      "baseDamage": 25000.0
+    },
+    {
+      "Name": "Titanium Pickaxe",
+      "id": 62,
+      "category": 3,
+      "rarity": 4,
+      "icon": {},
+      "baseMiningEfficiency": 25000.0
     }
   ]
 }

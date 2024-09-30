@@ -167,6 +167,8 @@ public class UpgradesSlayerSystem : MonoBehaviour
 
             if (upgrade.level <= upgrade.maxLevel)
                 upgrade.level++;
+            else 
+                break;
 
             GoldSystem.Instance.SpendGold(upgrade.Price);
             AddBonus(upgrade);
