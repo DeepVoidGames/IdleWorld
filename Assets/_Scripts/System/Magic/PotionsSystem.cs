@@ -96,7 +96,8 @@ public class PotionsSystem : MonoBehaviour
     {
         if (currentPotion != null)
         {
-            RemovePotionBonus();
+            return;
+            // RemovePotionBonus();
         }
         InventorySystem.Instance.RemoveItem(item.id, 1);
         currentPotion = item;
