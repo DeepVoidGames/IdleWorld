@@ -94,11 +94,8 @@ public class PotionsSystem : MonoBehaviour
 
     public void UsePotion(Items item)
     {
-        if (currentPotion != null)
-        {
+        if(isPotionCooldown)
             return;
-            // RemovePotionBonus();
-        }
         InventorySystem.Instance.RemoveItem(item.id, 1);
         currentPotion = item;
         UISystem.Instance.UpdatePotionUI();
@@ -142,6 +139,7 @@ public class PotionsSystem : MonoBehaviour
         {
             DifficultySystem.Instance.RemoveMiningEfficiencyPercentage(currentPotion.potionValue);
         }
+
         currentPotion = null;
         PlayerPrefs.DeleteKey("PotionID");
         PlayerPrefs.DeleteKey("PotionDuration");
@@ -186,6 +184,7 @@ public class PotionsSystem : MonoBehaviour
 
     private IEnumerator PotionDuration()
     {
+        isPotionCooldown = true;
         if (_timer <= 0)
             _timer = currentPotion.potionDuration;
         while (_timer > 0)
@@ -194,6 +193,7 @@ public class PotionsSystem : MonoBehaviour
             UISystem.Instance.UpdatePotionUI();
             yield return null;
         }
+        isPotionCooldown = false;
         RemovePotionBonus();
         yield return null;
     }
