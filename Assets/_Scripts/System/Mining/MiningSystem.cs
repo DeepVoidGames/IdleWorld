@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ public class MiningSystem : MonoBehaviour
         }
     }
 
-    private double miningLevel = 1;
+    [SerializeField] private double miningLevel = 1;
     private double miningExperience = 0;
     private double miningEfficiency = 1;
 
@@ -53,12 +54,12 @@ public class MiningSystem : MonoBehaviour
 
     private void OverflowMiningExperience()
     {
-        if (miningExperience >= DifficultySystem.Instance.GetMiningExperienceNeeded())
+        while (miningExperience >= DifficultySystem.Instance.GetMiningExperienceNeeded())
         {
             miningExperience -= DifficultySystem.Instance.GetMiningExperienceNeeded();
             miningLevel++;
-            UISystem.Instance.UpdateMiningUI();
         }
+        UISystem.Instance.UpdateMiningUI();
     }
 
     public void AddMiningEfficiency(double value)
@@ -75,6 +76,12 @@ public class MiningSystem : MonoBehaviour
     public void SetMiningLevel(double value)
     {
         miningLevel = value;
+    }
+
+    public void RemoveMiningLevel(double value)
+    {
+        miningLevel -= value;
+        UISystem.Instance.UpdateMiningUI();
     }
 
     public void SetMiningExperience(double value)
