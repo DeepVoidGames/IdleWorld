@@ -61,6 +61,8 @@ public class CaveSystem : MonoBehaviour
     private GameObject currentRock;
     [SerializeField] private GameObject rockParent;
     
+    public GameObject CurrentRock { get { return currentRock; } }
+
     private string currentCave;
 
     public string CurrentCave

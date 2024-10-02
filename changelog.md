@@ -1,6 +1,7 @@
 # 0.6.6.0
 
 - Add
+  - Mining skill tree with first skill
   - New cave
     - 2 new ores
     - New upgrade

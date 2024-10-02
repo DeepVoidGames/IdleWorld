@@ -27,6 +27,8 @@ public class MiningSystem : MonoBehaviour
     private double miningEfficiency = 1;
 
     private bool isToolEquiped = false;
+    private bool isAutoMining = false;
+
     private Items tool;
 
     public double MiningLevel { get { return miningLevel; } }
@@ -108,6 +110,35 @@ public class MiningSystem : MonoBehaviour
         if (tool != null)
         {
             miningEfficiency = tool.miningEfficiency;
+        }
+    }
+
+    public void SetAutoMining(bool value)
+    {
+        isAutoMining = value;
+        if (isAutoMining)
+        {
+            StartCoroutine(AutoMining());
+        }
+    }
+
+    // Auto Mining
+    IEnumerator AutoMining()
+    {
+        // Every one second attcck rock if exist
+        float _timer = 0;
+        while (isAutoMining)
+        {
+            _timer += Time.deltaTime;
+            if (_timer >= .5f)
+            {
+                _timer = 0;
+                if (CaveSystem.Instance.CurrentRock != null)
+                {
+                    CaveSystem.Instance.CurrentRock.GetComponent<RockObject>().Damage(MiningEfficiency);
+                }
+            }
+            yield return null;
         }
     }
 }
