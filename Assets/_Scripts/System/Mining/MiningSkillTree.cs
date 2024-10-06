@@ -152,6 +152,9 @@ public class MiningSkillTree : MonoBehaviour
             case 0:
                 MiningSystem.Instance.SetAutoMining(true);
                 break;
+            case 1:
+                DifficultySystem.Instance.AddDamagePercentage(0.1f);
+                break;
             default:
                 break;
         }
@@ -173,6 +176,10 @@ public class MiningSkillTree : MonoBehaviour
         if (skills[id].level != 0)
         {
             skills[id].isPurchased = true;
+        }
+
+        for (int i = 0; i < skills[id].level; i++)
+        {
             AddBonus(id);
         }
     }

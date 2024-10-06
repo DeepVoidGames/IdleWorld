@@ -60,6 +60,7 @@ public class SwitchMode : MonoBehaviour
         //         modes[currentMode]._object.SetActive(true);
         modes[currentMode]._UIPanel.SetActive(true);
         modes[currentMode]._object.transform.position = new Vector3(0, 0, 100);
+        DialogueSystem.Instance.SetByMode(currentMode);
         return;
     }
 }

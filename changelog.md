@@ -1,3 +1,9 @@
+# 0.6.7.0
+
+- Add
+  - New Mining skill
+  - Dialog system
+
 # 0.6.6.0
 
 - Add
@@ -6,6 +12,8 @@
     - 2 new ores
     - New upgrade
     - New weapon & pickaxe
+- Fix
+  - Mining Upgrades UI
 - Balance changes
   - Leaf Ranger Base Damage 1000 -> 500
   - Slayer upgrades max level 10k -> 5k
