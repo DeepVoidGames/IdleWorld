@@ -42269,7 +42269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 52.910034, y: 61.28}
+  m_AnchoredPosition: {x: 52.910156, y: 61.28}
   m_SizeDelta: {x: -106.52002, y: 122.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863503653
@@ -45807,14 +45807,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - sprite: {fileID: -2904361099414105218, guid: 584914cbf0f230a49a5c87af2d47ad4d, type: 3}
+  - sprite: {fileID: -5769965304366714471, guid: 5dc859fc93f76884bb26f6b81b4a6ea2, type: 3}
     listString:
-    - "Hey! Mining is an active skill\u2014you have to mine ores by clicking on them"
+    - Hey, welcome to Idle World! Here, you either kill monsters or simply watch
+      them die.
+    - In the Upgrades tab, you can improve your basic stats.
+    - Each new level will allow you to unlock additional skills.
+    - If you die, the highest level affects the entire game, Remember that!
+    mode: 0
+  - sprite: {fileID: -5559447050237699219, guid: 41e3f597b23e8364e8f3d5ff84d7095e, type: 3}
+    listString:
+    - "Hey! Mining is an active skill \u2014 you have to mine ores by clicking on
+      them"
     - After collecting ore, you can buy upgrades in the Upgrades tab. You can also
       check the skill tree, but that's for later.
     - As you reach higher levels, you can unlock new maps in the Maps tab.
     - Check the Crafting tab; there, you can also use ore.
     mode: 1
+  - sprite: {fileID: -1495765647790220020, guid: 4198eeed8e4b4ad4283806bba1c28181, type: 3}
+    listString:
+    - "Magic is a skill... You'll find out for yourself \u2014 it's magic."
+    - Just kidding! You actually get a certain amount of mana every hour.
+    - You can use mana to upgrade runes, which provide different bonuses, so choose
+      wisely where to start.
+    - There are also potions, which you can buy for 1 million gold. But that will
+      likely change.
+    mode: 4
   dialogPanel: {fileID: 863991796}
   dialogText: {fileID: 1863503653}
   dialogImage: {fileID: 51280086}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 584914cbf0f230a49a5c87af2d47ad4d
+guid: 41e3f597b23e8364e8f3d5ff84d7095e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: RockGolem
+  - name: Mushroom
     originalName: 
-    pivot: {x: 0.52380955, y: 0}
+    pivot: {x: 0.5, y: -0.027027028}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 21
-      height: 32
-    spriteID: 3a6172c98737c7045854e7fda9cf6d50
+      width: 34
+      height: 37
+    spriteID: f1e7db04306000f41a45a98cbbe2cbae
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,25 +144,25 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1146354187
-    name: RockGolem
+    guid: -1484441304
+    name: Mushroom
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: RockGolem
+    - name: Mushroom
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 5
-        y: 0
-        width: 21
-        height: 32
-      spriteId: 3a6172c98737c7045854e7fda9cf6d50
+        x: 2
+        y: 1
+        width: 34
+        height: 37
+      spriteId: f1e7db04306000f41a45a98cbbe2cbae
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 38, y: 38}

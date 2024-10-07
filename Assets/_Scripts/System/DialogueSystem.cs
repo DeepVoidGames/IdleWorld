@@ -50,7 +50,10 @@ public class DialogueSystem : MonoBehaviour
             dialogText.text = obj.listString[_count];
         }
         else
+        {
             dialogPanel.SetActive(false);
+        }
+            
 
         if(index == _count)
         {
@@ -75,9 +78,12 @@ public class DialogueSystem : MonoBehaviour
         dialogImage.sprite = obj.sprite;
         dialogImage.gameObject.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(obj.sprite.texture.width * 1.5f, obj.sprite.texture.height * 1.5f);
         dialogText.text = obj.listString[0];
+
         nextButton.onClick.RemoveAllListeners();
         _count = 0;
         nextButton.onClick.AddListener(() => DialogueButton(obj));
+        nextButton.GetComponentInChildren<Text>().text = "Next";
+
         dialogPanel.SetActive(true);
     }
    
@@ -99,7 +105,10 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start() 
     {
-        PlayerPrefs.DeleteKey("DialogueShowed1");
+        for (int i = 0; i < dialogues.Count; i++)
+        {
+            PlayerPrefs.SetInt("DialogueShowed" + dialogues[i].mode, 0);
+        }
         SetByMode(SwitchMode.Instance.CurrentMode);
     }
 }
