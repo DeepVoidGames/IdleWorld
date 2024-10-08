@@ -39,8 +39,6 @@ public class ContentLocker : MonoBehaviour
     
     private void Start() 
     {
-        PlayerPrefs.DeleteAll();
-
         for (int i = 0; i < contents.Length; i++)
         {
             if (contents[i].isLocked)
