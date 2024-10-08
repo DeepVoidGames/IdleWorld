@@ -20328,7 +20328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 0.9490196}
+  m_Color: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 0.98039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -45831,6 +45831,21 @@ MonoBehaviour:
     - Check the Crafting tab; there, you can also use ore.
     size: {x: 78, y: 84}
     mode: 1
+  - sprite: {fileID: 3779791904092656137, guid: 7b78898a59329c144bb2fb949bb3ae97, type: 3}
+    listString:
+    - For now, you can only craft items in the village.
+    - Click on the Blacksmith. To craft, you need at least 1k ore.
+    - You can upgrade items, and each upgrade adds a small bonus to their stats.
+    - Upgrades at Diviane allow you to upgrade the same item multiple times, making
+      it even more powerful.
+    size: {x: 56, y: 78}
+    mode: 2
+  - sprite: {fileID: 3779791904092656137, guid: 7b78898a59329c144bb2fb949bb3ae97, type: 3}
+    listString:
+    - "Welcome to the Tavern \u2014 things will change a lot here. You can handle
+      it, stay strong."
+    size: {x: 56, y: 78}
+    mode: 3
   - sprite: {fileID: -1495765647790220020, guid: 4198eeed8e4b4ad4283806bba1c28181, type: 3}
     listString:
     - "Magic is a skill... You'll find out for yourself \u2014 it's magic."
