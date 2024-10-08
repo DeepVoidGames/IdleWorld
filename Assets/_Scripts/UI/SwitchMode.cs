@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Mode
@@ -7,6 +8,7 @@ public class Mode
     public GameObject _object;
     public Vector3 _position;
     public GameObject _UIPanel;
+    public GameObject _Button;
     public bool _canBeDisabled;
 }
 
@@ -52,7 +54,12 @@ public class SwitchMode : MonoBehaviour
             // if (modes[currentMode]._canBeDisabled)
             //     modes[currentMode]._object.SetActive(false);
         }
-            
+
+        if (modes[currentMode]._Button != null)
+        {
+            modes[currentMode]._Button.GetComponent<Button>().interactable = true;
+            modes[mode]._Button.GetComponent<Button>().interactable = false;
+        }
 
         modes[currentMode]._object.transform.position = new Vector3(modes[currentMode]._position.x, modes[currentMode]._position.y, 100);
         currentMode = mode;
@@ -60,7 +67,16 @@ public class SwitchMode : MonoBehaviour
         //         modes[currentMode]._object.SetActive(true);
         modes[currentMode]._UIPanel.SetActive(true);
         modes[currentMode]._object.transform.position = new Vector3(0, 0, 100);
+        
         DialogueSystem.Instance.SetByMode(currentMode);
         return;
+    }
+
+    private void Start() 
+    {
+        if (modes[currentMode]._Button != null)
+        {
+            modes[currentMode]._Button.GetComponent<Button>().interactable = false;
+        }
     }
 }

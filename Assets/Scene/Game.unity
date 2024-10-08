@@ -45959,22 +45959,27 @@ MonoBehaviour:
   - _object: {fileID: 594331953}
     _position: {x: 0, y: -10, z: 0}
     _UIPanel: {fileID: 1528843530}
+    _Button: {fileID: 1264048750}
     _canBeDisabled: 0
   - _object: {fileID: 1744881095}
     _position: {x: 10, y: 0, z: 0}
     _UIPanel: {fileID: 1787702731}
+    _Button: {fileID: 1040508305}
     _canBeDisabled: 1
   - _object: {fileID: 540445736}
     _position: {x: 10, y: -10, z: 0}
     _UIPanel: {fileID: 201546304}
+    _Button: {fileID: 1696599129}
     _canBeDisabled: 1
   - _object: {fileID: 1475451435}
     _position: {x: 20, y: 0, z: 0}
     _UIPanel: {fileID: 1536386976}
+    _Button: {fileID: 1258552677}
     _canBeDisabled: 1
   - _object: {fileID: 5419029}
     _position: {x: 20, y: -10, z: 0}
     _UIPanel: {fileID: 2093143879}
+    _Button: {fileID: 404336658}
     _canBeDisabled: 1
 --- !u!1 &2074420154
 GameObject:
