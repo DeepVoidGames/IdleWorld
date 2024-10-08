@@ -59,6 +59,7 @@ public class ManaSystem : MonoBehaviour
     public void AddManaPerHour(double value)
     {
         manaPerHour += value;
+        UIUpdate();
     }
 
     public double GetMana()

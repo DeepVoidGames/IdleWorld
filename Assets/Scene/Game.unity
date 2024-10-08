@@ -45783,7 +45783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2053905127
 Transform:
   m_ObjectHideFlags: 0
@@ -45812,7 +45812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - sprite: {fileID: -5769965304366714471, guid: 5dc859fc93f76884bb26f6b81b4a6ea2, type: 3}
+  - sprite: {fileID: 3779791904092656137, guid: 7b78898a59329c144bb2fb949bb3ae97, type: 3}
     listString:
     - Hey, welcome to Idle World! Here, you either kill monsters or simply watch
       them die.

@@ -105,10 +105,10 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start() 
     {
-        for (int i = 0; i < dialogues.Count; i++)
-        {
-            PlayerPrefs.SetInt("DialogueShowed" + dialogues[i].mode, 0);
-        }
+        // for (int i = 0; i < dialogues.Count; i++)
+        // {
+        //     PlayerPrefs.SetInt("DialogueShowed" + dialogues[i].mode, 0);
+        // }
         SetByMode(SwitchMode.Instance.CurrentMode);
     }
 }
