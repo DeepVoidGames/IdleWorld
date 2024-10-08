@@ -45817,8 +45817,9 @@ MonoBehaviour:
     - Hey, welcome to Idle World! Here, you either kill monsters or simply watch
       them die.
     - In the Upgrades tab, you can improve your basic stats.
-    - Each new level will allow you to unlock additional skills.
+    - Each new level will allow you to unlock additional content/skills.
     - If you die, the highest level affects the entire game, Remember that!
+    size: {x: 56, y: 78}
     mode: 0
   - sprite: {fileID: -5559447050237699219, guid: 41e3f597b23e8364e8f3d5ff84d7095e, type: 3}
     listString:
@@ -45828,6 +45829,7 @@ MonoBehaviour:
       check the skill tree, but that's for later.
     - As you reach higher levels, you can unlock new maps in the Maps tab.
     - Check the Crafting tab; there, you can also use ore.
+    size: {x: 78, y: 84}
     mode: 1
   - sprite: {fileID: -1495765647790220020, guid: 4198eeed8e4b4ad4283806bba1c28181, type: 3}
     listString:
@@ -45837,6 +45839,7 @@ MonoBehaviour:
       wisely where to start.
     - There are also potions, which you can buy for 1 million gold. But that will
       likely change.
+    size: {x: 84, y: 84}
     mode: 4
   dialogPanel: {fileID: 863991796}
   dialogText: {fileID: 1863503653}

@@ -9,6 +9,7 @@ public class Dialogue
 {
     public Sprite sprite;
     public List<String> listString = new List<String>();
+    public Vector2 size;
     public int mode;
 }
 
@@ -76,7 +77,7 @@ public class DialogueSystem : MonoBehaviour
         if (PlayerPrefs.GetInt("DialogueShowed" + obj.mode) == 1)
             return;
         dialogImage.sprite = obj.sprite;
-        dialogImage.gameObject.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(obj.sprite.texture.width * 1.5f, obj.sprite.texture.height * 1.5f);
+        dialogImage.gameObject.transform.GetComponent<RectTransform>().sizeDelta = obj.size;
         dialogText.text = obj.listString[0];
 
         nextButton.onClick.RemoveAllListeners();
@@ -105,10 +106,10 @@ public class DialogueSystem : MonoBehaviour
 
     private void Start() 
     {
-        // for (int i = 0; i < dialogues.Count; i++)
-        // {
-        //     PlayerPrefs.SetInt("DialogueShowed" + dialogues[i].mode, 0);
-        // }
+        for (int i = 0; i < dialogues.Count; i++)
+        {
+            PlayerPrefs.SetInt("DialogueShowed" + dialogues[i].mode, 0);
+        }
         SetByMode(SwitchMode.Instance.CurrentMode);
     }
 }
