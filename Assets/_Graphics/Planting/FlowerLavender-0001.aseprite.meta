@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6ec52494c9daa9b408b6ac5a788e6876
+guid: f11a5ec5446ee844e86da337d1287a9e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -73,7 +73,7 @@ ScriptedImporter:
   previousAsepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -86,7 +86,7 @@ ScriptedImporter:
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638641713153449292
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Layer 1_Frame_0
+  - name: FlowerLavender-0001_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.8, y: -1.1666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 91
-      width: 30
-      height: 8
-    spriteID: 64f27f35a377e5142af4c36eb721025e
+      y: 49
+      width: 5
+      height: 6
+    spriteID: fc636885404fa3445b3684e2808544ea
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -140,19 +140,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 91}
-  - name: Layer 1_Frame_1
+    uvTransform: {x: 4, y: 49}
+  - name: FlowerLavender-0001_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.6, y: -0.5833334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 70
-      width: 30
-      height: 13
-    spriteID: 6db46278e914c034ebca43430ee12200
+      y: 29
+      width: 10
+      height: 12
+    spriteID: 0a2992717f7f2ca40ad12be849804f2e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,39 +160,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 70}
-  - name: Layer 1_Frame_2
+    uvTransform: {x: 4, y: 29}
+  - name: FlowerLavender-0001_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 39
-      width: 30
-      height: 23
-    spriteID: 3c7ac58ca5d2f1b4b986933b63a36845
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 39}
-  - name: Layer 1_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5833334, y: -0.4117647}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 30
-      height: 27
-    spriteID: f7bb9431b3ed6624ab14f7d999e80060
+      width: 12
+      height: 17
+    spriteID: 1a5100277e03eef44acff8d2282936d8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -204,99 +184,42 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1317222744
-    name: Layer 1
-    layerFlags: 3
+    guid: 593649570
+    name: FlowerLavender-0001
+    layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Layer 1_Frame_0
+    - name: FlowerLavender-0001_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 1
-        y: 0
-        width: 30
-        height: 8
-      spriteId: 64f27f35a377e5142af4c36eb721025e
-    - name: Layer 1_Frame_1
+        x: 12
+        y: 7
+        width: 5
+        height: 6
+      spriteId: fc636885404fa3445b3684e2808544ea
+    - name: FlowerLavender-0001_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 1
-        y: 0
-        width: 30
-        height: 13
-      spriteId: 6db46278e914c034ebca43430ee12200
-    - name: Layer 1_Frame_2
+        x: 10
+        y: 7
+        width: 10
+        height: 12
+      spriteId: 0a2992717f7f2ca40ad12be849804f2e
+    - name: FlowerLavender-0001_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
-        x: 1
-        y: 0
-        width: 30
-        height: 23
-      spriteId: 3c7ac58ca5d2f1b4b986933b63a36845
-    - name: Layer 1_Frame_3
-      frameIndex: 3
-      additiveSortOrder: 0
-      cellRect:
-        x: 1
-        y: 0
-        width: 30
-        height: 27
-      spriteId: f7bb9431b3ed6624ab14f7d999e80060
+        x: 9
+        y: 7
+        width: 12
+        height: 17
+      spriteId: 1a5100277e03eef44acff8d2282936d8
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Android
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
