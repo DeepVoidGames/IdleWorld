@@ -21,7 +21,7 @@ public class PlantingSystem : MonoBehaviour
     [Header("Planting Level")]
     [SerializeField] private int plantingLevel;
     [SerializeField] private Text textPlantingLevel;
-    public int PlantingLevel { get => plantingLevel; }
+    public int PlantingLevel { get => plantingLevel; set => plantingLevel = value; }
 
     [Header("Water")]
     [SerializeField] private int water;

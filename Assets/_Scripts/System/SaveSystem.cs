@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
@@ -22,298 +21,238 @@ public class SaveSystem : MonoBehaviour
             return _instance;
         }
     }
-    private string saveFilePath;
 
+    private const string SaveFileName = "save.json";
+    private const string InventoryFileName = "inventory.json";
+    private const string HeroesFileName = "heroes.json";
+    private const string CavesFileName = "caves.json";
+    private const string UpgradesFileName = "upgrades.json";
+    private const string MagicFileName = "magic.json";
+
+    private const string PlantingFileName = "planting.json";
+
+    private string saveFilePath;
     private float _timer = 0f;
 
     private void Awake()
     {
-        saveFilePath = Path.Combine(Application.persistentDataPath, "save.json");
+        saveFilePath = Path.Combine(Application.persistentDataPath, SaveFileName);
     }
 
     private void Start()
-    {   
+    {
         Load();
-        // After loading the game
         UISystem.Instance.LoadUI();
     }
 
     public void Save()
     {
-        // Save game data
+        SaveGameData();
+        SaveInventoryData();
+        SaveHeroData();
+        SaveCavesData();
+        SaveUpgradesData();
+        SaveMagicData();
+        SavePlantingData();
+    }
+
+    private void SaveGameData()
+    {
         GameData gameData = new GameData
         {
-            // Gold System
             goldData = GoldSystem.Instance.Gold,
-            // Monster Kiling System
             levelData = LevelSystem.Instance.Level,
             stageData = LevelSystem.Instance.Stage,
-            // Weapon
             weaponData = DamageSystem.Instance.GetWeapon(),
             isWeaponEquippedData = DamageSystem.Instance.IsWeaponEquipped,
             weaponButtonData = InventorySystem.Instance.equipedWeaponButton,
-            // Mining System
             miningLevelData = MiningSystem.Instance.MiningLevel,
             miningEfficiencyData = MiningSystem.Instance.MiningEfficiency,
             miningExperienceData = MiningSystem.Instance.MiningExperience,
-
             toolData = MiningSystem.Instance.GetTool(),
             isToolEquippedData = MiningSystem.Instance.IsToolEquipped,
             toolButtonData = InventorySystem.Instance.equipedToolButton,
-            currentCave = CaveSystem.Instance.CurrentCave != null ? CaveSystem.Instance.CurrentCave : "Stonecrest Quarry",
+            currentCave = CaveSystem.Instance.CurrentCave ?? "Stonecrest Quarry",
             prestigeLevel = LevelSystem.Instance.PrestigeLevel
         };
-        string json = JsonUtility.ToJson(gameData, true);
-        File.WriteAllText(saveFilePath, json);
+        WriteToFile(saveFilePath, gameData);
+    }
 
-        // Save inventory data
+    private void SaveInventoryData()
+    {
         InventoryData inventoryData = new InventoryData
         {
             inventoryData = InventorySystem.Instance.inventory
         };
-        json = JsonUtility.ToJson(inventoryData, true);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "inventory.json"), json);
-        // Debug.Log("Game saved to " + saveFilePath);
+        WriteToFile(Path.Combine(Application.persistentDataPath, InventoryFileName), inventoryData);
+    }
 
-        // Save hero data
+    private void SaveHeroData()
+    {
         HeroData heroData = new HeroData
         {
             heroes = TavernSystem.Instance.heroes
         };
-        json = JsonUtility.ToJson(heroData, true);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "heroes.json"), json);
-    
-        // Save caves data
+        WriteToFile(Path.Combine(Application.persistentDataPath, HeroesFileName), heroData);
+    }
+
+    private void SaveCavesData()
+    {
         CavesData cavesData = new CavesData
         {
             caves = CaveSystem.Instance.caves
         };
-        json = JsonUtility.ToJson(cavesData, true);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "caves.json"), json);
+        WriteToFile(Path.Combine(Application.persistentDataPath, CavesFileName), cavesData);
+    }
 
-        // Save upgrades
+    private void SaveUpgradesData()
+    {
         Upgrades upgrades = new Upgrades
         {
             upgrades = UpgradingSystem.Instance.Upgrades
         };
-        json = JsonUtility.ToJson(upgrades, true);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "upgrades.json"), json);
+        WriteToFile(Path.Combine(Application.persistentDataPath, UpgradesFileName), upgrades);
+    }
 
-        // Save magic data
+    private void SaveMagicData()
+    {
         MagicData magicData = new MagicData
         {
             manaData = ManaSystem.Instance.GetMana(),
             manaPerHourData = ManaSystem.Instance.GetManaPerHour()
         };
-        json = JsonUtility.ToJson(magicData, true);
-        File.WriteAllText(Path.Combine(Application.persistentDataPath, "magic.json"), json);
+        WriteToFile(Path.Combine(Application.persistentDataPath, MagicFileName), magicData);
+    }
 
+    private void SavePlantingData()
+    {
+        PlantingData plantingData = new PlantingData
+        {
+            plantIndex = PlantsSystem.Instance.SavePlantData(),
+            plantingLevel = PlantingSystem.Instance.PlantingLevel
+        };
+        WriteToFile(Path.Combine(Application.persistentDataPath, PlantingFileName), plantingData);
     }
 
     public void Load()
-    {   
-        // Load inventory data
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "inventory.json")))
-        {   
-            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "inventory.json"));
-            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(json);
-            if (inventoryData.inventoryData != null)
-            {
-                InventorySystem.Instance.SetInventory(inventoryData.inventoryData);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Inventory file not found: " + Path.Combine(Application.persistentDataPath, "inventory.json"));
-        }
-    
-        // Load hero data
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "heroes.json")))
-        {
-            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "heroes.json"));
-            HeroData heroData = JsonUtility.FromJson<HeroData>(json);
-            if (heroData.heroes != null)
-            {
-                for (int i = 0; i < heroData.heroes.Count; i++)
-                {
-                    Hero hero = TavernSystem.Instance.heroes.Find(x => x.name == heroData.heroes[i].name);
-                    if (hero == null)
-                    {
-                        Debug.LogWarning("Hero not found: " + heroData.heroes[i].name);
-                        continue;
-                    }
-                    hero.level = heroData.heroes[i].level;
-                    hero.isUnlocked = heroData.heroes[i].isUnlocked;
+    {
+        LoadInventoryData();
+        LoadHeroData();
+        LoadUpgradesData();
+        LoadGameData();
+        LoadMagicData();
+    }
 
+    private void LoadInventoryData()
+    {
+        InventoryData inventoryData = ReadFromFile<InventoryData>(Path.Combine(Application.persistentDataPath, InventoryFileName));
+        if (inventoryData?.inventoryData != null)
+        {
+            InventorySystem.Instance.SetInventory(inventoryData.inventoryData);
+        }
+    }
+
+    private void LoadHeroData()
+    {
+        HeroData heroData = ReadFromFile<HeroData>(Path.Combine(Application.persistentDataPath, HeroesFileName));
+        if (heroData?.heroes != null)
+        {
+            foreach (var hero in heroData.heroes)
+            {
+                Hero existingHero = TavernSystem.Instance.heroes.Find(x => x.name == hero.name);
+                if (existingHero != null)
+                {
+                    existingHero.level = hero.level;
+                    existingHero.isUnlocked = hero.isUnlocked;
                     if (hero.isUnlocked)
                     {
-                        TavernSystem.Instance.SpawnHero(i);
+                        TavernSystem.Instance.SpawnHero(TavernSystem.Instance.heroes.IndexOf(existingHero));
                     }
+                }
+                else
+                {
+                    Debug.LogWarning($"Hero not found: {hero.name}");
                 }
             }
         }
-        else
+    }
+
+    private void LoadUpgradesData()
+    {
+        Upgrades upgrades = ReadFromFile<Upgrades>(Path.Combine(Application.persistentDataPath, UpgradesFileName));
+        if (upgrades?.upgrades != null)
         {
-            Debug.LogWarning("Heroes file not found: " + Path.Combine(Application.persistentDataPath, "heroes.json"));
-        }
-
-        // Load Upgrades
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "upgrades.json")))
-        {
-            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "upgrades.json"));
-            Upgrades upgrades = JsonUtility.FromJson<Upgrades>(json);
-            if (upgrades.upgrades != null)
-            {
-                UpgradingSystem.Instance.SetUpgrades(upgrades.upgrades);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Upgrades file not found: " + Path.Combine(Application.persistentDataPath, "upgrades.json"));
-        }
-    
-        // Load game data
-        if (File.Exists(saveFilePath))
-        {
-            string json = File.ReadAllText(saveFilePath);
-            GameData gameData = JsonUtility.FromJson<GameData>(json);
-
-            // Load gold data
-            if (gameData.goldData != 0)
-            {
-                GoldSystem.Instance.SetGold(gameData.goldData);
-            }
-
-            // Load level
-            if (gameData.levelData != 0)
-            {
-                LevelSystem.Instance.SetLevel(gameData.levelData);
-                ContentLocker.Instance.CheckContent(gameData.levelData);
-                BiomeSystem.Instance.UpdateBiome();
-            }
-
-            // Load stage
-            if (gameData.stageData != 0)
-            {
-                LevelSystem.Instance.SetStage(gameData.stageData);
-            }
-
-            // Load weapon
-            if (gameData.weaponData != null)
-            {
-                DamageSystem.Instance.EquipWeapon(gameData.weaponData);
-            }
-
-            if (gameData.isWeaponEquippedData)
-            {
-                DamageSystem.Instance.IsWeaponEquipped = gameData.isWeaponEquippedData;
-            }
-
-            if (gameData.weaponButtonData != null)
-            {
-                InventorySystem.Instance.equipedWeaponButton = gameData.weaponButtonData;
-            }
-
-            // Load mining level
-            if (gameData.miningLevelData != 0)
-            {
-                MiningSystem.Instance.SetMiningLevel(gameData.miningLevelData);
-            }
-
-            // Load mining efficiency
-            if (gameData.miningEfficiencyData != 0)
-            {
-                MiningSystem.Instance.SetMiningEfficiency(gameData.miningEfficiencyData);
-            }
-            
-            // Load mining experience
-            if (gameData.miningExperienceData != 0)
-            {
-                MiningSystem.Instance.SetMiningExperience(gameData.miningExperienceData);
-            }
-
-            if (gameData.toolData != null)
-            {
-                MiningSystem.Instance.EquipTool(gameData.toolData);
-            }
-
-            if (gameData.isToolEquippedData)
-            {
-                MiningSystem.Instance.IsToolEquipped = gameData.isToolEquippedData;
-            }
-
-            if (gameData.toolButtonData != null)
-            {
-                InventorySystem.Instance.equipedToolButton = gameData.toolButtonData;
-            }
-
-            if (gameData.currentCave != null)
-            {
-                CaveSystem.Instance.CurrentCave = gameData.currentCave;
-            }
-
-            if (gameData.prestigeLevel != 0)
-            {
-                LevelSystem.Instance.SetPrestigeLevel(gameData.prestigeLevel);
-            }
-
-            Debug.Log("Game loaded from " + saveFilePath);
-        }
-        else
-        {
-            Debug.LogWarning("Save file not found: " + saveFilePath);
-        }
-
-        // Load magic data
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "magic.json")))
-        {
-            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "magic.json"));
-            MagicData magicData = JsonUtility.FromJson<MagicData>(json);
-            if (magicData.manaData != 0)
-            {
-                ManaSystem.Instance.AddMana(magicData.manaData);
-            }
-            if (magicData.manaPerHourData != 0)
-            {
-                ManaSystem.Instance.SetManaPerHour(magicData.manaPerHourData);
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Magic file not found: " + Path.Combine(Application.persistentDataPath, "magic.json"));
+            UpgradingSystem.Instance.SetUpgrades(upgrades.upgrades);
         }
     }
-    
+
+    private void LoadGameData()
+    {
+        GameData gameData = ReadFromFile<GameData>(saveFilePath);
+        if (gameData != null)
+        {
+            GoldSystem.Instance.SetGold(gameData.goldData);
+            LevelSystem.Instance.SetLevel(gameData.levelData);
+            ContentLocker.Instance.CheckContent(gameData.levelData);
+            BiomeSystem.Instance.UpdateBiome();
+            LevelSystem.Instance.SetStage(gameData.stageData);
+            DamageSystem.Instance.EquipWeapon(gameData.weaponData);
+            DamageSystem.Instance.IsWeaponEquipped = gameData.isWeaponEquippedData;
+            InventorySystem.Instance.equipedWeaponButton = gameData.weaponButtonData;
+            MiningSystem.Instance.SetMiningLevel(gameData.miningLevelData);
+            MiningSystem.Instance.SetMiningEfficiency(gameData.miningEfficiencyData);
+            MiningSystem.Instance.SetMiningExperience(gameData.miningExperienceData);
+            MiningSystem.Instance.EquipTool(gameData.toolData);
+            MiningSystem.Instance.IsToolEquipped = gameData.isToolEquippedData;
+            InventorySystem.Instance.equipedToolButton = gameData.toolButtonData;
+            CaveSystem.Instance.CurrentCave = gameData.currentCave;
+            LevelSystem.Instance.SetPrestigeLevel(gameData.prestigeLevel);
+        }
+    }
+
+    private void LoadMagicData()
+    {
+        MagicData magicData = ReadFromFile<MagicData>(Path.Combine(Application.persistentDataPath, MagicFileName));
+        if (magicData != null)
+        {
+            ManaSystem.Instance.AddMana(magicData.manaData);
+            ManaSystem.Instance.SetManaPerHour(magicData.manaPerHourData);
+        }
+    }
+
     public void LoadCaves()
     {
-        // Load caves data
-        if (File.Exists(Path.Combine(Application.persistentDataPath, "caves.json")))
+        CavesData cavesData = ReadFromFile<CavesData>(Path.Combine(Application.persistentDataPath, CavesFileName));
+        if (cavesData?.caves != null)
         {
-            string json = File.ReadAllText(Path.Combine(Application.persistentDataPath, "caves.json"));
-            CavesData cavesData = JsonUtility.FromJson<CavesData>(json);
-            if (cavesData.caves != null)
+            foreach (var cave in cavesData.caves)
             {
-                foreach (Cave cave in cavesData.caves)
+                Cave existingCave = CaveSystem.Instance.caves.Find(x => x.name == cave.name);
+                if (existingCave != null)
                 {
-                    Cave c = CaveSystem.Instance.caves.Find(x => x.name == cave.name);
-                    if (c == null)
-                    {
-                        Debug.LogWarning("Cave not found: " + cave.name);
-                        continue;
-                    }
                     CaveSystem.Instance.LoadCave(cave.name, cave.isUnlocked);
+                }
+                else
+                {
+                    Debug.LogWarning($"Cave not found: {cave.name}");
                 }
             }
         }
-        else
+    }
+
+    public void LoadPlantingData()
+    {
+        PlantingData plantingData = ReadFromFile<PlantingData>(Path.Combine(Application.persistentDataPath, PlantingFileName));
+        if (plantingData != null)
         {
-            Debug.LogWarning("Caves file not found: " + Path.Combine(Application.persistentDataPath, "caves.json"));
+            PlantsSystem.Instance.LoadPlantData(plantingData.plantIndex);
+            PlantingSystem.Instance.PlantingLevel = plantingData.plantingLevel;
         }
     }
 
-    private void FixedUpdate() 
+    // !
+    private void FixedUpdate()
     {
-        // Auto save every 5 minutes
         _timer += Time.deltaTime;
         if (_timer >= 300f)
         {
@@ -321,17 +260,52 @@ public class SaveSystem : MonoBehaviour
             _timer = 0f;
         }
     }
-    
+
     private void OnApplicationQuit()
     {
         Save();
     }
 
-    private void OnApplicationPause(bool pauseStatus) 
+    private void OnApplicationPause(bool pauseStatus)
     {
         if (pauseStatus)
         {
             Save();
+        }
+    }
+
+    private void WriteToFile<T>(string filePath, T data)
+    {
+        try
+        {
+            string json = JsonUtility.ToJson(data, true);
+            File.WriteAllText(filePath, json);
+        }
+        catch (IOException ex)
+        {
+            Debug.LogError($"Failed to write to file {filePath}: {ex.Message}");
+        }
+    }
+
+    private T ReadFromFile<T>(string filePath) where T : class
+    {
+        try
+        {
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                return JsonUtility.FromJson<T>(json);
+            }
+            else
+            {
+                Debug.LogWarning($"File not found: {filePath}");
+                return null;
+            }
+        }
+        catch (IOException ex)
+        {
+            Debug.LogError($"Failed to read from file {filePath}: {ex.Message}");
+            return null;
         }
     }
 }
@@ -339,16 +313,12 @@ public class SaveSystem : MonoBehaviour
 [System.Serializable]
 public class GameData
 {
-    // Gold System
     public double goldData;
-    // Monster Kiling System
     public int levelData;
     public int stageData;
-    // Weapon
     public Items weaponData;
     public bool isWeaponEquippedData;
     public UnityEngine.UI.Button weaponButtonData;
-    // Mining System
     public double miningLevelData;
     public double miningEfficiencyData;
     public double miningExperienceData;
@@ -356,7 +326,6 @@ public class GameData
     public bool isToolEquippedData;
     public UnityEngine.UI.Button toolButtonData;
     public string currentCave;
-    // Prestige
     public int prestigeLevel;
 }
 
@@ -385,6 +354,14 @@ public class MagicData
     public double manaData;
     public double manaPerHourData;
 }
+
+[System.Serializable]
+public class PlantingData
+{
+    public List<PlantData> plantIndex;
+    public int plantingLevel;
+}
+
 
 public class LoadGameData : MonoBehaviour
 {

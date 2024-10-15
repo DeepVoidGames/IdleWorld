@@ -885,6 +885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35970265}
   - component: {fileID: 35970266}
+  - component: {fileID: 35970267}
   m_Layer: 5
   m_Name: GardenPlot #1
   m_TagString: Untagged
@@ -934,6 +935,62 @@ MonoBehaviour:
     stages: []
   plantImage: {fileID: 1918524793}
   timerText: {fileID: 1345361813}
+--- !u!114 &35970267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35970264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 35970266}
+        m_TargetAssemblyTypeName: GardenPlot, Assembly-CSharp
+        m_MethodName: Harvest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &41407761
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,7 +3065,7 @@ Transform:
   m_GameObject: {fileID: 173980569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: -1.005, z: -10}
+  m_LocalPosition: {x: -3.2, y: -1.277, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17635,7 +17692,7 @@ Transform:
   m_GameObject: {fileID: 681284095}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.832, y: -1.005, z: -10}
+  m_LocalPosition: {x: -1.832, y: -1.277, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20082,7 +20139,7 @@ Transform:
   m_GameObject: {fileID: 820672825}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.871, y: -1.005, z: -10}
+  m_LocalPosition: {x: -2.871, y: -1.277, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20816,7 +20873,7 @@ Transform:
   m_GameObject: {fileID: 861726961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.443, y: -1.005, z: -10}
+  m_LocalPosition: {x: -2.443, y: -1.277, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33801,7 +33858,7 @@ Transform:
   m_GameObject: {fileID: 1475539902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.542, y: -1.005, z: -10}
+  m_LocalPosition: {x: -1.542, y: -1.277, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44517,7 +44574,7 @@ Transform:
   m_GameObject: {fileID: 1923281180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.132, y: -1.005, z: -10}
+  m_LocalPosition: {x: -2.132, y: -1.277, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47514,7 +47571,7 @@ MonoBehaviour:
     _position: {x: 30, y: 0, z: 0}
     _UIPanel: {fileID: 1790719737}
     _Button: {fileID: 1773192089}
-    _canBeDisabled: 1
+    _canBeDisabled: 0
 --- !u!1 &2074420154
 GameObject:
   m_ObjectHideFlags: 0

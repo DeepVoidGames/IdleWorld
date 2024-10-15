@@ -41,7 +41,7 @@ public class IdleSystem : MonoBehaviour
 
     private void UIUpdate()
     {
-        textIdleTime.text = "Idle Time: " + UISystem.Instance.NumberFormat(idleChestTime / 60 / 60) + " hours";
+        // textIdleTime.text = "Idle Time: " + UISystem.Instance.NumberFormat(idleChestTime / 60 / 60) + " hours";
         if (idleChestTime >= minIdleTime)
         {
             Color tempColor = chestObject.GetComponent<SpriteRenderer>().color;

@@ -20,6 +20,12 @@ public class GardenPlot : MonoBehaviour
         StartGrowing();
     }
 
+    private void StartRandomPlant()
+    {
+        int random = UnityEngine.Random.Range(0, PlantsSystem.Instance.plants.Count);
+        Plant(PlantsSystem.Instance.plants[random]);
+    }
+
     private void StartGrowing()
     {
         //TODO start growing, set ui timer change sprite, start coroutine
@@ -80,6 +86,18 @@ public class GardenPlot : MonoBehaviour
             }
         }
         yield return null;
+    }
+
+    public void Harvest()
+    {
+        if (harvestable)
+        {
+            //TODO harvest plant, add to inventory
+            float harvestRate = UnityEngine.Random.Range(1f, 5f);
+            float amount = harvestRate * 1;
+            PlantsSystem.Instance.AddPlant(_plant, amount);
+            StartRandomPlant();
+        }
     }
 
     private void Start() 
