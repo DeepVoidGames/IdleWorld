@@ -128,7 +128,9 @@ public class SaveSystem : MonoBehaviour
     {
         PlantingData plantingData = new PlantingData
         {
-            plantingLevel = PlantingSystem.Instance.PlantingLevel
+            plantingLevel = PlantingSystem.Instance.PlantingLevel,
+            plantingExperience = PlantingSystem.Instance.PlantingExp,
+            plantingLuck = PlantingSystem.Instance.plantingLuck
         };
         WriteToFile(Path.Combine(Application.persistentDataPath, PlantingFileName), plantingData);
     }
@@ -140,6 +142,7 @@ public class SaveSystem : MonoBehaviour
         LoadUpgradesData();
         LoadGameData();
         LoadMagicData();
+        LoadPlantingData();
     }
 
     private void LoadInventoryData()
@@ -245,6 +248,9 @@ public class SaveSystem : MonoBehaviour
         if (plantingData != null)
         {
             PlantingSystem.Instance.PlantingLevel = plantingData.plantingLevel;
+            PlantingSystem.Instance.PlantingExp = plantingData.plantingExperience;
+            PlantingSystem.Instance.plantingLuck = plantingData.plantingLuck;
+            PlantingSystem.Instance.UpdateUI();
         }
     }
 
@@ -357,6 +363,8 @@ public class MagicData
 public class PlantingData
 {
     public int plantingLevel;
+    public float plantingExperience;
+    public int plantingLuck;
 }
 
 

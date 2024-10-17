@@ -31,5 +31,4 @@ public class PlantsSystem : MonoBehaviour
 
     [Header("Plants")]
     public List<Plant> plants;
-
 }

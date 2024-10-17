@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +22,47 @@ public class GardenPlot : MonoBehaviour
 
     private void StartRandomPlant()
     {
-        int random = UnityEngine.Random.Range(0, PlantsSystem.Instance.plants.Count);
-        Plant(PlantsSystem.Instance.plants[random]);
+        // PlantingSystem.Instance.plantingLuck Should have impact on the rarity of the plant
+
+        float plantingLuck = PlantingSystem.Instance.plantingLuck;
+        float randomRarity = UnityEngine.Random.Range(0f, 100f) + plantingLuck;
+        Items.Rarity rarity = Items.Rarity.Common;
+
+        if (randomRarity < 40f)
+        {
+            rarity = Items.Rarity.Common;
+        }
+        else if (randomRarity < 65f)
+        {
+            rarity = Items.Rarity.Uncommon;
+        }
+        else if (randomRarity < 85f)
+        {
+            rarity = Items.Rarity.Rare;
+        }
+        else if (randomRarity < 95f)
+        {
+            rarity = Items.Rarity.Epic;
+        }
+        else if (randomRarity < 99f)
+        {
+            rarity = Items.Rarity.Legendary;
+        }
+        else
+        {
+            rarity = Items.Rarity.Mythical;
+        }
+
+        List<Plant> plantsByRarity = PlantsSystem.Instance.plants.FindAll(p => p.rarity == rarity);
+        
+        if (plantsByRarity.Count == 0)
+        {
+            Plant(PlantsSystem.Instance.plants[0]);
+            return;
+        }
+
+        int random = UnityEngine.Random.Range(0, plantsByRarity.Count);
+        Plant(plantsByRarity[random]);
     }
 
     private void StartGrowing()
@@ -92,11 +131,10 @@ public class GardenPlot : MonoBehaviour
     {
         if (harvestable)
         {
-            //TODO harvest plant, add to inventory
             float harvestRate = UnityEngine.Random.Range(1f, 5f);
             float amount = harvestRate * 1;
-            // PlantsSystem.Instance.AddPlant(_plant, amount);
             InventorySystem.Instance.AddItemByName(_plant.Name, amount);
+            PlantingSystem.Instance.AddPlantingExp(_plant);
             StartRandomPlant();
         }
     }

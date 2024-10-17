@@ -19,9 +19,29 @@ public class PlantingSystem : MonoBehaviour
     }
 
     [Header("Planting Level")]
-    [SerializeField] private int plantingLevel;
+    [SerializeField] private int plantingLevel = 1;
+    [SerializeField] private float plantingExp;
     [SerializeField] private Text textPlantingLevel;
-    public int PlantingLevel { get => plantingLevel; set => plantingLevel = value; }
+    [SerializeField] private Text textPlantingExp;
+    public int PlantingLevel
+    {
+        get => plantingLevel;
+        set
+        {
+            if (value < 1)
+            {
+                plantingLevel = 1;
+            }
+            else
+            {
+                plantingLevel = value;
+            }
+        }
+    }
+    public float PlantingExp { get => plantingExp; set => plantingExp = value; }
+
+    [Header("Stats")]
+    public int plantingLuck = 0;
 
     [Header("Water")]
     [SerializeField] private int water;
@@ -36,11 +56,50 @@ public class PlantingSystem : MonoBehaviour
     [SerializeField] private Text textFertilizer;
     public int Fertilizer { get => fertilizer; }
 
-    private void UpdateUI()
+    public void AddPlantingExp(Plant plant)
+    {
+        switch (plant.rarity)
+        {
+            case Items.Rarity.Common:
+                plantingExp += plant.timeToGrow * 0.1f;
+                break;
+            case Items.Rarity.Uncommon:
+                plantingExp += plant.timeToGrow * 0.2f;
+                break;
+            case Items.Rarity.Rare:
+                plantingExp += plant.timeToGrow * 0.3f;
+                break;
+            case Items.Rarity.Epic:
+                plantingExp += plant.timeToGrow * 0.4f;
+                break;
+            case Items.Rarity.Legendary:
+                plantingExp += plant.timeToGrow * 0.5f;
+                break;
+            case Items.Rarity.Mythical:
+                plantingExp += plant.timeToGrow * 0.6f;
+                break;   
+        }
+        NeededExpToLevelUp();
+    }
+
+    private void NeededExpToLevelUp()
+    {
+        if (plantingExp >= plantingLevel * 100)
+        {
+            plantingExp -= plantingLevel * 100;
+            plantingLevel++;
+            if (plantingLevel % 5 == 0 && plantingLuck < 10)
+                plantingLuck++;
+        }
+        UpdateUI();
+    }
+
+    public void UpdateUI()
     {
         textWater.text = $"Water: {water}/{maxWater}";
         textFertilizer.text = $"Fertilizer: {fertilizer}/{maxFertilizer}";
         textPlantingLevel.text = $"Planting Level: {plantingLevel}";
+        textPlantingExp.text = $"Planting Exp: {plantingExp}/{plantingLevel * 100}";
     }
 
     private void WaterRefill()
