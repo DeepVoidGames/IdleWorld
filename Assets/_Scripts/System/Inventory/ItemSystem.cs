@@ -108,6 +108,8 @@ public class ItemSystem : MonoBehaviour
                 item.icon = Resources.Load<Sprite>("Sprites/Icons/Tools/" + item.Name);
             else if (item.category == InventorySystem.Category.Potion)
                 item.icon = Resources.Load<Sprite>("Sprites/Icons/Potions/" + item.Name);
+            else if (item.category == InventorySystem.Category.Plants)
+                item.icon = Resources.Load<Sprite>("Sprites/Icons/Plants/" + item.Name);
             ItemsCollection.Add(item);
         }
         _items.Clear();

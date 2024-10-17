@@ -525,6 +525,12 @@
       "rarity": 4,
       "icon": {},
       "baseMiningEfficiency": 25000.0
+    },
+    {
+      "Name": "Lavender",
+      "id": 63,
+      "category": 5,
+      "rarity": 0
     }
   ]
 }

@@ -95,7 +95,8 @@ public class GardenPlot : MonoBehaviour
             //TODO harvest plant, add to inventory
             float harvestRate = UnityEngine.Random.Range(1f, 5f);
             float amount = harvestRate * 1;
-            PlantsSystem.Instance.AddPlant(_plant, amount);
+            // PlantsSystem.Instance.AddPlant(_plant, amount);
+            InventorySystem.Instance.AddItemByName(_plant.Name, amount);
             StartRandomPlant();
         }
     }

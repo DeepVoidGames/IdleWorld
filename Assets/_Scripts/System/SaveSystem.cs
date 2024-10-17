@@ -128,7 +128,6 @@ public class SaveSystem : MonoBehaviour
     {
         PlantingData plantingData = new PlantingData
         {
-            plantIndex = PlantsSystem.Instance.SavePlantData(),
             plantingLevel = PlantingSystem.Instance.PlantingLevel
         };
         WriteToFile(Path.Combine(Application.persistentDataPath, PlantingFileName), plantingData);
@@ -245,7 +244,6 @@ public class SaveSystem : MonoBehaviour
         PlantingData plantingData = ReadFromFile<PlantingData>(Path.Combine(Application.persistentDataPath, PlantingFileName));
         if (plantingData != null)
         {
-            PlantsSystem.Instance.LoadPlantData(plantingData.plantIndex);
             PlantingSystem.Instance.PlantingLevel = plantingData.plantingLevel;
         }
     }
@@ -358,7 +356,6 @@ public class MagicData
 [System.Serializable]
 public class PlantingData
 {
-    public List<PlantData> plantIndex;
     public int plantingLevel;
 }
 

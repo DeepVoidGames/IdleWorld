@@ -71,7 +71,8 @@ public class InventorySystem : MonoBehaviour
         Material,
         Weapon,
         Tools,
-        Potion
+        Potion,
+        Plants
     }
 
     public void AddItem(int id, double quantity)
