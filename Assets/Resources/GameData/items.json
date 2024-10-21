@@ -531,6 +531,12 @@
       "id": 63,
       "category": 5,
       "rarity": 0
+    },
+    {
+      "Name": "Sunflower",
+      "id": 64,
+      "category": 5,
+      "rarity": 1
     }
   ]
 }
