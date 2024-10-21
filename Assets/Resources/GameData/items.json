@@ -537,6 +537,12 @@
       "id": 64,
       "category": 5,
       "rarity": 1
+    },
+    {
+      "Name": "Glowleaf Fern",
+      "id": 65,
+      "category": 5,
+      "rarity": 0
     }
   ]
 }
