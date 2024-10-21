@@ -6,17 +6,22 @@ using UnityEngine.UI;
 
 public class GardenPlot : MonoBehaviour 
 {
+    [Header("Garden Plant ID")]
+    [SerializeField] private int gardenPlantID;
     [Header("Plant")]
     [SerializeField] private Plant _plant;
     [Header("UI Elements")]
     [SerializeField] private Image plantImage;
     [SerializeField] private Text timerText;
 
+    private float _timer;
+
     private bool harvestable = false;
 
     public void Plant(Plant plant)
     {
         _plant = plant;
+        _timer = _plant.timeToGrow;
         StartGrowing();
     }
 
@@ -67,7 +72,6 @@ public class GardenPlot : MonoBehaviour
 
     private void StartGrowing()
     {
-        //TODO start growing, set ui timer change sprite, start coroutine
         UIUpdate();
         StartCoroutine(Grow());
     }
@@ -111,7 +115,9 @@ public class GardenPlot : MonoBehaviour
 
     IEnumerator Grow()
     {
-        float _timer = _plant.timeToGrow;
+        if (_timer <= 0)
+            yield break;
+
         while (true)
         {
             yield return new WaitForSeconds(1);
@@ -139,13 +145,62 @@ public class GardenPlot : MonoBehaviour
         }
     }
 
+    private void SaveCurrentPlant()
+    {
+        PlayerPrefs.SetString("GardenPlot_" + gardenPlantID, _plant.Name);
+        PlayerPrefs.SetFloat("GardenPlot_" + gardenPlantID + "_Timer", _timer);
+        PlayerPrefs.SetFloat("GardenPlot_" + gardenPlantID + "_CurrentTime", Time.time);
+    }
+
+    private bool LoadCurrentPlant()
+    {
+        if (PlayerPrefs.HasKey("GardenPlot_" + gardenPlantID))
+        {
+            string plantName = PlayerPrefs.GetString("GardenPlot_" + gardenPlantID);
+            float timer = PlayerPrefs.GetFloat("GardenPlot_" + gardenPlantID + "_Timer");
+            float currentTime = PlayerPrefs.GetFloat("GardenPlot_" + gardenPlantID + "_CurrentTime");
+            float elapsedTime = Time.time - currentTime;
+            _plant = PlantsSystem.Instance.plants.Find(p => p.Name == plantName);
+            _timer = timer - elapsedTime;
+            if (_timer <= 0)
+                harvestable = true;
+            else
+                StartGrowing();
+            UIUpdate();
+            return true;
+        }
+        return false;
+    }
+
     private void Start() 
     {
-        if (_plant != null)
+        if (_plant != null && !LoadCurrentPlant())
         {
             int random = UnityEngine.Random.Range(0, PlantsSystem.Instance.plants.Count);
             Plant(PlantsSystem.Instance.plants[random]);
         }   
     }
-        
+
+    private void OnApplicationQuit() 
+    {
+        SaveCurrentPlant();
+    }
+
+    private void OnApplicationPause(bool pauseStatus) 
+    {
+        if (pauseStatus)
+        {
+            SaveCurrentPlant();
+        }
+    }
+    
+    private void OnDisable() 
+    {
+        SaveCurrentPlant();
+    }
+
+    private void OnEnable() 
+    {
+        LoadCurrentPlant();
+    }
 }
