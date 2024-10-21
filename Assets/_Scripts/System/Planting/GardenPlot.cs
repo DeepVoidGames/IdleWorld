@@ -14,14 +14,14 @@ public class GardenPlot : MonoBehaviour
     [SerializeField] private Image plantImage;
     [SerializeField] private Text timerText;
 
-    private float _timer;
+    private float gardenTimer;
 
     private bool harvestable = false;
 
     public void Plant(Plant plant)
     {
         _plant = plant;
-        _timer = _plant.timeToGrow;
+        gardenTimer = _plant.timeToGrow;
         StartGrowing();
     }
 
@@ -72,22 +72,22 @@ public class GardenPlot : MonoBehaviour
 
     private void StartGrowing()
     {
-        UIUpdate();
         StartCoroutine(Grow());
+        SetStageOfPlant();
+        SetTimerUI();
     }
 
-    private void UIUpdate()
+    private void SetStageOfPlant()
     {
-        plantImage.sprite = _plant.stages[0];
-    }
-
-    private void SetStageOfPlant(float _timer)
-    {
-        if (_timer <= _plant.timeToGrow / 3)
+        if (gardenTimer <= 0)
         {
             plantImage.sprite = _plant.stages[2];
         }
-        else if (_timer <= _plant.timeToGrow / 3 * 2)
+        else if (gardenTimer <= _plant.timeToGrow / 3)
+        {
+            plantImage.sprite = _plant.stages[2];
+        }
+        else if (gardenTimer <= _plant.timeToGrow / 3 * 2)
         {
             plantImage.sprite = _plant.stages[1];
         }
@@ -97,34 +97,34 @@ public class GardenPlot : MonoBehaviour
         }
     }
 
-    private void SetTimerUI(float _timer)
+    private void SetTimerUI()
     {
-        if (_timer <= 0)
+        if (gardenTimer <= 0)
         {
             timerText.text = "Ready to harvest!";
         }
-        else if(_timer <= 60)
+        else if(gardenTimer <= 60)
         {
-            timerText.text = String.Format("{0}s", _timer.ToString("F0"));
+            timerText.text = String.Format("{0}s", gardenTimer.ToString("F0"));
         }
         else
         {
-            timerText.text = String.Format("{0}m {1}s", Mathf.Floor(_timer / 60).ToString("F0"), (_timer % 60).ToString("F0"));
+            timerText.text = String.Format("{0}m {1}s", Mathf.Floor(gardenTimer / 60).ToString("F0"), (gardenTimer % 60).ToString("F0"));
         }
     }
 
     IEnumerator Grow()
     {
-        if (_timer <= 0)
+        if (gardenTimer <= 0)
             yield break;
 
         while (true)
         {
             yield return new WaitForSeconds(1);
-            _timer -= 1;
-            SetTimerUI(_timer);
-            SetStageOfPlant(_timer);
-            if (_timer <= 0)
+            gardenTimer -= 1;
+            SetTimerUI();
+            SetStageOfPlant();
+            if (gardenTimer <= 0)
             {
                 harvestable = true;
                 break;
@@ -141,6 +141,7 @@ public class GardenPlot : MonoBehaviour
             float amount = harvestRate * 1;
             InventorySystem.Instance.AddItemByName(_plant.Name, amount);
             PlantingSystem.Instance.AddPlantingExp(_plant);
+            harvestable = false;
             StartRandomPlant();
         }
     }
@@ -148,11 +149,11 @@ public class GardenPlot : MonoBehaviour
     private void SaveCurrentPlant()
     {
         PlayerPrefs.SetString("GardenPlot_" + gardenPlantID, _plant.Name);
-        PlayerPrefs.SetFloat("GardenPlot_" + gardenPlantID + "_Timer", _timer);
+        PlayerPrefs.SetFloat("GardenPlot_" + gardenPlantID + "_Timer", gardenTimer);
         PlayerPrefs.SetFloat("GardenPlot_" + gardenPlantID + "_CurrentTime", Time.time);
     }
 
-    private bool LoadCurrentPlant()
+    private void LoadCurrentPlant()
     {
         if (PlayerPrefs.HasKey("GardenPlot_" + gardenPlantID))
         {
@@ -161,24 +162,24 @@ public class GardenPlot : MonoBehaviour
             float currentTime = PlayerPrefs.GetFloat("GardenPlot_" + gardenPlantID + "_CurrentTime");
             float elapsedTime = Time.time - currentTime;
             _plant = PlantsSystem.Instance.plants.Find(p => p.Name == plantName);
-            _timer = timer - elapsedTime;
-            if (_timer <= 0)
+            gardenTimer = timer - elapsedTime;
+            if (gardenTimer <= 0)
                 harvestable = true;
             else
                 StartGrowing();
-            UIUpdate();
-            return true;
+            SetTimerUI();
+            SetStageOfPlant();
         }
-        return false;
+        else
+        {
+            int random = UnityEngine.Random.Range(0, PlantsSystem.Instance.plants.Count);
+            Plant(PlantsSystem.Instance.plants[random]);
+        }
     }
 
     private void Start() 
     {
-        if (_plant != null && !LoadCurrentPlant())
-        {
-            int random = UnityEngine.Random.Range(0, PlantsSystem.Instance.plants.Count);
-            Plant(PlantsSystem.Instance.plants[random]);
-        }   
+        LoadCurrentPlant();
     }
 
     private void OnApplicationQuit() 
