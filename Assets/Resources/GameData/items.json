@@ -573,6 +573,12 @@
       "id": 70,
       "category": 5,
       "rarity": 2
+    },
+    {
+      "Name": "Phoenix Flower",
+      "id": 71,
+      "category": 5,
+      "rarity": 3
     }
   ]
 }
