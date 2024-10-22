@@ -567,6 +567,12 @@
       "id": 69,
       "category": 5,
       "rarity": 2
+    },
+    {
+      "Name": "Stormroot",
+      "id": 70,
+      "category": 5,
+      "rarity": 2
     }
   ]
 }

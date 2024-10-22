@@ -48199,6 +48199,14 @@ MonoBehaviour:
     - {fileID: 21300000, guid: dc784cb8e0d6b634796ff84005102fdb, type: 3}
     - {fileID: 21300000, guid: d897a75adf79153428526d8a3b097000, type: 3}
     - {fileID: 21300000, guid: 56d83386d1df52c4e9b74fdad97a2f35, type: 3}
+  - Name: Stormroot
+    levelRequired: 0
+    rarity: 2
+    timeToGrow: 560
+    stages:
+    - {fileID: 21300000, guid: 94ecd160223ca794299bd59d8e1862be, type: 3}
+    - {fileID: 21300000, guid: b6ba608c848e7bd44a990aa6c683f546, type: 3}
+    - {fileID: 21300000, guid: 3266a5a3cf99f10478109341e3597122, type: 3}
 --- !u!1 &2046036098
 GameObject:
   m_ObjectHideFlags: 0
