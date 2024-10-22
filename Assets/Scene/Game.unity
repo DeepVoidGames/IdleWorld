@@ -48178,7 +48178,15 @@ MonoBehaviour:
   - Name: Lunar Bellflower
     levelRequired: 0
     rarity: 1
-    timeToGrow: 45
+    timeToGrow: 145
+    stages:
+    - {fileID: 21300000, guid: 9d143b13d8cdea6488d789c6f40aaeea, type: 3}
+    - {fileID: 21300000, guid: 8425f78712bad7042b28c37c4667e271, type: 3}
+    - {fileID: 21300000, guid: 22a30ee190fb13144b69881cc9ac938e, type: 3}
+  - Name: Embervine flower
+    levelRequired: 0
+    rarity: 1
+    timeToGrow: 200
     stages:
     - {fileID: 21300000, guid: 9d143b13d8cdea6488d789c6f40aaeea, type: 3}
     - {fileID: 21300000, guid: 8425f78712bad7042b28c37c4667e271, type: 3}
