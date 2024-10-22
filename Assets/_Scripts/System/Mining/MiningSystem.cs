@@ -113,6 +113,7 @@ public class MiningSystem : MonoBehaviour
         }
     }
 
+    // TODO : Replace AutoMining with workers system. Player can have workers to mine for him
     public void SetAutoMining(bool value)
     {
         isAutoMining = value;

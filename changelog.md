@@ -3,7 +3,7 @@
 - Add
   - Planting system
   - Stacking Potions bonus
-  <!-- - Attack speed implementation  -->
+  - Attack speed implementation
   - UI improvements
 - Fix
   - UI
