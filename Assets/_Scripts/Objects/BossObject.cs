@@ -47,7 +47,8 @@ public class BossObject : MonoBehaviour
         // Hit Animation
         if (hitMaterial != null)
             gameObject.GetComponent<Renderer>().material = hitMaterial;
-        _messageSpawner.SpawnMessage("-" + UISystem.Instance.NumberFormat(damage));
+        if (_messageSpawner != null)
+            _messageSpawner.SpawnMessage("-" + UISystem.Instance.NumberFormat(damage));
         if (health <= 0)
         {
             BossSystem.Instance.BossDied();

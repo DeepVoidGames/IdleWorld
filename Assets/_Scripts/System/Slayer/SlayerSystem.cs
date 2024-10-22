@@ -25,6 +25,7 @@ public class SlayerSystem : MonoBehaviour
     private bool isAttacking = false;
 
     //TODO: Critical Chance
+    // Player Attack Monster
     IEnumerator AttackMonsterCoroutine()
     {
         isAttacking = true;
@@ -34,10 +35,11 @@ public class SlayerSystem : MonoBehaviour
         isAttacking = false;
     }
 
+    // Player Attack Boss
     IEnumerator AttackBossCoroutine()
     {
         isAttacking = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(DamageSystem.Instance.AttackSpeed);
         if (BossSystem.Instance.CurrentBoss != null)
             BossSystem.Instance.CurrentBoss.GetComponent<BossObject>().TakeDamage(DamageSystem.Instance.Damage);
         isAttacking = false;
@@ -53,6 +55,7 @@ public class SlayerSystem : MonoBehaviour
         StartCoroutine(AttackBossCoroutine());
     }
 
+    // Monster Attack Player
     IEnumerator MonsterAttackCoroutine()
     {
         while (true)

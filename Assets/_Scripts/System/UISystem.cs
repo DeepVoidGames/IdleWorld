@@ -105,7 +105,8 @@ public class UISystem : MonoBehaviour {
                         $"Mining Efficiency bonus: {NumberFormat(DifficultySystem.Instance.MiningEfficiencyPercentage*100)}%\n"+
                         $"Mining Drop Rate: {DifficultySystem.Instance.MiningDropRateMultiplier}\n"+
                         $"Highest Level: {LevelSystem.Instance.HighestLevel}\n"+
-                        $"Highest Stage: {LevelSystem.Instance.HighestStage}\n";
+                        $"Highest Stage: {LevelSystem.Instance.HighestStage}\n"+
+                        $"Attack every: {NumberFormat(DamageSystem.Instance.AttackSpeed / 1000)}s(Attack Speed)\n";
     }
 
     public void UpdatePotionUI()
