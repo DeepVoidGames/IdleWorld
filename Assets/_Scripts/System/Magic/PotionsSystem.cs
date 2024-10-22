@@ -94,14 +94,34 @@ public class PotionsSystem : MonoBehaviour
 
     public void UsePotion(Items item)
     {
-        if(isPotionCooldown)
+        if (isPotionCooldown && (currentPotion == null || currentPotion.id != item.id))
+        {
+            // If a different potion is active and cooldown is in effect, block the function
             return;
+        }
+
         InventorySystem.Instance.RemoveItem(item.id, 1);
-        currentPotion = item;
+
+        if (currentPotion != null && currentPotion.id == item.id)
+        {
+            // If the same potion is already active, add the new potion's duration to the existing timer
+            _timer += item.potionDuration;
+        }
+        else
+        {
+            // If a different potion is active, remove its bonus and set the new potion
+            if (currentPotion != null)
+            {
+                RemovePotionBonus();
+            }
+            currentPotion = item;
+            _timer = item.potionDuration;
+            AddPotionBonus();
+        }
+
         UISystem.Instance.UpdatePotionUI();
-        AddPotionBonus();
         InventorySystem.Instance.UpdateUI();
-        return;
+        StartCoroutine(PotionDuration());
     }
 
     private void AddPotionBonus()
@@ -122,7 +142,6 @@ public class PotionsSystem : MonoBehaviour
         {
             HealthSystem.Instance.HealOverTime(currentPotion.potionValue, currentPotion.potionDuration);
         }
-        StartCoroutine(PotionDuration());
     }
 
     private void RemovePotionBonus()
@@ -153,6 +172,7 @@ public class PotionsSystem : MonoBehaviour
             currentPotion = ItemSystem.Instance.GetItem(PlayerPrefs.GetInt("PotionID"));
             _timer = PlayerPrefs.GetFloat("PotionDuration");
             AddPotionBonus();
+            UISystem.Instance.UpdatePotionUI();
         }
 
         // if (PlayerPrefs.HasKey("PotionCooldown"))
@@ -185,8 +205,6 @@ public class PotionsSystem : MonoBehaviour
     private IEnumerator PotionDuration()
     {
         isPotionCooldown = true;
-        if (_timer <= 0)
-            _timer = currentPotion.potionDuration;
         while (_timer > 0)
         {
             _timer -= Time.deltaTime;
