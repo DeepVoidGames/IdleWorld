@@ -549,6 +549,12 @@
       "id": 66,
       "category": 5,
       "rarity": 0
+    },
+    {
+      "Name": "Lunar Bellflower",
+      "id": 67,
+      "category": 5,
+      "rarity": 1
     }
   ]
 }

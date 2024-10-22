@@ -48175,6 +48175,14 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 4d02fe953571233469713066df814d76, type: 3}
     - {fileID: 21300000, guid: f94225fbd9514cd498cfae2d0a31bfcd, type: 3}
     - {fileID: 21300000, guid: 601f567901ab4034b8456791ff3b7605, type: 3}
+  - Name: Lunar Bellflower
+    levelRequired: 0
+    rarity: 1
+    timeToGrow: 45
+    stages:
+    - {fileID: 21300000, guid: 9d143b13d8cdea6488d789c6f40aaeea, type: 3}
+    - {fileID: 21300000, guid: 8425f78712bad7042b28c37c4667e271, type: 3}
+    - {fileID: 21300000, guid: 22a30ee190fb13144b69881cc9ac938e, type: 3}
 --- !u!1 &2046036098
 GameObject:
   m_ObjectHideFlags: 0
