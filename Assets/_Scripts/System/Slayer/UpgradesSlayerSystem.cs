@@ -26,6 +26,7 @@ public class UpgradeSlayer
     {
         Damage,
         Health,
+        AttackSpeed
     }
     public UpgradeType type;
 
@@ -69,6 +70,9 @@ public class UpgradesSlayerSystem : MonoBehaviour
                 break;
             case UpgradeSlayer.UpgradeType.Health:
                 format = "Health Boost Per Level +{0}\nAll Health Boost +{1}";
+                break;
+            case UpgradeSlayer.UpgradeType.AttackSpeed:
+                format = "Attack Speed Boost Per Level +{0}\nAll Attack Speed Boost +{1}";
                 break;
             default:
                 format = "";
@@ -199,6 +203,16 @@ public class UpgradesSlayerSystem : MonoBehaviour
                 else
                 {
                     HealthSystem.Instance.AddHealthBoost(upgrade.value);
+                }
+                break;
+            case UpgradeSlayer.UpgradeType.AttackSpeed:
+                if (isLoad)
+                {
+                    DamageSystem.Instance.AttackSpeed -= (float)(upgrade.value * upgrade.level);
+                }
+                else
+                {
+                    DamageSystem.Instance.AttackSpeed -= (float)upgrade.value;
                 }
                 break;
             default:

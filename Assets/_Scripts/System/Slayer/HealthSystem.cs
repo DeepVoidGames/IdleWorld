@@ -164,7 +164,6 @@ public class HealthSystem : MonoBehaviour
             if (BossSystem.Instance.CurrentBoss != null)
                 BossSystem.Instance.DestroyBoss();
 
-            //TODO Show Game Over Screen
             StartCoroutine(Revive());
         }
     }
