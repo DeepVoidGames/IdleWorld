@@ -48215,6 +48215,14 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 6ba3dcebbf3a0264495b0c5b34a31d0b, type: 3}
     - {fileID: 21300000, guid: b534be4d6c03dff4989e12a97cc9edc4, type: 3}
     - {fileID: 21300000, guid: be93e10503256bf428e454b7ff1b6013, type: 3}
+  - Name: Astral Orchid
+    levelRequired: 0
+    rarity: 3
+    timeToGrow: 800
+    stages:
+    - {fileID: 21300000, guid: 5b784889d3248cf46946cdd19f2db79a, type: 3}
+    - {fileID: 21300000, guid: ff4feb1915c7ab241a8cd3ce6eec9c53, type: 3}
+    - {fileID: 21300000, guid: b2b7e9c6a47080b4a9999d31102f871c, type: 3}
 --- !u!1 &2046036098
 GameObject:
   m_ObjectHideFlags: 0
