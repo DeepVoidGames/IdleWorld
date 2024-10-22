@@ -561,6 +561,12 @@
       "id": 68,
       "category": 5,
       "rarity": 1
+    },
+    {
+      "Name": "Crystalbloom",
+      "id": 69,
+      "category": 5,
+      "rarity": 2
     }
   ]
 }

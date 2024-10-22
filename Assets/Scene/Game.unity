@@ -48188,9 +48188,17 @@ MonoBehaviour:
     rarity: 1
     timeToGrow: 200
     stages:
-    - {fileID: 21300000, guid: 9d143b13d8cdea6488d789c6f40aaeea, type: 3}
-    - {fileID: 21300000, guid: 8425f78712bad7042b28c37c4667e271, type: 3}
-    - {fileID: 21300000, guid: 22a30ee190fb13144b69881cc9ac938e, type: 3}
+    - {fileID: 21300000, guid: 56dda6f597d2e8b449fc19061aa4bda6, type: 3}
+    - {fileID: 21300000, guid: dff5030802197044aaeb42d0b6144ebb, type: 3}
+    - {fileID: 21300000, guid: 4b69b89574825d9489cb55541a0eba18, type: 3}
+  - Name: Crystalbloom
+    levelRequired: 0
+    rarity: 2
+    timeToGrow: 360
+    stages:
+    - {fileID: 21300000, guid: dc784cb8e0d6b634796ff84005102fdb, type: 3}
+    - {fileID: 21300000, guid: d897a75adf79153428526d8a3b097000, type: 3}
+    - {fileID: 21300000, guid: 56d83386d1df52c4e9b74fdad97a2f35, type: 3}
 --- !u!1 &2046036098
 GameObject:
   m_ObjectHideFlags: 0
