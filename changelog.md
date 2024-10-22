@@ -1,3 +1,13 @@
+# 0.7.0.0
+
+- Add
+  - Planting system
+  - Stacking Potions bonus
+  <!-- - Attack speed implementation  -->
+  - UI improvements
+- Fix
+  - UI
+
 # 0.6.7.0
 
 - Add

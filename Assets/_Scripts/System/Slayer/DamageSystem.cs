@@ -23,7 +23,7 @@ public class DamageSystem : MonoBehaviour
 
     [Header("Damage System")]
     [SerializeField] private double damage;
-    [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackSpeed = 2000f;
     [SerializeField] private float criticalChance;
     [SerializeField] private double criticalDamage;
 
@@ -31,6 +31,8 @@ public class DamageSystem : MonoBehaviour
     {
         get => DifficultySystem.Instance.GetDamage(damage);
     }
+
+    public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
 
     public void AddDamageBoost(double value)
     {

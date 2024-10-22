@@ -24,11 +24,11 @@ public class SlayerSystem : MonoBehaviour
 
     private bool isAttacking = false;
 
-    //TODO: Implement Attackspeed and Critical Chance
+    //TODO: Critical Chance
     IEnumerator AttackMonsterCoroutine()
     {
         isAttacking = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(DamageSystem.Instance.AttackSpeed);
         if (MonsterSystem.Instance.CurrentMonster != null)
             MonsterSystem.Instance.CurrentMonster.GetComponent<MonsterObject>().TakeDamage(DamageSystem.Instance.Damage, new Color(1f, 0f, 0f, 0.8f));
         isAttacking = false;
