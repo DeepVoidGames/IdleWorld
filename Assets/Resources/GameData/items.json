@@ -585,6 +585,12 @@
       "id": 72,
       "category": 5,
       "rarity": 3
+    },
+    {
+      "Name": "Moonveil Bloom",
+      "id": 73,
+      "category": 5,
+      "rarity": 4
     }
   ]
 }

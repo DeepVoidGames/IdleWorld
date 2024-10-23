@@ -163,10 +163,17 @@ public class GardenPlot : MonoBehaviour
             float elapsedTime = Time.time - currentTime;
             _plant = PlantsSystem.Instance.plants.Find(p => p.Name == plantName);
             gardenTimer = timer - elapsedTime;
+            
             if (gardenTimer <= 0)
+            {
+                gardenTimer = 0;
                 harvestable = true;
+            }
             else
+            {
                 StartGrowing();
+            }
+            
             SetTimerUI();
             SetStageOfPlant();
         }
@@ -193,15 +200,5 @@ public class GardenPlot : MonoBehaviour
         {
             SaveCurrentPlant();
         }
-    }
-    
-    private void OnDisable() 
-    {
-        SaveCurrentPlant();
-    }
-
-    private void OnEnable() 
-    {
-        LoadCurrentPlant();
     }
 }
