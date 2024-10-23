@@ -2,6 +2,7 @@
 
 - Add
   - Planting system
+    - 7 new plants
   - Stacking Potions bonus
   - Attack speed implementation
   - UI improvements
