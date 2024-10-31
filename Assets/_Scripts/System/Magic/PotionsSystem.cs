@@ -146,6 +146,9 @@ public class PotionsSystem : MonoBehaviour
 
     private void RemovePotionBonus()
     {
+        if (currentPotion == null)
+            return;
+
         if (currentPotion.potionType == Items.PotionType.Damage)
         {
             DifficultySystem.Instance.RemoveDamagePercentage(currentPotion.potionValue);

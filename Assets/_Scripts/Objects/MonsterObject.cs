@@ -49,9 +49,8 @@ public class MonsterObject : MonoBehaviour
         if (health <= 0)
         {
             MonsterSystem.Instance.MonsterDied();
-            Destroy(gameObject);
         }
-        if (hitMaterial != null)
+        if (hitMaterial != null && gameObject != null)
             Invoke("ResetMaterial", .05f);
         UpdateHealthUI();
     }

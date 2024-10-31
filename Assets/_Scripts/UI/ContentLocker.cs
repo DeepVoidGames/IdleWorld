@@ -52,7 +52,7 @@ public class ContentLocker : MonoBehaviour
                     continue;
                 }
 
-                contents[i].button.gameObject.SetActive(false);
+                // contents[i].button.gameObject.SetActive(false);
                 contents[i].button.interactable = false;
                 contents[i].button.GetComponentInChildren<Text>().text = "Level " + contents[i].levelNeeded + " Needed";
                 // Find game object in children of button and set it to false
@@ -69,7 +69,7 @@ public class ContentLocker : MonoBehaviour
             if (contents[i].levelNeeded > level && contents[i].levelNeeded > LevelSystem.Instance.HighestLevel)
                 continue;
 
-            contents[i].button.gameObject.SetActive(true);
+            // contents[i].button.gameObject.SetActive(true);
 
             contents[i].button.interactable = true;
             contents[i].button.GetComponentInChildren<Text>().text = contents[i].textBefore;

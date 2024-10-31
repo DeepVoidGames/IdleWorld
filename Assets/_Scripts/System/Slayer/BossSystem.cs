@@ -121,6 +121,10 @@ public class BossSystem : MonoBehaviour
     public void BossDied()
     {
         // Calculate the reward
+        DestroyBoss();
+        currentBoss = null;
+        isSpawning = false;
+
         Drop drop = DropCalculator();
         if (drop != null)
             InventorySystem.Instance.AddItemByName(drop.resourceName, 1f);
@@ -128,8 +132,6 @@ public class BossSystem : MonoBehaviour
         double m = DifficultySystem.Instance.GetBossDrop(bossObject.MaxHealth);
         GoldSystem.Instance.AddGold(m);
         UISystem.Instance.MoneyIndicator(m);
-        currentBoss = null;
-        isSpawning = false;
         if (killEffect != null && SwitchMode.Instance.CurrentMode == 0)
             killEffect.Play();
         BonusSystem.Instance.ShowBonus();
@@ -139,13 +141,14 @@ public class BossSystem : MonoBehaviour
     {
         if (currentBoss != null)
         {
-            Destroy(currentBoss);
+            Destroy(currentBoss); // Destroy the instantiated GameObject
             currentBoss = null;
         }
     }
 
     public void FailedToKill()
     {
+        DestroyBoss(); // Destroy the instantiated GameObject
         isSpawning = false;
         currentBoss = null;
     }
@@ -167,7 +170,7 @@ public class BossSystem : MonoBehaviour
         }
         GameObject bossGO = Instantiate(boss.Prefab, bossSpawnParent.transform.position, Quaternion.identity);
         bossGO.transform.SetParent(bossSpawnParent.transform);
-        currentBoss = boss.Prefab;
+        currentBoss = bossGO; // Assign the instantiated GameObject to currentBoss
         bossGO.GetComponent<BossObject>().SetBoss(boss);
         bossObject = bossGO.GetComponent<BossObject>();
         yield return new WaitForSeconds(maxTimeToKillBoss);

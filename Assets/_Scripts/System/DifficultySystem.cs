@@ -98,8 +98,10 @@ public class DifficultySystem : MonoBehaviour
 
     public double GetDamage(double baseDamage)
     {
-        if (baseDamage == 0)
-            baseDamage = 5;
+        if (baseDamage <= 0)
+        {
+            baseDamage = 10;
+        }
         return baseDamage + baseDamage * DamagePercentage;
     }
 

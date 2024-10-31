@@ -60,7 +60,7 @@ public class SlayerSystem : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2.5f);
 
             if (MonsterSystem.Instance.CurrentMonster != null)
             {

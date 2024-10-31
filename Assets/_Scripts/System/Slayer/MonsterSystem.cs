@@ -74,6 +74,7 @@ public class MonsterSystem : MonoBehaviour
         if (killEffect != null && SwitchMode.Instance.CurrentMode == 0)
             killEffect.Play();
         MonsterDrop();
+        DestroyMonster();
     }
 
     private void MonsterDrop()

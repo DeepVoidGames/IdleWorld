@@ -174,10 +174,8 @@ MonoBehaviour:
     rarity: 0
     timeToGrow: 0
     stages: []
-  isEnabled: 1
   plantImage: {fileID: 1918524793}
   timerText: {fileID: 1345361813}
-  harvestButton: {fileID: 0}
 --- !u!114 &237361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,10 +195,8 @@ MonoBehaviour:
     rarity: 0
     timeToGrow: 0
     stages: []
-  isEnabled: 1
   plantImage: {fileID: 1810998041}
   timerText: {fileID: 1382521911}
-  harvestButton: {fileID: 0}
 --- !u!1 &341381
 GameObject:
   m_ObjectHideFlags: 0
@@ -4845,7 +4841,7 @@ MonoBehaviour:
     textBefore: Planting
     isLocked: 1
     isDisabled: 0
-    levelNeeded: 20
+    levelNeeded: 9999
 --- !u!1 &275186626
 GameObject:
   m_ObjectHideFlags: 0
@@ -35880,7 +35876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1528843531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37548,6 +37544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  weaponDamage: 0
   attackSpeed: 2000
   criticalChance: 0
   criticalDamage: 0
@@ -44080,7 +44077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1790719738
 RectTransform:
   m_ObjectHideFlags: 0

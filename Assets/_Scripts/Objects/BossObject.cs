@@ -52,7 +52,6 @@ public class BossObject : MonoBehaviour
         if (health <= 0)
         {
             BossSystem.Instance.BossDied();
-            Destroy(gameObject);
         }
         if (hitMaterial != null)
             Invoke("ResetMaterial", .05f);
