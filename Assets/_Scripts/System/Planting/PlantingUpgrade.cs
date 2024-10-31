@@ -28,8 +28,6 @@ public class PlantingUpgrade : MonoBehaviour
     [SerializeField] private Text desctiptionText;
     [SerializeField] private Button buyButton;
 
-
-
     private void UIUpdate()
     {
         titleText.text = upgradeName + " " + level + "/" + maxLevel;
@@ -55,8 +53,6 @@ public class PlantingUpgrade : MonoBehaviour
             buyButton.interactable = true;
             buyButton.GetComponent<Image>().color = UISystem.Instance.buyButtonColor;
         } 
-       
-
     }
 
     private void OnResourceChanged(string resourceName)
@@ -67,9 +63,61 @@ public class PlantingUpgrade : MonoBehaviour
         }
     }
 
+    private void BuyUpgrade()
+    {
+        if (level >= maxLevel)
+        {
+            Debug.LogWarning("Upgrade is already at max level.");
+            return;
+        }
+
+        double currentResource = InventorySystem.Instance.GetResourceByName(resourceName);
+        if (currentResource < cost)
+        {
+            Debug.LogWarning("Not enough resources to buy the upgrade.");
+            return;
+        }
+
+        // Deduct the cost
+        InventorySystem.Instance.RemoveItemByName(resourceName, cost);
+
+        // Increase the level
+        level++;
+
+        // Apply the upgrade effect
+        ApplyUpgradeEffect();
+
+        // Update the cost for the next level
+        cost = baseCost * costRate * level;
+
+        // Update the UI
+        UIUpdate();
+
+        // Save the upgrade state
+        Save();
+    }
+
+    private void ApplyUpgradeEffect()
+    {
+        switch (upgradeType)
+        {
+            case UpgradeType.PlantingFortune:
+                PlantingSystem.Instance.PlantingFortune += (float)boostValue;
+                break;
+            // Add other upgrade types here if needed
+        }
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetInt(upgradeName + "_Level", level);
+        PlayerPrefs.SetFloat(upgradeName + "_Cost", (float)cost);
+    }
+
     private void Load()
     {
-        cost = baseCost * costRate * level;
+        level = PlayerPrefs.GetInt(upgradeName + "_Level", 1);
+        cost = PlayerPrefs.GetFloat(upgradeName + "_Cost", (float)(baseCost * costRate * level));
         UIUpdate();
     }
 
@@ -77,5 +125,6 @@ public class PlantingUpgrade : MonoBehaviour
     {
         Load();
         InventorySystem.Instance.OnItemChanged += OnResourceChanged;
+        buyButton.onClick.AddListener(BuyUpgrade);
     }
 }

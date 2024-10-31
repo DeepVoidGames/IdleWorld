@@ -8,6 +8,8 @@
   - UI improvements
 - Fix
   - UI
+  - Fix loading slayer upgrades
+  - Fix Bosses
 
 # 0.6.7.0
 
