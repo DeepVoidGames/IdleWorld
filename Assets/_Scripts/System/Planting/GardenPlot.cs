@@ -175,6 +175,11 @@ public class GardenPlot : MonoBehaviour
             actionButton.gameObject.SetActive(true);
             SetTimerUI();
             SaveCurrentPlant(); // Save the state immediately after unlocking
+            StartRandomPlant(); // Start planting immediately after unlocking
+        }
+        else
+        {
+            Debug.LogWarning("Not enough gold to unlock the garden plot.");
         }
     }
 
