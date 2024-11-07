@@ -49551,7 +49551,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 62518cf02cd1647409e3884ea0e75ca7, type: 3}
     - {fileID: 21300000, guid: 1ce12e330af99a54cb8a20c948e0ce19, type: 3}
   - Name: Sunflower
-    levelRequired: 0
+    levelRequired: 1
     rarity: 1
     timeToGrow: 120
     stages:
@@ -49559,15 +49559,15 @@ MonoBehaviour:
     - {fileID: 21300000, guid: cc6b4902ec165bb48b7e60ee1cb8a74c, type: 3}
     - {fileID: 21300000, guid: 3a31455359d6781468f52577b5d7bada, type: 3}
   - Name: Glowleaf Fern
-    levelRequired: 0
+    levelRequired: 1
     rarity: 0
     timeToGrow: 30
     stages:
     - {fileID: 21300000, guid: 4ee25df53d0606848972737065c38f19, type: 3}
     - {fileID: 21300000, guid: 4fd92beb496bf9c439cea1e7f1bb8fd5, type: 3}
     - {fileID: 21300000, guid: 16b2bc609fe34a44c8fe8d116106eee6, type: 3}
-  - Name: 'Breeze Blossom '
-    levelRequired: 0
+  - Name: Breeze Blossom
+    levelRequired: 2
     rarity: 0
     timeToGrow: 45
     stages:
@@ -49575,7 +49575,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: f94225fbd9514cd498cfae2d0a31bfcd, type: 3}
     - {fileID: 21300000, guid: 601f567901ab4034b8456791ff3b7605, type: 3}
   - Name: Lunar Bellflower
-    levelRequired: 0
+    levelRequired: 2
     rarity: 1
     timeToGrow: 145
     stages:
@@ -49583,7 +49583,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 8425f78712bad7042b28c37c4667e271, type: 3}
     - {fileID: 21300000, guid: 22a30ee190fb13144b69881cc9ac938e, type: 3}
   - Name: Embervine flower
-    levelRequired: 0
+    levelRequired: 3
     rarity: 1
     timeToGrow: 200
     stages:
@@ -49591,7 +49591,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: dff5030802197044aaeb42d0b6144ebb, type: 3}
     - {fileID: 21300000, guid: 4b69b89574825d9489cb55541a0eba18, type: 3}
   - Name: Crystalbloom
-    levelRequired: 0
+    levelRequired: 3
     rarity: 2
     timeToGrow: 360
     stages:
@@ -49599,7 +49599,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: d897a75adf79153428526d8a3b097000, type: 3}
     - {fileID: 21300000, guid: 56d83386d1df52c4e9b74fdad97a2f35, type: 3}
   - Name: Stormroot
-    levelRequired: 0
+    levelRequired: 4
     rarity: 2
     timeToGrow: 560
     stages:
@@ -49607,7 +49607,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: b6ba608c848e7bd44a990aa6c683f546, type: 3}
     - {fileID: 21300000, guid: 3266a5a3cf99f10478109341e3597122, type: 3}
   - Name: Phoenix Flower
-    levelRequired: 0
+    levelRequired: 4
     rarity: 3
     timeToGrow: 700
     stages:
@@ -49615,7 +49615,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: b534be4d6c03dff4989e12a97cc9edc4, type: 3}
     - {fileID: 21300000, guid: be93e10503256bf428e454b7ff1b6013, type: 3}
   - Name: Astral Orchid
-    levelRequired: 0
+    levelRequired: 5
     rarity: 3
     timeToGrow: 800
     stages:
@@ -49623,7 +49623,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: ff4feb1915c7ab241a8cd3ce6eec9c53, type: 3}
     - {fileID: 21300000, guid: b2b7e9c6a47080b4a9999d31102f871c, type: 3}
   - Name: Moonveil Bloom
-    levelRequired: 0
+    levelRequired: 10
     rarity: 4
     timeToGrow: 1600
     stages:

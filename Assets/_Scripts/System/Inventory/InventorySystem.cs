@@ -253,6 +253,10 @@ public class InventorySystem : MonoBehaviour
         {
             SortByRarity();
         }
+        else if (currentCategory == Category.Plants)
+        {
+            SortByRarity();
+        }
     }
 
     private void SortByDamage()

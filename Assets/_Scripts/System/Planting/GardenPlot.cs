@@ -33,7 +33,7 @@ public class GardenPlot : MonoBehaviour
         StartGrowing();
     }
 
-    private void StartRandomPlant()
+   private void StartRandomPlant()
     {
         if (isLocked) return;
 
@@ -66,7 +66,8 @@ public class GardenPlot : MonoBehaviour
             rarity = Items.Rarity.Mythical;
         }
 
-        List<Plant> plantsByRarity = PlantsSystem.Instance.plants.FindAll(p => p.rarity == rarity);
+        int playerLevel = PlantingSystem.Instance.PlantingLevel;
+        List<Plant> plantsByRarity = PlantsSystem.Instance.plants.FindAll(p => p.rarity == rarity && p.levelRequired <= playerLevel);
         
         if (plantsByRarity.Count == 0)
         {

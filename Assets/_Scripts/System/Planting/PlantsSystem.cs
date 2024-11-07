@@ -13,7 +13,6 @@ public class Plant
     [Description("Stages of the plant")]
     public List<Sprite> stages;
 }
-
 public class PlantsSystem : MonoBehaviour 
 {
     private static PlantsSystem instance;
