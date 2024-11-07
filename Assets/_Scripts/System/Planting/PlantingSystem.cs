@@ -43,6 +43,7 @@ public class PlantingSystem : MonoBehaviour
     [Header("Stats")]
     public int plantingLuck = 0;
     public float PlantingFortune = 1;
+    public float HarvestFortune = 1;
 
     [Header("Water")]
     [SerializeField] private int water;

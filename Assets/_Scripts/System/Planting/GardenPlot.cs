@@ -157,7 +157,7 @@ public class GardenPlot : MonoBehaviour
         if (harvestable && !isLocked && _plant != null)
         {
             float harvestRate = UnityEngine.Random.Range(1f, 5f);
-            float amount = harvestRate * 1;
+            float amount = harvestRate * (PlantingSystem.Instance.HarvestFortune); // Adjust the amount based on Harvest Fortune
             InventorySystem.Instance.AddItemByName(_plant.Name, amount);
             PlantingSystem.Instance.AddPlantingExp(_plant);
             harvestable = false;

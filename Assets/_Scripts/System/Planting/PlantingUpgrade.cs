@@ -20,6 +20,7 @@ public class PlantingUpgrade : MonoBehaviour
     private enum UpgradeType
     {
         PlantingFortune,
+        HarvestFortune,
     }
 
     [Header("UI")]
@@ -103,6 +104,9 @@ public class PlantingUpgrade : MonoBehaviour
         {
             case UpgradeType.PlantingFortune:
                 PlantingSystem.Instance.PlantingFortune += (float)boostValue;
+                break;
+            case UpgradeType.HarvestFortune: // Add this case
+                PlantingSystem.Instance.HarvestFortune += (float)boostValue;
                 break;
             // Add other upgrade types here if needed
         }
